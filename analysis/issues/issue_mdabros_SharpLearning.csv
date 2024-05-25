@@ -1,0 +1,1377 @@
+title,body
+fit error  help,"model = Sequential()
+
+model.add(Conv2D(32, kernel_size=(5, 9),
+                 activation='relu', input_shape=input_shape))
+model.add(MaxPooling2D(pool_size=(2, 4)))
+
+model.add(Conv2D(16, kernel_size=(5, 7), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 3)))
+
+model.add(Flatten())
+
+#num_classes*4 =104 
+
+model.add(Dense(num_classes*4, activation='sigmoid'))
+
+
+model.compile(loss=keras.losses.binary_crossentropy,
+              optimizer=keras.optimizers.Adadelta(),
+              metrics=['accuracy'])
+
+model.fit(x_train, y_train,
+          batch_size=batch_size,
+          epochs=epochs,
+          verbose=1,
+          validation_data=(x_test, y_test))
+
+ValueError: Error when checking target: expected dense_1 to have shape (104,) but got array with shape (26,)
+
+why？ help me~~~~thks~"
+验证码重叠,
+add a font file and fix the writing style,
+4-6个字符能用一个模型实现吗？,你好，你的模型我成功复制了，4个字符，6个字符单独测试都识别率很高，有没有办法一个模型既支持4个字符又支持6个字符。
+write labels err,"    writer.writerows(labels)
+TypeError: a bytes-like object is required, not 'str'"
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1,按照你上面的代码运行发现报这个错误，查了下说明超出了范围，不大理解为什么连接相加的时候出错了，谢谢告知
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1,"装好依赖，生成图片后，直接运行，报如下错误
+picnum :  6000
+6000 (20, 80)
+6000 4
+Traceback (most recent call last):
+  File ""cnn_end2end_ocr.py"", line 76, in <module>
+    c = np.concatenate((c0,c1,c2,c3),axis=1)
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1"
+Only extract one word from gumbel softmax,"In the code https://github.com/yala/text_nn/blob/master/rationale_net/utils/learn.py#L71-L85
+
+```python
+def get_hard_mask(z, return_ind=False):
+    '''
+        -z: torch Tensor where each element probablity of element
+        being selected
+        -args: experiment level config
+        returns: A torch variable that is binary mask of z >= .5
+    '''
+    max_z, ind = torch.max(z, dim=-1)
+    if return_ind:
+        del z
+        return ind
+    masked = torch.ge(z, max_z.unsqueeze(-1)).float()
+    del z
+    return masked
+
+```
+
+because we take the max, usually, only one position will have the max value. 
+In this case, if we have 100 words in the sentence, we only select one word as the rationale?
+I thought we should select independently and choose those words with >0.5 probability.
+
+Maybe we should change
+```python
+masked = torch.ge(z, max_z.unsqueeze(-1)).float()
+```
+to 
+```python
+masked = torch.ge(z, 0.5).float()
+```
+instead?"
+Multiple GPUs is broken,"Hi Yala! 
+
+Great package. Just letting you know, though, that computation on multiple GPU's is broken for two reasons:
+
+1. The `model.py` file does not import 
+``import torch.nn as nn``
+that's an easy fix.
+
+2. You have some class-attribute dependencies that are single-thread bound.
+https://github.com/pytorch/pytorch/issues/8637
+
+I'm not sure exactly what they are, but here is my error message, which matches the one in the issue I linked to above:
+
+```
+Traceback (most recent call last):
+  File ""scripts/main.py"", line 35, in <module>
+    epoch_stats, model, gen = train.train_model(train_data, dev_data, model, gen, args)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/learn/train.py"", line 59, in train_model
+    args=args)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/learn/train.py"", line 198, in run_epoch
+    mask, z = gen(x_indx)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py"", line 152, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py"", line 162, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py"", line 85, in parallel_apply
+    output.reraise()
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/_utils.py"", line 369, in reraise
+    raise self.exc_type(msg)
+RuntimeError: Caught RuntimeError in replica 1 on device 1.
+Original Traceback (most recent call last):
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py"", line 60, in _worker
+    output = module(*input, **kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/models/generator.py"", line 55, in forward
+    activ = self.cnn(x)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/models/cnn.py"", line 55, in forward
+    activ = self._conv(x)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/models/cnn.py"", line 41, in _conv
+    next_activ.append( conv(padded_activ) )
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/conv.py"", line 200, in forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: Expected tensor for argument #1 'input' to have the same device as tensor for argument #2 'weight'; but device 1 does not equal 0 (while checking arguments for cudnn_convolution)```
+
+Alex"
+Gumbel softmax instead of Reinforce,"Hi,
+
+Thank you for your code ! I have seen you wrote Gumbel instead of Reinforce but I don't understand exactly how Reinforce was implemented before as I don't see any average over Z samples. Here I see that Z is sampled only once https://github.com/yala/text_nn/blob/master/rationale_net/models/generator.py#L40 .
+
+Did I miss something ?
+
+Thank you very much for your help"
+Is log_softmax function missing in the Line 39 of generator.py?,"I think log_softmax function should be added in Line 39 if we want to use the Gumbel Softmax.
+
+`logits = F.log_softrmax(self.hidden(activ))`
+
+If I'm wrong, please let me know. 
+Thanks.
+
+![image](https://user-images.githubusercontent.com/17995697/54492275-0d17c500-4900-11e9-8bee-addd81d35934.png)
+"
+Can this be applied to a regression problem?,Can this be applied to a regression problem?
+Is it possible to share the pre-trained embedding for beer reviews? ,"From https://github.com/yala/text_nn/blob/master/rationale_net/utils/embedding.py#L38 , it's trying to find `review+wiki.filtered.200.txt.gz`, is it possible to share the pre-trained embedding for beer reviews? "
+Tutorial,Added tutorial
+gpu-trained on cpu fix,
+Refactor,Add rationale export in results file and clean up code
+FileNotFoundError: [Errno 2] No such file or directory: 'pickle_files/embeddings.p',"In dataset.py we read
+    embedding_path = 'pickle_files/embeddings.p'
+    word_to_indx_path = 'pickle_files/vocabIndxDict.p'
+    embedding_tensor = pickle.load(open(embedding_path,'rb'))
+    word_to_indx = pickle.load(open(word_to_indx_path,'rb'))
+However, the two files are not in the zip-code?"
+AttributeError: 'Namespace' object has no attribute 'use_as_tagger',"Running from command line:
+`CUDA_VISIBLE_DEVICES=2 python -u scripts/main.py  --batch_size 64 --cuda --dataset full_beer --embedding 
+glove --dropout 0.05 --weight_decay 5e-06 --num_layers 1 --model_form cnn --hidden_dim 100 --epochs 50 --init_lr 0.0001 --num_workers
+ 0 --objective cross_entropy --patience 5 --save_dir snapshot --train --test --results_path logs/adhoc_0.results  --gumbel_decay 1e-5 --get_rationales
+ --aspect aroma --selection_lambda .005 --continuity_lambda .01`
+
+Gives an error:
+
+`
+Traceback (most recent call last):
+  File ""scripts/main.py"", line 30, in <module>
+    gen, model = model_utils.get_model(args, embeddings, train_data)
+  File ""/home/mglowacki/Desktop/RNN_yala_pytorch_2/rationale_net/utils/model.py"", line 12, in get_model
+    if args.use_as_tagger == True:
+AttributeError: 'Namespace' object has no attribute 'use_as_tagger'
+`
+I've checked sourcecode but there is no --use_as_tagger parameter in args.
+Btw. in the same file `model.py` there is an additional problem because `nn` is not imported.
+
+"
+fixing 0-dim tensor (scalar) access,"New versions of PyTorch will require proper usage for accessing 0 dimensional Tensors:
+`tensor.item()` instead of `tensor.data[0]`"
+Tagging,
+added confusion matrix info,
+How can I be able to learn with your repository,"How can I be able to learn with your repository
+
+Note: I am a complete Noobie in the world of C# Programming but with Knowledge in JavaScript"
+HPO wiki page,"Small edit - in the code example on the wiki page for hyperparameter optimization, `transform.Logarithmic` should now be `transform.Log10`"
+how can i train the Neural Network with my own Training Pictures?,"let's say i have a list of Images ..how do i convert my images into F64matrix Form so i can train them with my Neural Network ..and how do i test the Network with an Image at the End
+could you please make an example of this because you didn't mention that in the examples, you also didn't mention how to test the Network using a real Image..
+
+Thanks in Advance "
+Access OOB data and OOB error calculations of Random Forest,"Hi
+Can you add access to the Out-of-Bag data and/or Out-of-Data error calculations for Random Forests?
+
+Love this project,
+Thanks
+
+"
+A way to Save Bayesian Optimizer progress and continue later.,"Hello, 
+I would like to use the Bayesian Optimizer for Hyperparameter tuning.
+Is there a way to save the current status of the optimizer and then resume later. I could not find one... 
+Also I could not figure out a way to pass a cancellation token.
+Great project.
+Thank you."
+Code sharing,"Hi @mdabros,
+
+For about 15 years, I was the main maintainer of a project called the Accord.NET Framework, which was mainly a machine learning/statistics processing framework for .NET. I have recently archived the project as I couldn't keep up updating it. If there is anything that you would ever find useful in Accord/its codebase, I just wanted to let you know that I have granted license to anyone who would like to, to reuse any piece of code I have written myself (as per noted in the headers of each file of the project) under the MIT or BSD licenses.
+
+I still continue to receive requests on how to use/adapt existing features, even after the project has been archived, so I guess there are still useful things that have been implemented in that framework. If you would like to adapt any of those into SharpLearning, please let me know.
+
+All the best and merry Christmas if you celebrate it!
+
+Cesar
+
+"
+Exception when serializing neural net to XML,"Hello,
+
+I am using SharpLearning.Neural version 0.31.8 in a .Net Core 3.1 project. After training a neural network and obtaining the predictor model, I try to serialize it to an XML file using the suggested procedure:
+
+```csharp
+GenericXmlDataContractSerializer xmlSerializer = new GenericXmlDataContractSerializer();
+xmlSerializer.Serialize<IPredictorModel<double>>(_model, () => new StreamWriter(filePath));
+```
+
+It fails with the following SerializationException:
+
+System.Runtime.Serialization.SerializationException: An object of type 'SharpLearning.InputOutput.Serialization.GenericXmlDataContractSerializer+GenericResolver' which derives from DataContractResolver returned false from its TryResolveType method when attempting to resolve the name for an object of type 'MathNet.Numerics.LinearAlgebra.Storage.DenseVectorStorage`1[[System.Single, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]', indicating that the resolution failed. Change the TryResolveType implementation to return true.
+
+Any help?
+"
+SharpLearning.XGBoost.dll is not compatible with .net core,"Hi,
+SharpLearning.XGBoost.dll is not compatible with .net core due to PicNet.XGBoost (0.2.1) dependency.
+Checked on 0.31.8 version. And  Core 2.1 version
+Do you plan to fix it?"
+Continuously improving a neural network over time using small batches.,"Hey, first of thanks for a fantastic library!
+
+The library is really easy and simple to use if you have a large dataset and want to train a network in one go.
+
+But I'm building a DQN and I want to continuously improve a neural network from small batches of training data, with as little overhead as possible. Is that something that's easily possible in SharpLearning?
+
+Right now, the only way I see it can be achive, is by doing something like this:
+
+    var net = new NeuralNet();
+    // ...
+
+    while (true)
+    {
+        var learner = new NeuralNetLearner(net, new CopyTargetEncoder(), new SquareLoss());
+        // ...
+        net = learner.Learn(observations, targets);
+    }
+
+However there's a lot of overhead and data copying going on there. Are there better ways to go about it?
+
+Thanks  :)
+
+**Edit 1** : Seems like my example doesn't work either since the weights are randomized when a learning begins.
+
+**Edit 2**: My seccond attempt, throws a nullreference exception on net.Forward(input, output). (Allthough I imagine that this is not a very good way to go about it either? And probably wrong on many levels 😊)
+
+    var delta = Matrix<float>.Build.Dense(1, 1);
+    var input = Matrix<float>.Build.Dense(inputCount, 1);
+    var output = Matrix<float>.Build.Dense(1, 1);
+
+    while (true)
+    {
+            PopulateInput(input)
+            net.Forward(input, output);
+            var expected = GetExpected();
+            delta[0, 0] = (float)(expected - output[0, 0]);
+            net.Backward(delta);
+    }"
+Serialization Exception,"Hi. 
+
+Not sure what happened, but something happened :) 
+
+1. I updated all projects from .NET Core 3.0 to 3.1 
+2. Made some changes in MySQL DB 
+
+Now, I get various errors from `GenericXmlDataContractSerializer`. Surprisingly, exception happens only when I build project the second time, after the first build it works fine. I mentioned DB, because I serialize trained model using `MemoryStream` and save it as a byte[] to the MySQL column of type LongBlob. I'm also using models from `ML.NET` and export / import them from DB the same way and they work fine, so probably DB is not an issue. All projects in the solution are built as x64. Serializer fails on any model, either `RandomForest` or `AdaBoost`, with the same exception. 
+
+**The issue** 
+
+1. build the project and start debugging 
+2. create, train model, and save it to DB as byte array using `GetPredictor` method below 
+3. select byte array from DB, deserialize to a model, provide test data and get estimate - **OK** 
+4. stop debugging, repeat steps 1-3, now prediction method fails with the exception below - **NOT OK**
+
+**The question**
+
+Maybe somebody knows what could be the reason for serializer to fall with the exception? Also, can I serialize trained model to `MemoryStream` using different serializer, without `GenericXmlDataContractSerializer`? 
+
+**Most common exception**
+```
+System.Runtime.Serialization.SerializationException: Element 'http://schemas.datacontract.org/2004/07/Core.Learners.SharpLearning.EngineSpace:Model' contains data from a type that maps to the name 'SharpLearning.RandomForest.Models:ClassificationForestModel'. The deserializer has no knowledge of any type that maps to this name. Consider changing the implementation of the ResolveName method on your DataContractResolver to return a non-null value for name 'ClassificationForestModel' and namespace 'SharpLearning.RandomForest.Models' 
+```
+
+**After updating all Nuget packages I got another exception only once** 
+```
+Invalid XML at line 1 or something like that
+```
+
+**Serializing trained model to byte array and save to DB** 
+
+```C#
+public virtual ResponseModel<byte> GetPredictor(IDictionary<int, string> columns, IDataView inputs)
+{
+  var responseModel = new ResponseModel<byte>();
+
+  using (var memoryStream = new MemoryStream())
+  {
+    var processor = GetInput(columns, inputs, nameof(PredictorLabelsEnum.Emotion));
+    var learner = new ClassificationRandomForestLearner();
+    var serializer = new GenericXmlDataContractSerializer();
+    var container = new MapModel<int, string>
+    {
+      Map = processor.Map,
+      Model = learner.Learn(processor.Input.Observations, processor.Input.Targets)
+    };
+    
+    serializer.Serialize(container, () => new StreamWriter(memoryStream));
+    responseModel.Items = memoryStream.ToArray().ToList();
+  }
+
+  return responseModel;
+}
+```
+
+**Deserializing model from DB stream and getting prediction** 
+
+```C#
+public virtual ResponseModel<string> GetEstimate(IEnumerable<byte> predictor, IDictionary<int, string> columns, IDataView inputs)
+{
+  var responseModel = new ResponseModel<string>();
+
+  using (var memoryStream = new MemoryStream(predictor.ToArray()))
+  {
+    var processor = GetInput(columns, inputs);
+    var serializer = new GenericXmlDataContractSerializer();
+    var model = serializer.Deserialize<MapModel<int, string>>(() => new StreamReader(memoryStream));
+    var predictions = model.Predict(processor.Input.Observations);
+
+    responseModel.Items.Add(predictions.OrderByDescending(o => o.Key).First().Value);
+  }
+
+  return responseModel;
+}
+```
+
+Method `GetInput` in the code above is just a conversion from `IDataView` format in ML.NET to `ObservationSet` format in `SharpLearning`. `MapModel` is a [wrapper](https://github.com/mdabros/SharpLearning/issues/132) that allows to save text labels along with numeric ones. "
+[PR] The proj files have been updated to enable SourceLink,"CSProj files have been updated to enable SourceLink in your nuget
+---
+
+*[This pull request was created with an automated workflow]*
+
+I noticed that your repository and Nuget package are important for our .NET community, but you still haven't enabled SourceLink.
+
+**We have to take 2 steps:**
+1) Please approve this pull request and make .NET a better place for .NET developers and their debugging.
+2) **Then just upload the .snupkg file** to https://www.nuget.org/ (now you can find the snupkg file along with the .nuget file)
+
+You can find more information about SourceLine at the following links  
+https://github.com/dotnet/sourcelink
+https://www.hanselman.com/blog/ExploringNETCoresSourceLinkSteppingIntoTheSourceCodeOfNuGetPackagesYouDontOwn.aspx
+
+If you are interesting about this automated workflow and how it works  
+https://github.com/JTOne123/GitHubMassUpdater
+
+*If you notice any flaws, please comment and I will try to make fixes manually*
+"
+Is there a way to keep textual labels / targets as a part of the trained model?,"First of all, thank you for sharing this library. 
+Second, would be great to make mapping between columns and feature names mode obvious. 
+If model was serialized and saved on one computer and deserialized and loaded on the other one, then second computer will have no idea what's the meaning of labels / targets, because model keeps them as double values. 
+
+**Save model**
+
+```C#
+
+var labels = new[] { ""Good"", ""Bad"", ""Average"" ...  };
+var labelKeys = labels.Select((v, i) => (double) i);  // take label key instead of name 
+var learner = new ClassificationDecisionTreeLearner();
+var model = learner.Learn(items, labelKeys); // is there any reason not to use string labels instead of doubles?
+
+using (var memoryStream = new MemoryStream())
+{
+  var serializer = new GenericXmlDataContractSerializer();
+  serializer.Serialize<IPredictorModel<double>>(model, () => new StreamWriter(memoryStream));
+  db.Save(memoryStream.ToArray());  // convert XML to byte[] and save as Blob to DB
+}
+```
+
+**Load model**
+
+```C#
+var xmlModel = db.Get(...).AsBlob().GetBytes(); // load saved model from blob column in DB
+
+using (var memoryStream = new MemoryStream(xmlModel))
+{
+  var serializer = new GenericXmlDataContractSerializer();
+  var xml = serializer.Deserialize<IPredictorModel<double>>(() => new StreamReader(memoryStream));
+}
+```
+
+As a result, loaded model has property `Targets` that contains some double values, like 1, 2, 3, 4 and there is no way to understand that initially they meant ""Good"", ""Bad"", etc 
+
+**Question**
+
+Is there a way to save original **string labels / targets** as a part of the model to make prediction results human-readable? "
+0.31.8.0: Ensure deterministic order of results from multithreaded optimizers,"Fix #130 and make order of results deterministic for all optimizers when running with parallel execution. Results will now also be the same between single threaded and multithreaded execution.
+
+This affects all optimizers supporting parallel execution:
+ - `BayesianOptimizer`
+ - `GlobalizedBoundedNelderMeadOptimizer`
+ - `GridSearchOptimizer`
+ - `ParticleSwarmOptimizer`
+ - `RandomSearchOptimizer`
+"
+Order of results from RandomSearch is not deterministic with different iteration counts.,"Running the `RandomSearchOptimizer` with `runPrallel=false`, so not multithreading, with 100 iterations and 120 iterations seem to provide different order of results. Expectation would be that the fist 100 iteration would be the same, and this is not currently the case.
+This is most likely caused by the use of `ConcurrentBag` to collect the results, which does not guarantee order.
+
+This might also affect other Optimizers supporting parallel execution,"
+Issue with loading model using GenericXmlDataContractSerializer: The deserializer has no knowledge of any type that maps to this name,"Thank you so much for developing this package. It's been working smoothly on my computer, but I might need some help on generating a dll file for others to run on their computers. I tried using this nuget package [https://github.com/Fody/Costura/graphs/contributors](url) to compile sharplearning dlls into the project dll and adding all sharplearning xml files to embedded resources. But I keep getting the same error saying that ""Element 'http://schemas.microsoft.com/2003/10/Serialization/:anyType' contains data from a type that maps to the name 'SharpLearning.GradientBoost.Models:RegressionGradientBoostModel'. The deserializer has no knowledge of any type that maps to this name. "" I was wondering where the deserializer knowledge is stored and how do I add them to the project dll file. Any comment or suggestion is appreciated. Thank you!"
+0.31.7.0: Refactor BaysianOptimizer and add parallel computation,"This pull request refactors the `BayesianOptimizer` implementation to be use the same principles as the `SMACOptimizer`. The two optimizers are both model based optimizers, and should therefore be very similar in implementation. The `BayesianOptimizer` can be viewed a basic implementation of model based optimization, which the `SMACOptimizer` builds a few tricks on top of.
+A base class for model based optimizers seems to be the next logical step, but that will follow in a later pull request.
+
+The refactoring enables use of the `BayesianOptimizer` in an ""open loop"" style just like the `SMACOptimizer`. See the unit tests for an example.
+
+This pull request also adds the option of parallel computation to the `BayesianOptimizer`. This work was originally added in #119.
+
+Note that when running in parallel, and using the `Optimize(Func<double[], OptimizerResult> functionToMinimize)` method, the order of the results will not be reproducible. The individuel results will remain the same, but the order of the results will vary between runs.
+
+I recommend only using the parallel version if the provided `functionToMinimize` is running serial computation, and is slow to compute."
+"Minor typo fixes in layers (release postponed, so no version incrementation)",Fix typo in comment of DropoutLayer and SoftMaxLayer. Misspelled gradients.
+0.31.5.0: Add sigmoid activation function,"Added sigmoid activation function, sigmoid short derivative, sigmoid test.
+"
+"TrimSplitLineTrimColumnsToDictionary throws a ""key already exists"" exception","Hi guys!
+First off, great job! SharpLearning is very useful and well built.
+
+One small bug I found while mistakenly creating a dataset based on a CSV file without the headers line (when calling 'ToF64Matrix()').
+
+In SharpLearning.InputOutput.Csv.CsvParser -> Dictionary<string, int> TrimSplitLineTrimColumnsToDictionary(string line)
+there's an iteration over the headers line, but it assumes all headers are distinct (and also that it is the headers line) - therefore an exception of ""key already exists in dictionary"" is thrown.
+I think it should check if there's a duplication and throw a more explanatory error message in such case.
+
+Let me know if you want me to fix it and add a pull request."
+0.31.6.0: Adds implicit and explicit conversions from double[][] to F64Matrix,"This is a simple way to address the need to expose an API surface that accepts double[][] rather than an F64Matrix. Instead of changing all interfaces and implementations, I have made double[][] implicitly convertible to F64Matrix. This can be considered a convenience and a temporary workaround for [#20](https://github.com/mdabros/SharpLearning/issues/20) and [#115 ](https://github.com/mdabros/SharpLearning/issues/115)."
+Add parallelism to Bayesian Optimizer. Also allow resampling non-deterministic algorithms,"[https://github.com/mdabros/SharpLearning/pull/119](https://github.com/mdabros/SharpLearning/pull/119)
+"
+retrain a Model,"How to Retain a model with new data ?
+"
+For Multiple files ,"is there a way of loading multiple files of same schema ,or do i have to combine  all files in to one big giant file ?"
+Excellent Work,Thanks for x boost GPU learners .
+"Adds parellelism to Bayesian optimizer by default and adds support for non-deterministic algorithms (release postponed, so no version incrementation)","I've had a second look at the Bayesian Optimizer and have introduced parallelism by default as with other optimizers. I've also introduced support for non-deterministic algorithms that may return different results for identical parameters. This also entailed a change to the standard serial behaviour so that instead of skipping an evaluation if the parameters did not change from the previous run, it will now store the results for all evaluations and skip any that have been run before. This should result in a performance improvement for the serial behaviour but will consume some memory."
+"Hard dependency from Microsoft.IdentityModel.Clients.ActiveDirectory, version 3.17.2.31801",In my test project by saving of gradient boosting model I’ve encounter strange implicit dependency from Microsoft.IdentityModel.Clients.ActiveDirectory. It doesn’t work (load assembly exception) in all referenced versions of this assembly except I reference pretty old one version 3.17.2. Even if I use dependentAssembly construction it doesn’t help. My project is net461.
+"0.31.4.0: Add CrossValidationUtilities.GetKFoldCrossValidationIndexSets, Refactor CrossValidation.","Extract the internal `GetKFoldCrossValidationIndexSets` method form the `CrossValidation<T>` class. 
+This enables calculation of KFold CrossValidation IndexSets for use outside the `CrossValidation<T>` it self.
+
+Usage: 
+
+```csharp
+// Targets to create KFold Index Sets from.
+var targets = new double[] { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3 };
+// Sampler to control the sampling of the sets. In this case Stratified.
+var sampler = new StratifiedIndexSampler<double>(seed: 242);
+
+var indexSets = CrossValidationUtilities.GetKFoldCrossValidationIndexSets(sampler,
+    foldCount: 4, targets: targets);
+
+foreach (var (trainingIndices, validationIndices) in indexSets)
+{
+    // Do model training and accumulate predictions,
+    // to form a fully k-fold cross validated prediction array.
+}
+```
+
+Note, that in the case of remainders from `samplesPerFold = targets.Length / foldCount`, the last validationIndices will contain the remaining values (making it larger compared to the others), and the last trainingIndices will exclude these (making it smaller than the others)."
+SharpLearning.Core: Merge SharpLearning.Containers and SharpLearning.Common.Interfaces,"Once #20, and #112 has been completed, the code in SharpLearning.Containers should be reduced quite a bit, and only contain a few basic types and support extension methods. For this reason it would make sense to merge this with the common interfaces assembly into a SharpLearning.Core project that holds the basic essentials for SharpLearning."
+Add multidimensional array extensions to replace the current properties and methods on the Matrix class,Switching from the matrix class to multidimensional arrays requires adding extension methods to provide to expose the same members that the current matrix class does.
+Consolidate common project settings into Directory.Build.props,"Where possible, add common project settings to Directory.Build.props"
+Update projects to target c# 7.3 to enable new language features,
+Remove/clean unused types and classes,"Currently there are a few which contains functionality that is rarely used, or that doesn't quite fit into the current direction of the package. This includes:
+ - `SharpLearning.Containers.Arithmetic`: MatrixF64 is mostly used as a container, and more efficient matrix arithmetic can found in other libraries, like mathnet.numerics.
+ - `SharpLearning.Containers.ObservationTargetSet`: This can be replaced by using a value tuple instead.
+ - `SharpLearning.Containers.ArrayExtensions`: Several methods are unused.
+ - `SharpLearning.CrossValidation.ContinuousMungeAugmentator`: 
+ - `SharpLearning.CrossValidation.NominalMungeAugmentator`:
+"
+"Update code style, line length, member order, etc.","Part of 2019 sommer cleaning to get the code base cleaned and more up to date. This pull request contains mainly code style changes. This includes:
+ - Line lengths around 100 chars (unless specific circumstances, like constructor checks, and expected test results)
+ - Remove and order usings.
+ - Class member ordering to follow standard guidelines.
+ - Use expression bodied methods where applicable.
+
+The pull request also includes code changes to avoid duplicated code in a few places.
+
+A few more exotic metrics has also been deleted:
+ - DiscreteTargetMeanErrorRegressionMetric 
+ - RocAucRegressionMetric
+
+If anybody uses these, let me know, and I can readd them."
+Make SharpLearning.Neural support .net core 2.0/.net standard 2.0 (update mathnet numerics to latest version (.NETStandard 2.0 compatible) ),"This pull request updates mathnet numerics to latest version (.NETStandard 2.0 compatible). This enables SharpLearning.Neural to have support for .net core 2.0/.net standard 2.0, and solves #26. "
+Add azure pipelines yaml configuration,"This pull request adds `azure-pipelines.yaml` configuration to control CI and PR validation. This also adds both debug and release validation. Previously, only the release version was build and tested via CI. 
+
+This addition is the bare minimum of the yaml configuration. BuildPlatform has not been added to the configuration yet. I could not make it work together with the dotnet build command. Information on this can be found here: [dotnet issue 10421](https://github.com/dotnet/cli/issues/10421). So currently, the build platform from the project files is used.
+
+I am currently using 'tasks' for the individual steps, but it seems that 'scripts' are generally more popular for dotnet core pipelines. Here is a guide using scripts: [yaml-build-pipeline-net-core-azure-devops-tutorial)](https://www.nankov.com/posts/yaml-build-pipeline-net-core-azure-devops-tutorial)
+
+Another example is the [TorchSharp pipeline](https://github.com/xamarin/TorchSharp/blob/master/azure-pipelines.yml), but that also handles additional steps for getting external resources etc.. 'Scripts' definitely seems more flexible than 'tasks', so I might switch to 'scripts' in the future when I have some more experience with them."
+"Can this project be called under xamarin forms and run on android? I tried, loading the model failed.",
+Wow! Amazing work! Thanks a lot!,"Hi!
+
+I also wanted to thank you for this wonderful library! The API is super clean and love it so far.
+
+One question I have is regarding the accuracy score like the accuracy_score() function in scikit learn that can be seen here: https://www.kaggle.com/mathvv/prediction-of-red-wine-quality-93-215
+Like this:
+`print('Random Forest:', accuracy_score(y_test, rf_pred)*100,'%')`
+Which outputs this:
+`Random Forest: 91.875 %`
+
+Many thanks and congrats again!
+
+Flo"
+Understand class prediction results,"Hi,
+maybe some silly questions...
+I'm trying to train a random forest model with **two different classes**. I think I understood that the number of rows of the target vector must be equal to observations matrix (therefore regardless of the number of classes). So in the rows of the output vector I set the value 0 for the first class and 1 for the second class. **This is right?** 
+I would also like to understand how to interpret the results, for example if for a set of features I have the prediction value 0.6 I must consider it a class of type ""0"" or a class of type ""1""? Do I have to cast to integer or I must to round it? Finally the ""variance"" values ​​contained in CertaintyPrediction indicates the probability of the prediction (greater is better)?
+many thanks
+"
+Add support for simple linear/logistic regression,"You've done a great job with the more sophisticated algorithms: would it be possible, for completeness, to throw in linear/logistic regression? I imagine it would be fairly quick comparatively."
+"0.31.1.0: Add SmacOptimizer, update argument names on HyperbandOptimizer and BayesianOptimizer, clean up SharpLearning.Optimization.Test project","This pull request adds the `SmacOptimizer` to `SharpLearning.Optimization`. The implementation is based on the paper: [Sequential Model-Based Optimization for General Algorithm Configuration](https://ml.informatik.uni-freiburg.de/papers/11-LION5-SMAC.pdf).
+
+The algorithm combines bayesian optimization with greedy local search based on the current top solutions.
+
+The `SmacOptimizer` implements the regular `IOptimizer` interface, but also surfaces the two primary methods for running the algorithm `ProposeParameterSets` and `RunParameterSets`. This makes it possible to use the optimizer in an ""open-loop"" style, and allows the optimizer to be easily used from or combined with other optimizers. An examples could be using the scheduling technique from the `HyberbandOptimizer` together with the model based sampling from the `SmacOptimizer`.
+
+An example showing ""open-loop"" use can be found in the `SmacOptimizerTest` class."
+Remove resources and add culture initialiser for test projects,"This should fix issue #34, and fix the current issue with azure dev ops pipelines.
+
+This adds an `AssemblyInitializeCultureTest` class for all unit test project, which sets the culture settings to `CultureInfo.InvariantCulture`. This should make the unit tests pass on machines with different culture settings.
+```CSharp
+    [TestClass]
+    public class AssemblyInitializeCultureTest
+    {
+        [AssemblyInitialize]
+        public static void AssemblyInitializeCultureTest_InvariantCulture(TestContext c)
+        {
+            CultureInfo culture = CultureInfo.InvariantCulture;
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+        }
+    }
+```
+
+This pull request also removes the use of resources in all test projects, and instead uses a `DataSetUtilities` class to handle small test datasets. This also cleans up a lot of CsvParser code for loading the data."
+Make individual Tree models public on ForestModels. This is a breaking change. Also clean up SharpLearning.RandomForest.Test,"This pull request makes the individual tree models public on the forest models: `RegressionForestModel` and `ClassificationForestModel`. This makes it possible to use the individual trees from the model for custom predictions, or for calculating statistics. For instance, using a different ensemble strategy than average for regression and majority vote for classification. Getting the predictions for the individual trees also makes it possible to calculate statistics on the predictions to see how much the ensemble of models agrees or disagress.
+
+The tree models are accessed through the `.Trees` property of the forest models:
+
+```CSharp
+var learner = new RegressionRandomForestLearner();
+var forest = learner.Learn(observations, targets);
+var trees = forest.Trees;
+```
+
+The trees can then be used individually afterwards:
+
+```CSharp
+var prediction = trees.Select(t => t.Predict(observation)).Average();
+```
+
+Note that this is a **breaking change**, since the trees have been promoted from a private member to a public property. This means that it will not be possible to load ForestModels trained with earlier versions of SharpLearning into this version. So retraining of models from the `SharpLearning.RandomForest` project is mandatory if updating to 0.31.0.0 and newer versions. This is sadly the downside of serializing the model code directly instead of using a custom format, which is the current strategy in SharpLearning.
+
+This should solve #101 and #94 "
+ Individual trees prediction of the classification RF model," #94
+Add an additional methods which provides individual trees prediction of the classification RF model.
+
+I ‘m not sure the code is right .Please help me to check it.I need the methods a little hurry.Thanks very much!
+JinHJ"
+0.30.2: Add HyperbandOptimizer.OptimizeBest method,Add missing `OptimizeBest` method for the `HyperbandOptimizer`. This method returns the best result found by the optimizer
+"0.30.1.0: Add HyperbandOptimizer, and update test adapters","This pull request adds the `HyperbandOptimizer` to `SharpLearning.Optimization`. The implementation is based on the original article [Hyperband](https://arxiv.org/pdf/1603.06560.pdf) and the implementation by [fastml](http://fastml.com/tuning-hyperparams-fast-with-hyperband/).
+
+Compared to the other optimizers from SharpLearning, Hyperband includes an extra parameter in the objective function, `unitsOfCompute`. Hyperband uses the `unitsOfCompute` parameter to control a budget of compute for each set of hyperparameters. Initially it will run each parameter set with very little compute budget to get a taste of how they perform. Then it takes the best performers and runs them on a larger budget.
+
+The `unitOfCompute` parameter is used in the objective function, and could for instance be used to control the size of the training set, the number of trees in gradient boost, or the number of epochs for neural nets. One unit of compute could for instance be defined as 1000 samples in the training set. The `maximumUnitsOfCompute` is provided as an argument to the `HyperbandOptimizer`, and the optimzer will define a schedule for evaluating the hyperparameters on a budget.
+
+A small experiment comparing the results and runtime of the `HyperbandOptimizer` vs. the `RandomSearchOptimizer`, optimizing a neural net (using CNTK) on the CIFAR-10 dataset:
+
+**System**
+**CPU: i7-4770**
+**GPU: GTX1070**
+
+The Hyperband optimizers uses the default parameters except for the `skipLastIterationOfEachRound` which is enabled for one of the runs. The default parameters result in a total of 209 different parameter sets tried with the Hyberband optimizers. The `unitsOfCompute` parameter in the objective function is used to control the size of the training set, where 1 unit of compute is set to 740 samples, which corresponds to the full training set size of 60.000 samples, when `maximumUnitsOfCompute` is set to 81, which is the default maximum. The full test set is used to track the test loss/accuracy in all rounds/iterations.
+
+| Optimizer        | Time (hours)           | Test accuracy (%)  |
+| ------------- |:-------------:| -----:|
+| `RandomSearchOptimizer(iterations=100)`|  45.34 |  88.47 |
+| `HyperbandOptimizer(skipLastIterationOfEachRound=false)` |  10.46  |   87.93 |
+| `HyperbandOptimizer(skipLastIterationOfEachRound=true)`|  6.56  | 87.93 |
+
+As can be seen the RandomSearchOptimizer finds a slightly better parameter set. However, the two Hyperband runs uses significant less time to find a solution that is nearly as good. In this case, skipping the last iteration of each round results in finding the same parameter set as when including all iterations. This will not be the case for all problem types, but it does provide a nice speed up for large problems.
+
+In the end, Hyperband finds a solution that is almost as good, and reduces the time required by a factor of 4-7.
+
+A future extension to the hyperband optimizer could be to use bayesian optimization instead of random search to select the parameter sets. This combination has proven very useful in: [Robust and Efficient Hyperparameter Optimization at Scale](https://arxiv.org/pdf/1807.01774.pdf)."
+"Add support for Reinforcement Learning algorithms: QLearning, Sarsa etc.","There is currently support for most of the common (and some less common) ML algorithms in Sharp Learning. However, there does appear to be a lack in the area of Reinforcement Leaning and some might observe these algorithms are beginning to gain some traction.
+
+If there is any appetite for extending into this area, I would propose as an initial baseline provision for QLearning and Sarsa, backed by Epsilon Greedy and Boltzmann approaches. A second stage could then continue with Thompson and UCB1 exploration, and finally the existing Neural Net and ensemble interfaces could probably produce a compound that resembled Deep Q Networks."
+0.30.0: Optimizers Optimize method returns unfiltered results in chronological order,"The `Optimize ` method on the optimizers from `SharpLearning.Optimization` will now return all results, unfiltered and in chronological order. Before, the results would be filtered for `NaN` values and ordered from smallest to largest error. This change makes it easier to compare the iterations required to get a good solution between the optimizers. The `OptimizeBest` method, which returns the single best result from the optimizers, is unchanged and will provide exactly the same result as previously.
+
+This is a potential breaking change, so if relaying on the order of the results from the `Optimize` method, these should now be sorted and/or filtered after the call to the optimizer. Like it is also done in the `OptimizeBest` method:
+
+```CSharp
+Optimize(functionToMinimize).Where(v => !double.IsNaN(v.Error)).OrderBy(r => r.Error).First();
+```
+
+Note, that the particle swarm optimizer only returns the latest result from each particle."
+"0.29.1: Rename logarithmic transform to Log10 transform, and release contribution of parallel ParticleSwarm and parallel GlobalizedBoundedNelderMeadOptimizer.","This pull request renames the `Logarithmic` transform to `Log10` transform. This should fix issue #93.
+
+This pull request also releases the contributions made by @jameschch in pull request #95, which adds parallel execution to the following optimizers:
+
+ - `ParticleSwarmOptimizer`
+ - `GlobalizedBoundedNelderMeadOptimizer`
+
+and adds selection of the degree of parallelism to:
+
+ - `GridSearchOptimizer`
+ - `RandomSearchOptimizer`"
+"Adds parellelism to Particle Swarm optimizer, Adds configurable maxim…",This introduces parallel evaluation to the particle swarm and Nelder Mead optimizers. This also introduces a configurable maximum degree of parallelism to Random and Grid optimizers. The automatic scheduler is not effective for long-running problems that themselves are multi-threaded. This setting allows the user to strictly control the number of parallel operations.
+Random Forest: how can I get each tree's prediction ?,"hi,Mads,
+I hope to know how can I get each tree's prediction or which category it choose when I finished trained a RF model for my classify task？It is useful for my task.
+thanks！
+"
+Optimization: Rename Transforms.Logarithmic to Transforms.Log10,"Currently, the name of the logarithmic transform is misleading, since in the .Net world log refers to log2, and the [LogarithmicTransform](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.Optimization/Transforms/LogarithmicTransform.cs) from SharpLearning uses Log10. 
+
+So the transform, and the enum should be renamed to illustrate the use of Log10. For instance:
+ - `Transforms.Log10`
+ - `Log10Transform`"
+Add IParameterSpec to SharpLearning.Optimization,"Primary change is the addition of an `IParameterSpec` interface, that replaces the previous `ParameterBounds` type. Two concrete implementations have been added:
+ - *GridParameterSpec*:  Usable when a fixed set of parameters, needs to be searched.
+ - *MinMaxParameterSpec*: Direct replacement of `ParameterBounds`. used for sampling values in the range [min;max].
+
+The addition of the `IParameterSpec` and the  `GridParameterSpec`, makes the `GridSearchOptimizer` use a similar set of bounds as all the other optimizers. This makes it easier to switch to the `GridSearchOptimizer` in scenarios where autofac or other dependency injection frameworks are used.
+
+The addition of the `GridParameterSpec`, also makes it possible to limit the sampling of the `RandomSearchOptimizer` to a fixed set of values. For instance:
+
+```csharp
+var parameterSpecs = new IParameterSpec[] 
+{
+    new GridParameterSpec(1, 10, 15, 20, 25),
+    new MinMaxParameterSpec(0.0, 100.0, Transform.Linear)
+};
+var optimizer = new RandomSearchOptimizer(parameterSpecs, iterations: 100);
+var actual = optimizer.OptimizeBest(Minimize);
+```
+
+In the above, the `RandomSearchOptimizer` will only sample randomly between the fixed values `1, 10, 15, 20, 25`, for the first parameter."
+Add serializable feature transforms,"This pull request enables serialization of the features transforms available in the *SharpLearning.FeatureTransformations* project.
+
+This is related to issue #90"
+Serialisation of MinMaxTransformer,"Firstly, thanks for this excellent library - it is pretty well exactly what i have been looking for.
+
+I have not found a way to serialise a MinMaxTransformer after use during training of a regression model 
+
+Is there some other approach i should be using to normalise new data points for prediction in subsequent processing?"
+"Error when training with GPU -  ""Unknown linear updater grow_gpu_hist""","I have downloaded and installed CUDA, my GPU is benchmark ""ASUS ROG strix OC 1080TI"",
+when the learning starts some console prints are shown (attached screenshots) some error messages and sometimes the program even crashes,
+should i build the program in certain way/download CUB or something else i missed?
+Please help!
+
+thx,
+![capture](https://user-images.githubusercontent.com/13719129/47250162-af9d4c00-d425-11e8-8f29-ed3c8f3526ba.PNG)
+
+"
+Add Activation Functions other than ReLU please!,
+SEHException when using xgboost with gpu,"I have installed latest Cuda version (9.2), and when setting the tree method to GPU* i get an SEHException ""external component has thrown an exception"", should i compile the program in a certain way after cuda installation? What should i do?, thanks!"
+"Add overload for CsvRowExtensions.ToF64Matrix and ToF64Vector, to support other converters ",
+Multiple output regression,"Most regression models are hardcoded with learning method: Learn(F64Matrix observations, double[] targets), what if we had multiple predicted variables.
+I want to add method Learn(F64Matrix observations, F64Matrix targets)"
+Full access to trained model structures,"Currently the trained models only expose members from IPredictorModel. For NNs, its impossible to get to the layered structures of the best model. Extend models to expose this"
+GBM prediction confidence,"Hi, is it possible to add an option for getting the confidence of a prediction of a GBM?
+To know how much the prediction ""can be trusted""
+How can i do it by my self?
+Thanks!"
+Sample weight for XGBoost,"In Python XGBoost one can provide weights for each row of the data, see http://xgboost.readthedocs.io/en/latest/python/python_api.html#xgboost.XGBClassifier.fit. I tried to look for a way to specify such weights in SharpLearning, but could not find it. Is this possible?"
+ Add check to GBMDecisionTreeLearner so we wont use more features than we can,
+CrossValidation CrossValidate ProbabilityPredictions error means?,"Hi,
+when I run ""CrossValidation_CrossValidate_ProbabilityPredictions"" example with my data, it gives these values:
+**Cross-validation error: 6.88921441267999**
+**Training error: 6.86281040890985**
+I searched a lot but couldn't find any documantation abput it? Could you explain what's this values mean, and for best prediction what they should be?
+Thanks.
+Regards!"
+F# unit tests,Let’s „contaminate“ SharpLearning with some F# code. For data processing F# is quite good alternative to c#  
+Text Classification,"I am pretty new to Machine Learning and all of these things
+I am want to ask a question about text classification: 
+Can I use this library for text classification and how? 
+
+
+
+P.S I need to split one string and classify substrings by Categories\Groups\etc, for example ""Ray's Potato Chips with Ketchup taste 80g"" I need to split into 
+Category ""Potato Chips"" 
+Groups:""Ketchup"" 
+Brand(or smthng):""Ray's"""
+How to vectorize text?,"Hi, thanks for the great library!
+
+My CSV has text in some of the columns. Some of them are categorical (e.g. month of the year) and some have free text (e.g., book title). Looks like `SharpLearning.InputOutput.Csv.CsvRowExtensions.ToF64Matrix` is trying to parse stringified numbers. What if my CSV consists of non-number values? Is there a recommended way or should I wire another lib to do TF-IDF/word2vec/char embedding/etc?"
+How to load data from SQL server table,"All given samples contain CSV method only.
+
+```
+            #region Read data
+
+            // Use StreamReader(filepath) when running from filesystem
+            var parser = new CsvParser(() => new StringReader(Resources.winequality_white));
+            var targetName = ""quality"";
+
+            // read feature matrix (all columns different from the targetName)
+            F64Matrix observations = parser.EnumerateRows(c => c != targetName).ToF64Matrix();
+
+            // read targets
+            var targets = parser.EnumerateRows(targetName).ToF64Vector();
+```
+
+I would like to load data from a List<Dto> object; how it can be possible?
+Thanks!
+
+edit:
+
+```
+    /// <summary>
+    /// Parses the CsvRows to a double array. Only CsvRows with a single column can be used
+    /// </summary>
+    /// <param name=""dataRows""></param>
+    /// <returns></returns>
+    public static double[] ToF64Vector(this IEnumerable<CsvRow> dataRows)
+    {
+      if (dataRows.First<CsvRow>().ColumnNameToIndex.Count != 1)
+        throw new ArgumentException(""Vector can only be genereded from a single column"");
+      return dataRows.SelectMany<CsvRow, double>((Func<CsvRow, IEnumerable<double>>) (values => (IEnumerable<double>) values.Values.AsF64())).ToArray<double>();
+    }
+```
+
+This code only works with CsvRow list."
+Which model type should I use for financial price prediction?,"First of all thank you for the great library!
+My question is simple: I want to predict next period price with pre-computed history values.
+I have over 30 rows data for each price.
+Price and datas are decimal.
+
+**For example history:**
+**Indicator1** - **Indicator 2** - **Indicator 3** - **Price**         - **Trend**
+10,01121  - 23,56540    - 12.00001     - 12,23321   - UP
+9,00001    - 3,00040    -   2.00001       - 1,23300     - DOWN
+...
+...
+**And data to predict coming like** 
+8,11211    - 1,00020    -   0.00021       - 3,5555     - **?**
+I want to get TREND field.
+
+Which model should I use? Any example will be perfect?
+Regards!
+"
+Implement Coefficient of Determination (r-squared) metric,
+Add ParameterType to optimization ParameterBound,"This pull request adds a `ParameterType` to the `ParameterBound` class in `SharpLearning.Optimization`. The parameter type specifies if the parameter is discrete or continous. This enables the parameter samplers used in the optimizers to sample from either a continous range or from a discrete range. Before this, all samplers would sample from a continous range.
+
+For instance, during hyperparameter optimization of a gradient boost model, it makes more sense to sample the number of trees on a discrete range, and the learning rate on a continous range. If the number of trees is sampled on a continous range, the optimizer will try many continous values which will be cast to the same integer values in the learner. For instance 15.2325, 15.9343, and so on, will all be cast to 15. Using the discrete range will make the search more efficient.
+
+The parameter type is specified on the `ParameterBound` class, together with the other options:
+
+```csharp
+var parameters = new ParameterBounds[]
+{
+    new ParameterBounds(min: 10, max: 1000, transform: Transform.Linear, 
+         parameterType: ParameterType.Discrete), // iterations
+    
+    new ParameterBounds(min: 0.001, max:  0.2, transform: Transform.Logarithmic, 
+         parameterType: ParameterType.Continuous), // learning rate
+    
+    new ParameterBounds(min: 1, max: 25, transform: Transform.Linear, 
+         parameterType: ParameterType.Discrete), // maximumTreeDepth
+    
+    new ParameterBounds(min: 0.5, max: 1.0, transform: Transform.Linear, 
+         parameterType: ParameterType.Continuous), // subSampleRatio
+};
+```
+
+The default value of the `ParameterType` on `ParameterBounds` is still `Continous`, so the default behavior of the optimizers will not change. 
+"
+Add proper optimizer seeding to all optimizers in SharpLearning.Optimization,"This pull request will add proper seeding to all optimizer algorithms in `SharpLearning.Optimization`. The technique used is a single seed is set through the constructor, this seed is used to create a `random` generator, which will then create seeds for all underlying algorithms used in the given optimizer.
+
+Note, that since this PR will change default seeding of the optimizers, the default behavior of the optimizers will not be the same as before this addition.
+
+This should solve issue #69 . "
+Nuget package for SharpLearning.XGBoost can't install,"
+Currently there is an issue when installing the SharpLearning.XGBoost package, Nuget will try to add a reference for the native xgboost dll:
+
+![image](https://user-images.githubusercontent.com/9001637/40295861-298b3238-5cdb-11e8-9426-f7646974f015.png)
+
+The reason for this is how the nuget package for PicNet.XGBoost.Net has been created. I have openened an issue to get this solved: https://github.com/PicNet/XGBoost.Net/issues/24
+"
+[Question] How would you use the model to make predictions on new data?,"I have read all the examples and gone through the source code, but haven't been able to answer the question.
+
+I have setup a data set, trained and tested the model, but now I would like to use the model to make predictions on new data. How would I achieve this?
+
+Example:
+Target value has 3 classifications: good, bad, average
+
+New data comes in -> use trained/tested model to make a prediction on the target value. Also, would it be possible to get a probability/confidence of the prediction of the target value i.e. 25% good, 50% average, 25% bad.
+"
+Most implementations of IOptimizer don't properly pass on the random seed to all internally used algorithms,"Hi mdabros,
+
+I love the Optimizer classes of SharpDevelop, I use them heavily for hyperparameter tuning.
+But I would like to use differend random seeds and parts of the Optimizer classes don't allow using them like that.
+Example:
+If you look at the constructor of your BayesianOptimizer you can see that it doesn't pass on the ""seed"" parameter to all other classes that BayesianOptimizer creates instances of, sometimes it will just forward a hardcoded 42 instead. 
+I know, 42 is the answer, but I would prefer ""seed"" in this case... ;)
+The other IOptimizer implementations have similar issues.
+Would be nice if you could modify that some time... 
+
+Thank you!
+
+Best regards
+Florian
+"
+Add SharpLearning.XGBoost project,"Add a more efficient alternative to `SharpLearning.GradientBoost`. XGBoost is faster on CPU and also supports GPU learning. However, it does have native dependencies, so might not be ideal for all platforms and situations.
+
+A small test comparing the `RegressionXGBoostLearner` and the `RegressionGradientBoostLearner` from SharpLearning on a medium sized regression task. 
+
+Dataset: [YearPredictionMSD](https://archive.ics.uci.edu/ml/datasets/YearPredictionMSD)
+Rows: 515345
+Cols: 90
+
+Hardware:
+CPU: Core i7-4770
+GPU: GTX-1070
+
+Model parameters:
+`MaximumTreeDepth`: 7
+`Estimators`: 152
+`colSampleByTree`: 0.45
+`colSampleByLevel`: 0.77
+
+Training time compared using XGBoost in `histogram` and `exact` mode on GPU and CPU:
+
+![image](https://user-images.githubusercontent.com/9001637/39971261-51276bf6-56f8-11e8-9d59-b50c46d4af7f.png)
+
+
+As can be seen, XGBoost can be up to 70 times faster, when using the histogram based tree method. Using the exact method, which is more similar to the method from SharpLearning.GradientBoost, the speed up is still around 10 when using GPU, and 5 when using CPU. 
+
+Missing tasks before the PR can be completed:
+ - [x] Add argument checks to learners.
+ - [x] Add unit test of conversion class.
+ - [x] Add index support for learners, and input checks.
+ - [x] Add probability support for classifier model.
+ - [x] Add more learner and model tests.
+ - [x] In the classification model, consider removing the targetNameToTargetIndex member, and adopt XGBoost´s requirement of sequntial class labels starting at 0. Checks can be added to alert users before learning starts.
+ - [x] Complete pull request to XGBoost.Net to enable GPU use and Booster selection.
+ - [x] Add VariableImportance support to XGBoost models.
+ - [x] Split objectives into regression and classification, so only compatible objectives are available for the learners .
+ - [x] Consider splitting learners into `Linear`, `Tree` and `Dart`, to only show relevant hyperparameters for each in the constructors.
+ - [x] Add enums for the DART specific parameters. 
+ - [x] Complete pull request to XGBoost.Net to add DART parameters.
+ - [x] Complete pull request to XGBoost.Net to fix `Booster.Dispose()`.
+ - [x] Get XGBoost.Net to publish new nuget package.
+ - [x] Change from local reference to updated XGBoost.Net package.
+ - [x] Update readme.
+ - [x] Check cross-validation and learning curves loops with XGBoost models (disposable).
+ - [x] Package SharpLearing.XGBoost during build to avoid issue with ""dotnet pack"" and how the native dll is included in picnet.xgboost.net
+ - [x] Add probability interfaces to xgboost classification learner.
+ - [x] Add model converter from XGBoost to SharpLearing.GradientBoost. (Added but not completed).
+ - [x] Consider using the SharpLearing.GradientBoost.Models instead of the XGBoost equivilants. This would enable standard serialization and features, and avoid having to deal with native resources when using the XGBoost models. (For now, it has been decided to use the XGBoostModels, and leave the conversion for another pull request)."
+Fix the non-deterministic behaviour of the random forest and extra trees learners when running multi-threaded.,"This pull request will fix the non-deterministic behaviour of the random forest and extra trees learners. It will also ensure that the learners produce the same models when running single threaded and multi threaded.
+
+The main changes to the learners are:
+ - The random generator used for each tree is created before the learning process starts.
+ - Each random generator is associated with a specific tree index.
+ - The final order of the learned trees is made using the tree index.    
+
+This pull request should solve issue #65 and is related to the previous pull request on that issue: #66 "
+correct random seed problems in random forest learners,fix bug described in #65 
+Random Forest: m_random and parallel RNG,"Hello, I would first like to thank you for making such an excellent and accessible repo. We're getting quite a bit of use out of it in multiple projects.
+
+I've noticed that despite setting the seed in the Random Forest learner, I get slightly varying results from run-to-run given identical inputs. I suspect the problem is in the following code block:
+
+```
+Parallel.ForEach(rangePartitioner, (work, loopState) =>
+{
+   results.Add(CreateTree(observations, targets, indices, new Random(m_random.Next())));
+});
+```
+
+The parallel random number generation is a problem; the same random numbers are generated because the seed is set in the constructor, but there is a ""race"" between the threads to grab the next random number. Locking m_random would not help, I think. This should be fixed by generating a random number for each tree prior to entering the Parallel.ForEach loop, like so:
+
+```
+int[] randomNumbers = new int[m_trees];
+for(int i = 0; i < randomNumbers.Length; i++)
+{
+   randomNumbers[i] = m_random.Next();
+}
+Parallel.ForEach(rangePartitioner, (work, loopState) =>
+{
+   results.Add(CreateTree(observations, targets, indices, randomNumbers[work]));
+});
+```
+
+Let me know if I'm overlooking something. I'd be happy to fork and make a pull request.
+
+Rob"
+An item with the same key has already been added,"Hello,
+
+Might not be an actual issue, but more of a question on how to handle my error. I want to feed data into the parser that is in the SharpLearning.InputOutput.Csv package. Below is my code:
+
+`string rawTarget = Transformations.ReturnColumnAsCSVString(Data, OutputColumn);
+
+System.Windows.Forms.Clipboard.SetText(rawTarget);
+
+var targetparser = new CsvParser(() => new StringReader(rawTarget));
+
+var targets2 = targetparser.EnumerateRows(OutputColumn).ToF64Vector();`
+
+So, first I pull my data into a string, this results in a string looking like this:
+`""Vwap"";7049.4;6983.3;6981.8;6871.0;6846.7;6811.0`
+(obviously there is a lot more)
+
+Then I use the Stringreader to read my string and parse it to an F64 vector.  The error I get is:
+`An item with the same key has already been added.`
+
+I have also tried to convert the string to a stream, then use the Streamreader but this results in the exact same error. I am at a loss at how to solve this. 
+
+Hope anyone can provide a solution! Thanks in advance!
+"
+Strongly-named assemblies,"First, let me say thanks for the great package: it works much better in our app than our previous (non-learning) solution.
+
+We've got one issue to report: in our next release, all the various subsystems need to be in signed assemblies, which means we can't at the moment use SharpLearning since it would need to be called by a signed assembly and is itself unsigned. Any chance we could see signed versions of the SharpLearning Nuget packages?
+
+Thanks,
+
+Alistair
+"
+Possible evolution: trained neuralnet predict C output,"Hello,
+I created a NeuralNet and trained it on my computer. 
+I wish to port it on an embedded target now and i asked myself if a C code output of predict for a trained network could be possible. Is that the case ? If yes could you tell me some advises where to look at ?
+
+Thank you"
+change unsafe code to safe code,
+Add support for enabling/disabling messages from learners during training.,"Currently, some of the learners in SharpLearning will output information during the training period. This includes the early stopping with gradient boost and neural networks. It should be possible to enable and disable these messages, and preferably, also possible to choose where the messages should be outputted. For instance to  `Console`, `Trace`, or alternatively a log file. 
+
+This could be made by adding an `Action` to receive the message. This should probably be part of a separate interface, for learners supporting this. Something like:
+
+```csharp
+public interface ILogger
+{
+   public Action<string> Log { get; set }
+}
+```
+
+The learners would then add the message to the log. Likewise, other algorithms like the optimizers could also implement this interface."
+OutOfMemory Exception in F64Matrix constructor - maximum array bounds exceeded,"Hi there!
+
+First: Thanks for the great work, excellent design you have there!
+
+I am experiencing an OutOfMemory Exception in the constructor of F64Matrix that does not really come from memory shortage but from the fact that F64Matrix internally uses a single one dimensional double array that can quite easily exceed .NETs internal boundaries of maximum array dimensions.
+
+In my case I tried to create a F64Matrix with 10 mio rows and 55 columns.
+
+My preferred suggestion would be to either abstract the matrix to an IF64Matrix interface that probably only consists of the At() method overloads. This would enable users to provide a custom implementation that is capable of handling larger amounts of data, if needed even by swapping data from and to disk.
+Another solution could be to change the internal implementation of F64Matrix to use an array of double arrays, which I believe could also help.
+
+Thanks for your help and keep up the excellent work!
+
+Best regards
+
+Florian"
+Add ParameterBounds and hyper-parameter scale transform to optimization ,"This pull request adds a ParameterBounds type to optimization to make it more clear to the user how to setup min and max bounds for the optimization parameters. This is illustrated below:
+
+```csharp
+var parameters = new ParameterBounds[]
+{
+    new ParameterBounds(min: -10.0, max: 10.0),
+    new ParameterBounds(min: -10.0, max: 10.0),
+    new ParameterBounds(min: -10.0, max: 10.0),
+};
+ ```
+Note that the `GridSearchOptimizer` still uses jagged arrayes for defining parameter ranges. This is intended since a grid search typically invovles outlining all hyperparameters for the grid, and jagged arrays fits this purpose nicely.
+
+It is now also possible to add a scale transform to the sampling of the hyper-parameters. This can be usefull when dealing with hyper-parameters like learning rate, that covers a large range close to zero, like 0.0001 to 1.0. In this case it would be better to sample using the logarithmic scale to get a better distribution of values across the entire range. Default transform is linear, and logarithmic scale can be applied like illustrated below:
+
+```csharp
+var parameters = new ParameterBounds[]
+{
+    new ParameterBounds(min: 100, max: 300, transform: Transform.Linear),
+    new ParameterBounds(min: 0.001, max: 1.0, transform: Transform.Logarithmic),
+};
+ ```
+
+Running the hyper-parameter tuning example from [SharpLearning.Examples](https://github.com/mdabros/SharpLearning.Examples/blob/master/src/Guides/HyperparameterTuningGuide.cs) before and after introducing logarithmic scale for the learning rate and subSampleRatio shows improved results:
+
+**With linear scale**
+Train error: 0.0174 - Test error: 0.3905
+
+**With logarithmic scale**
+Train error: 0.0011 - Test error: 0.3843
+
+This will solve issue #57 .
+
+
+"
+Optimization: Add option for how to sample hyper parameters,"Currently, all optimizers in SharpLearning.Optimization use random uniform sampling for sampling hyper parameters from the provided min/max boundaries. This is not always optimal, for instance when dealing with a hyper parameters like learning rate that can span a large range of values, like 0.0001 to 1.0. Using random uniform sampling in this case might result in only sampling values in a small part of the range. In this case it would be much better to sample at uniform in the log space. Hence, it should be possible to select which space to sample from for each hyper parameter when setting og an optimizer. 
+
+This should include at least random uniform form:
+ - Linear (current method)
+ - Logarithmic
+ - Exponential
+
+At the same time, setup of the hyper-parameter ranges could be changed from setting op an array of arrays to using a type to guide the user better:
+
+**Current method**
+```csharp
+var parameters = new double[][]
+{
+   new double[] { 80, 300 }, // iterations (min: 80, max: 300)
+   new double[] { 0.02, 0.2 }, // learning rate (min: 0.02, max: 0.2)
+};
+ ```
+
+**Proposed method**
+```csharp
+var parameters = new OptimizerParameter[]
+{
+   new OptimizerParameter(min: 80, max: 300,  SamplingMethod.Linear), // iterations (min: 80, max: 300)
+   new OptimizerParameter(min: 0.02, max: 0.2, SamplingMethod.Logarithmic),, // learning rate (min: 0.02, max: 0.2)
+};
+ ```"
+[WIP] Backends testing and C# TF batch running,
+[WIP] Add cntk cnn example (C# and Python),"Adding cntk convolutional neural network example in C# and Python [WIP].
+ - [x] Examples should return the same result
+ - [x] Examples should be as similar as possible
+
+
+"
+Add preserveObjectReferences option to GenericXmlDataContractSerializer,"The default settings for the GenericXmlDataContractSerializer is to perserve object references. This is required for the SharpLearning.Neural.Models to be serialized and deserialized correctly. However, for serializing simple types like a list of items, the resulting xml can be slightly more complicated. Therefore this pull request adds the option to not preserve object references when using the GenericXmlDataContractSerializer.
+
+The recommended setting for serializing SharpLearning models is the default (true).
+
+**XML with  perserveObjectReferences = true (default):**
+```csharp
+<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfKeyValueOfstringint xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" z:Id=""1"" z:Size=""5"" xmlns:z=""http://schemas.microsoft.com/2003/10/Serialization/"" xmlns=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">
+  <KeyValueOfstringint>
+    <Key z:Id=""2"">Test1</Key>
+    <Value>0</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key z:Id=""3"">Test2</Key>
+    <Value>1</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key z:Id=""4"">Test3</Key>
+    <Value>2</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key z:Id=""5"">Test4</Key>
+    <Value>3</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key z:Id=""6"">Test5</Key>
+    <Value>4</Value>
+  </KeyValueOfstringint>
+</ArrayOfKeyValueOfstringint>
+```
+
+**XML with  perserveObjectReferences = false:**
+```csharp
+<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfKeyValueOfstringint xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">
+  <KeyValueOfstringint>
+    <Key>Test1</Key>
+    <Value>0</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key>Test2</Key>
+    <Value>1</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key>Test3</Key>
+    <Value>2</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key>Test4</Key>
+    <Value>3</Value>
+  </KeyValueOfstringint>
+  <KeyValueOfstringint>
+    <Key>Test5</Key>
+    <Value>4</Value>
+  </KeyValueOfstringint>
+</ArrayOfKeyValueOfstringint>
+```"
+Random Forest Regression generates constant values for prediction,"Hi,
+
+I am using random Forest for learning. The output I get results into the initial 40 or so values varying (Float values) but after that it's just constant. 
+
+I was wondering if you have seen this behavior. The data has 24 features and 500 observations. I get the 42 first prediction varying but after that it's just constant. 
+
+I can provide the data and the code if you would like that.
+
+regards,
+Avi"
+Add cntk python simple mnist examples,"As a starting point for simple python mnist example using cntk, copied the original example from [cntk](https://github.com/Microsoft/CNTK/blob/master/Examples/Image/Classification/MLP/Python/SimpleMNIST.py)
+
+Currently, I have not found a method for running/debugging this from visual studio, only from command prompt. More information can be found in the [readme](https://github.com/mdabros/SharpLearning/blob/backends-cntk-python/python/src/CntkPython/README.md)
+
+@nietras Currently, the simple mnist example from CNTK is quite different from corresponding example in Tensorflow. We should decide how much we want to modify the CNTK example, and/or the tensorflow example, to make them as similar as possible.
+
+Some differences: 
+ - The CNTK example uses text files as input and tensorflow the raw data.
+ - The CNTK example also uses the Dense operator from the layer API.
+ - The CNTK exmaple uses all 60k examples for training and tensorflow only 10k."
+Consider switching to XorShift for RNG,"XorShift is a simple alternative to the built-in Random class in C#, which provide better performance and randomness. I benchmarked the RNG implementations of Math.net as seen in the picture. The XorHome in the list is my own quick port of xoroshiro128+ from here: http://xoroshiro.di.unimi.it/xoroshiro128plus.c
+
+![image](https://user-images.githubusercontent.com/657616/35411685-ec14329a-0219-11e8-8e19-82716a4361ef.png)
+
+As seen in the picture, the Math.Net XorShift is much faster than the built-in random."
+Backends Tensorflow Deep Mnist Raw (to backends!),
+[WIP] Backends Tensorflow Deep Mnist Raw,
+Backends TensorFlow prototyping,"Create PR to more easily follow changes.
+
+I made the mistake of merging with master, so perhaps ""backends"" should merge with master too?"
+Add CntkRawMnistTest. Showing a simple cnn using the cntk api,Training a simple cnn using the cntk api. 
+Backends new cntk test project,"Changing the `SharpLearning.Backend.Cntk.Test` project format from new csproj to old style .net framework csproj. Also, change platform target for the project to x64 to work with CNTK.
+
+"
+*NOMERGE* Cntk experiment,Create PR to easier review the changes in this.
+Failing unit test ClassificationGradientBoostLearner_LearnWithEarlyStopping,"This always fails on when I run `all.ps1`
+cc: @mdabros 
+```
+Failed   ClassificationGradientBoostLearner_LearnWithEarlyStopping
+Error Message:
+   Assert.AreEqual failed. Expected a difference no greater than <1E-06> between expected value <0.162790697674419> and actual value <0.13953488372093>.
+Stack Trace:
+   at SharpLearning.GradientBoost.Test.Learners.ClassificationGradientBoostLearnerTest.ClassificationGradientBoostLearner_LearnWithEarlyStopping() in E:\oss\SharpLearning\src\SharpLearning.GradientBoost.Test\Learners\ClassificationGradientBoostLearnerTest.cs:line 120
+Standard Output Messages:
+
+
+Debug Trace:
+Iteration 1 Validation Error: 0.674418604651163
+   Iteration 11 Validation Error: 0.290697674418605
+   Iteration 21 Validation Error: 0.244186046511628
+   Iteration 31 Validation Error: 0.22093023255814
+   Iteration 41 Validation Error: 0.186046511627907
+   Iteration 51 Validation Error: 0.186046511627907
+   Iteration 61 Validation Error: 0.197674418604651
+   Iteration 71 Validation Error: 0.174418604651163
+   Iteration 81 Validation Error: 0.13953488372093
+   Iteration 91 Validation Error: 0.162790697674419
+```
+Both for `Debug` and `Release`.
+"
+0.26.7.0: TimeSeriesCrossValidation,"With most time series data, it is not possible to use traditional cross-validation methods, like the CrossValidators available in SharpLearning. The reason for this is, that shuffling the data will result in the learner and model using future data to predict past observations.
+While it is possible to use the NoShuffleTrainingTestSplitter to create a single split without chainging the order, this will limit the size of test set and for smaller datasets reduce the robustness of the test set error/generalization error.
+
+For this reason, this pull request introduces the TimeSeriesCrossValidation<T> class. Time series cross-validation is based on rolling validation, where the original order of the data is kept, and new observations in the test interval are predicted as hold-out samples and following included in the model one at a time. A nice illustration of this can be found here: [Cross-validation for time series](https://robjhyndman.com/hyndsight/tscv/). 
+
+The TimeSeriesCrossValidation<T> class supports the following features:
+ - InitialTrainingSetSize: Specify how much data the initial learner/model should use.
+ - maxTrainingSetSize: Specify a max size for the training interval. If no max size is specified, this will correspond to an expading training interval. If a max is specified, this will correspond to a sliding training interval.
+ - retrainInterval: Specify how often the model being validated should be retrained. If no interval is specified, the model will be retrained each time a new time step is predicted and included. If an interval is specified, the model will only be retrained at the specified interval and the existing model will be used for validation predictions inbetween the retrain intervals.
+
+More information can be found in the documentation of the code and the unit tests.
+
+A short example showing how to measure the mean square error using The TimeSeriesCrossValidation<T>class:
+
+```c#
+var tsCv = new TimeSeriesCrossValidation<double>(initialTrainingSize: 30);
+
+// Calculate the validated predictions.
+var timeSeriesPredictions = tsCv.Validate(new RegressionDecisionTreeLearner(), observations, targets);
+// Get the targets corresponding to the validation predictions. 
+var timeSeriesTargets = tsCv.GetValidationTargets(targets);
+
+// Measure the mean square error
+var metric = new MeanSquaredErrorRegressionMetric();
+var mse = metric.Error(timeSeriesTargets, timeSeriesPredictions);
+```
+
+
+ "
+Improve SequentialModelBasedOptimizer (now BayesianOptimizer),"While attending the NIPS 2017 conference I was lucky enough to have Frank Hutter, the author and co-author of several [Bayesian Optimization papers](http://ml.informatik.uni-freiburg.de/people/hutter/publications.html), explain me some insightful details about this type of optimization.
+
+This pull request contains improvements to the SequentialModelBasedOptimizer, now renamed to BayesianOptimizer, based on some of the insights provided by Frank Hutter.
+
+The main changes are:
+
+- Model type changed from RandomForest to ExtraTrees. The important change here is how the split in the decision trees are calculated. RF: (v1 + v2)/ 2 vs. ET: random * (max - min)  + min, where random is between 0 and 1.
+- Optimizer type for finding the maximum of the acquisition function changed to RandomSearchOptimizer. This should matter less, but compared to the ParticleSwarmOptimizer, this seemed to work better in practice.
+- Refactored the BayesianOptimizer to be easier to extend with other model types, optimizers and acquisition functions in the future.
+  - Currently the model type, optimizer type and acquisition function is hardcoded:
+    - Model type: ExtraTrees
+    - Optimizer type: RandomSearchOptimizer
+    - Acquisition function: Expected improvement
+  - A natural extension would be to make it possible to inject other types. Like a Gaussian Process instead of the ExtraTrees model and so forth. These changes will be included in a later pull request.
+
+I ran a small test to illustrate the improvements, optimizing the hyper parameters of a classification decision tree learner on the [landsat satellite dataset](https://archive.ics.uci.edu/ml/datasets/Statlog+(Landsat+Satellite)) from UCI. As can be seen on the attached image, the updated BayesianOptimizer uses significant less function evaluations compared with the old implementation (SequentialModelBasedOptimizer), and the RandomSearchOptimizer, while also finding a better minimum.
+
+![image](https://user-images.githubusercontent.com/9001637/34309947-faac473c-e754-11e7-8c50-e51d42c00670.png)
+"
+Fix for AccessViolationException in F64MatrixView and F64MatrixColumnView for large matrices,"#38 
+
+Changed the pointer offsets applied in `F64MatrixColumnView.RowPtr(row)` and `F64MatrixView.this[row]` to use `long` instead of `int` - integer overflows were occurring when the length of the underlying `double[]` in `F64Matrix` passed `int.MaxValue / sizeof(double)`."
+0.26.5.1: Add .net461 to target frameworks,"When using .net standard 2.0 class libraries from a .net framework application, all system dependencies will be copied to the build output. To avoid this, a net461 build has been added to the target frameworks. This means that future SharpLearning nuget packages will contain both a .netstandard2.0 build and a .net461 build.
+
+This might change in the future if .net standard changes the way dependencies are handled."
+Add contribution guide,"Adding a contribution guide to make it easier for other developers to contribute to SharpLearning. Some parts of the guide could use more details, but this should provide a start and make the contribution process more clear."
+System.AccessViolationException when retrieving data from a large dataset,"In `F64MatrixColumnView.RowPtr`, integer overflow can occur when `row * m_strideInBytes` is larger than `int.MaxValue`, resulting in an invalid offset being applied to `m_dataPtr`:
+
+    double* RowPtr(int row)
+    {
+        return (double*)((byte*)m_dataPtr + row * m_strideInBytes);
+    }
+
+I am happy to fix this (it just requires a cast to `long`), but I'm not sure how to contribute - do I branch from master, then push and create a pull request from the GitHub website? In the future, if I find a simple bug like this, should I raise an issue, or can I just push with details and let you decide whether it's a good fix?
+
+I haven't contributed to an open source project before!"
+Unnecessary System Files Generated,"For our project [MetaMorpheus](https://github.com/smith-chem-wisc/MetaMorpheus), after adding Sharplearning NuGet Package to our EngineLayer and TaskLayer, in the GUI WPF project, there is an excessive amount of unnecessary system dll files generated in the output folder after building (No matter release or debug). Here is a list of these [files](https://github.com/smith-chem-wisc/MetaMorpheus/issues/767#issuecomment-349014733). We really couldn't determine where is the problem since there is no trace in the .csproj files and references of GUI nor related projects. So please help us if you have any idea! Thanks a lot.
+"
+"CS0012	The type 'Object' is defined in an assembly that is not referenced. You must add a reference to assembly 'netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.","Fresh download, after restoring packages via NuGet.
+
+How to solve it????"
+Backends prototyping,"Creating a PR for the backends stuff to more easily see the changes.
+
+cc: @mdabros "
+Unittests fail because of localization settings,"Some unittests compare against hardcoded strings written in the test method. These fail on systems that use ,(comma) as decimal separator instead of .(dot). These strings should probably be loaded from a resource or the entire library should work with invariant culture unless otherwise specified."
+Predict overload for multiple observations added to IPredictor<TPrediction>,
+Add TPrediction[] Predict(F64Matrix observations) to public interface IPredictor<TPrediction>,"I think it would be a good idea to add the `F64Matrix `overload to the `IPredictor `interface as it would make it easier to use the `IPredictorModel `interface in your code. The models seems to implement it already. 
+
+It would add a dependency for `SharpLearning.Containers.Matrices` in `SharpLearning.Common.Interfaces`, but I think it is unlikely that you would use the SharpLearning library without referencing `SharpLearning.Containers.Matrices` anyway."
+Duplicate efforts,"Hi @mdabros!
+
+I've just found your library a couple days ago and couldn't help but notice the similarity between both of our projects, SharpLearning and [Accord.NET](https://github.com/accord-net/framework). Since we both share the same goal (bring serious machine learning to .NET), and instead of duplicating our efforts, wouldn't you be willing to join the Accord.NET project as well? 
+
+Seeing your extremely well-organized repository and coding skills, you would be more than welcome in joining Accord.NET as one of its authors. 
+
+Regards,
+Cesar"
+Change to unified project versioning,"After the migration from .net framework/desktop to .net core, I decided to switch to individual versioning for each project in SharpLearning. However, since vsts continuous integration/delivery currently does not support skipping already published nuget packages, I have decided to switch back to unified versioning across all projects. This is done differently with .net core projects compared to .net framework projects. I followed the advice from this answer on stackoverflow: [sharedassemblyinfo-equivalent-in-net-core-projects](https://stackoverflow.com/questions/42790536/sharedassemblyinfo-equivalent-in-net-core-projects). 
+
+This solution also allows to have assembly attributes shared among the projects in one location."
+Added dictionary version of KeyCombine which is a lot faster,moved unittests from CsvParserTests to CsvRowExtensionsTests
+Add better error messages to learners when input data is not valid,"This pull request should provide better error messages and feedback from the learners when invalid input data is provided and solve issue #27. 
+
+Added checks for all learners includes: 
+ - Observations: Verify that row and column count is larger than zero.
+ - Targets: Verify that row count is larger than zero
+ - Observations and Targets: Verify that the row count of observations and targets are equal
+ - Indices: Verify that there are no negative indices provided. Verify that the max index does not exceed the row count of observations and targets.  "
+Better error messages from learners in case of dimensionality mismatch,"Currently, there are no checks to verify that the dimensions of the observation matrix and the target array matches before learning is started. This results in error messages from somewhere in the learner implementation, providing poor error messages and feedback to the user.
+
+Checks should be added to all learners to ensure that the provided arguments and data is valid, before starting the learning process."
+SharpLearning.Neural full .net core2.0/standard 2.0 support,"SharpLearning.Neural depends on [math.net](https://github.com/mathnet/mathnet-numerics), which does not currently support .net core 2.0/.net standard 2.0. Hence, SharpLearning.Neural will only work on .NET Desktop/Windows. 
+
+Support for .net core 2.0/.net standard 2.0 is planned for math.net, so full support for SharpLearning.Neural will also be possible once this is implemented. Eventually, #9 might also solve this. "
+Vsts continuous integration,"Merging the move to vsts continuous integration. This will also add continuous delivery, packing and pushing nuget packages with each commit to the master branch. The nuget steps are disabled for pull requests against the master branch."
+Migrate everything to .NET Core 2 (.NET Standard 2.0),"In the end it was easier for me to start from scratch, so I didn't use the branch you had prepared (hopefully that's ok).
+
+Here are a few things from the migration that I thought I should mention:
+* I disabled the ""auto-generate AssemblyInfo"" feature of the new .csproj files so that existing `AssmeblyInfo.cs` continue to be used.
+* I left the old `.nuspec` files in place.  These take precedence over the NuGet info in the new .csproj files.
+* Updated the `SerializationString` value used in the `GenericBinarySerializer_Serialize` and `GenericBinarySerializer_Deserialize` tests to reflect the .NET Core behaviour of the `BinaryFormatter`."
+AdaBoostLearners: Add subsample ratio pr. tree as hyper parameter,"RandomForest and GradientBoost learners have a hyper parameter, subSampleRatio, which controls how many training samples are forwarded to each tree in the ensemble. When subsampling is active, samples from the training data will be drawn with replacement, leading to more variation among the trees in the ensemble. This parameter should also be introduced in the AdaBoostLearners ([ClassificationAdaBoostLearner](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.AdaBoost/Learners/ClassificationAdaBoostLearner.cs) and [RegressionAdaBoostLearner](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.AdaBoost/Learners/RegressionAdaBoostLearner.cs)), to have more possibilities for reguralizing this type of model .
+
+In the RandomForest implementation of this feature, there is sampling with replacement, even if subSamplingRatio=1.0, this is part of the algorithms design. However, for the AdaBoost implementation of this feature, if subsampling is off (subSampleRatio=1.0), no sampling with replacement should be introduced, and the whole training set should be considered in each tree of the ensemble. This will result in the 'classic', AdaBoost algorithm, if the subSamplingRatio is set to 1.0. 
+
+Besides the difference when subSampleRatio=1.0, the AdaBoost implementation should be very similar to the RandomForest implementation, which can be found here [RandomForest](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.RandomForest/Learners/ClassificationRandomForestLearner.cs)."
+AdaBoostLearners: Add features pr. split as regularization hyper parameter,"RandomForest and GradientBoost learners have a hyper parameter, featuresPrSplit, which controls how many randomly selected features are considered during the decision trees search for a new split. This parameter should also be introduced in the AdaBoostLearners ([ClassificationAdaBoostLearner](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.AdaBoost/Learners/ClassificationAdaBoostLearner.cs) and [RegressionAdaBoostLearner](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.AdaBoost/Learners/RegressionAdaBoostLearner.cs)), to have more possibilities for reguralizing this type of model .
+
+Sine the DecisionTreeLearner used in adaboost already supports 'featuresPrSplit', the implementation should simply add the hyper parameter to the adaboost learner contructors and forward the parameter to the DecisionTreeLearner."
+Better default parameters for DecisionTreeLearners,"Currently, the DecisionTreeLearners ([ClassificationDecisionTreeLearner](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.DecisionTrees/Learners/ClassificationDecisionTreeLearner.cs) and [RegressionDecisionTreeLearner](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.DecisionTrees/Learners/RegressionDecisionTreeLearner.cs)) does not have very good default parameters. With a maximumTreeDepth=2000, using the default paramters will, in most cases, result in a model that overfits the problem. Hence, a better set of default paramters should be found, that, in more cases results in a better regularized model."
+Replace SharpLearning.Containers.Matrices.F64Matrix with multidimensional array,"In SharpLearning, the F64Matrix class, which is part of the [Learner interfaces](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.Common.Interfaces), is mostly used as a container for holding the features for a learning problem. While SharpLearning does contain some [arithmetic extensions](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.Containers/Arithmetic) for the F64Matrix, the arithmetic is not used by any of the learners. Also, more efficient implementations can be found in [Math.net](https://github.com/mathnet/mathnet-numerics). 
+
+Therefore it might indicate, that the primary container for features in SharpLearning should rather be a standard .net type like multidimensional array (double[,]) or jagged array (double[][]), with some extension methods to add the current functionality of the F64Matrix. 
+
+An alternative, also suggested in #6, would be to replace the F64Matrix directly by using Math.net as the matrix provider. However, since only the SharpLearning.Neural project is using matrix arithmetic and with the plan of using [CNTK as backend](https://github.com/mdabros/SharpLearning/issues/9), math.net is a large dependency to take, if only using the matrix class as a feature container. So currently, I am leaning more towards replacing F64Matrix with a standard .net type. However, to better handle integration between Math.Net and SharpLearning, maybe a separate project, SharpLearning.MathNet, could be added with efficient conversions between Math.net and SharpLearning containers (both copy and shared memory). This of course depends on what data structure ends up replacing F64Matrix, if any.
+
+These are my current thoughts, and people are very welcome to discuss and pitch in with suggestions. 
+"
+Metrics: Consider adding support for sample weighted metrics,"When dealing with imbalanced data sets, it can be beneficial to use sample weighted metrics. This task should be split into several tasks, one for each metric, if sample weights are to be supported in the [metrics project](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.Metrics).  "
+LearningCurves: Add support for weighted learners,"Extend the [ILearningCurvesCalculator](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.CrossValidation/LearningCurves/ILearningCurvesCalculator.cs) interface to support the IWeightedIndexedLearner interface. This depends on #14 being completed.
+Implement support for sample weights in [LearningCurvesCalculator](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.CrossValidation/LearningCurves/LearningCurvesCalculator.cs). "
+CrossValidation: Add support for weighted learners,"- Extend the [ICrossValidation](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.CrossValidation/CrossValidators/ICrossValidation.cs) interface to support the IWeightedIndexedLearner interface. This depends on #14 being completed.
+- Implement support for sample weights in [CrossValidation](https://github.com/mdabros/SharpLearning/blob/master/src/SharpLearning.CrossValidation/CrossValidators/CrossValidation.cs)."
+Ensemble learners: Add support for sample weights,"Add support for sample weights to the Ensemble learners. This will make it possible to handle imbalanced datasets directly in the learners, instead of under/oversampling the dataset inorder to balance it.
+
+This task requires #14 to be done first, since the ensemble learners needs to be extended to also support weighted learners in the constructor.
+
+Following the learners must implement weighted learner interfaces and should simply forward the sample weights the learners in the ensemble. The ensemble learners can be found here in the ensemble project: [Ensemble learners](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.Ensemble/Learners)"
+NeuralNet: Add support for sample weights,"Add support for sample weights to the NeuralNet learners. This will make it possible to handle imbalanced datasets directly in the learners, instead of under/oversampling the dataset inorder to balance it.
+
+This is currently on-hold until #9 has been decided."
+Add IWeigtedLearner and IWeigtedIndexedLearner interfaces to Common.Interfaces,"Add interface for learners supporting sample weights:
+
+```csharp
+IPredictorModel<TPrediction> Learn(F64Matrix observations, double[] targets, 
+double[] sampleWeights);
+```
+
+Add interface for learners supporting sample indices and sample weights:
+
+```csharp
+IPredictorModel<TPrediction> Learn(F64Matrix observations, double[] targets, 
+double[] sampleWeights, int[] indices);
+```
+"
+GradientBoost: Add support for sample weights,"Add support for sample weights to the GradientBoost learners. This will make it possible to handle imbalanced datasets directly in the learners, instead of under/oversampling the dataset inorder to balance it.
+
+The GBMDecisionTreeLearner, used by GradientBoost does not support sample weights, so adding sample weight support to the GradientBoost learners requires first adding it to the GBMDecisionTreeLearner. Adding sample weight support to the GBMDecisionTreeLearner, primarely requires using the wieghts in the loss functions: [GradientBoost Loss](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.GradientBoost/Loss)
+
+Following, sample wieght support can be added to the GradientBoost learners. The learners can be found here in the GradientBoost project: [GradientBoost](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.GradientBoost/Learners)"
+ExtremelyRandomizedTrees: Add support for sample weights,"Add support for sample weights to the ExtremelyRandomizedTrees learners. This will make it possible to handle imbalanced datasets directly in the learners, instead of under/oversampling the dataset inorder to balance it. 
+
+The DecisionTreeLearners, used by ExtremelyRandomizedTrees, already support sample weights, so implementing it only involves setting up the sample weights and forwarding the weights to the DecisionTreeLearner for each tree. The learners can be found here in the RandomForest project:
+ [ExtremelyRandomizedTrees](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.RandomForest/Learners)"
+RandomForest: Add support for sample weights,"Add support for sample weights to the RandomForest learners. This will make it possible to handle imbalanced datasets directly in the learners, instead of under/oversampling the dataset inorder to balance it. 
+
+The DecisionTreeLearners, used by RandomForest, already support sample weights, so implementing it only involves setting up the sample weights and forwarding the weights to the DecisionTreeLearner for each tree. The learners can be found here in the RandomForest project: [RandomForest](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.RandomForest/Learners)"
+AdaBoost: Add support for sample weights,"Add support for sample weights to the AdaBoost learners. This will make it possible to handle imbalanced datasets directly in the learners, instead of under/oversampling the dataset inorder to balance it. 
+
+The DecisionTreeLearners, used by AdaBoost, already support sample weights, so implementing it only involves setting up the sample weights and forwarding the weights to the DecisionTreeLearner in each boosting iteration. The learners can be found here in the AdaBoost project: [AdaBoost](https://github.com/mdabros/SharpLearning/tree/master/src/SharpLearning.AdaBoost/Learners)
+
+The work is currently in progress in the branch [adaboost-sample-weight-support](https://github.com/mdabros/SharpLearning/tree/adaboost-sample-weight-support)"
+CNTK as backend for SharpLearning.Neural,"The Microsoft team working on [CNTK](https://github.com/Microsoft/CNTK) has recently released the initial version of the C#/.Net API with support for both evaluation and training of neural networks. A more feature complete version, with support for layers and other helpful features, should arrive before the end of the year. Currently, there seems to be a few performance related issues (https://github.com/Microsoft/CNTK/issues/2374 and https://github.com/Microsoft/CNTK/issues/2386) but hopefully these will be also be solved in the next release.
+
+Using CNTK as backend for SharpLearning.Neural will add operators for more layer and network types, while also enabling GPU training and evaluation. Using a well supported deep learning toolkit as backend will also help to ensure that future operator, layer and network types will be available faster.
+
+This task will require a large rewrite of SharpLearning.Neural, most likely only keeping the top level interface. However, since all the core operations are availible from CNTK, most of the hard work is already completed.
+
+This task should be split into multiple others when a design of how CNTK should be integrated has been completed. A few considerations:
+- Should the integrations be ""simple"", i.e. only have a NeuralNetLearner and NeuralNetModel in SharpLearning and use the layer construction and related functionality from CNTK directly?
+- Should the integration hide CNTK behind an adapter to make it easier to support other deep learning toolkits like TensorFlow(Sharp)? "
+.Net Core and .Net Standard support,"Add .NET Core and .Net Standard support to make SharpLearning available on more platforms. Porting to .Net Standard involves the following tasks:
+
+- Retargeting the projects .NET Framework version to .NET Framework 4.6.2.
+- Determining the portability of the code using API Portability Analyzer. This has been done, and only the GenericXmlDataContractSerializer from SharpLearning.InputOutput uses unsupported API calls.
+- Change the implementation of GenericXmlDataContractSerializer to conform with .net standard 2.0. This is possible with the available API calls, however there are issues with serializing some of the Math.net containers used in the NeuralNet models. This might be solved together with #9, since CNTK will most likely replace math.net in the SharpLearning.Neural project.
+- Change project format to .net core.
+
+After the porting process the continuous integration on appveyor must be updated."
+"Exception: Source array was not long enough. Check srcIndex and length, and the array's lower bounds","The following code throws a System.IndexOutOfRangeException on line 328 in GBMDecisionTreeLearner.cs
+
+```
+            var sut = new RegressionSquareLossGradientBoostLearner();
+
+            Random rnd = new Random(42);
+            var rows = 10000;
+            var columns = 1;
+            double[] values = new double[rows * columns];
+            for (int i = 0; i < rows * columns; i++)
+                values[i] = rnd.NextDouble();
+            Containers.Matrices.F64Matrix observations = new Containers.Matrices.F64Matrix(values, 1, 10000);
+            double[] targets = new double[rows];
+            for (int i = 0; i < rows; i++)
+                targets[i] = rnd.NextDouble();
+
+            var model = sut.Learn(observations, targets);
+```"
+Math.NET Matrices,"This is a really great library. Was there a specific reason why you chose to roll your own Matrix class, rather than leveraging Math.NET?
+
+Ideally I'd like to marry the two (not only for consistency with modules I've already written, but even for smaller things like using Matrix<float> rather than Matrix<double>). Before I jump in and start changing anything, though, I thought I'd check with the author to see if there was a specific reason behind it.
+
+If I do proceed with integrating the two, more than happy to submit back a PR too, just let me know."
+Thanks for developing and sharing this brilliant machine learning package in C#,
+Please share your vision of .NET deep Learning,"@mdabros Pls apologize if I hijack your excellent work here.
+
+Daniel from MSFT is gathering [a broad vision for .NET Deep Learning here.](https://github.com/Microsoft/CNTK/issues/960#issuecomment-315049580)  I think you may have unique view on this.  "
+[Question] 2d - 3d output in neural networks,"Is it possible ? 
+And if it's possible, how to train the network ?"
+Feature Suggestion,"
+First of all, I want to congratulate you for this project. I have a suggestion, couldn't figure where to write it other than issues on GitHub.
+
+My suggestion is, number of observations (or better their indexes, one can count them) that fall to the left and right child of a node.
+"
+"Restructure repo, add scripts and nuget packaging",

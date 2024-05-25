@@ -1,0 +1,180 @@
+title,body
+fit error  help,"model = Sequential()
+
+model.add(Conv2D(32, kernel_size=(5, 9),
+                 activation='relu', input_shape=input_shape))
+model.add(MaxPooling2D(pool_size=(2, 4)))
+
+model.add(Conv2D(16, kernel_size=(5, 7), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 3)))
+
+model.add(Flatten())
+
+#num_classes*4 =104 
+
+model.add(Dense(num_classes*4, activation='sigmoid'))
+
+
+model.compile(loss=keras.losses.binary_crossentropy,
+              optimizer=keras.optimizers.Adadelta(),
+              metrics=['accuracy'])
+
+model.fit(x_train, y_train,
+          batch_size=batch_size,
+          epochs=epochs,
+          verbose=1,
+          validation_data=(x_test, y_test))
+
+ValueError: Error when checking target: expected dense_1 to have shape (104,) but got array with shape (26,)
+
+why？ help me~~~~thks~"
+验证码重叠,
+add a font file and fix the writing style,
+4-6个字符能用一个模型实现吗？,你好，你的模型我成功复制了，4个字符，6个字符单独测试都识别率很高，有没有办法一个模型既支持4个字符又支持6个字符。
+write labels err,"    writer.writerows(labels)
+TypeError: a bytes-like object is required, not 'str'"
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1,按照你上面的代码运行发现报这个错误，查了下说明超出了范围，不大理解为什么连接相加的时候出错了，谢谢告知
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1,"装好依赖，生成图片后，直接运行，报如下错误
+picnum :  6000
+6000 (20, 80)
+6000 4
+Traceback (most recent call last):
+  File ""cnn_end2end_ocr.py"", line 76, in <module>
+    c = np.concatenate((c0,c1,c2,c3),axis=1)
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1"
+Only extract one word from gumbel softmax,"In the code https://github.com/yala/text_nn/blob/master/rationale_net/utils/learn.py#L71-L85
+
+```python
+def get_hard_mask(z, return_ind=False):
+    '''
+        -z: torch Tensor where each element probablity of element
+        being selected
+        -args: experiment level config
+        returns: A torch variable that is binary mask of z >= .5
+    '''
+    max_z, ind = torch.max(z, dim=-1)
+    if return_ind:
+        del z
+        return ind
+    masked = torch.ge(z, max_z.unsqueeze(-1)).float()
+    del z
+    return masked
+
+```
+
+because we take the max, usually, only one position will have the max value. 
+In this case, if we have 100 words in the sentence, we only select one word as the rationale?
+I thought we should select independently and choose those words with >0.5 probability.
+
+Maybe we should change
+```python
+masked = torch.ge(z, max_z.unsqueeze(-1)).float()
+```
+to 
+```python
+masked = torch.ge(z, 0.5).float()
+```
+instead?"
+Multiple GPUs is broken,"Hi Yala! 
+
+Great package. Just letting you know, though, that computation on multiple GPU's is broken for two reasons:
+
+1. The `model.py` file does not import 
+``import torch.nn as nn``
+that's an easy fix.
+
+2. You have some class-attribute dependencies that are single-thread bound.
+https://github.com/pytorch/pytorch/issues/8637
+
+I'm not sure exactly what they are, but here is my error message, which matches the one in the issue I linked to above:
+
+```
+Traceback (most recent call last):
+  File ""scripts/main.py"", line 35, in <module>
+    epoch_stats, model, gen = train.train_model(train_data, dev_data, model, gen, args)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/learn/train.py"", line 59, in train_model
+    args=args)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/learn/train.py"", line 198, in run_epoch
+    mask, z = gen(x_indx)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py"", line 152, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py"", line 162, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py"", line 85, in parallel_apply
+    output.reraise()
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/_utils.py"", line 369, in reraise
+    raise self.exc_type(msg)
+RuntimeError: Caught RuntimeError in replica 1 on device 1.
+Original Traceback (most recent call last):
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py"", line 60, in _worker
+    output = module(*input, **kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/models/generator.py"", line 55, in forward
+    activ = self.cnn(x)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/models/cnn.py"", line 55, in forward
+    activ = self._conv(x)
+  File ""/auto/rcf-proj/ef/spangher/newspaper-pages/text_nn/rationale_net/models/cnn.py"", line 41, in _conv
+    next_activ.append( conv(padded_activ) )
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/module.py"", line 547, in __call__
+    result = self.forward(*input, **kwargs)
+  File ""/home/rcf-40/spangher/.local/lib/python3.7/site-packages/torch/nn/modules/conv.py"", line 200, in forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: Expected tensor for argument #1 'input' to have the same device as tensor for argument #2 'weight'; but device 1 does not equal 0 (while checking arguments for cudnn_convolution)```
+
+Alex"
+Gumbel softmax instead of Reinforce,"Hi,
+
+Thank you for your code ! I have seen you wrote Gumbel instead of Reinforce but I don't understand exactly how Reinforce was implemented before as I don't see any average over Z samples. Here I see that Z is sampled only once https://github.com/yala/text_nn/blob/master/rationale_net/models/generator.py#L40 .
+
+Did I miss something ?
+
+Thank you very much for your help"
+Is log_softmax function missing in the Line 39 of generator.py?,"I think log_softmax function should be added in Line 39 if we want to use the Gumbel Softmax.
+
+`logits = F.log_softrmax(self.hidden(activ))`
+
+If I'm wrong, please let me know. 
+Thanks.
+
+![image](https://user-images.githubusercontent.com/17995697/54492275-0d17c500-4900-11e9-8bee-addd81d35934.png)
+"
+Can this be applied to a regression problem?,Can this be applied to a regression problem?
+Is it possible to share the pre-trained embedding for beer reviews? ,"From https://github.com/yala/text_nn/blob/master/rationale_net/utils/embedding.py#L38 , it's trying to find `review+wiki.filtered.200.txt.gz`, is it possible to share the pre-trained embedding for beer reviews? "
+Tutorial,Added tutorial
+gpu-trained on cpu fix,
+Refactor,Add rationale export in results file and clean up code
+FileNotFoundError: [Errno 2] No such file or directory: 'pickle_files/embeddings.p',"In dataset.py we read
+    embedding_path = 'pickle_files/embeddings.p'
+    word_to_indx_path = 'pickle_files/vocabIndxDict.p'
+    embedding_tensor = pickle.load(open(embedding_path,'rb'))
+    word_to_indx = pickle.load(open(word_to_indx_path,'rb'))
+However, the two files are not in the zip-code?"
+AttributeError: 'Namespace' object has no attribute 'use_as_tagger',"Running from command line:
+`CUDA_VISIBLE_DEVICES=2 python -u scripts/main.py  --batch_size 64 --cuda --dataset full_beer --embedding 
+glove --dropout 0.05 --weight_decay 5e-06 --num_layers 1 --model_form cnn --hidden_dim 100 --epochs 50 --init_lr 0.0001 --num_workers
+ 0 --objective cross_entropy --patience 5 --save_dir snapshot --train --test --results_path logs/adhoc_0.results  --gumbel_decay 1e-5 --get_rationales
+ --aspect aroma --selection_lambda .005 --continuity_lambda .01`
+
+Gives an error:
+
+`
+Traceback (most recent call last):
+  File ""scripts/main.py"", line 30, in <module>
+    gen, model = model_utils.get_model(args, embeddings, train_data)
+  File ""/home/mglowacki/Desktop/RNN_yala_pytorch_2/rationale_net/utils/model.py"", line 12, in get_model
+    if args.use_as_tagger == True:
+AttributeError: 'Namespace' object has no attribute 'use_as_tagger'
+`
+I've checked sourcecode but there is no --use_as_tagger parameter in args.
+Btw. in the same file `model.py` there is an additional problem because `nn` is not imported.
+
+"
+fixing 0-dim tensor (scalar) access,"New versions of PyTorch will require proper usage for accessing 0 dimensional Tensors:
+`tensor.item()` instead of `tensor.data[0]`"
+Tagging,
+added confusion matrix info,

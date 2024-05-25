@@ -1,0 +1,34 @@
+title,body
+correct a typo,"The x1 in compute_kernel_Gaussian(x1, centers, sigma) would make the compute_density_ratio function unable to work as expected, it should be the argument x instead of x1"
+KLIEP regularization,"First off, thanks for this very useful package! The interface is smooth and the implementation is quite fast, even for large problems.
+
+I've noticed that some papers make use of regularization penalties when fitting weights for KLIEP (see, e.g., §3.2 of [this review](https://arxiv.org/abs/1701.01582)). I wonder if it would be possible to incorporate L1, L2, and/or elastic net regularization into the KLIEP optimization? Something similar appears to be implemented for uLSIF. "
+Some Bugs in the KLIEP,"There are some bugs in the script KLIEP.R. One is that in this sentence ` if(verbose) message(""Searching optimal sigma and lambda..."")`  we only optimize sigma without lambda. A serious one is in the function `compute_density_ratio`, this function use the train set to predict the density ratio of a new sample, which results in the mismarch of the dimension of the predicted value and the new sample."
+Refactoring,
+implement RuSLIF,
+Information Criterion,"http://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1703-02.pdf
+によれば最小二乗の場合はAICもモデル選択に有効のようですが、AICは実装されていないのでしょうか or AICをdensratioの結果に対して計算するためには何を尤度と考えるのが適切でしょうか？"
+Euclidean distance should be squared?,"https://github.com/hoxo-m/densratio/blob/3b877d5fdaf1b020a75c373b153b84210820934e/R/compute_kernel_Gaussian.R#L10
+
+This line probably computes the Gaussian kernel.
+If so, I think the Euclidean distance should be squared."
+update KLIEP_optimized_alpha.R more accuracy,"KLIEP_optimized_alpha()の
+c <- b / crossprod(b)[1, 1]
+部分で， |b| << 1 の時，crossprod(b)[1, 1] が 0 になってしまい，c の成分が Inf または NaN になり最終的に score_new もNaNでエラーとなることがありました．
+
+c <- b / crossprod(b)[1, 1]　
+を
+nb <- norm(b)
+c <- b / nb / nb 
+とすることで回避しました．
+
+
+
+
+"
+Search parameters using Bayesian optimization,"The uLSIF algorithm find optimal lambda and sigma parameters using grid search.
+Instead of grid search, how about use Bayesian optimization?"
+refine documents,
+modify documents,
+Cran,"on CRAN now
+"

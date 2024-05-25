@@ -1,0 +1,34 @@
+title,body
+can i get sample dataset?,
+Misleading graphs for RNN network Dataset 2,The graphs for the accuracy and loss rates for RNN results for dataset 2 do not have the same scale as the CNN and HAN results. The non-matching scaling factor causes the RNN graphs to indicate higher accuracy than they should when visually compared with the CNN and HAN graphs.
+predict,I have already trained and got a model. How to predict for a new data now?
+Typo in CNN.ipynb,"    for idx in range(data_train.message.shape[0]):
+        text = BeautifulSoup(data_train.message[idx])
+        texts.append(clean_str(str(text.get_text().encode())))
+    
+    for idx in data_train['class']:
+        labels.append(idx)
+
+Should be:
+    
+    for idx in range(df.message.shape[0]):
+        text = BeautifulSoup(df.message[idx])
+        texts.append(clean_str(str(text.get_text().encode())))
+    
+    for idx in df['class']:
+        labels.append(idx)
+
+(In the CNN code)"
+Data Sample,"Hi, 
+
+Cane we please have a sample of the data that you pushed into it?"
+Create requirements.txt,Basic file for easier cloning and running the repo
+data_train in CNN.ipynb,"Line 5 of block 6 has a variable data_train which comes out of blue.
+
+Please see if it is the case of missing block of naming inconsistency.
+
+Thanks
+R"
+Share datasets,"Hello, this report so cool. I never imagined that CNN have great results on text classification. I wanna to try reproduce and maybe add other parameters like dropout to make more accurate, can you share the datasets? or script for scrapping datasets?
+
+Thank you for your great explanation too on your blog!"

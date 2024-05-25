@@ -1,0 +1,624 @@
+title,body
+Bump certifi from 2022.12.7 to 2023.7.22,"Bumps [certifi](https://github.com/certifi/python-certifi) from 2022.12.7 to 2023.7.22.
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/certifi/python-certifi/commit/8fb96ed81f71e7097ed11bc4d9b19afd7ea5c909""><code>8fb96ed</code></a> 2023.07.22</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/afe77220e0eaa722593fc5d294213ff5275d1b40""><code>afe7722</code></a> Bump actions/setup-python from 4.6.1 to 4.7.0 (<a href=""https://redirect.github.com/certifi/python-certifi/issues/230"">#230</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/2038739ad56abec7aaddfa90ad2ce6b3ed7f5c7b""><code>2038739</code></a> Bump dessant/lock-threads from 3.0.0 to 4.0.1 (<a href=""https://redirect.github.com/certifi/python-certifi/issues/229"">#229</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/44df761f4c09d19f32b3cc09208a739043a5e25b""><code>44df761</code></a> Hash pin Actions and enable dependabot (<a href=""https://redirect.github.com/certifi/python-certifi/issues/228"">#228</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/8b3d7bae85bbc87c9181cc1d39548db3d31627f0""><code>8b3d7ba</code></a> 2023.05.07</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/53da2405b1af430f6bafa21ba45d8dd8dfc726b8""><code>53da240</code></a> ci: Add Python 3.12-dev to the testing (<a href=""https://redirect.github.com/certifi/python-certifi/issues/224"">#224</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/c2fc3b1f64d6946f1057971ee897ea828ae848d8""><code>c2fc3b1</code></a> Create a Security Policy (<a href=""https://redirect.github.com/certifi/python-certifi/issues/222"">#222</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/c211ef482a01aff5f1bc92c4128bfa0c955f4a01""><code>c211ef4</code></a> Set up permissions to github workflows (<a href=""https://redirect.github.com/certifi/python-certifi/issues/218"">#218</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/2087de5d0aa1d472145fc1dbdfece3fe652bbac5""><code>2087de5</code></a> Don't let deprecation warning fail CI (<a href=""https://redirect.github.com/certifi/python-certifi/issues/219"">#219</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/e0b9fc5c8f52ac8c300da502e5760ce3d41429ec""><code>e0b9fc5</code></a> remove paragraphs about 1024-bit roots from README</li>
+<li>Additional commits viewable in <a href=""https://github.com/certifi/python-certifi/compare/2022.12.07...2023.07.22"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=certifi&package-manager=pip&previous-version=2022.12.7&new-version=2023.7.22)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/kinosal/optimizer/network/alerts).
+
+</details>"
+Bump requests from 2.29.0 to 2.31.0,"Bumps [requests](https://github.com/psf/requests) from 2.29.0 to 2.31.0.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/psf/requests/releases"">requests's releases</a>.</em></p>
+<blockquote>
+<h2>v2.31.0</h2>
+<h2>2.31.0 (2023-05-22)</h2>
+<p><strong>Security</strong></p>
+<ul>
+<li>
+<p>Versions of Requests between v2.3.0 and v2.30.0 are vulnerable to potential
+forwarding of <code>Proxy-Authorization</code> headers to destination servers when
+following HTTPS redirects.</p>
+<p>When proxies are defined with user info (<a href=""https://user:pass@proxy:8080"">https://user:pass@proxy:8080</a>), Requests
+will construct a <code>Proxy-Authorization</code> header that is attached to the request to
+authenticate with the proxy.</p>
+<p>In cases where Requests receives a redirect response, it previously reattached
+the <code>Proxy-Authorization</code> header incorrectly, resulting in the value being
+sent through the tunneled connection to the destination server. Users who rely on
+defining their proxy credentials in the URL are <em>strongly</em> encouraged to upgrade
+to Requests 2.31.0+ to prevent unintentional leakage and rotate their proxy
+credentials once the change has been fully deployed.</p>
+<p>Users who do not use a proxy or do not supply their proxy credentials through
+the user information portion of their proxy URL are not subject to this
+vulnerability.</p>
+<p>Full details can be read in our <a href=""https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q"">Github Security Advisory</a>
+and <a href=""https://nvd.nist.gov/vuln/detail/CVE-2023-32681"">CVE-2023-32681</a>.</p>
+</li>
+</ul>
+<h2>v2.30.0</h2>
+<h2>2.30.0 (2023-05-03)</h2>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>
+<p>⚠️ Added support for urllib3 2.0. ⚠️</p>
+<p>This may contain minor breaking changes so we advise careful testing and
+reviewing <a href=""https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html"">https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html</a>
+prior to upgrading.</p>
+<p>Users who wish to stay on urllib3 1.x can pin to <code>urllib3&lt;2</code>.</p>
+</li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/psf/requests/blob/main/HISTORY.md"">requests's changelog</a>.</em></p>
+<blockquote>
+<h2>2.31.0 (2023-05-22)</h2>
+<p><strong>Security</strong></p>
+<ul>
+<li>
+<p>Versions of Requests between v2.3.0 and v2.30.0 are vulnerable to potential
+forwarding of <code>Proxy-Authorization</code> headers to destination servers when
+following HTTPS redirects.</p>
+<p>When proxies are defined with user info (<a href=""https://user:pass@proxy:8080"">https://user:pass@proxy:8080</a>), Requests
+will construct a <code>Proxy-Authorization</code> header that is attached to the request to
+authenticate with the proxy.</p>
+<p>In cases where Requests receives a redirect response, it previously reattached
+the <code>Proxy-Authorization</code> header incorrectly, resulting in the value being
+sent through the tunneled connection to the destination server. Users who rely on
+defining their proxy credentials in the URL are <em>strongly</em> encouraged to upgrade
+to Requests 2.31.0+ to prevent unintentional leakage and rotate their proxy
+credentials once the change has been fully deployed.</p>
+<p>Users who do not use a proxy or do not supply their proxy credentials through
+the user information portion of their proxy URL are not subject to this
+vulnerability.</p>
+<p>Full details can be read in our <a href=""https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q"">Github Security Advisory</a>
+and <a href=""https://nvd.nist.gov/vuln/detail/CVE-2023-32681"">CVE-2023-32681</a>.</p>
+</li>
+</ul>
+<h2>2.30.0 (2023-05-03)</h2>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>
+<p>⚠️ Added support for urllib3 2.0. ⚠️</p>
+<p>This may contain minor breaking changes so we advise careful testing and
+reviewing <a href=""https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html"">https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html</a>
+prior to upgrading.</p>
+<p>Users who wish to stay on urllib3 1.x can pin to <code>urllib3&lt;2</code>.</p>
+</li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/psf/requests/commit/147c8511ddbfa5e8f71bbf5c18ede0c4ceb3bba4""><code>147c851</code></a> v2.31.0</li>
+<li><a href=""https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5""><code>74ea7cf</code></a> Merge pull request from GHSA-j8r2-6x86-q33q</li>
+<li><a href=""https://github.com/psf/requests/commit/302225334678490ec66b3614a9dddb8a02c5f4fe""><code>3022253</code></a> test on pypy 3.8 and pypy 3.9 on windows and macos (<a href=""https://redirect.github.com/psf/requests/issues/6424"">#6424</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/b639e66c816514e40604d46f0088fbceec1a5149""><code>b639e66</code></a> test on py3.12 (<a href=""https://redirect.github.com/psf/requests/issues/6448"">#6448</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/d3d504436ef0c2ac7ec8af13738b04dcc8c694be""><code>d3d5044</code></a> Fixed a small typo (<a href=""https://redirect.github.com/psf/requests/issues/6452"">#6452</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/2ad18e0e10e7d7ecd5384c378f25ec8821a10a29""><code>2ad18e0</code></a> v2.30.0</li>
+<li><a href=""https://github.com/psf/requests/commit/f2629e9e3c7ce3c3c8c025bcd8db551101cbc773""><code>f2629e9</code></a> Remove strict parameter (<a href=""https://redirect.github.com/psf/requests/issues/6434"">#6434</a>)</li>
+<li>See full diff in <a href=""https://github.com/psf/requests/compare/v2.29.0...v2.31.0"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=requests&package-manager=pip&previous-version=2.29.0&new-version=2.31.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+You can trigger a rebase of this PR by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/kinosal/optimizer/network/alerts).
+
+</details>
+
+> **Note**
+> Automatic rebases have been disabled on this pull request as it has been open for over 30 days.
+"
+Bump flask from 2.2.3 to 2.3.2,"Bumps [flask](https://github.com/pallets/flask) from 2.2.3 to 2.3.2.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/pallets/flask/releases"">flask's releases</a>.</em></p>
+<blockquote>
+<h2>2.3.2</h2>
+<p>This is a security fix release for the 2.3.x release branch.</p>
+<ul>
+<li>Security advisory: <a href=""https://github.com/pallets/flask/security/advisories/GHSA-m2qf-hxjv-5gpq"">https://github.com/pallets/flask/security/advisories/GHSA-m2qf-hxjv-5gpq</a>, CVE-2023-30861</li>
+<li>Changes: <a href=""https://flask.palletsprojects.com/en/2.3.x/changes/#version-2-3-2"">https://flask.palletsprojects.com/en/2.3.x/changes/#version-2-3-2</a></li>
+<li>Milestone: <a href=""https://github.com/pallets/flask/milestone/29?closed=1"">https://github.com/pallets/flask/milestone/29?closed=1</a></li>
+</ul>
+<h2>2.3.1</h2>
+<p>This is a fix release for the 2.3.x release branch.</p>
+<ul>
+<li>Changes: <a href=""https://flask.palletsprojects.com/en/2.3.x/changes/#version-2-3-1"">https://flask.palletsprojects.com/en/2.3.x/changes/#version-2-3-1</a></li>
+<li>Milestone: <a href=""https://github.com/pallets/flask/milestone/28?closed=1"">https://github.com/pallets/flask/milestone/28?closed=1</a></li>
+</ul>
+<h2>2.3.0</h2>
+<p>This is a feature release, which includes new features, removes previously deprecated code, and adds new deprecations. The 2.3.x branch is now the supported fix branch, the 2.2.x branch will become a tag marking the end of support for that branch. We encourage everyone to upgrade, and to use a tool such as <a href=""https://pypi.org/project/pip-tools/"">pip-tools</a> to pin all dependencies and control upgrades. Test with warnings treated as errors to be able to adapt to deprecation warnings early.</p>
+<ul>
+<li>Changes: <a href=""https://flask.palletsprojects.com/en/2.3.x/changes/#version-2-3-0"">https://flask.palletsprojects.com/en/2.3.x/changes/#version-2-3-0</a></li>
+<li>Milestone: <a href=""https://github.com/pallets/flask/milestone/24?closed=1"">https://github.com/pallets/flask/milestone/24?closed=1</a></li>
+</ul>
+<h2>2.2.4</h2>
+<p>This is a fix release for the 2.2.x release branch.</p>
+<ul>
+<li>Changes: <a href=""https://flask.palletsprojects.com/en/2.2.x/changes/#version-2-2-4"">https://flask.palletsprojects.com/en/2.2.x/changes/#version-2-2-4</a></li>
+<li>Milestone: <a href=""https://github.com/pallets/flask/milestone/27?closed=1"">https://github.com/pallets/flask/milestone/27?closed=1</a></li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/pallets/flask/blob/main/CHANGES.rst"">flask's changelog</a>.</em></p>
+<blockquote>
+<h2>Version 2.3.2</h2>
+<p>Released 2023-05-01</p>
+<ul>
+<li>Set <code>Vary: Cookie</code> header when the session is accessed, modified, or refreshed.</li>
+<li>Update Werkzeug requirement to &gt;=2.3.3 to apply recent bug fixes.</li>
+</ul>
+<h2>Version 2.3.1</h2>
+<p>Released 2023-04-25</p>
+<ul>
+<li>Restore deprecated <code>from flask import Markup</code>. :issue:<code>5084</code></li>
+</ul>
+<h2>Version 2.3.0</h2>
+<p>Released 2023-04-25</p>
+<ul>
+<li>
+<p>Drop support for Python 3.7. :pr:<code>5072</code></p>
+</li>
+<li>
+<p>Update minimum requirements to the latest versions: Werkzeug&gt;=2.3.0, Jinja2&gt;3.1.2,
+itsdangerous&gt;=2.1.2, click&gt;=8.1.3.</p>
+</li>
+<li>
+<p>Remove previously deprecated code. :pr:<code>4995</code></p>
+<ul>
+<li>The <code>push</code> and <code>pop</code> methods of the deprecated <code>_app_ctx_stack</code> and
+<code>_request_ctx_stack</code> objects are removed. <code>top</code> still exists to give
+extensions more time to update, but it will be removed.</li>
+<li>The <code>FLASK_ENV</code> environment variable, <code>ENV</code> config key, and <code>app.env</code>
+property are removed.</li>
+<li>The <code>session_cookie_name</code>, <code>send_file_max_age_default</code>, <code>use_x_sendfile</code>,
+<code>propagate_exceptions</code>, and <code>templates_auto_reload</code> properties on <code>app</code>
+are removed.</li>
+<li>The <code>JSON_AS_ASCII</code>, <code>JSON_SORT_KEYS</code>, <code>JSONIFY_MIMETYPE</code>, and
+<code>JSONIFY_PRETTYPRINT_REGULAR</code> config keys are removed.</li>
+<li>The <code>app.before_first_request</code> and <code>bp.before_app_first_request</code> decorators
+are removed.</li>
+<li><code>json_encoder</code> and <code>json_decoder</code> attributes on app and blueprint, and the
+corresponding <code>json.JSONEncoder</code> and <code>JSONDecoder</code> classes, are removed.</li>
+<li>The <code>json.htmlsafe_dumps</code> and <code>htmlsafe_dump</code> functions are removed.</li>
+<li>Calling setup methods on blueprints after registration is an error instead of a
+warning. :pr:<code>4997</code></li>
+</ul>
+</li>
+<li>
+<p>Importing <code>escape</code> and <code>Markup</code> from <code>flask</code> is deprecated. Import them
+directly from <code>markupsafe</code> instead. :pr:<code>4996</code></p>
+</li>
+<li>
+<p>The <code>app.got_first_request</code> property is deprecated. :pr:<code>4997</code></p>
+</li>
+<li>
+<p>The <code>locked_cached_property</code> decorator is deprecated. Use a lock inside the
+decorated function if locking is needed. :issue:<code>4993</code></p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/pallets/flask/commit/f3b8f570545200c87465d18386f3fc9f2258307a""><code>f3b8f57</code></a> release version 2.3.2</li>
+<li><a href=""https://github.com/pallets/flask/commit/c990bba94ab9bc81adf2d33e83c9a9628a2098f2""><code>c990bba</code></a> update min test env</li>
+<li><a href=""https://github.com/pallets/flask/commit/adedb2a64ea7703369bc89021710b439ee79f8dc""><code>adedb2a</code></a> Merge pull request <a href=""https://redirect.github.com/pallets/flask/issues/5101"">#5101</a> from pallets/update-werkzeug</li>
+<li><a href=""https://github.com/pallets/flask/commit/e1aedecdc689cc9a79131851dbdabf6c3bc49c9e""><code>e1aedec</code></a> update werkzeug</li>
+<li><a href=""https://github.com/pallets/flask/commit/37badc3ce8b0665e3454547839196a676729309f""><code>37badc3</code></a> update changelog</li>
+<li><a href=""https://github.com/pallets/flask/commit/70f906c51ce49c485f1d355703e9cc3386b1cc2b""><code>70f906c</code></a> Merge pull request from GHSA-m2qf-hxjv-5gpq</li>
+<li><a href=""https://github.com/pallets/flask/commit/8705dd39c4fa563ea0fe0bf84c85da8fcc98b88d""><code>8705dd3</code></a> set <code>Vary: Cookie</code> header consistently for session</li>
+<li><a href=""https://github.com/pallets/flask/commit/9532cba45d2339e90ebf04f178b1e4f2064e7328""><code>9532cba</code></a> fix mypy finding</li>
+<li><a href=""https://github.com/pallets/flask/commit/0bc7356ce1ae11e633426902aba76d525f4523da""><code>0bc7356</code></a> start version 2.3.2</li>
+<li><a href=""https://github.com/pallets/flask/commit/f07fb2b607c1eaa724ca9bfe43e2dc20d97d34de""><code>f07fb2b</code></a> Merge pull request <a href=""https://redirect.github.com/pallets/flask/issues/5086"">#5086</a> from pallets/release-2.3.1</li>
+<li>Additional commits viewable in <a href=""https://github.com/pallets/flask/compare/2.2.3...2.3.2"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=flask&package-manager=pip&previous-version=2.2.3&new-version=2.3.2)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/kinosal/optimizer/network/alerts).
+
+</details>"
+Bump sentry-sdk from 1.12.1 to 1.14.0,"Bumps [sentry-sdk](https://github.com/getsentry/sentry-python) from 1.12.1 to 1.14.0.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/getsentry/sentry-python/releases"">sentry-sdk's releases</a>.</em></p>
+<blockquote>
+<h2>1.14.0</h2>
+<h3>Various fixes &amp; improvements</h3>
+<ul>
+<li>
+<p>Add <code>before_send_transaction</code> (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1840"">#1840</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+<p>Adds a hook (similar to <code>before_send</code>) that is called for all transaction events (performance releated data).</p>
+<p>Usage:</p>
+<pre lang=""python""><code>  import sentry_sdk
+<p>def strip_sensitive_data(event, hint):
+# modify event here (or return <code>None</code> if you want to drop the event entirely)
+return event</p>
+<p>sentry_sdk.init(
+# ...
+before_send_transaction=strip_sensitive_data,
+)
+</code></pre></p>
+<p>See also: <a href=""https://docs.sentry.io/platforms/python/configuration/filtering/#using-platformidentifier-namebefore-send-transaction-"">https://docs.sentry.io/platforms/python/configuration/filtering/#using-platformidentifier-namebefore-send-transaction-</a></p>
+</li>
+<li>
+<p>Django: Always remove values of Django session related cookies. (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1842"">#1842</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+</li>
+<li>
+<p>Profiling: Enable profiling for ASGI frameworks (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1824"">#1824</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>Profiling: Better gevent support (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1822"">#1822</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>Profiling: Add profile context to transaction (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1860"">#1860</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>Profiling: Use co_qualname in python 3.11 (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1831"">#1831</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: fix Use dict for sentry-trace context instead of tuple (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1847"">#1847</a>) by <a href=""https://github.com/AbhiPrasad""><code>@​AbhiPrasad</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: fix extra dependency (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1825"">#1825</a>) by <a href=""https://github.com/bernardotorres""><code>@​bernardotorres</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: fix NoOpSpan updates scope (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1834"">#1834</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: Make sure to noop when there is no DSN (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1852"">#1852</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+</li>
+<li>
+<p>FastAPI: Fix middleware being patched multiple times (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1841"">#1841</a>) by <a href=""https://github.com/JohnnyDeuss""><code>@​JohnnyDeuss</code></a></p>
+</li>
+<li>
+<p>Starlette: Avoid import of pkg_resource with Starlette integration (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1836"">#1836</a>) by <a href=""https://github.com/mgu""><code>@​mgu</code></a></p>
+</li>
+<li>
+<p>Removed code coverage target (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1862"">#1862</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+</li>
+</ul>
+<h2>1.13.0</h2>
+<h3>Various fixes &amp; improvements</h3>
+<ul>
+<li>
+<p>Add Starlite integration (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1748"">#1748</a>) by <a href=""https://github.com/gazorby""><code>@​gazorby</code></a></p>
+<p>Adding support for the <a href=""https://starlite-api.github.io/starlite/1.48/"">Starlite</a> framework. Unhandled errors are captured. Performance spans for Starlite middleware are also captured. Thanks <a href=""https://github.com/gazorby""><code>@​gazorby</code></a> for the great work!</p>
+<p>Usage:</p>
+<pre lang=""python""><code>from starlite import Starlite, get
+<p>import sentry_sdk
+</code></pre></p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/getsentry/sentry-python/blob/master/CHANGELOG.md"">sentry-sdk's changelog</a>.</em></p>
+<blockquote>
+<h2>1.14.0</h2>
+<h3>Various fixes &amp; improvements</h3>
+<ul>
+<li>
+<p>Add <code>before_send_transaction</code> (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1840"">#1840</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+<p>Adds a hook (similar to <code>before_send</code>) that is called for all transaction events (performance releated data).</p>
+<p>Usage:</p>
+<pre lang=""python""><code>  import sentry_sdk
+<p>def strip_sensitive_data(event, hint):
+# modify event here (or return <code>None</code> if you want to drop the event entirely)
+return event</p>
+<p>sentry_sdk.init(
+# ...
+before_send_transaction=strip_sensitive_data,
+)
+</code></pre></p>
+<p>See also: <a href=""https://docs.sentry.io/platforms/python/configuration/filtering/#using-platformidentifier-namebefore-send-transaction-"">https://docs.sentry.io/platforms/python/configuration/filtering/#using-platformidentifier-namebefore-send-transaction-</a></p>
+</li>
+<li>
+<p>Django: Always remove values of Django session related cookies. (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1842"">#1842</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+</li>
+<li>
+<p>Profiling: Enable profiling for ASGI frameworks (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1824"">#1824</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>Profiling: Better gevent support (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1822"">#1822</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>Profiling: Add profile context to transaction (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1860"">#1860</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>Profiling: Use co_qualname in python 3.11 (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1831"">#1831</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: fix Use dict for sentry-trace context instead of tuple (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1847"">#1847</a>) by <a href=""https://github.com/AbhiPrasad""><code>@​AbhiPrasad</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: fix extra dependency (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1825"">#1825</a>) by <a href=""https://github.com/bernardotorres""><code>@​bernardotorres</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: fix NoOpSpan updates scope (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1834"">#1834</a>) by <a href=""https://github.com/Zylphrex""><code>@​Zylphrex</code></a></p>
+</li>
+<li>
+<p>OpenTelemetry: Make sure to noop when there is no DSN (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1852"">#1852</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+</li>
+<li>
+<p>FastAPI: Fix middleware being patched multiple times (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1841"">#1841</a>) by <a href=""https://github.com/JohnnyDeuss""><code>@​JohnnyDeuss</code></a></p>
+</li>
+<li>
+<p>Starlette: Avoid import of pkg_resource with Starlette integration (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1836"">#1836</a>) by <a href=""https://github.com/mgu""><code>@​mgu</code></a></p>
+</li>
+<li>
+<p>Removed code coverage target (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1862"">#1862</a>) by <a href=""https://github.com/antonpirker""><code>@​antonpirker</code></a></p>
+</li>
+</ul>
+<h2>1.13.0</h2>
+<h3>Various fixes &amp; improvements</h3>
+<ul>
+<li>
+<p>Add Starlite integration (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1748"">#1748</a>) by <a href=""https://github.com/gazorby""><code>@​gazorby</code></a></p>
+<p>Adding support for the <a href=""https://starlite-api.github.io/starlite/1.48/"">Starlite</a> framework. Unhandled errors are captured. Performance spans for Starlite middleware are also captured. Thanks <a href=""https://github.com/gazorby""><code>@​gazorby</code></a> for the great work!</p>
+<p>Usage:</p>
+<pre lang=""python""><code>from starlite import Starlite, get
+</code></pre>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/8c4a19a4391a721b4b7e27d6a2b17902963ce62e""><code>8c4a19a</code></a> Updated changelog</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/f095df7565a5fe6757cb741f4290e15cfdb6c716""><code>f095df7</code></a> release: 1.14.0</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/d27808f11e3c5ddb08d15a4f2e0c1e812be17b5e""><code>d27808f</code></a> Removed code coverage target (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1862"">#1862</a>)</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/cd2f51b8d631c502f9f9c0186187d7b1fb405704""><code>cd2f51b</code></a> feat(profiling): Add profile context to transaction (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1860"">#1860</a>)</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/d5152331f58d86efd3283eec928989810aa21975""><code>d515233</code></a> Always remove Django session related cookies. (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1842"">#1842</a>)</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/032ea5723f6b637e919efc4c0f97373466ef3428""><code>032ea57</code></a> Make sure to noop when there is no DSN (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1852"">#1852</a>)</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/086e3857ac24a22debecaa99614bfc9471c5d62f""><code>086e385</code></a> feat(profiling): Use co_qualname in python 3.11 (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1831"">#1831</a>)</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/0714d9f6d38c65d87fc4523e9d9b471d535dcc8a""><code>0714d9f</code></a> Fix middleware being patched multiple times when using FastAPI (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1841"">#1841</a>)</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/1ac27c8582b1d99c84af69ac18bc4f3964614829""><code>1ac27c8</code></a> fix(opentelemetry): Use dict for sentry-trace context instead of tuple (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1847"">#1847</a>)</li>
+<li><a href=""https://github.com/getsentry/sentry-python/commit/504188c918f67c33079502efe97cc4b8fbd2776c""><code>504188c</code></a> fix extra dependency (<a href=""https://redirect.github.com/getsentry/sentry-python/issues/1825"">#1825</a>)</li>
+<li>Additional commits viewable in <a href=""https://github.com/getsentry/sentry-python/compare/1.12.1...1.14.0"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=sentry-sdk&package-manager=pip&previous-version=1.12.1&new-version=1.14.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/kinosal/optimizer/network/alerts).
+
+</details>"
+Bump werkzeug from 2.2.2 to 2.2.3,"Bumps [werkzeug](https://github.com/pallets/werkzeug) from 2.2.2 to 2.2.3.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/pallets/werkzeug/releases"">werkzeug's releases</a>.</em></p>
+<blockquote>
+<h2>2.2.3</h2>
+<p>This is a fix release for the 2.2.x release branch.</p>
+<ul>
+<li>Changes: <a href=""https://werkzeug.palletsprojects.com/en/2.2.x/changes/#version-2-2-3"">https://werkzeug.palletsprojects.com/en/2.2.x/changes/#version-2-2-3</a></li>
+<li>Milestone: <a href=""https://github.com/pallets/werkzeug/milestone/26?closed=1"">https://github.com/pallets/werkzeug/milestone/26?closed=1</a></li>
+</ul>
+<p>This release contains security fixes for:</p>
+<ul>
+<li><a href=""https://github.com/pallets/werkzeug/security/advisories/GHSA-xg9f-g7g7-2323"">https://github.com/pallets/werkzeug/security/advisories/GHSA-xg9f-g7g7-2323</a></li>
+<li><a href=""https://github.com/pallets/werkzeug/security/advisories/GHSA-px8h-6qxv-m22q"">https://github.com/pallets/werkzeug/security/advisories/GHSA-px8h-6qxv-m22q</a></li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/pallets/werkzeug/blob/main/CHANGES.rst"">werkzeug's changelog</a>.</em></p>
+<blockquote>
+<h2>Version 2.2.3</h2>
+<p>Released 2023-02-14</p>
+<ul>
+<li>Ensure that URL rules using path converters will redirect with strict slashes when
+the trailing slash is missing. :issue:<code>2533</code></li>
+<li>Type signature for <code>get_json</code> specifies that return type is not optional when
+<code>silent=False</code>. :issue:<code>2508</code></li>
+<li><code>parse_content_range_header</code> returns <code>None</code> for a value like <code>bytes */-1</code>
+where the length is invalid, instead of raising an <code>AssertionError</code>. :issue:<code>2531</code></li>
+<li>Address remaining <code>ResourceWarning</code> related to the socket used by <code>run_simple</code>.
+Remove <code>prepare_socket</code>, which now happens when creating the server. :issue:<code>2421</code></li>
+<li>Update pre-existing headers for <code>multipart/form-data</code> requests with the test
+client. :issue:<code>2549</code></li>
+<li>Fix handling of header extended parameters such that they are no longer quoted.
+:issue:<code>2529</code></li>
+<li><code>LimitedStream.read</code> works correctly when wrapping a stream that may not return
+the requested size in one <code>read</code> call. :issue:<code>2558</code></li>
+<li>A cookie header that starts with <code>=</code> is treated as an empty key and discarded,
+rather than stripping the leading <code>==</code>.</li>
+<li>Specify a maximum number of multipart parts, default 1000, after which a
+<code>RequestEntityTooLarge</code> exception is raised on parsing. This mitigates a DoS
+attack where a larger number of form/file parts would result in disproportionate
+resource use.</li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/pallets/werkzeug/commit/22a254fca2ad0130adbbcbd11d3de51bcb04a08b""><code>22a254f</code></a> release version 2.2.3</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/517cac5a804e8c4dc4ed038bb20dacd038e7a9f1""><code>517cac5</code></a> Merge pull request from GHSA-xg9f-g7g7-2323</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/babc8d9e8c9fa995ef26050698bc9b5a92803664""><code>babc8d9</code></a> rewrite docs about request data limits</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/09449ee77934a0c883f5959785864ecae6aaa2c9""><code>09449ee</code></a> clean up docs</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/fe899d0cdf767a7289a8bf746b7f72c2907a1b4b""><code>fe899d0</code></a> limit the maximum number of multipart form parts</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/cf275f42acad1b5950c50ffe8ef58fe62cdce028""><code>cf275f4</code></a> Merge pull request from GHSA-px8h-6qxv-m22q</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/8c2b4b82d0cade0d37e6a88e2cd2413878e8ebd4""><code>8c2b4b8</code></a> don't strip leading = when parsing cookie</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/7c7ce5cb73f3f7d3b9c09340e4f322aeb583dbc5""><code>7c7ce5c</code></a> [pre-commit.ci] pre-commit autoupdate (<a href=""https://github-redirect.dependabot.com/pallets/werkzeug/issues/2585"">#2585</a>)</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/19ae03e6a39b3f63fd08fef4fddae4385cdddf25""><code>19ae03e</code></a> [pre-commit.ci] auto fixes from pre-commit.com hooks</li>
+<li><a href=""https://github.com/pallets/werkzeug/commit/a83d3b8bf070810874c8e8d03dcce270666e10fe""><code>a83d3b8</code></a> [pre-commit.ci] pre-commit autoupdate</li>
+<li>Additional commits viewable in <a href=""https://github.com/pallets/werkzeug/compare/2.2.2...2.2.3"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=werkzeug&package-manager=pip&previous-version=2.2.2&new-version=2.2.3)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/kinosal/optimizer/network/alerts).
+
+</details>"
+Unable to use CSV Import,"Hey Nikolas,
+
+I've been trying to test out the CSV import feature, and I'm not having any luck. Below is an example of the data I'm putting in. 
+
+Channel, Date, Ad ID, Cost, Impressions, Engagements, Clicks, Conversion
+Adwords,2019-08-10,134151,44,98903,0,200,1
+
+Is there something obviously wrong that I'm missing? 
+
+[BTW, loved the blog post you wrote about bandits... It's why I'm here and also why I spent 30 hours last week reading research papers in this space. So fascinating!] "

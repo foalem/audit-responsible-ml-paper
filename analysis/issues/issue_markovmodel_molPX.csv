@@ -1,0 +1,675 @@
+title,body
+ValueError: largest specified index (9562.0 * stride=9562.0 * 1=9562) is larger than trajectory length ,"I have two trajectories:
+**trajj=['strip_prod.dcd','strip_prod2.dcd']**; each trajectory file includes 4797 frames.
+data = pyemma.coordinates.load(trajj, features=feat)
+Then I did TICA and k-means clustering, and I would like to visualize the structure of each cluster using molPX.
+**tica = pyemma.coordinates.tica(data,lag=8)
+tica_concatenated = np.concatenate(tica.get_output())
+data_sample, geoms = molpx.generate.sample(trajj, pdb, cluster,
+                                     n_geom_samples=100,
+                                     #keep_all_samples=True # read the doc for this argument
+                                    )**
+I got the error:
+ValueError: largest specified index (9493.0 * stride=9493.0 * 1=9493) is larger than trajectory length 'strip_prod.dcd' = 4797
+
+I was wondering where the specified index comes from and how to solve it. Thank you in advance!!"
+AttributeError: 'Canvas' object has no attribute 'set_window_title',"I am trying to execute the following part in BPTI TICA example
+
+```
+mpx_wdg_box = molpx.visualize.FES(MD_list,
+                                 #MD_trajfiles,
+                                 top,
+                                 Y_filenames,
+                                 #Y,
+                                 nbins=50,
+                                 #proj_idxs=[1,2],
+                                 proj_labels='TIC',
+                                 #n_overlays=5,
+                                )
+mpx_wdg_box
+```
+
+However I am getting the following error
+
+```
+AttributeError                            Traceback (most recent call last)
+Cell In [4], line 1
+----> 1 mpx_wdg_box = molpx.visualize.FES(MD_list,
+      2                                  #MD_trajfiles,
+      3                                  top,
+      4                                  Y_filenames,
+      5                                  #Y,
+      6                                  nbins=50,
+      7                                  #proj_idxs=[1,2],
+      8                                  proj_labels='TIC',
+      9                                  #n_overlays=5,
+     10                                 )
+     11 mpx_wdg_box
+
+```
+```
+File ~/opt/anaconda3/envs/msmbuilder2022/lib/python3.9/site-packages/molpx/visualize.py:218, in FES(MD_trajectories, MD_top, projected_trajectories, proj_idxs, nbins, n_sample, proj_stride, weights, proj_labels, n_overlays, atom_selection, **sample_kwargs)
+    216 ngl_wdg._set_size(*['%fin' % inches for inches in ax.get_figure().get_size_inches()])
+    217 ax.figure.tight_layout()
+--> 218 axes_wdg.canvas.set_window_title(""FES"")
+    219 outbox = _linkutils.MolPXHBox([ngl_wdg, axes_wdg.canvas])
+    220 _linkutils.auto_append_these_mpx_attrs(outbox, geoms, ax, _plt.gcf(), ngl_wdg, axes_wdg, data_sample)
+
+AttributeError: 'Canvas' object has no attribute 'set_window_title'
+```
+
+Is it some version problem? Any help will be highly appreciated?"
+InvalidVersionSpecError: Invalid version spec: =2.7,"When trying to install molpx using 
+
+``` conda install -n myenv molpx -c conda-forge ```
+
+ I am met with the message 
+
+``` 
+Solving environment: failed
+
+InvalidVersionSpecError: Invalid version spec: =2.7 
+```
+
+I also tried opening up a completely new environment in case I had some mismatching dependencies, but that resulted in the same message. I am on Linux, and have conda 4.5.11 and Python 3.6.13 installed. Happy to provide more information if that's needed!
+
+conda info:
+
+``` 
+     active environment : linneaenv
+    active env location : /home/user/.conda/envs/linneaenv
+            shell level : 1
+       user config file : /home/user/.condarc
+ populated config files : /home/user/.condarc
+          conda version : 4.5.11
+    conda-build version : 3.15.1
+         python version : 3.7.0.final.0
+       base environment : /opt/scp/software/Anaconda3/5.3.0  (read only)
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/free/linux-64
+                          https://repo.anaconda.com/pkgs/free/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+                          https://repo.anaconda.com/pkgs/pro/linux-64
+                          https://repo.anaconda.com/pkgs/pro/noarch
+          package cache : /opt/scp/software/Anaconda3/5.3.0/pkgs
+                          /home/user/.conda/pkgs
+       envs directories : /home/user/.conda/envs
+                          /opt/scp/software/Anaconda3/5.3.0/envs
+               platform : linux-64
+             netrc file : None
+           offline mode : False
+```
+
+I have had the same problem with other packages, but in that case it was enough to remove the conda-forge channel and add it again, with molpx this didn't work for me.
+"
+"Exploring the clustering in ""molPX and TICA with BPTI""","I am trying to link use the clustering as input as u declare in the tutorial **""molPX and TICA with BPTI""**, but it seems that x not defined here. 
+# Plot clusters
+plt.figure(figsize=(4,4))
+plt.plot(clkmeans.clustercenters[:,0], clkmeans.clustercenters[:,1],' ok')
+# FES as background is optional (change the bool to False)
+if True:
+    plt.contourf(x[:-1], y[:-1], -np.log(h.T), alpha=.50)
+
+# Link the clusters positions with the molecular structures
+linked_ngl_wdg = molpx.visualize.sample(data_sample,
+                              geoms.superpose(geoms[0]),
+                              plt.gca(),
+                              clear_lines=False,
+                              #plot_path=True
+                            )
+linked_ngl_wdg
+
+<img width=""639"" alt=""Screen Shot 0003-03-13 at 9 45 55"" src=""https://user-images.githubusercontent.com/54627410/111013382-7b55cc00-83e2-11eb-9cb1-eac56ef2b619.png"">
+"
+Switching to an orthographic view of the structures,"Hello,
+
+I was wondering if it is somehow possible to request an orthographic view of the structures displayed with `molpx.visualize.FES` for example.
+
+I know this is possible with NGLView using something like :
+```
+view.camera = 'orthographic'
+```
+<http://nglviewer.org/nglview/latest/index.html?highlight=orthographic>
+
+But I don't know if it is possible to somehow specify that option in molPX. 
+If it is not implemented, I believe that would be a nice addition as the perspective view is very often misleading, especially when looking at neighbouring conformations on the FES.
+
+Many thanks in advance!"
+No structure displayed in the clustering section of example notebook 2.molPX_TICA_BPTI,"Hi,
+
+I am using molPX 0.17 installed with anaconda on a Ubuntu computer. I have attached the results of conda_list [conda_list.txt](https://github.com/markovmodel/molPX/files/2034853/conda_list.txt).
+
+I am trying to run the clustering section of the example notebook 2.molPX_TICA_BPTI
+
+When I run the 'Plot clusters' and 'Link the clusters positions with the molecular structures' sections (last cell of the clustering. I do not see any structure, just the FES plot with the cluster centers and the crosshair. I am guessing form the command in the cell that I am supposed to see the structures.
+
+I have attached a screenshot of the notebook: ![screenshot from 2018-05-24 11-02-14](https://user-images.githubusercontent.com/15257860/40479777-69fd9a8e-5f44-11e8-875d-bd60f27e4e9b.png). 
+Note the warning message: 
+``` 
+/home/el14718/Software/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:6:RuntimeWarning: divide by zero encountered in log
+```
+
+And the [Out] section: `(NGLWidget(count=5), <matplotlib.widgets.AxesWidget at 0x7fdfe3beaf60>)`
+
+Note also that the only modification to the notebook is that I change the order of the import in the first cell following issue #43:
+```
+%matplotlib ipympl
+from matplotlib import pylab as plt
+import molpx
+import pyemma
+import numpy as np
+```
+Many thanks"
+New Method visualize.contacts and extensive testing,
+matplotlib backend ,Currently the user can only guess from the notebooks that he/she needs to use ipympl as matplotlib backend to get things working. We should consider using a context manager to temporarily set ipympl as backend and return to the users default. This would have the advantage of minimal interference and will not use a lot of memory for plots which are intended not to be interactive.
+Enforce ipympl backend on import,fixed test execution within conda build. Fixes #44 
+tests failing,"@marscher any idea? It was a problem with the coverage reporting, I remember we devoted some time to this but got nowhere..."
+TraitError   ,"I am trying to run the example file which is given in http://molpx.readthedocs.io/en/stable/Projection_Explorer_Copy.html I am getting following error 
+
+ 
+---------------------------------------------------------------------------
+TraitError                                Traceback (most recent call last)
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in validate_elements(self, obj, value)
+   2251             try:
+-> 2252                 v = self._trait._validate(obj, v)
+   2253             except TraitError:
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in _validate(self, obj, value)
+    590         if hasattr(self, 'validate'):
+--> 591             value = self.validate(obj, value)
+    592         if obj._cross_validation_lock is False:
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in validate(self, obj, value)
+   1676         else:
+-> 1677             self.error(obj, value)
+   1678 
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in error(self, obj, value)
+   1523 
+-> 1524         raise TraitError(e)
+   1525 
+
+TraitError: The 'None' trait of a MolPXHBox instance must be a Widget, but a value of class 'matplotlib.backends.backend_agg.FigureCanvasAgg' (i.e. <matplotlib.backends.backend_agg.FigureCanvasAgg object at 0x7fddb7133898>) was specified.
+
+During handling of the above exception, another exception occurred:
+
+TraitError                                Traceback (most recent call last)
+<ipython-input-7-d64f9c5dd3c4> in <module>()
+      6                                                       #Y,
+      7                                                       nbins=50,
+----> 8                                                       proj_idxs=[1,2],
+      9                                                      # axlabel='TIC',
+     10                                           )
+
+~/miniconda3/lib/python3.6/site-packages/molpx/visualize.py in FES(MD_trajectories, MD_top, projected_trajectories, proj_idxs, nbins, n_sample, proj_stride, weights, proj_labels, n_overlays, atom_selection, **sample_kwargs)
+    217     ax.figure.tight_layout()
+    218     axes_wdg.canvas.set_window_title(""FES"")
+--> 219     outbox = _linkutils.MolPXHBox([ngl_wdg, axes_wdg.canvas])
+    220     _linkutils.auto_append_these_mpx_attrs(outbox, geoms, ax, _plt.gcf(), ngl_wdg, axes_wdg, data_sample)
+    221 
+
+~/miniconda3/lib/python3.6/site-packages/molpx/_linkutils.py in __init__(self, *args, **kwargs)
+    204 class MolPXHBox(_HBox, MolPXBox):
+    205     def __init__(self, *args, **kwargs):
+--> 206         super(MolPXHBox, self).__init__(*args, **kwargs)
+    207         self.append_if_existing(args[0])
+    208 
+
+~/miniconda3/lib/python3.6/site-packages/ipywidgets/widgets/widget_box.py in __init__(self, children, **kwargs)
+     62     def __init__(self, children=(), **kwargs):
+     63         kwargs['children'] = children
+---> 64         super(Box, self).__init__(**kwargs)
+     65         self.on_displayed(Box._fire_children_displayed)
+     66 
+
+~/miniconda3/lib/python3.6/site-packages/ipywidgets/widgets/widget.py in __init__(self, **kwargs)
+    409         """"""Public constructor""""""
+    410         self._model_id = kwargs.pop('model_id', None)
+--> 411         super(Widget, self).__init__(**kwargs)
+    412 
+    413         Widget._call_widget_constructed(self)
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in __init__(self, *args, **kwargs)
+    995             for key, value in kwargs.items():
+    996                 if self.has_trait(key):
+--> 997                     setattr(self, key, value)
+    998                 else:
+    999                     # passthrough args that don't set traits to super
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in __set__(self, obj, value)
+    583             raise TraitError('The ""%s"" trait is read-only.' % self.name)
+    584         else:
+--> 585             self.set(obj, value)
+    586 
+    587     def _validate(self, obj, value):
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in set(self, obj, value)
+    557 
+    558     def set(self, obj, value):
+--> 559         new_value = self._validate(obj, value)
+    560         try:
+    561             old_value = obj._trait_values[self.name]
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in _validate(self, obj, value)
+    589             return value
+    590         if hasattr(self, 'validate'):
+--> 591             value = self.validate(obj, value)
+    592         if obj._cross_validation_lock is False:
+    593             value = self._cross_validate(obj, value)
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in validate(self, obj, value)
+   2240             return value
+   2241 
+-> 2242         value = self.validate_elements(obj, value)
+   2243 
+   2244         return value
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in validate_elements(self, obj, value)
+   2252                 v = self._trait._validate(obj, v)
+   2253             except TraitError:
+-> 2254                 self.element_error(obj, v, self._trait)
+   2255             else:
+   2256                 validated.append(v)
+
+~/miniconda3/lib/python3.6/site-packages/traitlets/traitlets.py in element_error(self, obj, element, validator)
+   2231         e = ""Element of the '%s' trait of %s instance must be %s, but a value of %s was specified."" \
+   2232             % (self.name, class_of(obj), validator.info(), repr_type(element))
+-> 2233         raise TraitError(e)
+   2234 
+   2235     def validate(self, obj, value):
+
+TraitError: Element of the 'children' trait of a MolPXHBox instance must be a Widget, but a value of <matplotlib.backends.backend_agg.FigureCanvasAgg object at 0x7fddb7133898> <class 'matplotlib.backends.backend_agg.FigureCanvasAgg'> was specified.
+
+
+ 
+---------------------------------------------------
+
+Can you please help me in resolving this error
+
+with regards
+Singam
+
+
+Thanks for submitting an issue!
+
+Here's a quick checklist of what to include:
+
+- [x] Include a detailed description of the bug or suggestion, optionally with a copy of the output/Exception
+- [x] `pip list` or `conda list` of the environment you are using (please attach a txt file to the issue).
+- [ ] molPX version and operating system versions
+- [ ] Minimal example if possible, a Python script, zipped input data (if not too large)"
+changelog not up2date for 0.1.7,
+readthedocs not updated on github pushes?,change the docs...
+designated v0.1.7 raises ValueError in ipykernel,"the di-ala example notebook raises this upon creation of the widget:
+
+@gph82 have you seen this error before? Does it block the release right now? We shouldn't rel a non-working version IMHO.
+``` python
+--------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-7-cd6ac4d4024a> in <module>()
+      5                                   proj_labels=['$\phi$',
+      6                                                '$\psi$'],
+----> 7                                   atom_selection=""symbol != H"",
+      8                                   #proj_idxs=[1],
+      9                                   #n_overlays=5,
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/molpx/visualize.py in FES(MD_trajectories, MD_top, projected_trajectories, proj_idxs, nbins, n_sample, proj_stride, weights, proj_labels, n_overlays, atom_selection, **sample_kwargs)
+    217     ax.figure.tight_layout()
+    218     axes_wdg.canvas.set_window_title(""FES"")
+--> 219     outbox = _linkutils.MolPXHBox([ngl_wdg, axes_wdg.canvas])
+    220     _linkutils.auto_append_these_mpx_attrs(outbox, geoms, ax, _plt.gcf(), ngl_wdg, axes_wdg, data_sample)
+    221 
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/molpx/_linkutils.py in __init__(self, *args, **kwargs)
+    204 class MolPXHBox(_HBox, MolPXBox):
+    205     def __init__(self, *args, **kwargs):
+--> 206         super(MolPXHBox, self).__init__(*args, **kwargs)
+    207         self.append_if_existing(args[0])
+    208 
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipywidgets/widgets/widget_box.py in __init__(self, children, **kwargs)
+     61     def __init__(self, children=(), **kwargs):
+     62         kwargs['children'] = children
+---> 63         super(Box, self).__init__(**kwargs)
+     64         self.on_displayed(Box._fire_children_displayed)
+     65 
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipywidgets/widgets/widget.py in __init__(self, **kwargs)
+    410 
+    411         Widget._call_widget_constructed(self)
+--> 412         self.open()
+    413 
+    414     def __del__(self):
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipywidgets/widgets/widget.py in open(self)
+    433                 args['comm_id'] = self._model_id
+    434 
+--> 435             self.comm = Comm(**args)
+    436 
+    437     @observe('comm')
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/comm/comm.py in __init__(self, target_name, data, metadata, buffers, **kwargs)
+     55             if self.primary:
+     56                 # I am primary, open my peer.
+---> 57                 self.open(data=data, metadata=metadata, buffers=buffers)
+     58             else:
+     59                 self._closed = False
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/comm/comm.py in open(self, data, metadata, buffers)
+     92                               data=data, metadata=metadata, buffers=buffers,
+     93                               target_name=self.target_name,
+---> 94                               target_module=self.target_module,
+     95                               )
+     96             self._closed = False
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/comm/comm.py in _publish_msg(self, msg_type, data, metadata, buffers, **keys)
+     63         data = {} if data is None else data
+     64         metadata = {} if metadata is None else metadata
+---> 65         content = json_clean(dict(data=data, comm_id=self.comm_id, **keys))
+     66         self.kernel.session.send(self.kernel.iopub_socket, msg_type,
+     67             content,
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/jsonutil.py in json_clean(obj)
+    189         out = {}
+    190         for k,v in iteritems(obj):
+--> 191             out[unicode_type(k)] = json_clean(v)
+    192         return out
+    193     if isinstance(obj, datetime):
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/jsonutil.py in json_clean(obj)
+    189         out = {}
+    190         for k,v in iteritems(obj):
+--> 191             out[unicode_type(k)] = json_clean(v)
+    192         return out
+    193     if isinstance(obj, datetime):
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/jsonutil.py in json_clean(obj)
+    189         out = {}
+    190         for k,v in iteritems(obj):
+--> 191             out[unicode_type(k)] = json_clean(v)
+    192         return out
+    193     if isinstance(obj, datetime):
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/jsonutil.py in json_clean(obj)
+    175 
+    176     if isinstance(obj, list):
+--> 177         return [json_clean(x) for x in obj]
+    178 
+    179     if isinstance(obj, dict):
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/jsonutil.py in <listcomp>(.0)
+    175 
+    176     if isinstance(obj, list):
+--> 177         return [json_clean(x) for x in obj]
+    178 
+    179     if isinstance(obj, dict):
+
+~/miniconda3/envs/molpx/lib/python3.6/site-packages/ipykernel/jsonutil.py in json_clean(obj)
+    195 
+    196     # we don't understand it, it's probably an unserializable object
+--> 197     raise ValueError(""Can't clean for JSON: %r"" % obj)
+
+ValueError: Can't clean for JSON: <matplotlib.backends.backend_agg.FigureCanvasAgg object at 0x7f47e8c50320>
+
+```"
+Docsfixes,
+Citing molPX,apologies if I've missed it in the doc's - but is there a way you want molPX cited?  
+Refactor sticky mol px box,
+Stralsund,"importantly: added visualize features (PyEMMA) and correlations (any, also PyEMMA). The rest many little changes, mostly coloring, axes labelling and positioning"
+Master+patch 1,
+Sticky sample,"Allows for sticky sampling, i.e showing different structures simultaneously"
+Better pyemma integration,"allows for MDFeaturizer as correlation input, for better representation even in the case of easy projections"
+Enable weights in building FES,"Allows passing an array of weights (for each conformation in a trajectory) to be reflected in building an FES (histogram). This enables usage of molPX to visualise biased trajectories, eg. obtained with metadynamics or umbrella sampling.
+For metadynamics, weights can be obtained using the algorithm proposed by Tiwary and Parrinello JPCB 2014 (doi:10.1021/jp504920s)."
+Allows for 1D reactive FES plots,
+Add overlay,"allowing visualize.sample to display overlays propagates up to visualize.FES, that can now also show the overlays"
+Update dependencies/minor changes,"I dont see why sphinx and rtd_theme etc. is a users runtime dependency. I moved those deps to a pip requirements.txt file in the docs folder.
+
+Also molpx itself depends on ipywidgets, as the feature installation via nglview doesn't seem to work (pip install)."
+[general] change all the print() statements to proper warning or log handing,
+Add LICENSE to MANIFEST.in,cc conda-forge/staged-recipes#2602
+[conda-recipe] use a coverage aware nbval version from main repo,Fixes #25
+failing tests: coverage issue?,"Example here:
+https://travis-ci.org/markovmodel/molPX/jobs/217624733#L328
+```
+Could not find a tag or branch 'coverage', assuming commit.
+error: pathspec 'coverage' did not match any file(s) known to git.
+
+Command ""git checkout -q coverage"" failed with error code 1 in /private/var/folders/my/m6ynh3bn6tq06h7xr3js0z7r0000gn/T/pip-WeOdoD-build
+```"
+Better pyemma integration,
+Tests fixes,Aimed at increasing the coverage so that better_pyemma_integration can be merged on master soonish
+[README] minor edits and refactor Known Issues,
+Docsfixes,
+doc cannot build locally,"Hi @marscher!
+
+EDIT: I just pulled from master
+
+IDK when this was introduced, but 
+
+```gph82@southsea:  ~/SOURCE_gph82/python/molPX/doc$ make html 
+sphinx-build -b html -d build/doctrees   source build/html
+Running Sphinx v1.5.1
+
+Exception occurred:
+  File ""/home/mi/gph82/SOURCE_gph82/python/molPX/molpx/bmutils.py"", line 20, in <module>
+    from pyemma.coordinates.transform import TICA as _TICA, PCA as _PCA
+ImportError: No module named 'pyemma.coordinates.transform'
+The full traceback has been saved in /tmp/sphinx-err-zygcu_h7.log, if you want to report the issue to the developers.
+Please also report this if it was a user error, so that a better error message can be provided next time.
+A bug report can be filed in the tracker at <https://github.com/sphinx-doc/sphinx/issues>. Thanks!
+Makefile:53: recipe for target 'html' failed
+make: *** [html] Error 1
+```
+
+Is it possible that for the local build we have to add pyemma etc to the path in conf.py? "
+Better pyemma integration,
+Refactor bmutils,
+[setup] fake-requirements,
+pip installation,"I just created a new environment to test ipywidgets 6:
+```
+conda create --name python3.6_for_ipywidgets6 python=3.6
+
+Fetching package metadata ...........
+Solving package specifications: .
+
+Package plan for installation in environment /home/mi/gph82/miniconda3/envs/python3.6_for_ipywidgets6:
+
+The following NEW packages will be INSTALLED:
+
+    openssl:    1.0.2k-1     
+    pip:        9.0.1-py36_1 
+    python:     3.6.0-0      
+    readline:   6.2-2        
+    setuptools: 27.2.0-py36_0
+    sqlite:     3.13.0-0     
+    tk:         8.5.18-0     
+    wheel:      0.29.0-py36_0
+    xz:         5.2.2-1      
+    zlib:       1.2.8-3      
+
+Proceed ([y]/n)? y
+
+#
+# To activate this environment, use:
+# > source activate python3.6_for_ipywidgets6
+#
+# To deactivate this environment, use:
+# > source deactivate python3.6_for_ipywidgets6
+#
+
+gph82@southsea:  ~$ source activate python3.6_for_ipywidgets6
+```
+and tried to install molpx first. Two things happen (please scroll till the bottom)
+1) pip install molpx fails on installing mdtraj, even mdtraj fails on installing alone
+```
+pip install mdtraj 
+Collecting mdtraj
+  Downloading mdtraj-1.8.0.zip (20.2MB)
+    100% |################################| 20.2MB 47kB/s 
+    Complete output from command python setup.py egg_info:
+    --------------------------------------------------------------------------------
+    Error: building mdtraj requires numpy and cython>=0.19
+    
+    Try running the command ``pip install numpy cython`` or
+    ``conda install numpy cython``.
+    
+    or see http://docs.scipy.org/doc/numpy/user/install.html and
+    http://cython.org/ for more information.
+    
+    If you're feeling lost, we recommend downloading the (free) Anaconda python
+    distribution https://www.continuum.io/downloads, because it comes with
+    these components included.
+    --------------------------------------------------------------------------------
+    
+    ----------------------------------------
+Command ""python setup.py egg_info"" failed with error code 1 in /tmp/pip-build-tmlqsnoy/mdtraj/
+```
+
+2) after installing it myself via conda install mdtraj -c omnia, then in pip install molpx no problem until but:
+```python
+Python 3.6.0 |Continuum Analytics, Inc.| (default, Dec 23 2016, 12:22:00) 
+Type ""copyright"", ""credits"" or ""license"" for more information.
+
+IPython 5.3.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: import molpx
+---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+<ipython-input-1-84cce9d22026> in <module>()
+----> 1 import molpx
+
+/home/mi/gph82/miniconda3/envs/python3.6_for_ipywidgets6/lib/python3.6/site-packages/molpx/__init__.py in <module>()
+     10 
+     11 from . import generate
+---> 12 from . import visualize
+     13 from .nbtools import example_notebook, _molpxdir
+     14 
+
+/home/mi/gph82/miniconda3/envs/python3.6_for_ipywidgets6/lib/python3.6/site-packages/molpx/visualize.py in <module>()
+     12 
+     13 from matplotlib import pylab as _plt
+---> 14 import nglview as _nglview
+     15 import mdtraj as _md
+     16 from os.path import basename as _basename
+
+/home/mi/gph82/miniconda3/envs/python3.6_for_ipywidgets6/lib/python3.6/site-packages/nglview/__init__.py in <module>()
+     35 # interface
+     36 from .config import BACKENDS
+---> 37 from .widget import NGLWidget
+     38 from .base_adaptor import *
+     39 from .adaptor import *
+
+/home/mi/gph82/miniconda3/envs/python3.6_for_ipywidgets6/lib/python3.6/site-packages/nglview/widget.py in <module>()
+      7 import numpy as np
+      8 from IPython.display import display
+----> 9 from ipywidgets import DOMWidget, widget_image
+     10 from traitlets import (Unicode, Bool, Dict, List, Int, Integer, observe,
+     11                        CaselessStrEnum)
+
+ModuleNotFoundError: No module named 'ipywidgets'
+```
+I'm assuming 1) is this related to this: https://github.com/mdtraj/mdtraj/issues/1119, shouldn't 2) be required by nglview itself? "
+"ipywidgets 6.0, nglview 0.6.2.2 and omnia/bioconda","It seems we're suffering from this https://github.com/arose/nglview/issues/584 
+
+in these tests:
+https://travis-ci.org/markovmodel/molPX/builds/211010110
+where this combination does not work
+nglview:            0.6.2.2-py27_1
+ipywidgets:         6.0.0-py27_0
+
+because ipywidgets>=6 requires nglview>=0.6.2.3 
+
+I'm assuming because nglview>=0.6.2.3 is not yet in omnia? @marscher any help will be welcome"
+Tests fixes,
+dropping py2 on win,"Hi! Since mdtraj dropped their py2 support on win and so has nglview, (https://github.com/arose/nglview/issues/587#issuecomment-285434262) I think we should drop it here as well.
+
+
+"
+Docsfixes,"@marscher I rebased and now docsfix mergeable. 
+
+What do you think about having index.rst of the docs just read the README.rst? It makes the README look acceptably well (as plaintext and on github) and we don't have to be maintaining both, for the moment"
+[setup.py] installation fails on SandboxViolation,"It's time we tackle this problem:
+```
+python setup.py develop 
+running develop
+running egg_info
+writing molPX.egg-info/PKG-INFO
+writing dependency_links to molPX.egg-info/dependency_links.txt
+writing top-level names to molPX.egg-info/top_level.txt
+writing requirements to molPX.egg-info/requires.txt
+writing pbr to molPX.egg-info/pbr.json
+reading manifest file 'molPX.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'molPX.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/mi/gph82/miniconda3/lib/python3.4/site-packages/molPX.egg-link (link to .)
+molPX 0.1.1+27.g18c03d1.dirty is already the active version in easy-install.pth
+
+Installed /home/mi/gph82/SOURCE_gph82/python/molPX
+Processing dependencies for molPX==0.1.1+27.g18c03d1.dirty
+Searching for nglview>=0.6.2.2
+Reading https://pypi.python.org/simple/nglview/
+Best match: nglview 0.6.2.3
+Downloading https://pypi.python.org/packages/8c/5d/caeb1505cc0a5b5307f1283f47b36fbdbe9df5b5b2f0a56df716dc50873c/nglview-0.6.2.3.tar.gz#md5=cbd42f3f5f6483e0dfef0ab40a483c06
+Processing nglview-0.6.2.3.tar.gz
+Writing /tmp/easy_install-nx7jf1y0/nglview-0.6.2.3/setup.cfg
+Running nglview-0.6.2.3/setup.py -q bdist_egg --dist-dir /tmp/easy_install-nx7jf1y0/nglview-0.6.2.3/egg-dist-tmp-dhc6ltk7
+setup.py entered
+$PATH=/home/mi/gph82/miniconda3/bin:/home/mi/gph82/Downloads/myplumed/bin:/home/mi/gph82/Downloads/dowser/bin/linux:/home/mi/gph82/Downloads/dowser/bin:/home/mi/gph82/SOURCE_gph82/scripts:/home/mi/gph82/bin/vmd_gph82_bins:/home/mi/gph82/Gabedit:/usr/bin:/home/mi/gph82/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+package init file 'nglview/tests/__init__.py' not found (or not a regular file)
+package init file 'nglview/staticlab/__init__.py' not found (or not a regular file)
+warning: no files found matching 'nglview/js/*'
+warning: no previously-included files matching '*.pycinclude' found anywhere in distribution
+warning: no previously-included files matching '*.ipynb' found anywhere in distribution
+warning: no previously-included files matching '*.gif' found anywhere in distribution
+warning: no previously-included files matching '*tests/notebooks/*' found anywhere in distribution
+UPDATING build/lib/nglview/_version.py
+set build/lib/nglview/_version.py to '0.6.2.3'
+Trying to enable extensions
+error: SandboxViolation: rmdir('/home/mi/gph82/.local/share/jupyter/nbextensions/nglview-js-widgets',) {}
+
+The package setup script has attempted to modify files on your system
+that are not within the EasyInstall build area, and has been aborted.
+
+This package cannot be safely installed by EasyInstall, and may not
+support alternate installation locations even if you run its setup
+script by hand.  Please inform the package's author and the EasyInstall
+maintainers to find out if a fix or workaround is available.
+```"
+Refactor bmutils,
+molpx.example_notebook() to safely execute example notebook ,We can ignore python 2.x not passing in Appveyor for the moment. 
+[tests] design better tests on heuristics of bimodal distros or cluster to target,Many tests are failing because one method is supposed to find the two centers of a sampled bimodal distribution. The criterion of what constitutes having found the center should be relaxed or a more deterministc test should be devised
+minor changes,
+performance of widget,"I just noticed, that the callbacks for updating the widgets are executed for every movement of the mouse in the free energy landscape plot, no matter if the position is actually committed by click. This leads to degraded performance (maybe I should buy new hardware too).
+It should be possible to update only if something is really changed and we need to recompute/redraw."
+shipping of notebooks/data,"Currently the notebooks are contained in the package, but there is no API to access them. If the only purpose of this organization is to provide them for the generation of documentation, I suggest to store them outside for the sake of a smaller package.
+
+We can also consider a small command/ api function to start the notebook and play around with it."
+Enable coverage,
+Packaging,"- [x] publish on Conda channels
+    - [x] omnia
+    - [x] conda-forge
+
+- [x] PyPI release
+
+ bioconda (uses a noarch_python package for nglview, which cause some trouble eg. on Windows). We currently do not support bioconda, since it would involve maintaining pyemma+all of its dependencies there.
+
+Noarch issue:
+https://github.com/conda/conda-build/issues/1028
+
+Omnia variant of nglview has a different version scheme (included tag prefix). This cause trouble if one wants to specify the same version no matter which channel is selected. "
+"[travis] extend build matrix, only use bioconda (not conda-forge)",
+Added Versioneer,"now to release a new version, you dont need to change your setup.py file, but just do:
+
+git tag v1.0
+git push --tags
+
+Every time you want to create a source archive or do a install (eg. for PyPI), the version is being exported from git to a plain string to the file named projX/_version.py automatically.
+"

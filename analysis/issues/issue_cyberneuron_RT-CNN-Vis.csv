@@ -1,0 +1,6 @@
+title,body
+Does this project be run in CPU mode without GPU?,This is a wonderful project. I would like to have a try in my deep learning study journey. But my notebook has not GPU. So i am not sure if this project can be run only in CPU mode. Thanks
+Mac Support,"Hey there, 
+
+the project looks very promising. I dove into the whole topic a little and it seems that Mac OS (more precisely http://www.xhyve.xyz/ ) doesn't support PCI passthrough (at least it didn't in May 2016 - so things might've changed). Are there any ways to get the RT-CNN-Vis running using Docker (or manually) on Mac OS Mojave? 
+Thank you for your time and hard work, have a Happy New Year!"

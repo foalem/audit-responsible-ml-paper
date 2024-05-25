@@ -1,0 +1,669 @@
+title,body
+About the inconsistency between 7scenes dataset pose and 7scenes gt sfm pose,"Thank you for such a great work and code.
+However, I found that the pose given by the 7scenes dataset is somewhat different from the pose in 7scenes_sfm_triangulated. For example, for seq5/frame-000000.png, the rotation in the 7scenes dataset is (I use transpose to convert the rotation of c2w to w2c)：
+![1681883595736](https://user-images.githubusercontent.com/26064261/232979231-9661fbd4-7a60-48cc-ab71-2cd84454c65a.png)
+and in 7scenes_sfm_triangulated is:
+![1681883645744](https://user-images.githubusercontent.com/26064261/232979373-a888c627-d976-4480-bea7-22ba8f8fd428.png)
+Are the gt poses of 7scenes_sfm_triangulated more accurate?"
+Can't download 7scenes_sfm_triangulated.zip,"Thank you for such a great work and code.
+I download 7scenes_sfm_triangulated.zip using download.py and find that the downloaded zip was a bad file. Can you provide a download address?"
+Checkpoint and dataset issue,"Hi, thanks for the awesome work!
+When trying to run pixloc.download as described in the readme, I get teh following error:
+subprocess.CalledProcessError: Command 'wget -r -np -nH -q --show-progress -R ""index.html*"" --cut-dirs 2 https://cvg-data.inf.ethz.ch/pixloc_CVPR2021/checkpoints/ -P C:{user}\pixloc\outputs\training -nc' returned non-zero exit status 1.
+
+I seem to be able to access the files in a browser. 
+Thanks in advance for any insights"
+About colmap's scale proplem,"Hi, thanks for you amazing work!! 
+I saw that when using the Cambridge dataset, the camera pose and point cloud are obtained from colmap, while the cambridge dataset was originally obtained from visualSFM. I compared the two files and found that the camera pose is not consistent. 
+Whether there will be a scale that will lead to inaccurate evaluation results?"
+some questions about your code in base_optimizer.py,"Hi, Thanks for your amazing work.
+I have some questions about the Levenberg-Marquardt (LM) algorithm. In your code, grad after adding weight  is added belong the   3dpoint  number axis, I do not understand why and I could not find the corresponding expression in your paper. So can you explain  it in detail？ Thanks！
+`
+
+    def build_system(self, J: Tensor, res: Tensor, weights: Tensor):
+        grad = torch.einsum('...ndi,...nd->...ni', J, res)   # ... x N x 6
+        grad = weights[..., None] * grad
+        grad = grad.sum(-2)  # ... x 6
+
+        Hess = torch.einsum('...ijk,...ijl->...ikl', J, J)  # ... x N x 6 x 6
+        Hess = weights[..., None, None] * Hess
+        Hess = Hess.sum(-3)  # ... x 6 x6
+
+        return grad, Hess
+`"
+CVE-2007-4559 Patch,"# Patching CVE-2007-4559
+
+Hi, we are security researchers from the Advanced Research Center at [Trellix](https://www.trellix.com). We have began a campaign to patch a widespread bug named CVE-2007-4559. CVE-2007-4559 is a 15 year old bug in the Python tarfile package. By using extract() or extractall() on a tarfile object without sanitizing input, a maliciously crafted .tar file could perform a directory path traversal attack. We found at least one unsantized extractall() in your codebase and are providing a patch for you via pull request. The patch essentially checks to see if all tarfile members will be extracted safely and throws an exception otherwise. We encourage you to use this patch or your own solution to secure against CVE-2007-4559. Further technical information about the vulnerability can be found in this [blog](https://www.trellix.com/en-us/about/newsroom/stories/research/tarfile-exploiting-the-world.html).
+
+If you have further questions you may contact us through this projects lead researcher [Kasimir Schulz](mailto:kasimir.schulz@trellix.com).
+"
+Some questions about trainning,"Hello, first of all about your work I think very excellent. I was recently reproducing your work when I was training the dataset megadepth on the server. I found that I always failed to achieve the results of your training logs. I just changed the batch_size=6,num_workers=8 to batch_size=12,num_workers=12. This makes me very confused and I hope I can get your answer. With best regards."
+about the Graphics memory,"Hello, what is the maximum graphics memory usage during training? Which graphic card did you use in your experiment?"
+can not change the encoder of UNet,"Hi, Thanks for your amazing work.
+When retraining the model,I changed the encoder of UNet from vgg to resnet,the following error occurred.What is the reason?How to solve it?
+![image](https://user-images.githubusercontent.com/101438423/178100725-ef092de6-817d-407d-a5a3-c73b7237fd2e.png)
+"
+With custom data,"Hi, thanks for your great work! I want to use pixloc to implement a localiazation task. 
+
+I followed these steps:
+> 1. I create my own datasets that I capture by my own camera. 
+> 2. I use netvlad to create global descriptors. 
+> 3. I use superpoint to create local descriptors. 
+> 4. I use retrieval to create pairs.
+> 5. Match the pairs use superglue. 
+> 6. Follow the reconstruction to create a model--sfm_superpoint+superglue
+> 7. Finally, I use the model to localize query image. 
+
+Unfortunately, I can't achieve a precise result with pixloc. The SfM model looks well when I visualized in the COLMAP GUI and the estimated camera poses roughly correct. 
+What should I do to improve it? 
+"
+Support for Colmap camera model FULL_OPENCV,"Dear pixloc authors and developers,
+
+Many thanks for providing such a high-quality package! Well done.
+
+For our application, we are using a FULL_OPENCV camera model, which isn't supported by pixloc at the moment.
+
+The FULL_OPENCV model is registered in [utils/colmap.py](https://github.com/cvg/pixloc/blob/master/pixloc/utils/colmap.py#L63), but it's missing from [pixlib/geometry/wrappers.py](https://github.com/cvg/pixloc/blob/master/pixloc/pixlib/geometry/wrappers.py#L243), as well as from the actual undistortion in [pixlib/geometry/utils.py](https://github.com/cvg/pixloc/blob/master/pixloc/pixlib/geometry/utils.py#L37) and its jacobian. The FULL_OPENCV calibration model is an extension to the OPENCV model, with an higher-order polynomial: [k3, k4, k5 and k6 follow p1 and p2](https://github.com/colmap/colmap/blob/dev/src/base/camera_models.h#L992).
+
+It seems that adding support for higher degree polynomials in the undistortion code would be simple, but I'm not sure about the [boundary condition](https://github.com/cvg/pixloc/blob/master/pixloc/pixlib/geometry/utils.py#L51) - what would this become?"
+Filter keys when loading global descriptors,"hloc `extract_features` includes additional keys like `image_size`, which need to be explicitly filtered out."
+Using sfm model on 7scenes without depth,"Hi, Thanks for your sharing work. I noticed that the demo on 7scenes need the reference_sfm model ""sfm_superpoint+superglue+depth"". But I cannot download the rendered 7scenes depth images and only have the sfm model builded from RGB images. Can I use such reference sfm model directly on the pre-trained model?"
+Question: TypeError,"Hi, Thanks for your amazing work. I encountered the following error when I tried to run code with a weak textured indoor scene dataset. 
+
+In the following case, is the value of this weight related to the quality of the dataset, such as the texture of the scene?
+
+![image](https://user-images.githubusercontent.com/67808446/161779390-77ff5596-efec-4ab1-b72c-343a95d0859e.png)
+![image](https://user-images.githubusercontent.com/67808446/161779576-af44c9cd-dc55-4128-8276-5808715598f0.png)
+![image](https://user-images.githubusercontent.com/67808446/161777774-d1f14bcf-c6f5-472f-aa83-019241196745.png)
+
+"
+Replace parse_intermixed_args by parse_args,`ArgumentParser.parse_intermixed_args` was introduced in Python 3.7
+ImportError: cannot import name 'set_logging_debug',"Hi, Thanks a lot for releasing your project. This is very amazing work. I meet a problem when I try to run code with run_CMU.py. it shows that ImportError: cannot import name 'set_logging_debug'. and also I didn't find logger in the directory where include run_CMU.py. could you help me with how to fix this? Thanks a lot."
+'CambridgeLandmarks_Colmap_Retriangulated_1024px.zip' this file can't be downloaded ,"Hi,
+I'm trying to download 'CambridgeLandmarks_Colmap_Retriangulated_1024px.zip',but  this file can't be downloaded .I don't know why.Do you know why ?"
+Using COLMAP to generate Cambridge landmark scene's poses from scratch,"Hi, 
+I'm trying to do SFM reconstruction of Cambridge landmarks scenes using Superpoint features and Superglue matches based database (created using HLoc tool) in COLMAP. 
+I'm wondering, will this be correct way? I will be using `colmap mapper` for creating 3D model from `reference images` only and then will use `colmap image_registrator` with `fix_existing_images=True` to register `query images` to get poses information. Reference images only model will be input to PixLoc while model output after registering query images will be used as ground truth for evaluating PixLoc algorithm. 
+
+If this this not correct, then what should be ideal method to generate poses for images without using `nvm` file provided with dataset?  "
+How to correctly pick 3d points,"Hello guys, and code authors:
+
+Recently, I am doing related project, and using our datasets. Based on my experiments, when p3ds have high weight corresponding to its confidence map, the estimated pose will become more accurate, so I want to ask how to you choose p3ds?
+
+Thanks  and cheers "
+[Question] Working with black and white images,"Good day! Great job!
+A simple basic question : 
+I have a colored pointcloud  (RGB) and I have a set of back and white images, corresponding to other wavelengths and temperature. 
+***Can the actual neural network work with B&W images triplicated to cover the RGB channels (input : 3) or would I need to modify the neural network and re-train it?*** For what I understood in your paper, colors do not play an important role in your NN . Please correct me if I'm wrong. 
+
+Thanks!"
+How to generate oracle image retrieval results for Robotcar dataset？,can you open source Robotcar dataset oracle image retrieval results？Thank you very much！
+Dead lock after torch.distributed.all_reduce,"HI Skydes,
+
+I got dead lock in 'loss.backward' after 'torch.distributed.all_reduce' after 3 steps training.
+I do not understand these source code,  could you help me to understand this part?
+I think the 'loss.requires_grad' is always 'True', will it turn to 0 after all_reduce?
+Thanks in advance.
+*****
+do_backward = loss.requires_grad
+if args.distributed:
+    do_backward = torch.tensor(do_backward).float().to(device)
+    torch.distributed.all_reduce(
+            do_backward, torch.distributed.ReduceOp.PRODUCT)
+    do_backward = do_backward > 0
+if do_backward:
+    loss.backward()
+    optimizer.step()
+******
+
+Here is the NCCL INFO log in case you want to know.
+******
+[01/18/2022 14:14:57 pixloc INFO] [E 15 | it 0] loss {total 2.150E+01, reprojection_error/0 3.094E+01, reprojection_error/1 3.357E+01, reprojection_error/2 3.350E+01, reprojection_error 3.350E+01, reprojection_error/init 3.094E+01}
+mlcv3:30429:30429 [1] NCCL INFO Broadcast: opCount 0 sendbuff 0x7fe9a31ff000 recvbuff 0x7fe9a31ff000 count 3584 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851f14400
+mlcv3:30429:30429 [1] NCCL INFO Broadcast: opCount 0 sendbuff 0x7fe9a31ffe00 recvbuff 0x7fe9a31ffe00 count 64 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851fdc000
+mlcv3:30428:30428 [0] NCCL INFO Broadcast: opCount 0 sendbuff 0x7f3467dfde00 recvbuff 0x7f3467dfde00 count 3584 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x5619dddaba90
+mlcv3:30428:30428 [0] NCCL INFO Broadcast: opCount 0 sendbuff 0x7f32379fe200 recvbuff 0x7f32379fe200 count 64 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a3f3ce0
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7febdbdffa00 recvbuff 0x7fe9adbffa00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f856413860
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3467dffa00 recvbuff 0x7f331be63000 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194ddec910
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a31ff000 recvbuff 0x7fe9a31ff400 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f8566aee90
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f331be63600 recvbuff 0x7f3467dfde00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194ec0abe0
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a31ffa00 recvbuff 0x7febdbdfde00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f8565f0d90
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3467dfe400 recvbuff 0x7f34475fb400 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a3e2520
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7febdbdfe400 recvbuff 0x7febdbdfe600 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851dd5710
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f347d5ee400 recvbuff 0x7f3467dfe800 count 260 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e3e1c60
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a31ff000 recvbuff 0x7fe9a31ff400 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f856413860
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f331be63200 recvbuff 0x7f3467dfde00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194ddebcd0
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9adbffc00 recvbuff 0x7febdbdfde00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851b283a0
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3467dfe400 recvbuff 0x7f34475fb400 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x5619ddaf0f90
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7febdbdfe600 recvbuff 0x7fe9a1ffe200 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f855a2b2a0
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3467dfe800 recvbuff 0x7f34475fba00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194ed2aa70
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7febdbdfec00 recvbuff 0x7fe9a1ffe800 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851df4e80
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f34475fc200 recvbuff 0x7f34475fc400 count 260 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a5fc430
+mlcv3:30429:30429 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a9dff000 recvbuff 0x7fe9a9dff000 count 1 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f855e46980
+mlcv3:30428:30428 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f327b9fee00 recvbuff 0x7f327b9fee00 count 1 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a8a2f20
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a1bffc00 recvbuff 0x7fe9a21fdc00 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd0e2e530
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f32317ffc00 recvbuff 0x7f32399fde00 count 260 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34615040e0
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f32399fe000 recvbuff 0x7f32399fe000 count 64 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460c10240
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a1bffa00 recvbuff 0x7fe9a1bffa00 count 64 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd0481840
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f32395ffc00 recvbuff 0x7f32395ff400 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34612dade0
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a3ffec00 recvbuff 0x7fe9a1bff800 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd047feb0
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a3ffec00 recvbuff 0x7fe9a3ffec00 count 128 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd04aba40
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f323b3ff600 recvbuff 0x7f323b3ff600 count 128 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f346152e760
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9adbffa00 recvbuff 0x7fe9a3ffec00 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd0e2dfe0
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f327b9ff000 recvbuff 0x7f322dffee00 count 260 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460c014c0
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9abfffc00 recvbuff 0x7fe9abfffc00 count 64 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd1054aa0
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f347d5ed000 recvbuff 0x7f347d5ed000 count 64 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34613b65e0
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9abfffc00 recvbuff 0x7fe9a4b5de00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd02e3f00
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3237ffe400 recvbuff 0x7f32807ffa00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34601d0e80
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f347d5ed000 recvbuff 0x7f347d5ed000 count 128 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34612dadc0
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febdbdfe400 recvbuff 0x7febdbdfe400 count 128 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd12004c0
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3237ffe400 recvbuff 0x7f32807ffa00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34614e3310
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a39fde00 recvbuff 0x7fe9a39fec00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd1128e50
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f347d5dc600 recvbuff 0x7f347d5dc600 count 128 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fea8fe5dc00 recvbuff 0x7fea8fe5dc00 count 128 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd05b7b60
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34613b1c90
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a39fde00 recvbuff 0x7fe9a39fec00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd05e4770
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f32309fe000 recvbuff 0x7f32807ffa00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f346060d110
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f327ebfea00 recvbuff 0x7f327ebfea00 count 128 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34612f51c0
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a39fde00 recvbuff 0x7fe9a39fde00 count 128 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd05b7a60
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a4bffc00 recvbuff 0x7fe9adbfec00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd06a8820
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3467dfe200 recvbuff 0x7f32807ffa00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34614e3d50
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f347d502800 recvbuff 0x7f347d502800 count 128 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a4bffc00 recvbuff 0x7fe9a4bffc00 count 128 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd04aba40
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34613b1c70
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fea8fe22a00 recvbuff 0x7fe9adbfec00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd042c4c0
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f322cdfcc00 recvbuff 0x7f32807ffa00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460675680
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f347d502800 recvbuff 0x7f347d502800 count 128 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3461505340
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febf15ed000 recvbuff 0x7febf15ed000 count 128 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd0617930
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f3474d80000 recvbuff 0x7f3474d80000 count 998229 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3461505650
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f3466000000 recvbuff 0x7f3466000000 count 7079424 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460710430
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febe8d80000 recvbuff 0x7febe8d80000 count 998229 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd1129e00
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febda000000 recvbuff 0x7febda000000 count 7079424 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd02e3d60
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f3452000000 recvbuff 0x7f3452000000 count 8632352 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460468ac0
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f3454200000 recvbuff 0x7f3454200000 count 7079424 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34601d0ea0
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f3450000000 recvbuff 0x7f3450000000 count 7079680 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3461560000
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f347514ee00 recvbuff 0x7f347514ee00 count 555072 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460468ac0
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febc6000000 recvbuff 0x7febc6000000 count 8632352 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd00e1130
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febc8200000 recvbuff 0x7febc8200000 count 7079424 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd04abab0
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febc4000000 recvbuff 0x7febc4000000 count 7079680 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd120bfc0
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7febe914ee00 recvbuff 0x7febe914ee00 count 555072 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd00e1130
+mlcv3:30428:30428 [0] NCCL INFO Broadcast: opCount 0 sendbuff 0x7f347d5dc600 recvbuff 0x7f347d5dc600 count 392 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e3ca620
+mlcv3:30428:30428 [0] NCCL INFO Broadcast: opCount 0 sendbuff 0x7f347d5ec600 recvbuff 0x7f347d5ec600 count 24 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e3fa1b0
+mlcv3:30428:30428 [0] NCCL INFO Broadcast: opCount 0 sendbuff 0x7f3467dfde00 recvbuff 0x7f3467dfde00 count 3584 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a6aef20
+mlcv3:30428:30428 [0] NCCL INFO Broadcast: opCount 0 sendbuff 0x7f322cbffe00 recvbuff 0x7f322cbffe00 count 64 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e621160
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f322f7ffc00 recvbuff 0x7f32379fde00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a3a9b70
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3467dffa00 recvbuff 0x7f3231bff400 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x5619dda9cd50
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f32311ff400 recvbuff 0x7f32311ff800 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e59ff20
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f347d5eda00 recvbuff 0x7f331be63000 count 260 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e3f37f0
+mlcv3:30429:30429 [1] NCCL INFO Broadcast: opCount 0 sendbuff 0x7febf15b7c00 recvbuff 0x7febf15b7c00 count 392 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f852247ac0
+mlcv3:30429:30429 [1] NCCL INFO Broadcast: opCount 0 sendbuff 0x7febf15dc600 recvbuff 0x7febf15dc600 count 24 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f85666f230
+mlcv3:30429:30429 [1] NCCL INFO Broadcast: opCount 0 sendbuff 0x7fe9a11ff200 recvbuff 0x7fe9a11ff200 count 3584 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f85559cd30
+mlcv3:30429:30429 [1] NCCL INFO Broadcast: opCount 0 sendbuff 0x7fe9a0dffc00 recvbuff 0x7fe9a0dffc00 count 64 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851db9f00
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9ab9fe000 recvbuff 0x7fe9adbfec00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851d538a0
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9adbffc00 recvbuff 0x7fe9a11ff200 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851f7f9b0
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7febdbdffa00 recvbuff 0x7fe9a11ff800 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f855f419e0
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a31ff000 recvbuff 0x7fe9a31ff200 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851db5960
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7febdbdffa00 recvbuff 0x7fe9adbfec00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f8557a3610
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f3467dffa00 recvbuff 0x7f3231bff400 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e648e00
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a11ff400 recvbuff 0x7fe9a11ff800 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f855cc0650
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f32379fe000 recvbuff 0x7f32311ff400 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a3a9b70
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a31ff200 recvbuff 0x7fe9a31ff600 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f855b28480
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f331be63000 recvbuff 0x7f331be63400 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a5e05e0
+mlcv3:30429:30429 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9adbffe00 recvbuff 0x7febdbdfde00 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f851eadca0
+mlcv3:30428:30428 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f32311ffc00 recvbuff 0x7f3467dfde00 count 260 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194e0bc460
+mlcv3:30429:30429 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9acbff600 recvbuff 0x7fe9acbff600 count 1 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30429 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x55f85617bc60
+mlcv3:30428:30428 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f322cf75a00 recvbuff 0x7f322cf75a00 count 1 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30428 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x56194a848100
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a6dffa00 recvbuff 0x7fea8fffa000 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd0592b70
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f322e5ff800 recvbuff 0x7f32303ffc00 count 260 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460112b80
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f32303ffc00 recvbuff 0x7f32303ffc00 count 64 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3461315800
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a6dffa00 recvbuff 0x7fe9a6dffa00 count 64 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd0b29dd0
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f322cf75c00 recvbuff 0x7f32309ff000 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460617ba0
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a59ff200 recvbuff 0x7fe9a1904c00 count 516 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd00e1130
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a5ffee00 recvbuff 0x7fe9a5ffee00 count 128 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd120bfa0
+mlcv3:30428:30504 [0] NCCL INFO AllReduce: opCount 0 sendbuff 0x7f32309fea00 recvbuff 0x7f32309fea00 count 128 datatype 7 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f34601d0ea0
+mlcv3:30429:30503 [1] NCCL INFO AllGather: opCount 0 sendbuff 0x7fe9a45fde00 recvbuff 0x7fe9a53fda00 count 260 datatype 0 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd12000c0
+mlcv3:30428:30504 [0] NCCL INFO AllGather: opCount 0 sendbuff 0x7f322cbfe400 recvbuff 0x7f3230fffa00 count 516 datatype 0 op 0 root 0 comm 0x7f3460001200 [nranks=2] stream 0x56194a313850
+mlcv3:30428:30504 [0] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7f3460675280
+mlcv3:30429:30503 [1] NCCL INFO AllReduce: opCount 0 sendbuff 0x7fe9a57fe800 recvbuff 0x7fe9a57fe800 count 64 datatype 7 op 0 root 0 comm 0x7febdc001200 [nranks=2] stream 0x55f851b1a060
+mlcv3:30429:30503 [1] NCCL INFO group.cc:306 Mem Alloc Size 8 pointer 0x7febd1318b80
+
+"
+How to add new query image without reconstruct hloc db?,"Hi,
+Thanks for great work and it's really useful to remapping scene.
+
+Please allow me simplify the own data process first:
+1. Prepare images of scene
+2. Run hloc to get A. db of sfm,  B. matches keras model, C.pairs_info.txt(e.q. pairs-exhaustive.txt, pairs-query-netvlad50.txt)
+3. Run pixloc to localize query image
+
+I check the code in localizer.py, it need get the id from pairs_info.txt and sfm db
+self.model3d = Model3D(paths.reference_sfm)
+dbs = [self.model3d.name2id[r] for r in self.retrieval[name]]
+
+Is that mean I have to do step 2 every time once new query image added?"
+Example of Training data,"Hi Thanks a lot for releasing your project. This is a very intriguing work. I am wondering if you could provide a small-size example training dataset, just for understanding the code? The CMU dataset is too large, and very slow to be downloaded. Thanks a lot.  "
+Time profiling for ground truth pose data of Cambridge ad 7cenes?,"https://github.com/cvg/pixloc/issues/19#issuecomment-980494604
+I'm running SFM reconstruction of Cambridge KingsCollege scene using command-
+`colmap mapper --database_path /data/hloc/outputs_KingsCollege/sfm_superpoint+superglue/database.db --image_path /data/datasets/Cambridge/KingsCollege/images_all --output_path /data/hloc/outputs_KingsCollege/sfm_superpoint+superglue/models --Mapper.num_threads 16`
+
+Cambridge: https://drive.google.com/file/d/1esqzZ1zEQlzZVic-H32V6kkZvc4NeS15/view
+7Scenes: https://drive.google.com/file/d/1cu6KUR7WHO7G4EO49Qi3HEKU6n_yYDjb/view
+
+There are total 1565 images. Its already 8hr and its still running. Is this usual? Also process is not using GPU. Does `mapper` function in COLMAP not support GPU?
+
+
+I'm wondering how much time did it take to create above shared ground truths? Is it possible to share time profile of each scene?"
+Different results on Evaluation with the same pretrained model,"**Dear Author**,
+
+Sorry to bother you.
+
+I have download the dataset and checkpoints with command ```  python -m pixloc.download --select [dataset name] checkpoints ``` . Then, I try to evaluate the datasets with ``` python -m pixloc.run_[7Scenes|Cambridge|Aachen|CMU|RobotCar] ``` (without ```--from pose```) and got the results. However, it shows different results from the paper.  The results are as followed:
+
+### 7_scene
+ 
+|       | Chess | Fire | Heads| Office | Pumpkin| Kitchen|  Stairs| 
+| ----------- | ----------- | ----------- |----------- |----------- |----------- |----------- | ----------- |
+| Pixloc_author| 2.8/0.95 | 2.4/0.95|1.1/0.83|3.5/1.04|5.2/1.46|4.5/1.48|6.9/1.71|
+| Pixloc_reproduce   | 2.7/0.95| 2.3/0.95|1.1/0.82|3.6/1.04|5.1/1.43|4.5/1.48|7.0/1.61|
+| Paper  | 2/0.8 | 2/0.73|1/0.82|3/0.82|4/1.21|3/1.2|5/1.3|
+
+**Pixloc_author** means use the original ``` checkpoint_best.tar ```, and **Pixloc_reproduce** uses the reproduced model (running for 18 epoch by myself).
+
+It is interesting to note, for **Pixloc_author** and  **Pixloc_reproduce**, the results are different from the paper, but similar to each others.
+
+### Cambridge
+
+|       | Court| King’s | Hospital| Shop| St. Mary’s|
+| ----------- | ----------- | ----------- |----------- |----------- |----------- |
+| Pixloc_author| 41.2/0.17 |16.7/0.26|50.8/0.83|5.5/0.21|14.3/0.35| 
+| Pixloc_reproduce| 37.7/0.15 |16.3/0.25|45.9/0.66|5.5/0.21|14.0/0.37|
+| Paper| 30/0.12 |14/0.24|16/0.32|5/0.23|10.0/0.34|
+
+Also different from the original results.
+
+### Aachen
+
+<img width=""660"" alt=""微信图片_20211208032115"" src=""https://user-images.githubusercontent.com/44965138/145142705-6f66ef2a-a0a7-4794-82ef-df0e31017112.png"">
+
+Note that, the results are similar to the issue #24 
+
+### CMU
+
+Original:
+
+<img width=""960"" alt=""微信图片_20211207215849"" src=""https://user-images.githubusercontent.com/44965138/145042466-95c7e25e-56bc-4459-b1c9-90429063101d.png"">
+
+See, the results also are similar to issue #20 .
+
+-----------------------------------------------------
+My Torch version == 1.7.1 and Numpy == 1.21.2. It's worth to note that when using the model trained by myself or author's model , it will got similar results (see 7Scenes) but different from the paper listed results. I'm also eager to know what went wrong, and if you could help me, I'd appreciate it.
+
+By the way, I will use reproduced model to test Cambridge, Aachen and CMU. To find if it's still the same as the best model that you provide, but different from the paper's results.
+"
+Fix run_CMU when running with the flag --from_poses,"This PR relates to #23, which faces a similar issue on the Aachen dataset.
+
+The fix adds a field `log_path` to the `Path` class and populates the corresponding setup for the run_CMU.py file.
+
+I've initiated a test locally using `python3 -m pixloc.run_CMU --from_poses --slices 3` (for brevity). The evaluation is running as expected, and I will report back the final results."
+"when run ""python3 -m pixloc.run_Aachen --from_poses"" meet an error！！！","hello，@Skydes ，When I run Aachen according to the steps you mentioned, I encountered an error as shown below. Can you help me solve it? thank you！！！
+
+
+
+caochengyang@caochengyang-Lenovo-Legion-R9000P2021H:~/pixloc$ python3 -m pixloc.run_Aachen --from_poses
+True
+[12/02/2021 10:54:15 pixloc INFO] Parsed configuration:
+experiment: pixloc_megadepth
+features:
+  preprocessing:
+    resize: 1600
+optimizer:
+  num_iters: 50
+  pad: 1
+refinement:
+  num_dbs: 5
+  min_points_opt: 100
+  point_selection: inliers
+  normalize_descriptors: true
+  average_observations: true
+  layer_indices:
+  - 0
+  - 1
+
+[12/02/2021 10:54:15 pixloc.localization.model3d INFO] Reading COLMAP model /home/caochengyang/pixloc/outputs/hloc/Aachen/sfm_superpoint+superglue.
+[12/02/2021 10:54:27 pixloc.utils.io INFO] Imported 824 images from day_time_queries_with_intrinsics.txt
+[12/02/2021 10:54:27 pixloc.utils.io INFO] Imported 98 images from night_time_queries_with_intrinsics.txt
+[12/02/2021 10:54:27 pixloc.pixlib.utils.experiments INFO] Loading checkpoint checkpoint_best.tar
+[12/02/2021 10:54:32 pixloc.localization.localizer INFO] Reading hloc logs...
+Traceback (most recent call last):
+  File ""/usr/lib/python3.8/runpy.py"", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File ""/usr/lib/python3.8/runpy.py"", line 87, in _run_code
+    exec(code, run_globals)
+  File ""/home/caochengyang/pixloc/pixloc/run_Aachen.py"", line 77, in <module>
+    main()
+  File ""/home/caochengyang/pixloc/pixloc/run_Aachen.py"", line 66, in main
+    localizer = PoseLocalizer(paths, conf)
+  File ""/home/caochengyang/pixloc/pixloc/localization/localizer.py"", line 145, in __init__
+    with open(paths.log_path, 'rb') as f:
+AttributeError: 'Paths' object has no attribute 'log_path'"
+What is Oracle referred in Pixloc paper?,"PixLoc, trained on MegaDepth, is initialized with image retrieval obtained with either DenseVLAD [88] or an `oracle`, which returns the reference image containing the largest number of inlier matches found by hloc. This `oracle` shows the benefits of better image retrieval using a more complex pipeline without ground truth information."
+Got NAN value  in training process by the same command in this code,"
+Sorry to bother. I download Undistorted_megadepth datasets, and used this command ""**python -m pixloc.pixlib.train pixloc_megadepth_reproduce --conf pixloc/pixlib/configs/train_pixloc_megadepth.yaml**"". When in process, I got NAN as follows:
+
+
+
+Evaluation: 97%|#########7| 99/102 [00:21<00:00, 5.18it/s]
+
+Evaluation: 98%|#########8| 100/102 [00:21<00:00, 5.18it/s]
+
+Evaluation: 99%|#########9| 101/102 [00:22<00:00, 4.92it/s]
+
+Evaluation: 100%|##########| 102/102 [00:22<00:00, 4.60it/s]
+
+[11/26/2021 01:22:48 pixloc INFO] [Validation] {R_error/0 3.900E+00, t_error/0 1.549E-01, R_error/1 4.264E+00, t_error/1 1.560E-01, R_error/2 3.748E+00, t_error/2 1.468E-01, R_error 3.748E+00, R_error_median 4.480E+00, t_error 1.468E-01, t_error_median 1.756E-01, R_error/init 1.718E+00, t_error/init 1.331E-01, loss/total 1.939E+01, loss/reprojection_error/0 3.426E+01, loss/reprojection_error/1 3.524E+01, loss/reprojection_error/2 2.786E+01, loss/reprojection_error 2.786E+01, loss/reprojection_error_median 3.192E+01, loss/reprojection_error/init 1.634E+01, loss/reprojection_error/init_median 1.069E+01}
+
+[11/26/2021 01:23:24 pixloc.pixlib.models.two_view_refiner WARNING] Few points in batch [('0035', 472, 741)]
+
+[11/26/2021 01:23:31 pixloc INFO] [E 3 | it 550] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 1.343E+01}
+
+[11/26/2021 01:24:15 pixloc INFO] [E 3 | it 600] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 1.996E+01}
+
+[11/26/2021 01:24:28 pixloc.pixlib.models.two_view_refiner WARNING] Few points in batch [('1017', 962, 1173)]
+
+[11/26/2021 01:24:58 pixloc INFO] [E 3 | it 650] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 2.845E+01}
+
+[11/26/2021 01:25:41 pixloc INFO] [E 3 | it 700] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 1.092E+01}
+
+[11/26/2021 01:26:13 pixloc.pixlib.models.two_view_refiner WARNING] Few points in batch [('0348', 167, 168)]
+
+[11/26/2021 01:26:24 pixloc INFO] [E 3 | it 750] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 8.301E+00}
+
+[11/26/2021 01:27:08 pixloc INFO] [E 3 | it 800] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 2.569E+01}
+
+[11/26/2021 01:27:19 pixloc.pixlib.models.two_view_refiner WARNING] Few points in batch [('5009', 168, 165)]
+
+[11/26/2021 01:27:51 pixloc INFO] [E 3 | it 850] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 2.809E+01}
+
+[11/26/2021 01:28:23 pixloc.pixlib.models.two_view_refiner WARNING] Few points in batch [('5005', 140, 136)]
+
+[11/26/2021 01:28:34 pixloc INFO] [E 3 | it 900] loss {total NAN, reprojection_error/0 NAN, reprojection_error/1 NAN, reprojection_error/2 NAN, reprojection_error NAN, reprojection_error/init 8.891E+00}
+
+
+
+
+
+It occurred in epoch 3, but when I try another the same command, it occurred in epoch 1 iteration 1180.
+
+
+
+I just want to reproduce your results and haven't change any parameters, just the same as you post. I wondered is there something I ignored or something going wrong? My pytorch version is 1.7.1, Numpy 1.21.2.
+
+
+
+Thank you so much.
+
+"
+Reproducing Results on the https://www.visuallocalization.net/details/17831/ Benchmark,"Hi @Skydes 
+
+Thank you for sharing your implementation and the tools surrounding this localization framework!
+
+I have been trying to reproduce the results of hloc + pixloc on the visual localization [benchmark](https://www.visuallocalization.net/details/17831/) for the Extended CMU dataset. However, I haven't been able to get results close to the values seen on the linked benchmark. The values I'm currently getting are:
+![Untitled presentation (2)](https://user-images.githubusercontent.com/9142922/143388531-04416a65-1c4e-49bc-a1cc-1adb2a1de321.png)
+
+Locally, I've downloaded the pixloc_cmu pre-trained weights hosted [here](https://cvg-data.inf.ethz.ch/pixloc_CVPR2021/checkpoints/pixloc_cmu/), and I'm running the following command:
+`python -m pixloc.run_CMU --from_poses` 
+Which after hours of running terminates with the message (truncated): 
+`[11/25/2021 00:32:21 pixloc INFO] Finished evaluating all slices, you can now submit the file /home/frank/github/pixloc/outputs/results/pixloc_CMU_slice2-3-4-5-6-13-14-15-16-17-18-19-20-21.txt to https://www.visuallocalization.net/submission/
+`
+I'm assuming that `--from_poses` runs the evaluation using hloc poses as a start, is this correct? Also, do you have any pointers on what I must be doing wrong?
+
+
+"
+How the intrinsic values are calculated for Cambridge and 7 Scenes dataset?,"Intrinsic parameters for query images in Cambridge and 7Scenes dataset are not available. But PixLoc requires calibrated query images so how these parameters are calculated to evaluating on these datasets?
+
+Thanks!"
+Add z clamp in Jacobian of projection,"As done in project() function, clamping z values avoids zero division. That is the cause (at least one of them) of the NaN values that appeared in some issue threads. "
+got an ffmpeg error,"I got an error when run the demo.ipynb:
+
+`Error: ffmpeg error (see stderr output for detail)`
+
+I don't know if I use the wrong version of ffmpeg because there is no detailed version information about it. So, can you share with me the version? or do you have any advice about this error?
+"
+RuntimeError:Function 'PowBackward1' returned nan values in its 0th output,"when i retrain the CMU datasets, and get an error like below,  
+
+[log.txt](https://github.com/cvg/pixloc/files/7553372/log.txt)
+
+![11](https://user-images.githubusercontent.com/39428557/142172576-32c7ab81-d2d4-488d-88ea-46fa6a200fa4.png)
+"
+"AssertionError:  distributed_lock_0 not exists,","zhoulw@zhoulw-Super-Server:~/pixloc$ python3 pixloc/pixlib/train.py pixloc_cmu_reproduce --conf pixloc/pixlib/configs/train_pixloc_cmu.yaml --restore true --distributed true
+[11/17/2021 14:27:40 pixloc INFO] Starting experiment pixloc_cmu_reproduce
+[11/17/2021 14:27:41 pixloc INFO] Restoring from previous training of pixloc_cmu_reproduce
+[11/17/2021 14:27:41 pixloc INFO] Restoring from checkpoint checkpoint_64.tar
+[11/17/2021 14:27:41 pixloc INFO] Restoring from previous training of pixloc_cmu_reproduce
+[11/17/2021 14:27:41 pixloc INFO] Restoring from checkpoint checkpoint_64.tar
+[11/17/2021 14:27:41 pixloc INFO] Training in distributed mode with 2 GPUs
+Traceback (most recent call last):
+  File ""pixloc/pixlib/train.py"", line 384, in <module>
+    torch.multiprocessing.spawn(
+  File ""/home/zhoulw/.local/lib/python3.8/site-packages/torch/multiprocessing/spawn.py"", line 230, in spawn
+    return start_processes(fn, args, nprocs, join, daemon, start_method='spawn')
+  File ""/home/zhoulw/.local/lib/python3.8/site-packages/torch/multiprocessing/spawn.py"", line 188, in start_processes
+    while not context.join():
+  File ""/home/zhoulw/.local/lib/python3.8/site-packages/torch/multiprocessing/spawn.py"", line 150, in join
+    raise ProcessRaisedException(msg, error_index, failed_process.pid)
+torch.multiprocessing.spawn.ProcessRaisedException: 
+
+-- Process 1 terminated with the following error:
+Traceback (most recent call last):
+  File ""/home/zhoulw/.local/lib/python3.8/site-packages/torch/multiprocessing/spawn.py"", line 59, in _wrap
+    fn(i, *args)
+  File ""/home/zhoulw/pixloc/pixloc/pixlib/train.py"", line 357, in main_worker
+    training(rank, conf, output_dir, args)
+  File ""/home/zhoulw/pixloc/pixloc/pixlib/train.py"", line 152, in training
+    assert not Path(lock).exists(), lock
+AssertionError: /home/zhoulw/pixloc/distributed_lock_0
+
+
+when retrain the model by two GPUs , get the error like above , would you give some advice ?thank you "
+Can the feature points in pixloc be used in mapping？,"Hello, I am a graduate student in the field of slam, and I am working on my graduation project. First of all, thank you for making such a great work open source. Pixloc is designed for relocation.  Can the feature points be used in mapping? Have you evaluated it on Hpatches?Compared with deep learning feature points such as SuperPoint, R2D2, Disk, etc., what is the mapping error?
+Another question is that in your paper, the sfm model of superpoint+superGlue is used to generate the point cloud.  If  use the feature points in pixloc or take a step back, the sparse point cloud generated by the orb feature points in orbslam is completely infeasible, or will it only reduce the limited accuracy?"
+Question: Using pixloc with OpenSfM,"Hi,
+
+Let me thank you first for the great tool you've developed and the clean code-base. I am currently trying to use pixloc with my own data in combination with OpenSfM. Do you know of any difficulties or problems in this setup or should I be fine just converting the OpenSfM output to a `Model3D`? Thank you very much in advance.
+"
+Missing Documentation,Repository is missing documentation. When is the documentation planned to be available on git?
+untimeError: torch.linalg.cholesky: The factorization could not be completed because the input is not positive-definite (the leading minor of order 1 is not positive-definite),"Command Run -  $ python -m pixloc.run_Aachen
+Python Version - 3.8
+Torch version -  1.10.0
+
+
+[11/08/2021 20:32:50 pixloc.localization.model3d INFO] Reading COLMAP model /home/ajay/pixloc/outputs/hloc/Aachen/sfm_superpoint+superglue.
+[11/08/2021 20:33:03 pixloc.utils.io INFO] Imported 824 images from day_time_queries_with_intrinsics.txt
+[11/08/2021 20:33:03 pixloc.utils.io INFO] Imported 98 images from night_time_queries_with_intrinsics.txt
+[11/08/2021 20:33:03 pixloc.pixlib.utils.experiments INFO] Loading checkpoint checkpoint_best.tar
+[11/08/2021 20:33:07 pixloc.localization.localizer INFO] Starting the localization process...
+  4%|███▉                                                                                        | 40/922 [01:30<33:06,  2.25s/it]
+Traceback (most recent call last):
+  File ""/usr/lib/python3.8/runpy.py"", line 193, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File ""/usr/lib/python3.8/runpy.py"", line 86, in _run_code
+    exec(code, run_globals)
+  File ""/home/ajay/pixloc/pixloc/run_Aachen.py"", line 76, in <module>
+    main()
+  File ""/home/ajay/pixloc/pixloc/run_Aachen.py"", line 68, in main
+    poses, logs = localizer.run_batched(skip=args.skip)
+  File ""/home/ajay/pixloc/pixloc/localization/localizer.py"", line 82, in run_batched
+    ret = self.run_query(name, camera)
+  File ""/home/ajay/pixloc/pixloc/localization/localizer.py"", line 131, in run_query
+    ret = self.refiner.refine(name, camera, dbs, loc=loc)
+  File ""/home/ajay/pixloc/pixloc/localization/refiners.py"", line 109, in refine
+    ret = self.refine_query_pose(qname, qcamera, T_init, p3did_to_dbids,
+  File ""/home/ajay/pixloc/pixloc/localization/base_refiner.py"", line 179, in refine_query_pose
+    ret = self.refine_pose_using_features(features_query, scales_query,
+  File ""/home/ajay/pixloc/pixloc/localization/base_refiner.py"", line 117, in refine_pose_using_features
+    T_opt, fail = opt.run(p3d, F_ref, F_q, T_i.to(F_q),
+  File ""/home/ajay/pixloc/pixloc/utils/tools.py"", line 48, in wrapped
+    rets = func(*args_converted, **kwargs)
+  File ""/home/ajay/pixloc/pixloc/pixlib/models/base_optimizer.py"", line 101, in run
+    return self._run(*args, **kwargs)
+  File ""/home/ajay/pixloc/pixloc/pixlib/models/learned_optimizer.py"", line 78, in _run
+    delta = optimizer_step(g, H, lambda_, mask=~failed)
+  File ""/home/ajay/pixloc/pixloc/pixlib/geometry/optimization.py"", line 29, in optimizer_step
+    U = torch.linalg.cholesky(H_, upper=True)
+RuntimeError: torch.linalg.cholesky: The factorization could not be completed because the input is not positive-definite (the leading minor of order 1 is not positive-definite).
+
+"
+NAN appear during training,"After 21850 training iterates, I got NAN in UNet extracted features.
+Could you give any advice that where of the source code should I look into? "
+"What does ""an oracle which returns the reference image...... inlier matches found by hloc"" mean?","Hi,
+There is a sentence in your paper, ""an oracle which returns the reference image containing the largest number of inlier matches found by hloc.""
+This sentence is from Section 5.1，I don't understand its specific steps. Could you teach me its implementation?
+""This oracle shows the benefits of better image retrieval using a more complex pipeline without ground truth information.""
+However, hloc use NetVLAD top 50 for image retrieval?"
+Error in the demo notebook: add_prefixes() missing 1 required positional argument: 'eval_dir',"When trying to run the demo notebook, the following error appears: 
+```
+TypeError                                 Traceback (most recent call last)
+/tmp/ipykernel_37/2660258349.py in <module>
+      8 
+      9 print(f'default paths:\n{pformat(default_paths.asdict())}')
+---> 10 paths = default_paths.add_prefixes(DATA_PATH/dataset, LOC_PATH/dataset)
+     11 
+     12 conf = default_confs['from_retrieval']
+
+TypeError: add_prefixes() missing 1 required positional argument: 'eval_dir'
+```
+
+Indeed, the call to `add_prefixes` seems to be missing a parameter: 
+```python
+paths = default_paths.add_prefixes(DATA_PATH/dataset, LOC_PATH/dataset)
+```"
+how to get the extrinsics between the cameras,"thanks  for your great work.
+i have download the robotcar from the url, and run the code ""run_RobotCar.py"" and get the result like this,
+
+_left/1418235223450115.jpg 0.11704475375741745 0.03295656318232015 -0.6387011805495836 -0.759786280822208 -125.37236785888672 -23.192873001098633 -7.491024494171143
+rear/1418235392061935.jpg 0.7276782815863018 -0.5911740329291926 -0.23252374914543117 -0.2587088853928167 -100.58859252929688 -41.86554718017578 207.1205291748047
+right/1418236138953803.jpg 0.6205097424969388 -0.6552427198975653 -0.20077227393455488 -0.3812022186540521 24.56517219543457 7.398570537567139 -221.69622802734375_
+
+
+**i would like to know how to get the extrinsics between the cameras?**
+
+"
+Sharing Models through Hugging Face,"Hey there!
+
+Would you be interested in sharing your models in the [Hugging Face Hub](http://hf.co/models)? The Hub offers free hosting of over 25K models, and it would make your work more accessible and visible to the rest of the ML community.  We can help you set up a ETH CV and Geometry Lab organization so you have a unified place to share your models.
+
+Some of the benefits of sharing your models through the Hub would be:
+* repos provide useful metadata about their tasks, languages, metrics, etc that make them discoverable
+* wider reach of your work to the ecosystem
+* we have [Spaces](https://huggingface.co/spaces) which is an incoming feature that allows to host web apps and share with the ecosystem. We could explore this for the 3D viewer.
+* versioning, commit history and diffs
+* multiple features from TensorBoard visualizations, PapersWithCode integration, and more
+
+Creating the repos and adding new models should be a relatively straightforward process if you've used Git before. This is a [step-by-step guide](https://huggingface.co/docs/hub/adding-a-model) explaining the process in case you're interested. Please let us know if you would be interested and if you have any questions.
+
+Happy to hear your thoughts,
+**Omar and the Hugging Face team**"
+Update README.md,Fix weights url.
+Release,
+subscribe,
+Subscribe,Subscribe
+[Announcements] Code release,Add subscribe to this issue if you wish to be notified of the code release. Please do not contact us to ask for early-access to the code.

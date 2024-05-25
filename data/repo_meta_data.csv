@@ -1,0 +1,173 @@
+repo,number_contributor,number_stars,created_date,description,language,number_commit
+JYVSECTEC/PHR-model,6,59,2019-11-27T07:19:59Z,"Prepare, Hunt, and Respond - Conceptual model against cyber attacks by JYVSECTEC",Jupyter Notebook,142
+aidotse/DecentralizedAI,4,2,2021-09-21T11:23:58Z,Decentralized AI,Python,0
+GiovanniCalore/BigGAN-Tensorflow-master,0,0,2020-09-16T10:46:55Z,,Python,4
+sisinflab/recsys2021-pursuing-privacy,2,18,2021-09-01T16:06:46Z,"Material supporting the tutorial ""Pursuing Privacy in Recommender Systems: The View of Users and Researchers from Regulations to Applications"" held at the 15th ACM Conference on Recommender Systems in Amsterdam, Netherlands",Jupyter Notebook,45
+sureindia-in/aws-sagemaker-workshop-jun2021,10,0,2021-06-28T18:54:51Z,,Jupyter Notebook,2974
+Substra/substra-examples,3,9,2020-07-24T09:20:40Z,Examples of Substra implementations,Jupyter Notebook,67
+WillCPP/ProblemDescription,1,0,2020-11-23T19:32:53Z,Investigate the tradeoffs between privacy and performance in the context of transfer learning.,Python,21
+virtualspark/PETs-Bootcamp,1,0,2021-11-03T14:34:51Z,,Jupyter Notebook,0
+sommerda/blog,1,0,2021-05-09T21:16:38Z,My Blog where I publish things from time to time.,Python,0
+oonisim/books-datascience-on-aws,1,0,2021-08-07T00:25:31Z,https://github.com/data-science-on-aws,Jupyter Notebook,0
+DavidTaylor5/motion-sense-har,1,0,2022-05-06T02:17:47Z,Har classification using CNN and logistic regression,Python,0
+andrew-ma/tfe_fmnist_demo,1,0,2020-12-08T13:25:33Z,,Python,0
+hydrobot004/datascience-on-aws,13,1,2022-03-24T21:02:59Z,,Jupyter Notebook,0
+Serverless-Federated-Learning/FedLesScan,4,2,2021-11-17T12:37:22Z,,Jupyter Notebook,0
+MADS508/labs,1,0,2022-08-24T22:29:01Z,USD Master of Data Science 508 Labs,Jupyter Notebook,0
+zedoul/202203dp,1,0,2022-03-02T15:19:49Z,,Python,0
+VivSoftOrg/synthetic-data-SDGym,2,0,2020-06-06T21:15:23Z,,Python,86
+prateekb26/Master_Thesis,1,0,2022-01-24T18:10:50Z,,Python,45
+iansee/FYP,30,0,2019-09-30T06:31:22Z,FYP pysyft - Federated,Python,5022
+qizhi-zhang/mpc_benchmark,1,0,2022-01-28T06:38:00Z,,Python,0
+qinghao1/gradient,1,0,2019-12-04T17:05:54Z,,Jupyter Notebook,23
+PacktPublishing/Designing-Models-for-Responsible-AI,3,2,2022-01-07T12:14:48Z,Designing Models for Responsible AI,Jupyter Notebook,0
+leoalexand/aws-ds-NLP-BERT,10,1,2021-02-20T21:21:37Z,,Jupyter Notebook,2695
+SAP-samples/security-research-identifiability-in-dpdl,3,2,2021-06-14T21:00:08Z,"Sample code to reproduce the research done in the paper “Quantifying identifiability to choose and audit epsilon in differentially private deep learning"" by the SAP Security Research team.",Jupyter Notebook,0
+woodyx218/Deep-Learning-with-GDP-Pytorch,1,17,2020-06-23T15:06:20Z,"Code to accompany the paper ""Deep Learning with Gaussian Differential Privacy""",Jupyter Notebook,17
+sharmi1206/differential-privacy-tensorflow,1,8,2020-02-01T17:33:52Z,Samples of multi-class text classification with Differential Privacy Tensorflow 2.0,Python,5
+anonymousubmitter/project1,1,0,2020-09-18T17:17:36Z,,Python,10
+trusthlt/privacy-legal-nlp-lm,2,0,2022-10-25T07:14:39Z,,Python,0
+SSxxxxxxxxxx/DpComparison,1,0,2022-09-07T15:35:49Z,,Python,3
+netsharecmu/NetShare,3,34,2022-06-15T13:43:05Z,(SIGCOMM '22) Practical GAN-based Synthetic IP Header Trace Generation using NetShare,Python,84
+mominbuet/GenerateEHRs,1,1,2020-07-31T21:06:23Z,,Python,8
+capeprivacy/encrypted-skin-cancer-detection,3,29,2019-06-07T16:54:10Z,Detecting skin cancer in encrypted images with TensorFlow,Jupyter Notebook,14
+private-mechanism/p_exponential_mechanism,2,3,2020-08-07T03:49:15Z,We propose a mechanism family (P-exponential mechanism family) of DP to improve the performance of the Gaussian mechanism in machine learning,Python,6
+ichen20/oreilly_book,11,0,2022-02-19T05:52:06Z,,Jupyter Notebook,0
+VectorInstitute/PETs-Bootcamp,8,11,2021-09-28T17:43:56Z,A collection of demos and utilities prepared ahead of the Vector Institute Privacy Enhancing Techniques (PETs) Bootcamp.,Jupyter Notebook,0
+debug34ed/Rosetta-indivisual,1,0,2022-11-05T13:58:21Z,all submodules are embedded,C++,0
+vinaygrao/DifferentialPrivacy,1,0,2020-05-08T13:35:12Z,trying different differential privacy methodologies,Jupyter Notebook,3
+prbh695a/SPML,1,0,2020-07-14T14:17:07Z,,Python,45
+xjdlb/my-awesome-tensorlfow-tutorial,1,3,2022-03-04T16:23:49Z,,Jupyter Notebook,0
+gretelai/gretel-synthetics,21,363,2020-03-02T15:54:44Z,"Synthetic data generators for structured and unstructured text, featuring differentially private learning.",Python,269
+SanaAwan5/tensorflow_privacy,0,0,2022-04-01T15:44:53Z,,Python,1
+adityapribadi3/Privacy-Machine-Learning,2,0,2021-04-04T01:54:22Z,Experiment for Privacy in Machine Learning,Jupyter Notebook,0
+aheyler/Differential-Privacy-Batch-Exp,3,0,2022-11-30T21:39:14Z,ESE 546 Final Project exploring the tradeoff between minibatch sizes in DP-SGD and accuracy,Jupyter Notebook,0
+amitab/master_thesis,1,0,2021-03-05T17:32:54Z,,Jupyter Notebook,63
+JunW15/AdvMT,1,0,2022-03-10T03:00:13Z,,Python,0
+Hhkai/syftgpu,1,0,2020-12-11T00:54:48Z,,Python,0
+PrivPkt/PrivPkt,3,80,2019-12-01T00:23:10Z,"Privacy Preserving Collaborative Encrypted Network Traffic Classification (Differential Privacy, Federated Learning, Membership Inference Attack, Encrypted Traffic Classification)",Python,58
+umitutku/differential-privacy,1,0,2021-03-03T12:18:23Z,R&D project on the implications of explainability methods on differential privacy,Jupyter Notebook,0
+TheSalon/fast-dpsgd,3,55,2020-10-16T17:20:46Z,Code for fast dpsgd implementations in JAX/TF,Python,0
+joelyuhas/Joel-Yuhas-Code,1,0,2021-02-19T23:52:18Z,Code database,,0
+ypy516478793/Modules,0,2,2019-04-22T16:13:34Z,,Python,9
+buffyhridoy/crops-privacy,1,0,2022-10-15T07:48:42Z,,Jupyter Notebook,0
+magnetar-iiith/PRIL,3,1,2021-12-02T12:07:57Z,,Python,0
+Chris-george-anil/Federated-Learning-Internship,1,0,2021-07-28T18:18:42Z,Code for the implementation of federated learning with differential privacy using flower and Tensorflow federated(Tensorflow Models) and Opacus (Pytorch models).,Python,0
+NigeloYang/federated_learning_differential_privacy,1,6,2022-01-22T11:24:35Z,,Python,59
+woodyx218/Deep-Learning-with-GDP-Tensorflow,2,40,2019-11-24T20:01:40Z,"Code to accompany the paper ""Deep Learning with Gaussian Differential Privacy""",Python,53
+lxuechen/Differentially-Private-Fine-tuning-of-Language-Models,2,2,2021-10-22T22:51:40Z,"Code for ICLR 2022 submission ""Differentially Private Fine-tuning of Language Models"".",Python,0
+Ethan-schonfeld/SpineGAN,1,0,2022-02-16T03:57:10Z,Generative Adversarial Network Based Synthetic Learning and a Novel Domain Relevant Loss Term for Spine Radiographs,Python,0
+Eleven-Z/tf-encrypted,24,1,2020-07-09T08:17:33Z,,Python,590
+yxd886/jax,30,1,2020-10-17T09:00:06Z,,Python,0
+amitab/tensorflowscripts,1,0,2020-11-01T10:42:55Z,,Jupyter Notebook,17
+mukira/PySyft,1,1,2019-08-13T13:28:53Z,,Python,1
+cyourth-cognonic/aws-workshop,11,0,2021-04-15T20:55:50Z,,Jupyter Notebook,2839
+riku1212/dp-tsc-baseline,26,1,2020-02-24T05:26:59Z,,Python,286
+shreyansh26/Privacy-Preserving-Deep-Learning-for-Medical-Image-Classification,1,1,2019-11-29T14:42:54Z,Privacy-preserving Deep Learning for Medical Image Classification for classifying chest X-ray images,Jupyter Notebook,10
+itsjorgemg/TFM-deltaDoca,1,0,2022-09-05T22:44:31Z,TFM - Evaluation of δ-DOCA on online machine learning,Python,0
+Kwinpeng/tfe-logistic,1,1,2020-10-13T05:57:58Z,Logistic regression implemented atop tensorflow-encrypted,Python,15
+vijay-khanna/data-science-on-aws-sagemaker,9,1,2021-02-16T02:36:18Z,,Jupyter Notebook,2632
+jusjusjus/noise-in-dpsgd-2020,2,4,2020-01-08T15:21:39Z,"This repository accompanies our paper ""Differentially Private Generation of Small Images""",Python,37
+mbarzegary/ecg-classification-keras-shallow,1,0,2020-11-08T22:59:59Z,ECG Signals Classification using Keras for Privacy-Preserving Machine Learning,Python,7
+mhmhmd96/first_paper,30,0,2022-11-03T10:37:56Z,First paper,Python,0
+sifis-home/analytics-toolbox,3,1,2022-03-28T10:20:15Z,This repository includes the analytics that have been developed for the SIFIS-Home framework,Jupyter Notebook,77
+UWE-AI-GROUP/GRAIMATTER-TEST,9,0,2022-06-17T09:35:57Z,Test Repo for GRAIMATTER,Jupyter Notebook,0
+tnakaicode/PlotGallery,3,4,2020-02-06T04:54:49Z,,Jupyter Notebook,364
+DavidTaylor5/final-motion,1,0,2022-06-11T17:08:49Z,"The final repository for HAR fairness tests, using the modtion sense dataset.",Python,0
+Charvijain16/PPML-for-Aneurysm-Rupture-,1,0,2021-03-29T22:28:03Z,,Jupyter Notebook,0
+UnchartedRLab/SSP,1,0,2022-08-05T15:53:24Z,,Python,0
+LatticeX-Foundation/Rosetta,12,519,2020-04-08T14:25:50Z,A Privacy-Preserving Framework Based on TensorFlow,C++,463
+shirishtarihalkar10/DP-TensorflowPrivacy,1,0,2021-06-14T03:25:43Z,Training a differentially private model using tensorflow privacy.,Python,0
+WeilerWebServices/TensorFlow,1,3,2020-11-05T02:37:49Z,TensorFlow is a free and open-source software library for machine learning. It can be used across a range of tasks but has a particular focus on training and inference of deep neural networks. Tensorflow is a symbolic math library based on dataflow and differentiable programming. ,Jupyter Notebook,3
+mhmhmd96/flower2.0,30,0,2022-10-15T22:34:30Z,Delay Parameter,Python,0
+kbnarayanavit/jax,30,0,2021-08-24T11:34:05Z,,Python,0
+datumtechs/datum-network-channel-sdk,1,1,2021-09-13T09:38:06Z,RosettaNet网络层sdk,C++,0
+Djiffit/TML,1,0,2019-11-10T10:22:45Z,Trustworthy Machine Learning,Jupyter Notebook,5
+JunxuLiu/PFA,1,1,2021-01-31T11:50:17Z,,Python,2
+PROBIC/hyperparameters-neural-architectures-in-dp-dl,1,0,2022-05-12T10:24:01Z,Repository for the mimic-III models of the hyperparameters and neural architectures in differentially private deep learning master thesis,Python,5
+khoaguin/PriMIA,9,0,2022-11-08T10:14:47Z,Cloned from https://github.com/gkaissis/PriMIA,Python,0
+limengleidaye/RecSys-master,1,1,2021-03-08T01:57:47Z,,Python,52
+simonrenauld/12-AWS-Amazon-Services,1,0,2021-12-09T09:55:25Z,,Jupyter Notebook,0
+bargavj/EvaluatingDPML,6,115,2019-02-27T23:16:22Z,This project's goal is to evaluate the privacy leakage of differentially private machine learning models.,Python,247
+tensorflow/privacy,30,1705,2018-12-21T18:46:46Z,Library for training machine learning models with privacy for training data,Python,759
+EU-TEACHING/teaching-ai-toolkit,8,2,2022-03-31T16:06:52Z,AI-Toolkit collecting and implementing the AI modules for a TEACHING application.,Python,0
+791092214/federal-learning,1,0,2021-10-23T06:20:28Z,federal learning for chinese recognition,Python,0
+scut-cbq/flower_for_heterogeneous_clients,1,0,2022-10-30T16:10:41Z,,Python,0
+tf-encrypted/tf-encrypted,25,1087,2018-03-21T18:22:13Z,A Framework for Encrypted Machine Learning in TensorFlow,Python,603
+kendalltao/test2,1,0,2022-04-04T15:31:47Z,,Python,0
+andreas-grafberger/fedless,1,10,2021-11-02T10:55:07Z,"Source code for the paper ""FedLess: Secure and Scalable Federated Learning Using Serverless Computing"" (IEEE BigData 2021)",Jupyter Notebook,0
+MohamedHaggag-Cloud/privateAI,1,1,2022-02-24T10:47:39Z,Start for private AI,Python,0
+sureindia-in/data-science-on-aws-latest-2021,10,0,2021-06-11T15:14:24Z,,Jupyter Notebook,2933
+akmore10/FederatedLearning,1,0,2022-09-27T14:48:43Z,,Python,0
+mhmhmd96/Flower0.1.0,30,0,2022-09-07T22:04:17Z,,Python,0
+adap/flower,30,1909,2020-02-17T11:51:29Z,Flower - A Friendly Federated Learning Framework,Python,0
+sanixa/P3GM_custom,1,0,2021-01-08T07:44:04Z,,Python,0
+YushinJung-ATG/SageMaker-Workshop,11,0,2021-05-11T09:42:46Z,,Jupyter Notebook,2892
+FredericW/PrivacyAccountant,1,0,2022-06-22T23:54:32Z,Let's account privacy more and more accurately!,Jupyter Notebook,0
+anonymous0118999/mlsyssubmission,1,1,2020-10-10T23:35:37Z,Mlsys Sybmission 2021,Python,0
+gersteinlab/idash20FL,1,0,2021-11-03T15:17:52Z,,Jupyter Notebook,0
+rijoblockchain/nitro-enclave-FL,0,0,2022-03-03T18:24:39Z,,Go,15
+TruongThiAnHai/PPML,1,0,2020-12-06T11:43:01Z,,C++,0
+AndreIglesias/release-based-ci,1,0,2023-01-17T16:20:50Z,,Rust,0
+aminfa/EncryptedMachineBenchmarks,0,0,2022-10-27T13:13:16Z,,Jupyter Notebook,2
+Abhineeth09/SML_Assignment_4,1,0,2021-04-24T06:31:48Z,,Python,0
+changyong1221/FlaskClient,1,1,2021-11-12T06:16:41Z,Flask client for federated learning,Python,5
+ChubaOraka/data-science-on-aws-workshop-2021-05-15,11,2,2021-05-15T16:02:12Z,"AI and Machine Learning with Kubeflow, Amazon EKS, and SageMaker",Jupyter Notebook,2912
+AI-SDC/AI-SDC,6,6,2022-07-28T10:30:56Z,Collection of tools and resources for managing the statistical disclosure control of trained machine learning models,Python,0
+star-ailab/LLM_Tune,1,0,2022-09-06T16:08:56Z,,Python,0
+weharris/data-science-on-AWS,11,0,2022-02-06T11:18:50Z,,Jupyter Notebook,0
+AkankshaCheeti/NetShare-CS536-Project,4,0,2023-01-23T01:56:07Z,,Python,83
+kushal-g/Federated-Fiddler,1,0,2021-09-01T20:11:24Z,A web tool to test with different paramters associated with Federated Learning and see how it affects the Federated loss and accuracy for MobileNetV2 Model.,Python,2
+VMS-6511/clinical_dp_bert,1,1,2020-04-19T21:30:52Z,,Jupyter Notebook,4
+IcebergLettuce/Thesis,2,0,2021-08-16T15:37:02Z,,Python,0
+ChubaOraka/data-science-on-aws-workshop-2021-06-28,11,1,2021-06-28T19:55:44Z,"Workshop: Build an AI/ML pipeline with BERT, TensorFlow and Amazon SageMaker, Mon, Jun 28, 2021, 9:00 AM",Jupyter Notebook,2986
+tkgsn/P3GM,2,0,2022-01-20T14:32:39Z,,Python,6
+Emory-AIMS/PFA,1,3,2021-06-01T02:19:48Z,,Python,2
+huseyinatahaninan/Differentially-Private-Fine-tuning-of-Language-Models,2,15,2021-10-30T14:39:54Z,,Python,0
+dayu11/Differentially-Private-Deep-Learning,1,53,2021-06-11T05:20:07Z,This repo implements several algorithms for learning with differential privacy.,Python,0
+gkaissis/PriMIA,7,113,2020-04-20T07:24:39Z,PriMIA: Privacy-preserving Medical Image Analysis,Python,299
+mnauf/UdacityFacebookScholar,1,5,2019-08-01T06:34:30Z,,Jupyter Notebook,117
+sanjyotUM/EvaluatingDPML,6,0,2020-11-15T08:54:14Z,,Python,0
+besnikkelmendi/DPSGD-FL,1,0,2021-12-21T10:16:29Z,,Python,1
+Heiko-Wang/EvaluatingDPML,5,0,2022-04-27T02:00:19Z,,Python,230
+DavidTaylor5/dp-debug,1,0,2022-05-24T00:26:21Z,A debug repo for dpSGD for motion sense dataset,Python,0
+parkbeomsik/DPSGD-in-TPU,1,0,2022-11-14T01:55:08Z,A bunch of scripts to measure the performance of DP-SGD on TPU. It also includes scripts to measure the performance of key GEMMs in DP-SGD.,Python,0
+aischeveva/dp_classifier_membership_inference,0,1,2021-02-07T18:57:40Z,,Python,6
+Mahzabeen-LU/CryptographyProject,1,0,2022-04-12T01:30:26Z,,Python,0
+Antonious-Grigis/Shuffled-Model-of-Differential-Privacy-in-Federated-Learning,1,6,2022-01-22T03:52:28Z,"Implementation of  Shuffled Model of Differential Privacy in Federated Learning."" AISTATS, 2021. ",Python,0
+mhmhmd96/Flower1.0,30,0,2022-10-15T22:43:23Z,,Python,0
+data-science-on-aws/data-science-on-aws,13,2838,2020-02-29T19:33:58Z,"AI and Machine Learning with Kubeflow, Amazon EKS, and SageMaker",Jupyter Notebook,0
+00make/Rosetta-zh,1,0,2021-01-21T17:10:35Z,A Privacy-Preserving Framework Based on TensorFlow,Python,0
+SankarLab/DP-Cactus-Mechanism-Code,1,1,2022-07-28T22:02:20Z,,Jupyter Notebook,0
+zedoul/dataextraction,1,0,2021-09-17T11:43:31Z,,Python,0
+PhoenixGlobal/Phoenix-Privacy-Computation,1,2,2022-09-22T09:42:38Z,,Python,0
+pecu/PecuLab4Trading,1,2,2021-04-20T01:52:57Z,,Python,0
+sanixa/DP-CGAN-custiom,1,0,2021-09-07T03:26:27Z,,Python,0
+AISIGSJTU/Siren-Plus,1,0,2022-04-20T03:45:13Z,,Jupyter Notebook,0
+anupam3693/data-science-on-aws,10,0,2021-10-22T14:42:57Z,,Jupyter Notebook,3029
+Stu-Yang/fssnn,1,1,2022-10-23T07:52:06Z,FssNN : Communication Efficient Secure Neural Network via Function Secret Sharing,Jupyter Notebook,0
+yongchao97/FRePo,1,14,2022-10-11T19:50:47Z,Official Code for Dataset Distillation using Neural Feature Regression (NeurIPS 2022),Python,10
+SanaAwan5/transfer_learning_on_mnist_spdz,0,5,2020-08-11T16:55:00Z,,Python,1
+mithril-security/bastionlab,11,106,2022-07-11T09:31:54Z,A simple framework for privacy-friendly data science collaboration,Rust,1278
+Astrmeteor/FL_GAN,1,2,2022-10-12T08:40:59Z,,Python,0
+capeprivacy/tf-world-tutorial,5,46,2019-09-24T18:12:38Z,TensorFlow World 2019 Tutorial: Privacy-Preserving Machine Learning with TF Encrypted & PySyft,Jupyter Notebook,26
+esenebenjamin/SageMaker,13,1,2023-01-05T07:42:56Z,,Jupyter Notebook,0
+ackermanl77/pde,1,1,2022-06-08T05:17:01Z,,Jupyter Notebook,0
+VMS-6511/tf-encrypted-examples,1,0,2019-06-05T13:42:36Z,Working through TFE examples for learning how to use TFE API.,Python,2
+Sanghyun-Hong/Gradient-Shaping,1,9,2020-02-21T19:05:32Z,[Preprint] On the Effectiveness of Mitigating Data Poisoning Attacks with Gradient Shaping,Python,7
+wanxiang-blockchain/hackathon2020-T3-ownership,2,5,2020-10-24T06:00:57Z,,Python,0
+RosaYen/FLSA_dropout-resilient,1,1,2022-06-26T06:52:22Z,,Python,0
+yahui624/Flower_dpsgd,1,0,2022-05-05T22:55:13Z,,Jupyter Notebook,0
+W-yk/privacy-compress-adaclip,1,1,2021-06-15T06:59:51Z,,Python,0
+0M1N0U5/TFM-ML-Privacy-Comparative,1,1,2021-08-17T18:24:08Z,,Python,0
+ToddMorrill/tutorials,1,0,2019-10-04T21:17:03Z,miscellaneous tutorials,Jupyter Notebook,18
+Clarkl20021/FL-project,1,1,2022-09-07T15:07:55Z,,Python,0
+AminAmouhadi/Differential-Privacy-Cancer,30,0,2021-04-27T05:25:57Z,,Python,455
+davidgnaw/Data_Security_Projects,1,0,2022-05-13T01:08:15Z,,Python,0
+barreira/lei-1819,3,10,2019-06-02T16:39:09Z,"Benchmark and comparison of secure Deep Learning platforms: TF Privacy, PySyft and TF-Encrypted",Python,92
+sureindia-in/data-science-on-aws-workshop,10,0,2021-07-20T09:17:43Z,,Jupyter Notebook,2981
+Berenice2018/PySyft-Bc,0,2,2019-07-23T19:28:53Z,"Cloned PySyft, for fixing small bugs",Python,3
+Jerry-li-uw/privacy,30,0,2021-03-23T21:07:31Z,,Python,0
+HadiMaqbool/workshp29,10,0,2021-10-29T19:48:13Z,,Jupyter Notebook,3030
+tasnimislam/ns3Codes,1,0,2022-06-19T00:07:35Z,,C++,0
+renjie-liang/Compress-Net-ED,1,0,2019-09-23T01:44:19Z,Compress Net in Encrypted Domain,Python,25

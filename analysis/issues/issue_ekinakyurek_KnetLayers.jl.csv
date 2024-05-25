@@ -1,0 +1,320 @@
+title,body
+correct a typo,"The x1 in compute_kernel_Gaussian(x1, centers, sigma) would make the compute_density_ratio function unable to work as expected, it should be the argument x instead of x1"
+KLIEP regularization,"First off, thanks for this very useful package! The interface is smooth and the implementation is quite fast, even for large problems.
+
+I've noticed that some papers make use of regularization penalties when fitting weights for KLIEP (see, e.g., §3.2 of [this review](https://arxiv.org/abs/1701.01582)). I wonder if it would be possible to incorporate L1, L2, and/or elastic net regularization into the KLIEP optimization? Something similar appears to be implemented for uLSIF. "
+Some Bugs in the KLIEP,"There are some bugs in the script KLIEP.R. One is that in this sentence ` if(verbose) message(""Searching optimal sigma and lambda..."")`  we only optimize sigma without lambda. A serious one is in the function `compute_density_ratio`, this function use the train set to predict the density ratio of a new sample, which results in the mismarch of the dimension of the predicted value and the new sample."
+Refactoring,
+implement RuSLIF,
+Information Criterion,"http://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1703-02.pdf
+によれば最小二乗の場合はAICもモデル選択に有効のようですが、AICは実装されていないのでしょうか or AICをdensratioの結果に対して計算するためには何を尤度と考えるのが適切でしょうか？"
+Euclidean distance should be squared?,"https://github.com/hoxo-m/densratio/blob/3b877d5fdaf1b020a75c373b153b84210820934e/R/compute_kernel_Gaussian.R#L10
+
+This line probably computes the Gaussian kernel.
+If so, I think the Euclidean distance should be squared."
+update KLIEP_optimized_alpha.R more accuracy,"KLIEP_optimized_alpha()の
+c <- b / crossprod(b)[1, 1]
+部分で， |b| << 1 の時，crossprod(b)[1, 1] が 0 になってしまい，c の成分が Inf または NaN になり最終的に score_new もNaNでエラーとなることがありました．
+
+c <- b / crossprod(b)[1, 1]　
+を
+nb <- norm(b)
+c <- b / nb / nb 
+とすることで回避しました．
+
+
+
+
+"
+Search parameters using Bayesian optimization,"The uLSIF algorithm find optimal lambda and sigma parameters using grid search.
+Instead of grid search, how about use Bayesian optimization?"
+refine documents,
+modify documents,
+Cran,"on CRAN now
+"
+TagBot trigger issue,"This issue is used to trigger TagBot; feel free to unsubscribe.
+
+If you haven't already, you should update your `TagBot.yml` to include issue comment triggers.
+Please see [this post on Discourse](https://discourse.julialang.org/t/ann-required-updates-to-tagbot-yml/49249) for instructions and more details.
+
+If you'd like for me to do this for you, comment `TagBot fix` on this issue.
+I'll open a PR within a few hours, please be patient!
+"
+Project.toml compat,
+tagbot added,tagbot added
+compat for Julia-1.6 Knet-1.4.6,"Let's keep KnetLayers as a separate package. Please test, merge and release a version if all is ok. You can ignore/delete #18. Changes:
+* Knet was split into sub-packages, so I changed the dependencies accordingly.
+* rnn options usegpu and dataType were replaced with atype in Knet, did the same here.
+* JLD2 now supports custom types (see Knet/src/knetarrays/jld2.jl), so _ser is no longer used by default. I provide a transition function (load143) to load old models. Any new load/save directly calls FileIO. I haven't tested this with your rnns.
+* I have not tested Morse.jl yet, will do that next. I am pretty sure loading pretrained models will need some fixing.
+* I learned to use release assets (see https://github.com/denizyuret/Knet.jl/releases/tag/v1.4.5) to give pretrained models a permanent url without checking them in to git. We should do that for Morse.jl as well."
+Knet-1.4.0 compatibility fixes,"I fixed a few things to ensure compatibility with Knet-1.4.0. Do you want to keep KnetLayers separate or make it part of the standard Knet distro as Knet.Layers20 submodule, let me know."
+KnetLayers fails to compile ,"Julia 1.5 and 1.4
+
+[1902f260] Knet v1.4.0
+[e09e3f5a] KnetLayers v0.2.0
+
+Probably to do with the recent changes in Knet....
+
+```
+ERROR: LoadError: LoadError: UndefVarError: BNMoments not defined
+Stacktrace:
+ [1] top-level scope at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/primitive.jl:114
+ [2] include at ./Base.jl:368 [inlined]
+ [3] include(::String) at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/KnetLayers.jl:1
+ [4] top-level scope at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/KnetLayers.jl:42
+ [5] top-level scope at none:2
+ [6] eval at ./boot.jl:331 [inlined]
+in expression starting at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/primitive.jl:114
+in expression starting at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/KnetLayers.jl:42
+ERROR: LoadError: LoadError: Failed to precompile KnetLayers [e09e3f5a-3c2e-516c-a806-60ae64389a85] to /home/andevellicus/.julia/compiled/v1.5/KnetLayers/IvgPR_DAW2J.ji.
+Stacktrace:
+ [1] compilecache(::Base.PkgId, ::String) at ./loading.jl:1290
+ [2] _require(::Base.PkgId) at ./loading.jl:1030
+ [3] require(::Base.PkgId) at ./loading.jl:928
+ [4] require(::Module, ::Symbol) at ./loading.jl:923
+ [5] include(::String) at ./client.jl:457
+ [6] top-level scope at /home/xxx/Programming/ML/julia/Knet/train_unet.jl:1
+in expression starting at /home/xxx/Programming/ML/julia/Knet/SDHSeg.jl:5
+in expression starting at /home/xxx/Programming/ML/julia/Knet/train_unet.jl:1
+```"
+Support for 3D convolutions (5DKnetArrays),"Hi,
+Great work so far, this is super helpful!
+
+I do a lot of work with 3D images, and I know KNet supports 5D arrays. How difficult would it be to implement an additional dimension?"
+V0.2.0v2,
+Segmentation Fault in Seq2Seq,"Hello, 
+
+I was playing with the seq2seq.jl script.  And I wondered why did you use sorting method inside the forward function
+```julia
+(m::S2S)(x) = m.output(m.decoder(pad(10, sort(x, dims=2) , m.encoder(x; hy=true).hidden).y)
+```
+instead of 
+
+```julia
+(m::S2S)(x, ygold) = m.output(m.decoder(pad(10, ygold) , m.encoder(x; hy=true).hidden).y)
+```
+of course I also changed the second forward function to :
+
+```julia
+(m::S2S)(x, ygold) = m.loss(m(x, ygold), ygold)
+```
+And at the end I get segmentation fault.  Why is this happening?
+I am trying to build a very basic sequence to sequence model on different data. 
+ Could you help me to resolve this issue please? "
+Project.toml fixes,These fixes will let you pass the tests on https://github.com/JuliaRegistries/General/pull/4615 and help merge the new version. Just merge the PR and create a special comment on the new commit like before. This will override your previous request so you don't have to do anything to take back the previous request.
+upscale->dilation,"With this change tests pass with latest Knet versions.
+See https://github.com/denizyuret/Knet.jl/issues/322 and https://github.com/denizyuret/Knet.jl/issues/434 for justifications for this change. CuDNN docs also call this dilation now, it is for dilated convolutions, upscale never worked and was never used."
+registry issues,"If I try to switch from dev to registered version:
+```
+julia> pkg""rm KnetLayers""
+julia> pkg""dev KnetLayers""
+# fetches master branch from https://github.com/ekinakyurek/KnetLayers.jl.git
+julia> pkg""free KnetLayers""
+ERROR: cannot free a `dev`ed package that does not exist in a registry
+```
+
+If I try to switch from registered version to dev:
+```
+julia> pkg""rm KnetLayers""
+julia> pkg""add KnetLayers""
+ Resolving package versions...
+  Updating `/scratch/users/dyuret/.julia/environments/v1.2/Project.toml`
+  [e09e3f5a] + KnetLayers v0.1.0
+  Updating `/scratch/users/dyuret/.julia/environments/v1.2/Manifest.toml`
+  [e09e3f5a] + KnetLayers v0.1.0
+julia> pkg""dev KnetLayers""
+[ Info: Path `/kuacc/users/dyuret/.julia/dev/KnetLayers` exists and looks like the correct package, using existing path
+ERROR: cannot add package `KnetLayers = ""80bfaf46-ad8a-11e8-19eb-a135e382307b""` since package `KnetLayers = ""e09e3f5a-3c2e-51\
+6c-a806-60ae64389a85""` already exists as a direct dependency.
+```
+
+It looks like in the first case there is something wrong with the way KnetLayers is registered, and in the second case there seems to be two different UUID's for it (UUID should be unique to a package and should never change).
+"
+V0.2.0,"Rewrite half of the code
+Documentation improved,
+"
+Plan of this package?,"Hi, what's the current plan of this package? Is this still active developed and maintained? "
+trying macnet with latest Knet/KnetLayers releases,"I got the following error:
+```
+UndefVarError: rnnforw not defined
+
+Stacktrace:
+ [1] #_forw#39(::Base.Iterators.Pairs{Symbol,Bool,Tuple{Symbol,Symbol},NamedTuple{(:hy, :cy),Tuple{Bool,Bool}}}, ::Function, ::LSTM, ::Array{Float32,3}) at /kuacc/users/dyuret/.julia/packages/KnetLayers/oJxBp/src/rnn.jl:243
+ [2] #_forw at ./none:0 [inlined]
+ [3] #call#30(::Base.Iterators.Pairs{Symbol,Bool,Tuple{Symbol,Symbol},NamedTuple{(:hy, :cy),Tuple{Bool,Bool}}}, ::LSTM, ::Array{Float32,3}) at /kuacc/users/dyuret/.julia/packages/KnetLayers/oJxBp/src/rnn.jl:94
+ [4] LSTM at ./none:0 [inlined]
+ [5] #call#5 at /scratch/users/dyuret/.julia/dev/MAC-Network/src/model.jl:43 [inlined]
+ [6] (::getfield(Main, Symbol(""#kw#mRNN"")))(::NamedTuple{(:batchSizes,),Tuple{Array{Int64,1}}}, ::mRNN, ::Array{Float32,2}) at ./none:0
+ [7] #call#7(::Array{Int64,1}, ::Bool, ::QUnit, ::Array{Int64,1}) at /scratch/users/dyuret/.julia/dev/MAC-Network/src/model.jl:58
+ [8] QUnit at ./none:0 [inlined]
+ [9] #call#17(::Nothing, ::Int64, ::Bool, ::Bool, ::Dict{String,Any}, ::Bool, ::MACNetwork, ::Array{Int64,1}, ::Array{Int64,1}, ::Array{Float32,4}, ::Array{Float32,2}, ::Nothing) at /scratch/users/dyuret/.julia/dev/MAC-Network/src/model.jl:242
+ [10] (::getfield(Main, Symbol(""#kw#MACNetwork"")))(::NamedTuple{(:tap, :p, :selfattn, :gating, :allsteps),Tuple{Dict{String,Any},Int64,Bool,Bool,Bool}}, ::MACNetwork, ::Array{Int64,1}, ::Array{Int64,1}, ::Array{Float32,4}, ::Array{Float32,2}, ::Nothing) at ./none:0
+ [11] #singlerun#39(::Int64, ::Bool, ::Bool, ::Function, ::MACNetwork, ::Array{Float32,4}, ::Array{Int64,1}) at /scratch/users/dyuret/.julia/dev/MAC-Network/src/main.jl:231
+ [12] (::getfield(Main, Symbol(""#kw##singlerun"")))(::NamedTuple{(:p, :selfattn, :gating),Tuple{Int64,Bool,Bool}}, ::typeof(singlerun), ::MACNetwork, ::Array{Float32,4}, ::Array{Int64,1}) at ./none:0
+ [13] top-level scope at In[3]:7
+```"
+Filtering and Sampling,
+strange knet.gc error,"I was trying to port ResNet example in Metalhead.jl repository. It resulted with strange gc error.
+
+Download [resnet.bson](https://github.com/FluxML/Metalhead.jl/releases/download/v0.1.1/resnet.bson)
+
+Include below code:
+```JULIA
+using Knet, KnetLayers, BSON
+
+struct ResidualBlock
+  conv_layers
+  norm_layers
+  shortcut
+end
+
+function ResidualBlock(filters, kernels::Array{Tuple{Int,Int}}, pads::Array{Tuple{Int,Int}}, strides::Array{Tuple{Int,Int}}, shortcut = identity)
+  conv_layers = []
+  norm_layers = []
+  for i in 2:length(filters)
+    push!(conv_layers, Conv(height=kernels[i-1][1], width=kernels[i-1][1], channels=filters[i-1], filters=filters[i], padding = pads[i-1], stride = strides[i-1], mode=1))
+    push!(norm_layers, BatchNorm(filters[i]))
+  end
+  ResidualBlock(Tuple(conv_layers),Tuple(norm_layers),shortcut)
+end
+
+function ResidualBlock(filters, kernels::Array{Int}, pads::Array{Int}, strides::Array{Int}, shortcut = identity)
+  ResidualBlock(filters, [(i,i) for i in kernels], [(i,i) for i in pads], [(i,i) for i in strides], shortcut)
+end
+
+function (block::ResidualBlock)(input)
+  value = input
+  for i in 1:length(block.conv_layers)-1
+    value = relu.((block.norm_layers[i])((block.conv_layers[i])(value)))
+  end
+  relu.(((block.norm_layers[end])((block.conv_layers[end])(value))) + block.shortcut(input))
+end
+
+import Base: getindex
+mutable struct Chain 
+     layers
+end
+Chain(x...)= Chain(x)
+function (m::Chain)(x)
+    for l in m.layers
+        x = l(x)
+    end
+    return x
+end
+getindex(chain::Chain,i::Int)  = chain.layers[i]
+
+function Bottleneck(filters::Int, downsample::Bool = false, res_top::Bool = false)
+  if(!downsample && !res_top)
+    return ResidualBlock([4 * filters, filters, filters, 4 * filters], [1,3,1], [0,1,0], [1,1,1])
+  elseif(downsample && res_top)
+    return ResidualBlock([filters, filters, filters, 4 * filters], [1,3,1], [0,1,0], [1,1,1], Chain(Conv(width=1,height=1, channels=filters, filters=4 * filters, padding = (0,0), stride = (1,1), mode=1), BatchNorm(4 * filters)))
+  else
+    shortcut = Chain(Conv(width=1, height=1, channels=2 * filters, filters=4 * filters, padding = (0,0), stride = (2,2), mode=1), BatchNorm(4 * filters))
+    return ResidualBlock([2 * filters, filters, filters, 4 * filters], [1,3,1], [0,1,0], [1,1,2], shortcut)
+  end
+end
+
+function resnet50()
+  layers = [3, 4, 6, 3]
+  layer_arr = []
+
+  push!(layer_arr, Conv(height=7,width=7, channels=3, filters=64, padding = (3,3), stride = (2,2), mode=1))
+  push!(layer_arr, Pool(window=(3,3), padding=(1,1), stride =(2,2), mode=0))
+
+  initial_filters = 64
+  for i in 1:length(layers)
+    push!(layer_arr, Bottleneck(initial_filters, true, i==1))
+    for j in 2:layers[i]
+      push!(layer_arr, Bottleneck(initial_filters))
+    end
+    initial_filters *= 2
+  end
+
+  push!(layer_arr, Pool(window=(7,7), mode=1))
+  push!(layer_arr, x -> reshape(x, :, size(x,4)))
+  push!(layer_arr, (Dense(input=2048, output=1000)))
+  push!(layer_arr, SoftMax())
+
+  Chain(layer_arr...)
+end
+
+function loadsingle(weights, ls; layer=1, p=1, j=3:5, branch= ""a"", count=1)
+    ls[p].conv_layers[layer].weight[:] = KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_w_0"")])
+    sz = (1,1,length(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_s_0"")]),1)
+    ls[p].norm_layers[layer].moments.mean = reshape(KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_rm_0"")]),sz)
+    ls[p].norm_layers[layer].moments.var = reshape(KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_riv_0"")]),sz).^2
+    ls[p].norm_layers[layer].params = vcat(KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_s_0"")]), KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_b_0"")]))                                                     
+
+end
+
+function resnet_layers()
+  weight = BSON.load(""resnet.bson"")
+  ls = resnet50()
+  ls[1].weight[:] = weight[Symbol(""gpu_0/conv1_w_0"")]
+  count = 2
+  for j in [3:5, 6:9, 10:15, 16:18]
+    for p in j        
+        loadsingle(weight,ls;p=p,j=j,layer=1,branch=""a"",count=count)
+        loadsingle(weight,ls;p=p,j=j,layer=2,branch=""b"",count=count)
+        loadsingle(weight,ls;p=p,j=j,layer=3,branch=""c"",count=count)
+    end
+    count += 1
+  end
+  ls[21].linear.mult.weight[:] = transpose(weight[Symbol(""gpu_0/pred_w_0"")])[:]; ls[21].linear.bias[:] = weight[Symbol(""gpu_0/pred_b_0"")][:]
+  return ls
+end
+
+struct ResNet 
+  layers::Chain
+end
+
+ResNet() = ResNet(resnet_layers())
+
+Base.show(io::IO, ::ResNet) = print(io, ""ResNet()"")
+
+(m::ResNet)(x) = m.layers(x)
+
+```
+
+Then,
+```JULIA
+resnet = ResNet()
+x = KnetArray(rand(Float32, 224, 224, 3, 1))
+resnet(x)
+```
+
+```JULIA
+julia> resnet(x)
+ERROR: an illegal memory access was encountered
+Stacktrace:
+ [1] error(::String) at ./error.jl:33
+ [2] gc(::Int64) at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/gpu.jl:23
+ [3] gc() at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/kptr.jl:159
+ [4] #conv4_algo#381(::Ptr{Nothing}, ::Base.Iterators.Pairs{Symbol,Any,NTuple{4,Symbol},NamedTuple{(:stride, :padding, :mode, :upscale),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64}}}, ::Function, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/conv.jl:603
+ [5] (::getfield(Knet, Symbol(""#kw##conv4_algo"")))(::NamedTuple{(:handle, :stride, :padding, :mode, :upscale),Tuple{Ptr{Nothing},Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64}}, ::typeof(Knet.conv4_algo), ::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at ./none:0
+ [6] #conv4#226(::Ptr{Nothing}, ::Int64, ::Base.Iterators.Pairs{Symbol,Any,NTuple{4,Symbol},NamedTuple{(:stride, :padding, :mode, :upscale),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64}}}, ::Function, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/conv.jl:39
+ [7] (::getfield(Knet, Symbol(""#kw##conv4"")))(::NamedTuple{(:stride, :padding, :mode, :upscale, :alpha),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64,Int64}}, ::typeof(conv4), ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at ./none:0
+ [8] #forw#4(::Base.Iterators.Pairs{Symbol,Any,NTuple{5,Symbol},NamedTuple{(:stride, :padding, :mode, :upscale, :alpha),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64,Int64}}}, ::Function, ::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N) at /kuacc/users/eakyurek13/.julia/packages/AutoGrad/eAmjh/src/core.jl:91
+ [9] #forw at ./none:0 [inlined]
+ [10] #conv4#239 at ./none:0 [inlined]
+ [11] (::getfield(Knet, Symbol(""#kw##conv4"")))(::NamedTuple{(:stride, :padding, :mode, :upscale, :alpha),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64,Int64}}, ::typeof(conv4), ::Param{KnetArray{Float32,4}}, ::KnetArray{Float32,4}) at ./none:0
+ [12] (::KnetLayers.GenericConv)(::KnetArray{Float32,4}) at /kuacc/users/eakyurek13/.julia/packages/KnetLayers/giMwe/src/cnn.jl:99
+ [13] (::ResidualBlock)(::KnetArray{Float32,4}) at /scratch/users/eakyurek13/ResNet/resnetlib.jl:26
+ [14] (::Chain)(::KnetArray{Float32,4}) at /scratch/users/eakyurek13/ResNet/resnetlib.jl:38
+ [15] (::ResNet)(::KnetArray{Float32,4}) at /scratch/users/eakyurek13/ResNet/resnetlib.jl:113
+ [16] top-level scope at none:0
+```"
+Mutable,
+Tests fail due to RNN Segfault,denizyuret/Knet.jl#397
+Newcore,"new interface for primitives,
+new interface for cnn,rnn
+allowing atype control in Layers
+documentation updates
+test case updates"
+TODO: ," - [x] modify core.jl in new branch and checkout to the master
+ - [ ] modify RNN.jl
+ - [x] Problematic naming convention in convolution, pooling, unpooling (GenericConv (conv or deconv), GenericPool)
+ - [ ] Gan Example
+ - [ ] Machine Translation Example"
+Update README.md,

@@ -1,0 +1,338 @@
+title,body
+fix: numpy deprecated aliases,"### replace old numpy aliases with the new ones.
+code currently breaks with the latest numpy release.
+https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations"
+Python 3 support,"Hi, 
+
+the docs refer that this project is based on python 2.7. Did you test it already on python 3 and it should run there also?"
+apex dependency in the age of PyTorch 1.6,"I'm seeing [this exception](https://github.com/HewlettPackard/dlcookbook-dlbs/blob/10f379be926907c784778fd1c79bb696b383f1a1/python/pytorch_benchmarks/benchmarks.py#L43) when running dlbs with PyTorch 1.6.  Supposedly, much of apex's functionality was rolled into [PyTorch 1.6](https://github.com/NVIDIA/apex/issues/502#issuecomment-535674172).  If so, this dependency can likely be removed?"
+Support for new Docker runtime (Docker 19.03),"I went through https://hewlettpackard.github.io/dlcookbook-dlbs/#/runtimes/runtimes?id=runtimes and noticed that the new `docker run --gpus all` format for Docker 19.03 is not supported. 
+
+Is there any plans to modify your code to support that? Thanks.
+
+Reference:
+https://github.com/NVIDIA/nvidia-docker"
+singularity support,"DL benchmarks could also get executed within HPC environments.
+Often singularity is the container engine used within HPC therefore singularity should be supported.
+
+https://sylabs.io/singularity/"
+remove deprecated parameter shared_param,"In the latest version of apex, shared_param is no longer supported as an option.
+
+Error message:
+```
+Critical error while running benchmarks (shared_param is no longer supported as an option.  It was misleadingly named from the start.  It turns out overlapping communication with computation should work fine with shared parameters.  If you still wish to delay communication to the end of the backward pass, use delay_allreduce=True|False instead.). See stacktrace below.
+Traceback (most recent call last):
+  File ""dlcookbook-dlbs/python/pytorch_benchmarks/benchmarks.py"", line 411, in main
+    model_title, times = benchmark(opts)
+  File ""dlcookbook-dlbs/python/pytorch_benchmarks/benchmarks.py"", line 93, in benchmark
+    return benchmark_training(model, opts)
+  File ""dlcookbook-dlbs/python/pytorch_benchmarks/benchmarks.py"", line 213, in benchmark_training
+    model = DDP(model, shared_param=True)
+  File ""/opt/conda/lib/python3.6/site-packages/apex-0.1-py3.6.egg/apex/parallel/distributed.py"", line 190, in __init__
+    raise ValueError(""shared_param is no longer supported as an option.  It was misleadingly named from the start.  It turns out overlapping communication with computation should work fine with shared parameters.  If you still wish to delay communication to the end of the backward pass, use delay_allreduce=True|False instead."")
+```"
+SW/HW configuration: replica batch size problem,"Hello!!
+
+I'm using ubuntu 18.04, and I followed Quick Start from https://hewlettpackard.github.io/dlcookbook-dlbs/#/. But it didn't work.  I already changed replica batch size to 1 and also num_batches to 1.
+How can I solve this problem?
+
+command:
+![image](https://user-images.githubusercontent.com/17540844/52535115-e826b400-2d8d-11e9-8639-66147893e7e6.png)
+
+error:
+![image](https://user-images.githubusercontent.com/17540844/52532576-f6170d80-2d6a-11e9-8e7c-45ea6f43b222.png)
+
+Thank you."
+validation,"Hi,
+I am trying to run validation bench marking for inference and accuracy.Following are my configuration.
+Sytsem: CPU- Ubuntu 16.04
+Framework: tensorflow: 
+model: alexnet
+Action: validation inference time and accuracy
+
+After running the experimenter.py , I got following error.I put some log to check that but tensorflow.launcher is getting as KeyError.
+
+Below is the line of code that is getting error in launcher.py
+```
+ framework_key = 'exp.framework_family'
+            if framework_key not in experiment:
+                framework_key = 'exp.framework'
+                print((experiment[framework_key]))
+            command = [experiment['%s.launcher' % (experiment[framework_key])]]
+```
+following are the command and log.
+```
+
+
+python python/dlbs/experimenter.py run --log-level=error -Pexp.num_warmup_batches=10 -Pexp.num_batches=100 -Pexp.framework='""tensorflow""' -Pexp.docker=true -Pexp.replica_batch=16 -Pexp.gpus='""""' -Vexp.model='[""alexnet""]' -Pexp.docker_image='""hpe/tensorflow:cpu""' -Vexp.phase='[""training""]' -Pexp.log_file='""./benchmarks/my_experiment/tf.log""' 
+
+--------------------------------------------------------------
+Experimenter pid 15397. Run this to gracefully terminate me:
+	kill -USR1 15397
+I will terminate myself as soon as current benchmark finishes.
+--------------------------------------------------------------
+Traceback (most recent call last):
+  File ""python/dlbs/experimenter.py"", line 368, in <module>
+    experimenter.execute()
+  File ""python/dlbs/experimenter.py"", line 337, in execute
+    Launcher.run(self.plan, self.__progress_file)
+  File ""/home/brgupta/workspace/dlbs/python/dlbs/launcher.py"", line 198, in run
+    command = [experiment['%s.launcher' % (experiment[framework_key])]]
+KeyError: u'tensorflow.launcher'
+
+```
+
+It's very common error in python when key doesn't exist but here in command line I am giving correct.Please let me understand on this error.
+
+Thanks in advance."
+"SyntaxError: invalid syntax in File ""/workspace/mxnet_benchmarks/benchmarks.py"", line 390","hi,Here I come again.I used the mxnet framework, there was a syntax error.
+my  command：
+```
+ python $experimenter run --log-level=warning -Pexp.framework='""mxnet""' -Pexp.gpus='0'  \
+-Pexp.docker=true -Pmonitor.frequency=0.1 -Vexp.replica_batch='[16]' -Pexp.num_warmup_batches=10\
+-Pexp.num_batches=10 -Pmxnet.cudnn_autotune='""false""' -Vexp.model='[""alexnet""]' \
+-Pexp.phase='""training""'  \
+-Pexp.log_file='""${BENCH_ROOT}/mxnet/${exp.model}_${exp.effective_batch}.log""'\
+-Pmxnet.docker_image='""nvcr.io/nvidia/mxnet:18.11-py3""'
+```
+
+error:
+```
+__results.start_time__= ""2018-12-18:08:54:20:839""
+  File ""/workspace/mxnet_benchmarks/benchmarks.py"", line 390
+    except Exception, e:
+                    ^
+SyntaxError: invalid syntax
+```
+@sergey-serebryakov "
+add --save_file argument to save image,"- added option to save file instead of display
+- this option helps to save an image for documentation as well as working on a headless machine
+
+Signed-off-by: Insop Song <insop.song@gmail.com>"
+InvalidArgumentError (see above for traceback): Cannot assign a device for operation 'fp32_vars/dense/bias/Momentum',"@sergey-serebryakov   hi , I've successfully tried GPU benchmarking by using the TensorFlow image, so I wanted to try CPU benchmarking. Additionally, I have successfully tested caffe's CPU benchmark.
+My command line：
+`python ./python/dlbs/experimenter.py run  -Pexp.framework='""nvtfcnn""'  -Pexp.gpus='""""' -Vexp.docker=true  -Pexp.log_file='""./benchmarks/my_experiment/tf_${exp.model}_${exp.replica_batch}.log""' -Vexp.model='[""alexnet"", ""googlenet""]' -Vexp.replica_batch='[2, 4]'  -Ptensorflow.docker_image='""tensorflow/tensorflow:latest""' -Pexp.docker_launcher='""nvidia-docker""'`
+
+My mirror list is as follows:
+```
+docker images
+REPOSITORY                           TAG                            IMAGE ID            CREATED             SIZE
+registry.docker-cn.com/nvidia/cuda   latest                         1cc6f1613121        3 weeks ago         2.24GB
+nvidia/cuda                          9.0-cudnn7-devel-ubuntu16.04   afc5ab1e9a0d        3 weeks ago         2.59GB
+tensorflow/tensorflow                latest                         2054925f3b43        4 weeks ago         1.34GB
+nvcr.io/nvidia/tensorflow            18.07-py3                      8289b0a3b285        5 months ago        3.34GB
+bvlc/caffe                           cpu                            0b577b836386        7 months ago        1.64GB
+hpe/intel_caffe                      cpu                            0b577b836386        7 months ago        1.64GB
+bvlc/caffe                           gpu                            ba28bcb1294c        7 months ago        3.38GB
+hpe/bvlc_caffe                       cuda9-cudnn7                   ba28bcb1294c        7 months ago        3.38GB
+```
+
+error:
+
+```
+InvalidArgumentError (see above for traceback): Cannot assign a device for operation 'fp32_vars/dense/bias/Momentum': Operation was explicitly assigned to /device:GPU:0 but available devices are [ /job:localhost/replica:0/task:0/device:CPU:0, /job:localhost/replica:0/task:0/device:XLA_CPU:0, /job:localhost/replica:0/task:0/device:XLA_GPU:0 ]. Make sure the device specification refers to a valid device.
+         [[Node: fp32_vars/dense/bias/Momentum = VariableV2[_class=[""loc:@fp32_vars/dense/bias""], container="""", dtype=DT_FLOAT, shape=[1000], shared_name="""", _device=""/device:GPU:0""]()]]
+
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[14086,1],3]
+  Exit code:    1
+--------------------------------------------------------------------------
+__results.end_time__= ""2018-12-04:02:46:45:780""
+__results.proc_pid__= 7988
+__exp.model_title__=""GoogleNet""
+__exp.status__=""failure""
+__exp.status_msg__=""No results have been found in this log file""
+```
+
+When I remove the argument ""-Pexp.docker_launcher='""nvidia-docker""'"", new error is as follows:
+`python: can't open file '.py': [Errno 2] No such file or directory`"
+Plan has not been validated. See reason (s) above.,"I tried the following command, but got no result.
+```
+python ./python/dlbs/experimenter.py run\
+             -Pexp.framework='""tensorflow""'\
+             -Pexp.gpus='""0""'\
+             -Vexp.docker=true\
+             -Pexp.log_file='""./benchmarks/my_experiment/tf_${exp.model}_${exp.replica_batch}.log""'\
+             -Vexp.model='[""alexnet"", ""googlenet""]'\
+             -Vexp.replica_batch='[2, 4]'\
+             -Ptensorflow.docker_image='""hpe/tensorflow:cuda9-cudnn7""'
+```
+```
+WARNING:root:Module 'matplotlib' cannot be imported, certain system information will not be available
+INFO:root:Plan was built with 4 experiments
+Plan was built with 4 experiments
+====================== VALIDATION REPORT =======================
+=========================== MESSAGES ===========================
+[
+    {
+        ""check_name"": ""CanRunDocker"", 
+        ""output"": ""Docker version 18.09.0, build 4d60db4\n"", 
+        ""cmd"": ""nvidia-docker --version"", 
+        ""retcode"": 0
+    }
+]
+======================== FRAMEWORK STATS =======================
+{
+    ""tensorflow"": {
+        ""num_disabled"": 0, 
+        ""docker_images"": [
+            ""hpe/tensorflow:cuda9-cudnn7""
+        ], 
+        ""num_exps"": 4, 
+        ""num_cpu_exps"": 0, 
+        ""num_gpu_exps"": 4, 
+        ""num_host_exps"": 0, 
+        ""num_docker_exps"": 4
+    }
+}
+============================ ERRORS ============================
+Other errors:
+[
+    {
+        ""check_name"": ""DockerImageExists"", 
+        ""output"": ""[]\n Error: No such image: hpe/tensorflow:cuda9-cudnn7\n"", 
+        ""cmd"": ""docker inspect --type=image hpe/tensorflow:cuda9-cudnn7"", 
+        ""retcode"": 1
+    }
+]
+========================= PLAN SUMMARY =========================
+Is plan OK ................................ False
+Total number of experiments (plan size).....4
+Number of disabled experiments ............ 0
+Number of active experiments .............. 4
+Log files collisions ...................... NO
+================================================================
+WARNING:root:Plan has not been validated. See reason (s) above.
+Plan has not been validated. See reason (s) above.
+WARNING:root:If you believe validator is wrong, rerun experimenter with `--no-validation` flag.
+If you believe validator is wrong, rerun experimenter with `--no-validation` flag.
+
+```
+
+My PC environment is as follows:
+Ubuntu16.04
+Docker version 18.09.0
+NVIDIA 1080Ti
+
+$ docker images:
+```
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+registry.docker-cn.com/nvidia/cuda   latest              1cc6f1613121        2 weeks ago         2.24GB
+nvcr.io/nvidia/tensorflow            18.07-py3           8289b0a3b285        5 months ago        3.34GB
+```"
+Change model.evaluation() to model.eval(); Signed-off-by: Robert Engelmann rengelma@uni-potsdam.de,"I think there was a typo here, since model.evaluation() does not exist, however it works fine with model.eval(), which corresponds to model.train().
+Signed-off-by: Robert Engelmann rengelma@uni-potsdam.de"
+Embrace containers,"Really like the idea of having a set of benchmark for DL use-cases. In fact a lot of people I talk to like the idea.
+Couple of things: 
+- how about embracing containerizing the workflow, so that the python scripts are also put in a container?
+- getting rid of nvidia-docker and use houdini instead (shameless plug: https://github.com/qnib/moby/blob/houdini/HOUDINI.md, derived from: https://dockercon2018.hubs.vidyard.com/watch/TMeRmzQ7WibaSy8PQ6w7UN)"
+Fixed link to Advanced Introduction.,"The relative link ./intro does not work when accessed via a symbolic link from the root of the project.
+
+Currently reading the README.md produces a 404 looking for ./intro/advanced_intro.md"
+Fix spelling for benchmarking,
+Feature request: Add PyTorch support,"Through some customer conversations, it's becoming apparent that we'll want PyTorch support sooner or later. How much of a lift would it be to add PyTorch support?"
+Issue running ResNet models,"Hello again! I'm having difficulties running ResNet models at the moment. No matter which model I use, I always get a `ValueError` that the dimensions must be equal, but I can't quite track down where the discrepancy is coming from, with the exception that some of the [convolutions](https://github.com/HewlettPackard/dlcookbook-dlbs/blob/master/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py#L268) are giving results of different dimensions. Not sure if you guys have run into this before. Here is the end of the output of my log:
+
+```
+BenchmarkCNN::__init__ time=0.061035 ms
+TensorFlow:  1.4
+Model:       resnet50
+Mode:        training
+Batch size:  16 global
+             16 per device
+Devices:     ['/cpu:0']
+Data format: NHWC
+Optimizer:   sgd
+Variables:   replicated
+Use NCCL:    False
+==========
+__exp.model_title__=""ResNet50""
+Generating model
+Adding preprocessing for resnet50
+Traceback (most recent call last):
+  File ""/root/dlbs/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 1454, in <module>
+    tf.app.run()
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/platform/app.py"", line 48, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File ""/root/dlbs/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 1450, in main
+    bench.run()
+  File ""/root/dlbs/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 995, in run
+    self._benchmark_cnn()
+  File ""/root/dlbs/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 1035, in _benchmark_cnn
+    (enqueue_ops, fetches) = self._build_model()
+  File ""/root/dlbs/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 1208, in _build_model
+    gpu_grad_stage_ops)
+  File ""/root/dlbs/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 1358, in add_forward_pass_and_gradients
+    self.model_conf.add_inference(network)
+  File ""/root/dlbs/python/tf_cnn_benchmarks/resnet_model.py"", line 78, in add_inference
+    dim_match=False, bottle_neck=bottle_neck)
+  File ""/root/dlbs/python/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 527, in residual_unit
+    self.top_layer = tf.nn.relu(shortcut + res)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/ops/math_ops.py"", line 894, in binary_op_wrapper
+    return func(x, y, name=name)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/ops/gen_math_ops.py"", line 183, in add
+    ""Add"", x=x, y=y, name=name)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/framework/op_def_library.py"", line 787, in _apply_op_helper
+    op_def=op_def)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/framework/ops.py"", line 2958, in create_op
+    set_shapes_for_outputs(ret)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/framework/ops.py"", line 2209, in set_shapes_for_outputs
+    shapes = shape_func(op)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/framework/ops.py"", line 2159, in call_with_requiring
+    return call_cpp_shape_fn(op, require_shape_fn=True)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/framework/common_shapes.py"", line 627, in call_cpp_shape_fn
+    require_shape_fn)
+  File ""/usr/lib/python2.7/site-packages/tensorflow/python/framework/common_shapes.py"", line 691, in _call_cpp_shape_fn_impl
+    raise ValueError(err.message)
+ValueError: Dimensions must be equal, but are 54 and 52 for 'v0/tower_0/add' (op: 'Add') with input shapes: [16,54,55,256], [16,52,55,256].
+__results.end_time__= ""2018-01-19:16:21:20:504""
+__results.proc_pid__= 5009
+```"
+No devices for CPU-only run,"I am having some issues with a CPU-only run of the benchmark suite on one of my GPU-less nodes. I am trying to use the Tensorflow framework for my test, but I get an error in the log (see below). Looking at the code it appears (from my angle at least) that `tf_cnn_benchmarks.py` is looking for GPU devices, which I have none, causing `self.devices` to be zero, hence the divide by zero error. Perhaps I am off-base though?
+
+I looked at several of the CPU-only commands in the Wiki guide, but none of them have been successful - most still require a GPU it appears in my testing.
+
+Environment: `CentOS 7.4 64-bit`
+Docker Build: `hpe/tensorflow:cpu`
+Framework: `Tensorflow`
+Command:
+```
+python python/dlbs/experimenter.py run -Pexp.framework='""tensorflow""' -Pexp.env='""docker""' -Pexp.phase='""training""' -Pexp.gpus='""""' -Pexp.model='""alexnet""' -Pexp.device_batch='""16""' -Pexp.log_file='""./benchmarks/my_experiment/tf.log""' -Ptensorflow.docker.image='""hpe/tensorflow:cpu""' -Pexp.device='""cpu""'
+```
+
+```bash
+----------------------------
+Starting framework launcher.
+----------------------------
+01-04-18 17:55:58 [INFO]    /root/dlbs/scripts/launchers/tensorflow_hpm.sh
+__exp.framework_title__= ""TensorFlow""
+__tensorflow.version__= ""1.0.1""
+__results.start_time__= ""2018-01-04:23:56:01:230""
+PYTHONPATH=/workspace/tf_cnn_benchmarks:/workspace/tf_cnn_benchmarks: CUDA_VISIBLE_DEVICES=
+BenchmarkCNN::__init__ time=0.056028 ms
+TensorFlow:  1.0
+Model:       alexnet
+Mode:        training
+Batch size:  0 global
+Traceback (most recent call last):
+  File ""/workspace/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 1454, in <module>
+    tf.app.run()
+  File ""/usr/local/lib/python2.7/dist-packages/tensorflow/python/platform/app.py"", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File ""/workspace/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 1449, in main
+    bench.print_info()
+  File ""/workspace/tf_cnn_benchmarks/tf_cnn_benchmarks.py"", line 970, in print_info
+    log_fn('             %s per device' % (self.batch_size / len(self.devices)))
+ZeroDivisionError: integer division or modulo by zero
+__results.end_time__= ""2018-01-04:23:56:02:826""
+__results.proc_pid__= 44072
+```
+
+Thanks for putting this together by the way! I'm really excited to take a deeper dive into it once I get this issue resolved. Let me know if you need any additional information."

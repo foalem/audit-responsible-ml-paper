@@ -1,0 +1,15 @@
+Repos,Config,created_date,Responsable AI principles,number_stars,number_commit,number_contributor,language,description
+woodyx218/opacus_global_clipping,Opacus,2021-05-16T21:58:38Z,Privacy,13,290,28,Python,
+bargavj/EvaluatingDPML,tensorflow_privacy,2019-02-27T23:16:22Z,Privacy,115,247,6,Python,This project's goal is to evaluate the privacy leakage of differentially private machine learning models.
+eunbeejang/privacy-fairness-tradeoffs,fairlearn,2020-09-25T07:48:55Z,Fairness,1,53,1,Python,
+wyshi/lm_privacy,Opacus,2021-02-04T22:40:38Z,Privacy,7,289,3,Jupyter Notebook,
+simontkl/torch-vantage6,Opacus,2021-05-10T12:41:11Z,Privacy,1,135,1,Jupyter Notebook,
+sisaman/GAP,Opacus,2021-08-19T17:13:10Z,Privacy,16,533,2,Jupyter Notebook,GAP: Differentially Private Graph Neural Networks with Aggregation Perturbation (USENIX Security '23)
+gkaissis/PriMIA,Opacus,2020-04-20T07:24:39Z,Privacy,114,299,6,Python,PriMIA: Privacy-preserving Medical Image Analysis
+FarrandTom/deep-learning-fairness,Opacus,2020-05-05T07:19:00Z,Privacy,7,120,4,Jupyter Notebook,
+hitimr/ML_2020,crypten,2020-10-19T11:17:01Z,Privacy,1,241,3,Jupyter Notebook,
+parkbeomsik/opacus-fusion,Opacus,2021-03-14T19:39:22Z,Privacy,1,710,2,Python,
+msai-amin/DP-FL,Opacus,2022-05-04T18:19:54Z,Privacy,1,244,1,Jupyter Notebook,Set of experiments related to segmentation models and adversarial attacks
+dkober123/sample_apps,aix360,2022-02-15T21:52:35Z,Transparency & Explainability,10,2602,30,Jsonnet,
+MisaNguyen/DPSGD,Opacus,2020-12-10T11:10:08Z,Privacy,2,103,1,Python,Several GAN implementations
+intel/openfl,Opacus,2021-08-31T15:42:14Z,Privacy,3,55,2,Python,"An implementation of the SBB system described in ""Increasing Adversarial Uncertainty to Scale Private Similarity Testing""."

@@ -1,0 +1,26 @@
+title,body
+Fixed ElasticNet,Replaced elastic net regression to elastic net classification
+Check AUC-PR calculation is correct,"https://github.com/pathwayforte/pathway-forte/blob/e34324a873ad817ea301ce282b4e31bc27c54506/src/pathway_forte/prediction/binary.py#L143-L145
+
+@aldisirana would you please check this"
+Try charlie treatment,
+Test,
+Test,
+Benchmark gerr,See: https://www.biorxiv.org/content/10.1101/659920v1
+Add all modules to docs,"Ensure all modules (enrichment, prediction and corresponding submodules) are in the documentation"
+Split data pre-processing from machine learning,"As I'm trying to write the implementation section for the manuscript, it's apparent that the package needs quite a bit of restructuring to make claims like it's extensible to new database types and new data sets. All of the dataset pre-processing for TCGA should be separated from the database pre-processing and the machine learning code"
+y_test is never used in survival analysis,https://github.com/pathwayforte/pathway-forte/blob/03db23a9b910ae1ebec90e6d8f3bacd94bb43f2a/src/pathway_forte/prediction/survival.py#L156
+isPartOf Mapping not used in functional_class.py,"https://github.com/pathwayforte/pathway-forte/blob/6acfcbb3b09d3ee7064f9365da5160d81c53e94a/src/pathway_forte/pathway_enrichment/functional_class.py#L371
+
+Why is this here if it doesn't get used?"
+Use r2py to make complete BEL -> SPIA pipeline ,"Right now in PyBEL tools, we've implemented the data pre-processing that turns a BEL graph into the files that need to be fed into the SPIA R package. Since you have a bit of experience wrapping R scripts with r2py, do you think it would be possible to do the same treatment again?"
+Excise functions from CLI,"Right now, all of the main functions that do the heavy lifting are implemented inside CLI functions. Make them their own functions that can be called programatically, and are then just wrapped by the CLI functions"
+Add link to RTFD documentation on top of GitHub repo page,
+Clean up random_removal.py,Where is this used now?
+Add CLI command to run ORA,"Arguments text file with gene names
+Run fisher tests and return results"
+Link with Zenodo,
+Link with travis,
+Add documentation,
+Test upgrade to numpy 1.16.0,Check that there are no major problems after migrating to 1.16.0
+Add R scripts,Only necessary scripts

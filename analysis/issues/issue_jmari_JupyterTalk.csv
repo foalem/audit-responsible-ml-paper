@@ -1,0 +1,492 @@
+title,body
+correct a typo,"The x1 in compute_kernel_Gaussian(x1, centers, sigma) would make the compute_density_ratio function unable to work as expected, it should be the argument x instead of x1"
+KLIEP regularization,"First off, thanks for this very useful package! The interface is smooth and the implementation is quite fast, even for large problems.
+
+I've noticed that some papers make use of regularization penalties when fitting weights for KLIEP (see, e.g., §3.2 of [this review](https://arxiv.org/abs/1701.01582)). I wonder if it would be possible to incorporate L1, L2, and/or elastic net regularization into the KLIEP optimization? Something similar appears to be implemented for uLSIF. "
+Some Bugs in the KLIEP,"There are some bugs in the script KLIEP.R. One is that in this sentence ` if(verbose) message(""Searching optimal sigma and lambda..."")`  we only optimize sigma without lambda. A serious one is in the function `compute_density_ratio`, this function use the train set to predict the density ratio of a new sample, which results in the mismarch of the dimension of the predicted value and the new sample."
+Refactoring,
+implement RuSLIF,
+Information Criterion,"http://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1703-02.pdf
+によれば最小二乗の場合はAICもモデル選択に有効のようですが、AICは実装されていないのでしょうか or AICをdensratioの結果に対して計算するためには何を尤度と考えるのが適切でしょうか？"
+Euclidean distance should be squared?,"https://github.com/hoxo-m/densratio/blob/3b877d5fdaf1b020a75c373b153b84210820934e/R/compute_kernel_Gaussian.R#L10
+
+This line probably computes the Gaussian kernel.
+If so, I think the Euclidean distance should be squared."
+update KLIEP_optimized_alpha.R more accuracy,"KLIEP_optimized_alpha()の
+c <- b / crossprod(b)[1, 1]
+部分で， |b| << 1 の時，crossprod(b)[1, 1] が 0 になってしまい，c の成分が Inf または NaN になり最終的に score_new もNaNでエラーとなることがありました．
+
+c <- b / crossprod(b)[1, 1]　
+を
+nb <- norm(b)
+c <- b / nb / nb 
+とすることで回避しました．
+
+
+
+
+"
+Search parameters using Bayesian optimization,"The uLSIF algorithm find optimal lambda and sigma parameters using grid search.
+Instead of grid search, how about use Bayesian optimization?"
+refine documents,
+modify documents,
+Cran,"on CRAN now
+"
+TagBot trigger issue,"This issue is used to trigger TagBot; feel free to unsubscribe.
+
+If you haven't already, you should update your `TagBot.yml` to include issue comment triggers.
+Please see [this post on Discourse](https://discourse.julialang.org/t/ann-required-updates-to-tagbot-yml/49249) for instructions and more details.
+
+If you'd like for me to do this for you, comment `TagBot fix` on this issue.
+I'll open a PR within a few hours, please be patient!
+"
+Project.toml compat,
+tagbot added,tagbot added
+compat for Julia-1.6 Knet-1.4.6,"Let's keep KnetLayers as a separate package. Please test, merge and release a version if all is ok. You can ignore/delete #18. Changes:
+* Knet was split into sub-packages, so I changed the dependencies accordingly.
+* rnn options usegpu and dataType were replaced with atype in Knet, did the same here.
+* JLD2 now supports custom types (see Knet/src/knetarrays/jld2.jl), so _ser is no longer used by default. I provide a transition function (load143) to load old models. Any new load/save directly calls FileIO. I haven't tested this with your rnns.
+* I have not tested Morse.jl yet, will do that next. I am pretty sure loading pretrained models will need some fixing.
+* I learned to use release assets (see https://github.com/denizyuret/Knet.jl/releases/tag/v1.4.5) to give pretrained models a permanent url without checking them in to git. We should do that for Morse.jl as well."
+Knet-1.4.0 compatibility fixes,"I fixed a few things to ensure compatibility with Knet-1.4.0. Do you want to keep KnetLayers separate or make it part of the standard Knet distro as Knet.Layers20 submodule, let me know."
+KnetLayers fails to compile ,"Julia 1.5 and 1.4
+
+[1902f260] Knet v1.4.0
+[e09e3f5a] KnetLayers v0.2.0
+
+Probably to do with the recent changes in Knet....
+
+```
+ERROR: LoadError: LoadError: UndefVarError: BNMoments not defined
+Stacktrace:
+ [1] top-level scope at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/primitive.jl:114
+ [2] include at ./Base.jl:368 [inlined]
+ [3] include(::String) at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/KnetLayers.jl:1
+ [4] top-level scope at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/KnetLayers.jl:42
+ [5] top-level scope at none:2
+ [6] eval at ./boot.jl:331 [inlined]
+in expression starting at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/primitive.jl:114
+in expression starting at /home/xxx/.julia/packages/KnetLayers/zfhNR/src/KnetLayers.jl:42
+ERROR: LoadError: LoadError: Failed to precompile KnetLayers [e09e3f5a-3c2e-516c-a806-60ae64389a85] to /home/andevellicus/.julia/compiled/v1.5/KnetLayers/IvgPR_DAW2J.ji.
+Stacktrace:
+ [1] compilecache(::Base.PkgId, ::String) at ./loading.jl:1290
+ [2] _require(::Base.PkgId) at ./loading.jl:1030
+ [3] require(::Base.PkgId) at ./loading.jl:928
+ [4] require(::Module, ::Symbol) at ./loading.jl:923
+ [5] include(::String) at ./client.jl:457
+ [6] top-level scope at /home/xxx/Programming/ML/julia/Knet/train_unet.jl:1
+in expression starting at /home/xxx/Programming/ML/julia/Knet/SDHSeg.jl:5
+in expression starting at /home/xxx/Programming/ML/julia/Knet/train_unet.jl:1
+```"
+Support for 3D convolutions (5DKnetArrays),"Hi,
+Great work so far, this is super helpful!
+
+I do a lot of work with 3D images, and I know KNet supports 5D arrays. How difficult would it be to implement an additional dimension?"
+V0.2.0v2,
+Segmentation Fault in Seq2Seq,"Hello, 
+
+I was playing with the seq2seq.jl script.  And I wondered why did you use sorting method inside the forward function
+```julia
+(m::S2S)(x) = m.output(m.decoder(pad(10, sort(x, dims=2) , m.encoder(x; hy=true).hidden).y)
+```
+instead of 
+
+```julia
+(m::S2S)(x, ygold) = m.output(m.decoder(pad(10, ygold) , m.encoder(x; hy=true).hidden).y)
+```
+of course I also changed the second forward function to :
+
+```julia
+(m::S2S)(x, ygold) = m.loss(m(x, ygold), ygold)
+```
+And at the end I get segmentation fault.  Why is this happening?
+I am trying to build a very basic sequence to sequence model on different data. 
+ Could you help me to resolve this issue please? "
+Project.toml fixes,These fixes will let you pass the tests on https://github.com/JuliaRegistries/General/pull/4615 and help merge the new version. Just merge the PR and create a special comment on the new commit like before. This will override your previous request so you don't have to do anything to take back the previous request.
+upscale->dilation,"With this change tests pass with latest Knet versions.
+See https://github.com/denizyuret/Knet.jl/issues/322 and https://github.com/denizyuret/Knet.jl/issues/434 for justifications for this change. CuDNN docs also call this dilation now, it is for dilated convolutions, upscale never worked and was never used."
+registry issues,"If I try to switch from dev to registered version:
+```
+julia> pkg""rm KnetLayers""
+julia> pkg""dev KnetLayers""
+# fetches master branch from https://github.com/ekinakyurek/KnetLayers.jl.git
+julia> pkg""free KnetLayers""
+ERROR: cannot free a `dev`ed package that does not exist in a registry
+```
+
+If I try to switch from registered version to dev:
+```
+julia> pkg""rm KnetLayers""
+julia> pkg""add KnetLayers""
+ Resolving package versions...
+  Updating `/scratch/users/dyuret/.julia/environments/v1.2/Project.toml`
+  [e09e3f5a] + KnetLayers v0.1.0
+  Updating `/scratch/users/dyuret/.julia/environments/v1.2/Manifest.toml`
+  [e09e3f5a] + KnetLayers v0.1.0
+julia> pkg""dev KnetLayers""
+[ Info: Path `/kuacc/users/dyuret/.julia/dev/KnetLayers` exists and looks like the correct package, using existing path
+ERROR: cannot add package `KnetLayers = ""80bfaf46-ad8a-11e8-19eb-a135e382307b""` since package `KnetLayers = ""e09e3f5a-3c2e-51\
+6c-a806-60ae64389a85""` already exists as a direct dependency.
+```
+
+It looks like in the first case there is something wrong with the way KnetLayers is registered, and in the second case there seems to be two different UUID's for it (UUID should be unique to a package and should never change).
+"
+V0.2.0,"Rewrite half of the code
+Documentation improved,
+"
+Plan of this package?,"Hi, what's the current plan of this package? Is this still active developed and maintained? "
+trying macnet with latest Knet/KnetLayers releases,"I got the following error:
+```
+UndefVarError: rnnforw not defined
+
+Stacktrace:
+ [1] #_forw#39(::Base.Iterators.Pairs{Symbol,Bool,Tuple{Symbol,Symbol},NamedTuple{(:hy, :cy),Tuple{Bool,Bool}}}, ::Function, ::LSTM, ::Array{Float32,3}) at /kuacc/users/dyuret/.julia/packages/KnetLayers/oJxBp/src/rnn.jl:243
+ [2] #_forw at ./none:0 [inlined]
+ [3] #call#30(::Base.Iterators.Pairs{Symbol,Bool,Tuple{Symbol,Symbol},NamedTuple{(:hy, :cy),Tuple{Bool,Bool}}}, ::LSTM, ::Array{Float32,3}) at /kuacc/users/dyuret/.julia/packages/KnetLayers/oJxBp/src/rnn.jl:94
+ [4] LSTM at ./none:0 [inlined]
+ [5] #call#5 at /scratch/users/dyuret/.julia/dev/MAC-Network/src/model.jl:43 [inlined]
+ [6] (::getfield(Main, Symbol(""#kw#mRNN"")))(::NamedTuple{(:batchSizes,),Tuple{Array{Int64,1}}}, ::mRNN, ::Array{Float32,2}) at ./none:0
+ [7] #call#7(::Array{Int64,1}, ::Bool, ::QUnit, ::Array{Int64,1}) at /scratch/users/dyuret/.julia/dev/MAC-Network/src/model.jl:58
+ [8] QUnit at ./none:0 [inlined]
+ [9] #call#17(::Nothing, ::Int64, ::Bool, ::Bool, ::Dict{String,Any}, ::Bool, ::MACNetwork, ::Array{Int64,1}, ::Array{Int64,1}, ::Array{Float32,4}, ::Array{Float32,2}, ::Nothing) at /scratch/users/dyuret/.julia/dev/MAC-Network/src/model.jl:242
+ [10] (::getfield(Main, Symbol(""#kw#MACNetwork"")))(::NamedTuple{(:tap, :p, :selfattn, :gating, :allsteps),Tuple{Dict{String,Any},Int64,Bool,Bool,Bool}}, ::MACNetwork, ::Array{Int64,1}, ::Array{Int64,1}, ::Array{Float32,4}, ::Array{Float32,2}, ::Nothing) at ./none:0
+ [11] #singlerun#39(::Int64, ::Bool, ::Bool, ::Function, ::MACNetwork, ::Array{Float32,4}, ::Array{Int64,1}) at /scratch/users/dyuret/.julia/dev/MAC-Network/src/main.jl:231
+ [12] (::getfield(Main, Symbol(""#kw##singlerun"")))(::NamedTuple{(:p, :selfattn, :gating),Tuple{Int64,Bool,Bool}}, ::typeof(singlerun), ::MACNetwork, ::Array{Float32,4}, ::Array{Int64,1}) at ./none:0
+ [13] top-level scope at In[3]:7
+```"
+Filtering and Sampling,
+strange knet.gc error,"I was trying to port ResNet example in Metalhead.jl repository. It resulted with strange gc error.
+
+Download [resnet.bson](https://github.com/FluxML/Metalhead.jl/releases/download/v0.1.1/resnet.bson)
+
+Include below code:
+```JULIA
+using Knet, KnetLayers, BSON
+
+struct ResidualBlock
+  conv_layers
+  norm_layers
+  shortcut
+end
+
+function ResidualBlock(filters, kernels::Array{Tuple{Int,Int}}, pads::Array{Tuple{Int,Int}}, strides::Array{Tuple{Int,Int}}, shortcut = identity)
+  conv_layers = []
+  norm_layers = []
+  for i in 2:length(filters)
+    push!(conv_layers, Conv(height=kernels[i-1][1], width=kernels[i-1][1], channels=filters[i-1], filters=filters[i], padding = pads[i-1], stride = strides[i-1], mode=1))
+    push!(norm_layers, BatchNorm(filters[i]))
+  end
+  ResidualBlock(Tuple(conv_layers),Tuple(norm_layers),shortcut)
+end
+
+function ResidualBlock(filters, kernels::Array{Int}, pads::Array{Int}, strides::Array{Int}, shortcut = identity)
+  ResidualBlock(filters, [(i,i) for i in kernels], [(i,i) for i in pads], [(i,i) for i in strides], shortcut)
+end
+
+function (block::ResidualBlock)(input)
+  value = input
+  for i in 1:length(block.conv_layers)-1
+    value = relu.((block.norm_layers[i])((block.conv_layers[i])(value)))
+  end
+  relu.(((block.norm_layers[end])((block.conv_layers[end])(value))) + block.shortcut(input))
+end
+
+import Base: getindex
+mutable struct Chain 
+     layers
+end
+Chain(x...)= Chain(x)
+function (m::Chain)(x)
+    for l in m.layers
+        x = l(x)
+    end
+    return x
+end
+getindex(chain::Chain,i::Int)  = chain.layers[i]
+
+function Bottleneck(filters::Int, downsample::Bool = false, res_top::Bool = false)
+  if(!downsample && !res_top)
+    return ResidualBlock([4 * filters, filters, filters, 4 * filters], [1,3,1], [0,1,0], [1,1,1])
+  elseif(downsample && res_top)
+    return ResidualBlock([filters, filters, filters, 4 * filters], [1,3,1], [0,1,0], [1,1,1], Chain(Conv(width=1,height=1, channels=filters, filters=4 * filters, padding = (0,0), stride = (1,1), mode=1), BatchNorm(4 * filters)))
+  else
+    shortcut = Chain(Conv(width=1, height=1, channels=2 * filters, filters=4 * filters, padding = (0,0), stride = (2,2), mode=1), BatchNorm(4 * filters))
+    return ResidualBlock([2 * filters, filters, filters, 4 * filters], [1,3,1], [0,1,0], [1,1,2], shortcut)
+  end
+end
+
+function resnet50()
+  layers = [3, 4, 6, 3]
+  layer_arr = []
+
+  push!(layer_arr, Conv(height=7,width=7, channels=3, filters=64, padding = (3,3), stride = (2,2), mode=1))
+  push!(layer_arr, Pool(window=(3,3), padding=(1,1), stride =(2,2), mode=0))
+
+  initial_filters = 64
+  for i in 1:length(layers)
+    push!(layer_arr, Bottleneck(initial_filters, true, i==1))
+    for j in 2:layers[i]
+      push!(layer_arr, Bottleneck(initial_filters))
+    end
+    initial_filters *= 2
+  end
+
+  push!(layer_arr, Pool(window=(7,7), mode=1))
+  push!(layer_arr, x -> reshape(x, :, size(x,4)))
+  push!(layer_arr, (Dense(input=2048, output=1000)))
+  push!(layer_arr, SoftMax())
+
+  Chain(layer_arr...)
+end
+
+function loadsingle(weights, ls; layer=1, p=1, j=3:5, branch= ""a"", count=1)
+    ls[p].conv_layers[layer].weight[:] = KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_w_0"")])
+    sz = (1,1,length(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_s_0"")]),1)
+    ls[p].norm_layers[layer].moments.mean = reshape(KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_rm_0"")]),sz)
+    ls[p].norm_layers[layer].moments.var = reshape(KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_riv_0"")]),sz).^2
+    ls[p].norm_layers[layer].params = vcat(KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_s_0"")]), KnetArray(weights[Symbol(""gpu_0/res$(count)_$(p-j[1])_branch2$(branch)_bn_b_0"")]))                                                     
+
+end
+
+function resnet_layers()
+  weight = BSON.load(""resnet.bson"")
+  ls = resnet50()
+  ls[1].weight[:] = weight[Symbol(""gpu_0/conv1_w_0"")]
+  count = 2
+  for j in [3:5, 6:9, 10:15, 16:18]
+    for p in j        
+        loadsingle(weight,ls;p=p,j=j,layer=1,branch=""a"",count=count)
+        loadsingle(weight,ls;p=p,j=j,layer=2,branch=""b"",count=count)
+        loadsingle(weight,ls;p=p,j=j,layer=3,branch=""c"",count=count)
+    end
+    count += 1
+  end
+  ls[21].linear.mult.weight[:] = transpose(weight[Symbol(""gpu_0/pred_w_0"")])[:]; ls[21].linear.bias[:] = weight[Symbol(""gpu_0/pred_b_0"")][:]
+  return ls
+end
+
+struct ResNet 
+  layers::Chain
+end
+
+ResNet() = ResNet(resnet_layers())
+
+Base.show(io::IO, ::ResNet) = print(io, ""ResNet()"")
+
+(m::ResNet)(x) = m.layers(x)
+
+```
+
+Then,
+```JULIA
+resnet = ResNet()
+x = KnetArray(rand(Float32, 224, 224, 3, 1))
+resnet(x)
+```
+
+```JULIA
+julia> resnet(x)
+ERROR: an illegal memory access was encountered
+Stacktrace:
+ [1] error(::String) at ./error.jl:33
+ [2] gc(::Int64) at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/gpu.jl:23
+ [3] gc() at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/kptr.jl:159
+ [4] #conv4_algo#381(::Ptr{Nothing}, ::Base.Iterators.Pairs{Symbol,Any,NTuple{4,Symbol},NamedTuple{(:stride, :padding, :mode, :upscale),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64}}}, ::Function, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/conv.jl:603
+ [5] (::getfield(Knet, Symbol(""#kw##conv4_algo"")))(::NamedTuple{(:handle, :stride, :padding, :mode, :upscale),Tuple{Ptr{Nothing},Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64}}, ::typeof(Knet.conv4_algo), ::KnetArray{Float32,4}, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at ./none:0
+ [6] #conv4#226(::Ptr{Nothing}, ::Int64, ::Base.Iterators.Pairs{Symbol,Any,NTuple{4,Symbol},NamedTuple{(:stride, :padding, :mode, :upscale),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64}}}, ::Function, ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at /kuacc/users/eakyurek13/.julia/packages/Knet/3lzCR/src/conv.jl:39
+ [7] (::getfield(Knet, Symbol(""#kw##conv4"")))(::NamedTuple{(:stride, :padding, :mode, :upscale, :alpha),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64,Int64}}, ::typeof(conv4), ::KnetArray{Float32,4}, ::KnetArray{Float32,4}) at ./none:0
+ [8] #forw#4(::Base.Iterators.Pairs{Symbol,Any,NTuple{5,Symbol},NamedTuple{(:stride, :padding, :mode, :upscale, :alpha),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64,Int64}}}, ::Function, ::Function, ::Param{KnetArray{Float32,4}}, ::Vararg{Any,N} where N) at /kuacc/users/eakyurek13/.julia/packages/AutoGrad/eAmjh/src/core.jl:91
+ [9] #forw at ./none:0 [inlined]
+ [10] #conv4#239 at ./none:0 [inlined]
+ [11] (::getfield(Knet, Symbol(""#kw##conv4"")))(::NamedTuple{(:stride, :padding, :mode, :upscale, :alpha),Tuple{Tuple{Int64,Int64},Tuple{Int64,Int64},Int64,Int64,Int64}}, ::typeof(conv4), ::Param{KnetArray{Float32,4}}, ::KnetArray{Float32,4}) at ./none:0
+ [12] (::KnetLayers.GenericConv)(::KnetArray{Float32,4}) at /kuacc/users/eakyurek13/.julia/packages/KnetLayers/giMwe/src/cnn.jl:99
+ [13] (::ResidualBlock)(::KnetArray{Float32,4}) at /scratch/users/eakyurek13/ResNet/resnetlib.jl:26
+ [14] (::Chain)(::KnetArray{Float32,4}) at /scratch/users/eakyurek13/ResNet/resnetlib.jl:38
+ [15] (::ResNet)(::KnetArray{Float32,4}) at /scratch/users/eakyurek13/ResNet/resnetlib.jl:113
+ [16] top-level scope at none:0
+```"
+Mutable,
+Tests fail due to RNN Segfault,denizyuret/Knet.jl#397
+Newcore,"new interface for primitives,
+new interface for cnn,rnn
+allowing atype control in Layers
+documentation updates
+test case updates"
+TODO: ," - [x] modify core.jl in new branch and checkout to the master
+ - [ ] modify RNN.jl
+ - [x] Problematic naming convention in convolution, pooling, unpooling (GenericConv (conv or deconv), GenericPool)
+ - [ ] Gan Example
+ - [ ] Machine Translation Example"
+Update README.md,
+error in createStage1Predictions.py,"![image](https://user-images.githubusercontent.com/74786054/167612742-ea759e14-2159-4906-a9d2-6800da79cc26.png)
+"
+replit support,"can you please make it possible to run this on [replit](https://replit.com)?
+If not, can you deploy it to heroku?"
+March Madness 2020?,Are you going to try to predict this year's March Madness?
+Trouble with createPredictionModel.py,"Hi, this is my first Python project and I am getting this error below when I run thecreatePredictionModel.py:
+
+Any assistance you can offer is greatly appreciated.
+
+Dallass-MacBook-Pro:march-madness-2019 DallasCottrell$ python createPredictionModel.py
+Training Logistic Regression model...
+/Users/DallasCottrell/anaconda3/lib/python3.7/site-packages/sklearn/linear_model/logistic.py:758: ConvergenceWarning: lbfgs failed to converge. Increase the number of iterations.
+  ""of iterations."", ConvergenceWarning)
+Training Random Forest model...
+Training Naive Bayes model...
+Training Neural Network model...
+Using TensorFlow backend.
+Traceback (most recent call last):
+  File ""createPredictionModel.py"", line 82, in <module>
+    classifier_nn = Sequential()
+  File ""/Users/DallasCottrell/anaconda3/lib/python3.7/site-packages/keras/engine/sequential.py"", line 87, in __init__
+    super(Sequential, self).__init__(name=name)
+  File ""/Users/DallasCottrell/anaconda3/lib/python3.7/site-packages/keras/legacy/interfaces.py"", line 91, in wrapper
+    return func(*args, **kwargs)
+  File ""/Users/DallasCottrell/anaconda3/lib/python3.7/site-packages/keras/engine/network.py"", line 96, in __init__
+    self._init_subclassed_network(**kwargs)
+  File ""/Users/DallasCottrell/anaconda3/lib/python3.7/site-packages/keras/engine/network.py"", line 294, in _init_subclassed_network
+    self._base_init(name=name)
+  File ""/Users/DallasCottrell/anaconda3/lib/python3.7/site-packages/keras/engine/network.py"", line 109, in _base_init
+    name = prefix + '_' + str(K.get_uid(prefix))
+  File ""/Users/DallasCottrell/anaconda3/lib/python3.7/site-packages/keras/backend/tensorflow_backend.py"", line 74, in get_uid
+    graph = tf.get_default_graph()
+AttributeError: module 'tensorflow' has no attribute 'get_default_graph'"
+Docker integration,It would be cool to integrate that with docker. 
+Changes from baseline enhancements PR#8,Changes were done in the old baseline and now are in ipharo baseline
+Baseline enhacements,"Add support for parsing jupyter CLI kernels list, and ask to re-use existing kernel locations if any was found. Otherwise, it will create an empty kernel.json file with defaults to the current image.
+Also fix missing SCouchDB dependency and use Metacello directives to load OSSubprocess.
+Add instructions to run Jupyter notebook on post load, and additional instructions for Windows users to manually install the kernel.json file.
+"
+fix(README): remove apixes to json,
+Does not work with docker,"Hi, this is my Dockerfile:
+
+```
+FROM basmalltalk/pharo:9.0-image
+USER root
+# Update and upgrade apt
+RUN apt update && apt upgrade -y
+# Install Python 3.9.1
+RUN apt install wget build-essential libreadline-gplv2-dev \
+    libncursesw5-dev libssl-dev libsqlite3-dev tk-dev \
+    libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev \
+    -y
+RUN wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz && \
+    tar xzf Python-3.9.1.tgz
+RUN cd Python-3.9.1 && \
+    ./configure --enable-optimizations && \
+    make -j 2 && \
+    make altinstall
+# Install pip 21
+RUN apt install python3-pip -y
+RUN pip3 install --upgrade pip
+# Install jupyter notebooks
+RUN pip install jupyter
+# Install IPharo
+RUN ./pharo Pharo.image eval --save ""Metacello new \
+    baseline:'IPharo'; \
+    repository: 'github://jmari/IPharo:master/repository'; \
+    load: 'default'""
+RUN jupyter notebook
+```
+
+But it stops in the Metacello step, with:
+
+```
+Instance of BaselineOfPharo class did not understand #specRepository
+BaselineOfPharo class(Object)>>doesNotUnderstand: #specRepository
+[ :aClass | aClass specRepository ] in BaselineOfSpec2>>defaultRepositoryURL in Block: [ :aClass | aClass specRepository ]
+FullBlockClosure(BlockClosure)>>cull:
+[:v | ^ aPresentBlock cull: v] in SystemDictionary(Dictionary)>>at:ifPresent:ifAbsent: in Block: [:v | ^ aPresentBlock cull: v]
+FullBlockClosure(BlockClosure)>>cull:
+SystemDictionary(Dictionary)>>at:ifPresent:
+SystemDictionary(Dictionary)>>at:ifPresent:ifAbsent:
+BaselineOfSpec2>>defaultRepositoryURL
+[ self defaultRepositoryURL ] in [ 
+                spec 
+                        repository: (self packageRepositoryURL ifEmpty: [ self defaultRepositoryURL ]);
+                        loads: #('Base' 'Tests') ] in BaselineOfSpec2>>specCore: in Block: [ self defaultRepositoryURL ]
+ByteString(Collection)>>ifEmpty:
+[ 
+                spec 
+                        repository: (self packageRepositoryURL ifEmpty: [ self defaultRepositoryURL ]);
+                        loads: #('Base' 'Tests') ] in BaselineOfSpec2>>specCore: in Block: [ ...
+FullBlockClosure(BlockClosure)>>ensure:
+MetacelloBaselineConstructor(MetacelloAbstractVersionConstructor)>>with:during:
+MetacelloBaselineConstructor(MetacelloAbstractVersionConstructor)>>setBaseline:withBlock:
+FullBlockClosure(BlockClosure)>>setBaseline:withInMetacelloConfig:
+MetacelloBaselineConstructor(MetacelloAbstractVersionConstructor)>>baselineForVersion:with:
+MetacelloMCVersionSpec(MetacelloVersionSpec)>>baseline:with:constructor:
+MetacelloBaselineConstructor(MetacelloAbstractVersionConstructor)>>baseline:with:
+BaselineOfSpec2>>specCore:
+[
+
+                self specCore: spec.
+                self specCoreCode: spec.
+
+                spec
+                        ""Core""
+                        package: 'Spec2-Adapters-Morphic' with: [ spec requires: #('SpecCore') ];
+                        package: 'Spec2-Code-Morphic' with: [ spec requires: #('Spec2-Adapters-Morphic') ];
+                        package: 'Spec2-Code-Diff-Morphic' with: [ spec requires: #('Spec2-Adapters-Morphic') ];
+                        package: 'Spec2-Morphic' with: [ spec requires: #('Spec2-Adapters-Morphic') ];
+                        ""Tests""
+                        package: 'Spec2-Morphic-Examples' with: [ spec requires: #('Spec2-Morphic') ];
+                        package: 'Spec2-Backend-Tests' with: [ spec requires: #('SpecCore' 'Spec2-Adapters-Morphic') ];
+                        package: 'Spec2-Morphic-Backend-Tests' with: [ spec requires: #('Spec2-Adapters-Morphic' 'Spec2-Backend-Tests') ];
+                        package: 'Spec2-Adapters-Morphic-Tests' with: [ spec requires: #('Spec2-Backend-Tests') ];
+                        package: 'Spec2-Morphic-Tests' with: [ spec requires: #('Spec2-Morphic' 'Spec2-Backend-Tests') ];
+                        package: 'Spec2-Code-Backend-Tests' with: [ spec requires: #('Spec2-Backend-Tests') ];
+                        ""others""
+                        package: 'Spec2-Deprecated10' with: [ spec requires: #('SpecCore' 'Spec2-Morphic' 'Spec2-Morphic-Tests' 'Spec2-Backend-Tests' 'Spec2-Adapters-Morphic') ];
+                        package: 'Spec2-Microdown' with: [ spec requires: #('SpecCore' 'Spec2-Adapters-Morphic') ];
+                        package: 'Spec2-Help';
+                        package: 'Spec2-Transformations' ] in BaselineOfSpec2>>baseline: in Block: [...
+FullBlockClosure(BlockClosure)>>ensure:
+MetacelloBaselineConstructor(MetacelloAbstractVersionConstructor)>>with:during:
+[ :block | self with: versionSpec during: block ] in [ :attribute | 
+            | blockList |
+            (blockList := self attributeMap at: attribute ifAbsent: [  ]) ~~ nil
+                ifTrue: [ blockList do: [ :block | self with: versionSpec during: block ] ] ] in MetacelloBaselineConstructor>>calculate:project: in Block: [ :block | self with: versionSpec during: block ]
+OrderedCollection>>do:
+[ :attribute | 
+            | blockList |
+            (blockList := self attributeMap at: attribute ifAbsent: [  ]) ~~ nil
+                ifTrue: [ blockList do: [ :block | self with: versionSpec during: block ] ] ] in MetacelloBaselineConstructor>>calculate:project: in Block: [ :attribute | ...
+OrderedCollection>>do:
+MetacelloBaselineConstructor>>calculate:project:
+MetacelloBaselineConstructor>>on:project:
+MetacelloBaselineConstructor class>>on:project:
+BaselineOfSpec2(ConfigurationOf)>>project
+0mThe command '/bin/sh -c ./pharo Pharo.image eval --save ""Metacello new     baseline:'IPharo';     repository: 'github://jmari/IPharo:master/repository';     load: 'default'""' returned a non-zero code: 1
+```"
+Provide MyBinder Working Example,"The README suggests that this kernel should work on an Ubuntu machine. It would be really useful if a MyBinder demo were provided so that the environment could be quickly evaluated.
+
+If there is a simple script that can be used to install Pharo (presumably?), the zmq etc package and set up the kernel, that could all be placed in a `postBuild` file in the top level of the repo and MyBinder should pick it up and install everything required."
+License for the ZeroMQ binding,"Is it under GPL 3 as with the rest of the repo? If so, can you consider licensing it under MIT as per panuw/zeromq?"
+Can not use copy options in the tutorial,"Hi I tried to use the tutorial but I can not select text from the examples and code snippets, can you please remove the limitations in order to copy and execute code in pharo
+
+http://htmlpreview.github.io/?https://github.com/jmari/JupyterTalk/blob/master/Tutorial1_BasicStatistics.html"
+widgetSupport,Merge e7210c83abf23e8454a20e0a27efcd4eb4c39b39
+Compatible image not specified,"Hi,
+
+I configure a n image and VM using `wget https://get.pharo.org/64/stable+vmT | bash`
+When I try to run the install script in a playground:
+
+```
+Metacello new 
+	baseline: 'JupyterTalk';
+	repository: 'github://jmari/JupyterTalk:master/repository';
+	load:'all'
+```
+I get:
+```
+This package depends on the following classes:
+  RTObject
+  RTBuilder
+  RTTabTable
+  RTVisitor
+  RTView
+```
+Using Dr Google I get [reference to Roussal](http://agilevisualization.com/AgileVisualization/QuickStart/0101-QuickStart.html), which makes some sense.
+I'd like some guidance in your beautifully-presented document (thank-you), as to which configuration of Pharo to start from.
+Cheers..."

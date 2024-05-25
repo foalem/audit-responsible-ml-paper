@@ -1,0 +1,44 @@
+title,body
+fit error  help,"model = Sequential()
+
+model.add(Conv2D(32, kernel_size=(5, 9),
+                 activation='relu', input_shape=input_shape))
+model.add(MaxPooling2D(pool_size=(2, 4)))
+
+model.add(Conv2D(16, kernel_size=(5, 7), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 3)))
+
+model.add(Flatten())
+
+#num_classes*4 =104 
+
+model.add(Dense(num_classes*4, activation='sigmoid'))
+
+
+model.compile(loss=keras.losses.binary_crossentropy,
+              optimizer=keras.optimizers.Adadelta(),
+              metrics=['accuracy'])
+
+model.fit(x_train, y_train,
+          batch_size=batch_size,
+          epochs=epochs,
+          verbose=1,
+          validation_data=(x_test, y_test))
+
+ValueError: Error when checking target: expected dense_1 to have shape (104,) but got array with shape (26,)
+
+why？ help me~~~~thks~"
+验证码重叠,
+add a font file and fix the writing style,
+4-6个字符能用一个模型实现吗？,你好，你的模型我成功复制了，4个字符，6个字符单独测试都识别率很高，有没有办法一个模型既支持4个字符又支持6个字符。
+write labels err,"    writer.writerows(labels)
+TypeError: a bytes-like object is required, not 'str'"
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1,按照你上面的代码运行发现报这个错误，查了下说明超出了范围，不大理解为什么连接相加的时候出错了，谢谢告知
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1,"装好依赖，生成图片后，直接运行，报如下错误
+picnum :  6000
+6000 (20, 80)
+6000 4
+Traceback (most recent call last):
+  File ""cnn_end2end_ocr.py"", line 76, in <module>
+    c = np.concatenate((c0,c1,c2,c3),axis=1)
+numpy.core._internal.AxisError: axis 1 is out of bounds for array of dimension 1"

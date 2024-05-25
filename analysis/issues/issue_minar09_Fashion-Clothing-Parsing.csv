@@ -1,0 +1,24 @@
+title,body
+Update Dockerfile,"Add upgrade pip, for fixing the error “no module named ‘skbuild’” when building the OpenCV ."
+No Normalization in VGG-19 model,"Hi, I'm trying to reimplement your project and there is a problem.
+
+In FCN.py, line 101:  there is no 'Normalization' in the VGG19 model. After loading the model from the .mat file, the dictionary contains only
+' __header__'
+'__version__'
+'__globals__'
+'layers'
+'meta'
+So, can you help me out? Thanks a lot. "
+Data Structure to train based on CFPD dataset,"Hi! I am trying to use the repository with the CFPD dataset. I currently have all the images in a single folder, but I am not sure how should I distribute them in training, validation and test folders based on the .mat file.
+
+I made some changes but I am having this error in the 311 line in FCN.py
+ValueError: Cannot feed value of shape (110, 224, 224, 3, 1) for Tensor 'annotation:0', which has shape '(?, 224, 224, 1)'
+
+Do you know what could be happening? How can I have the image tensor with the right shape?
+
+Thank you!"
+Is there a pretrained model?,"Hello,
+
+I want to ask if there's a pretrained model? and if the paper is released or not ? "
+there is no information about the directory structure. Please update ,
+Create LICENSE,

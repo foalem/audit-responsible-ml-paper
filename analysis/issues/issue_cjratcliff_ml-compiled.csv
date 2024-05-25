@@ -1,0 +1,1871 @@
+title,body
+Bump certifi from 2022.12.7 to 2023.7.22,"Bumps [certifi](https://github.com/certifi/python-certifi) from 2022.12.7 to 2023.7.22.
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/certifi/python-certifi/commit/8fb96ed81f71e7097ed11bc4d9b19afd7ea5c909""><code>8fb96ed</code></a> 2023.07.22</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/afe77220e0eaa722593fc5d294213ff5275d1b40""><code>afe7722</code></a> Bump actions/setup-python from 4.6.1 to 4.7.0 (<a href=""https://redirect.github.com/certifi/python-certifi/issues/230"">#230</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/2038739ad56abec7aaddfa90ad2ce6b3ed7f5c7b""><code>2038739</code></a> Bump dessant/lock-threads from 3.0.0 to 4.0.1 (<a href=""https://redirect.github.com/certifi/python-certifi/issues/229"">#229</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/44df761f4c09d19f32b3cc09208a739043a5e25b""><code>44df761</code></a> Hash pin Actions and enable dependabot (<a href=""https://redirect.github.com/certifi/python-certifi/issues/228"">#228</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/8b3d7bae85bbc87c9181cc1d39548db3d31627f0""><code>8b3d7ba</code></a> 2023.05.07</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/53da2405b1af430f6bafa21ba45d8dd8dfc726b8""><code>53da240</code></a> ci: Add Python 3.12-dev to the testing (<a href=""https://redirect.github.com/certifi/python-certifi/issues/224"">#224</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/c2fc3b1f64d6946f1057971ee897ea828ae848d8""><code>c2fc3b1</code></a> Create a Security Policy (<a href=""https://redirect.github.com/certifi/python-certifi/issues/222"">#222</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/c211ef482a01aff5f1bc92c4128bfa0c955f4a01""><code>c211ef4</code></a> Set up permissions to github workflows (<a href=""https://redirect.github.com/certifi/python-certifi/issues/218"">#218</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/2087de5d0aa1d472145fc1dbdfece3fe652bbac5""><code>2087de5</code></a> Don't let deprecation warning fail CI (<a href=""https://redirect.github.com/certifi/python-certifi/issues/219"">#219</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/e0b9fc5c8f52ac8c300da502e5760ce3d41429ec""><code>e0b9fc5</code></a> remove paragraphs about 1024-bit roots from README</li>
+<li>Additional commits viewable in <a href=""https://github.com/certifi/python-certifi/compare/2022.12.07...2023.07.22"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=certifi&package-manager=pip&previous-version=2022.12.7&new-version=2023.7.22)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump pygments from 2.7.4 to 2.15.0,"Bumps [pygments](https://github.com/pygments/pygments) from 2.7.4 to 2.15.0.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/pygments/pygments/releases"">pygments's releases</a>.</em></p>
+<blockquote>
+<h2>2.15.0</h2>
+<ul>
+<li>
+<p>Added lexers:</p>
+<ul>
+<li>Carbon (<a href=""https://redirect.github.com/pygments/pygments/issues/2362"">#2362</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2365"">#2365</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2366"">#2366</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2367"">#2367</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2368"">#2368</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2369"">#2369</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2370"">#2370</a>)</li>
+<li>Dax (<a href=""https://redirect.github.com/pygments/pygments/issues/2335"">#2335</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2345"">#2345</a>)</li>
+<li>MediaWiki Wikitext (<a href=""https://redirect.github.com/pygments/pygments/issues/2373"">#2373</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/827"">#827</a>)</li>
+<li>PostgreSQL Explain (<a href=""https://redirect.github.com/pygments/pygments/issues/2398"">#2398</a>)</li>
+<li>WGSL (WebGPU Shading Language) (<a href=""https://redirect.github.com/pygments/pygments/issues/2386"">#2386</a>)</li>
+<li>X++ (<a href=""https://redirect.github.com/pygments/pygments/issues/2339"">#2339</a>)</li>
+</ul>
+</li>
+<li>
+<p>Updated lexers:</p>
+<ul>
+<li>
+<p>AMDGPU: Add support for <code>scratch_</code> instructions, the <code>attr*.*</code> argument,
+as well as the <code>off</code> modifier (<a href=""https://redirect.github.com/pygments/pygments/issues/2327"">#2327</a>).</p>
+</li>
+<li>
+<p>APDL: Miscellaneous improvements (<a href=""https://redirect.github.com/pygments/pygments/issues/2314"">#2314</a>)</p>
+</li>
+<li>
+<p>bash/tcsh:</p>
+<ul>
+<li>Move <code>break</code> to keywords (<a href=""https://redirect.github.com/pygments/pygments/issues/2377"">#2377</a>)</li>
+<li>Improve bash math expansion lexing (<a href=""https://redirect.github.com/pygments/pygments/issues/2255"">#2255</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2353"">#2353</a>)</li>
+</ul>
+</li>
+<li>
+<p>Chapel: Support attributes (<a href=""https://redirect.github.com/pygments/pygments/issues/2376"">#2376</a>)</p>
+</li>
+<li>
+<p>CMake: Implement bracket style comments (<a href=""https://redirect.github.com/pygments/pygments/issues/2338"">#2338</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2354"">#2354</a>)</p>
+</li>
+<li>
+<p>CSS: Improve lexing of numbers inside function calls (<a href=""https://redirect.github.com/pygments/pygments/issues/2382"">#2382</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2383"">#2383</a>)</p>
+</li>
+<li>
+<p>diff: Support normal diff syntax, as opposed to unified diff syntax (<a href=""https://redirect.github.com/pygments/pygments/issues/2321"">#2321</a>)</p>
+</li>
+<li>
+<p>GLSL, HLSL:</p>
+<ul>
+<li>Support line continuations in preprocessor code (<a href=""https://redirect.github.com/pygments/pygments/issues/2350"">#2350</a>)</li>
+<li>Improve preprocessor directive handling (<a href=""https://redirect.github.com/pygments/pygments/issues/2357"">#2357</a>)</li>
+</ul>
+</li>
+<li>
+<p>LilyPond: minor update of builtins</p>
+</li>
+<li>
+<p>PHP: support attributes (<a href=""https://redirect.github.com/pygments/pygments/issues/2055"">#2055</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2347"">#2347</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2360"">#2360</a>), fix anonymous classes without
+parameters (<a href=""https://redirect.github.com/pygments/pygments/issues/2359"">#2359</a>), improve lexing of variable variable syntax (<a href=""https://redirect.github.com/pygments/pygments/issues/2358"">#2358</a>)</p>
+</li>
+<li>
+<p>Python:</p>
+<ul>
+<li>Add missing builtins (<a href=""https://redirect.github.com/pygments/pygments/issues/2334"">#2334</a>)</li>
+<li>Fix inconsistent lexing of <code>None</code> (<a href=""https://redirect.github.com/pygments/pygments/issues/2406"">#2406</a>)</li>
+</ul>
+</li>
+<li>
+<p>Rebol/Red: Don't require script headers (<a href=""https://redirect.github.com/pygments/pygments/issues/2348"">#2348</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2349"">#2349</a>)</p>
+</li>
+<li>
+<p>Spice: Update keywords (<a href=""https://redirect.github.com/pygments/pygments/issues/2336"">#2336</a>)</p>
+</li>
+<li>
+<p>SQL+Jinja (<code>analyse_text</code> method): Fix catastrophic backtracking (<a href=""https://redirect.github.com/pygments/pygments/issues/2355"">#2355</a>)</p>
+</li>
+<li>
+<p>Terraform: Add <code>hcl</code> alias (<a href=""https://redirect.github.com/pygments/pygments/issues/2375"">#2375</a>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Declare support for Python 3.11 and drop support for Python 3.6 (<a href=""https://redirect.github.com/pygments/pygments/issues/2324"">#2324</a>).</p>
+</li>
+<li>
+<p>Update <code>native</code> style to improve contrast (<a href=""https://redirect.github.com/pygments/pygments/issues/2325"">#2325</a>).</p>
+</li>
+<li>
+<p>Update `github-dark`` style to match latest Primer style (<a href=""https://redirect.github.com/pygments/pygments/issues/2401"">#2401</a>)</p>
+</li>
+<li>
+<p>Revert a change that made guessing lexers based on file names slower
+on Python 3.10 and older (<a href=""https://redirect.github.com/pygments/pygments/issues/2328"">#2328</a>).</p>
+</li>
+<li>
+<p>Fix some places where a locale-dependent encoding could unintentionally
+be used instead of UTF-8 (<a href=""https://redirect.github.com/pygments/pygments/issues/2326"">#2326</a>).</p>
+</li>
+<li>
+<p>Fix Python traceback handling (<a href=""https://redirect.github.com/pygments/pygments/issues/2226"">#2226</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2329"">#2329</a>).</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/pygments/pygments/blob/master/CHANGES"">pygments's changelog</a>.</em></p>
+<blockquote>
+<h2>Version 2.15.0</h2>
+<p>(released April 10th, 2023)</p>
+<ul>
+<li>
+<p>Added lexers:</p>
+<ul>
+<li>Carbon (<a href=""https://redirect.github.com/pygments/pygments/issues/2362"">#2362</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2365"">#2365</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2366"">#2366</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2367"">#2367</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2368"">#2368</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2369"">#2369</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2370"">#2370</a>)</li>
+<li>Dax (<a href=""https://redirect.github.com/pygments/pygments/issues/2335"">#2335</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2345"">#2345</a>)</li>
+<li>MediaWiki Wikitext (<a href=""https://redirect.github.com/pygments/pygments/issues/2373"">#2373</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/827"">#827</a>)</li>
+<li>PostgreSQL Explain (<a href=""https://redirect.github.com/pygments/pygments/issues/2398"">#2398</a>)</li>
+<li>WGSL (WebGPU Shading Language) (<a href=""https://redirect.github.com/pygments/pygments/issues/2386"">#2386</a>)</li>
+<li>X++ (<a href=""https://redirect.github.com/pygments/pygments/issues/2339"">#2339</a>)</li>
+</ul>
+</li>
+<li>
+<p>Updated lexers:</p>
+<ul>
+<li>
+<p>AMDGPU: Add support for <code>scratch_</code> instructions, the <code>attr*.*</code> argument,
+as well as the <code>off</code> modifier (<a href=""https://redirect.github.com/pygments/pygments/issues/2327"">#2327</a>).</p>
+</li>
+<li>
+<p>APDL: Miscellaneous improvements (<a href=""https://redirect.github.com/pygments/pygments/issues/2314"">#2314</a>)</p>
+</li>
+<li>
+<p>bash/tcsh:</p>
+<ul>
+<li>Move <code>break</code> to keywords (<a href=""https://redirect.github.com/pygments/pygments/issues/2377"">#2377</a>)</li>
+<li>Improve bash math expansion lexing (<a href=""https://redirect.github.com/pygments/pygments/issues/2255"">#2255</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2353"">#2353</a>)</li>
+</ul>
+</li>
+<li>
+<p>Chapel: Support attributes (<a href=""https://redirect.github.com/pygments/pygments/issues/2376"">#2376</a>)</p>
+</li>
+<li>
+<p>CMake: Implement bracket style comments (<a href=""https://redirect.github.com/pygments/pygments/issues/2338"">#2338</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2354"">#2354</a>)</p>
+</li>
+<li>
+<p>CSS: Improve lexing of numbers inside function calls (<a href=""https://redirect.github.com/pygments/pygments/issues/2382"">#2382</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2383"">#2383</a>)</p>
+</li>
+<li>
+<p>diff: Support normal diff syntax, as opposed to unified diff syntax (<a href=""https://redirect.github.com/pygments/pygments/issues/2321"">#2321</a>)</p>
+</li>
+<li>
+<p>GLSL, HLSL:</p>
+<ul>
+<li>Support line continuations in preprocessor code (<a href=""https://redirect.github.com/pygments/pygments/issues/2350"">#2350</a>)</li>
+<li>Improve preprocessor directive handling (<a href=""https://redirect.github.com/pygments/pygments/issues/2357"">#2357</a>)</li>
+</ul>
+</li>
+<li>
+<p>LilyPond: minor update of builtins</p>
+</li>
+<li>
+<p>PHP: support attributes (<a href=""https://redirect.github.com/pygments/pygments/issues/2055"">#2055</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2347"">#2347</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2360"">#2360</a>), fix anonymous classes without
+parameters (<a href=""https://redirect.github.com/pygments/pygments/issues/2359"">#2359</a>), improve lexing of variable variable syntax (<a href=""https://redirect.github.com/pygments/pygments/issues/2358"">#2358</a>)</p>
+</li>
+<li>
+<p>Python:</p>
+<ul>
+<li>Add missing builtins (<a href=""https://redirect.github.com/pygments/pygments/issues/2334"">#2334</a>)</li>
+<li>Fix inconsistent lexing of <code>None</code> (<a href=""https://redirect.github.com/pygments/pygments/issues/2406"">#2406</a>)</li>
+</ul>
+</li>
+<li>
+<p>Rebol/Red: Don't require script headers (<a href=""https://redirect.github.com/pygments/pygments/issues/2348"">#2348</a>, <a href=""https://redirect.github.com/pygments/pygments/issues/2349"">#2349</a>)</p>
+</li>
+<li>
+<p>Spice: Update keywords (<a href=""https://redirect.github.com/pygments/pygments/issues/2336"">#2336</a>)</p>
+</li>
+<li>
+<p>SQL+Jinja (<code>analyse_text</code> method): Fix catastrophic backtracking (<a href=""https://redirect.github.com/pygments/pygments/issues/2355"">#2355</a>)</p>
+</li>
+<li>
+<p>Terraform: Add <code>hcl</code> alias (<a href=""https://redirect.github.com/pygments/pygments/issues/2375"">#2375</a>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Declare support for Python 3.11 and drop support for Python 3.6 (<a href=""https://redirect.github.com/pygments/pygments/issues/2324"">#2324</a>).</p>
+</li>
+<li>
+<p>Update <code>native</code> style to improve contrast (<a href=""https://redirect.github.com/pygments/pygments/issues/2325"">#2325</a>).</p>
+</li>
+<li>
+<p>Update `github-dark`` style to match latest Primer style (<a href=""https://redirect.github.com/pygments/pygments/issues/2401"">#2401</a>)</p>
+</li>
+<li>
+<p>Revert a change that made guessing lexers based on file names slower
+on Python 3.10 and older (<a href=""https://redirect.github.com/pygments/pygments/issues/2328"">#2328</a>).</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/pygments/pygments/commit/6c187ad83267be9ce142af3fd5c9e670339dc7aa""><code>6c187ad</code></a> Prepare 2.15 release.</li>
+<li><a href=""https://github.com/pygments/pygments/commit/00b9cb022cc9c05784c43c11bd7f73e64008b347""><code>00b9cb0</code></a> Prepare for release.</li>
+<li><a href=""https://github.com/pygments/pygments/commit/a0824a45f0bd6c45528fa16132f09dd3570a8234""><code>a0824a4</code></a> Update CHANGES</li>
+<li><a href=""https://github.com/pygments/pygments/commit/26f9f6c852846fe579c37fe936a872b68fa686ba""><code>26f9f6c</code></a> Merge pull request <a href=""https://redirect.github.com/pygments/pygments/issues/2406"">#2406</a> from rdbende/fix-fromimport-none</li>
+<li><a href=""https://github.com/pygments/pygments/commit/62b1bbbe6e329268eaa4c68f0e3eb8867c450acc""><code>62b1bbb</code></a> Change token of None after from keyword</li>
+<li><a href=""https://github.com/pygments/pygments/commit/acee60e4e8dde9ea99fc494740e20b06188791ac""><code>acee60e</code></a> Update CHANGES</li>
+<li><a href=""https://github.com/pygments/pygments/commit/eaca69091119e0ac5c97e626ba9e3b21b688c5ed""><code>eaca690</code></a> Add lexer for MediaWiki Wikitext (<a href=""https://redirect.github.com/pygments/pygments/issues/2373"">#2373</a>)</li>
+<li><a href=""https://github.com/pygments/pygments/commit/0e9c87bcf096908956e031f15a4e589e83be1691""><code>0e9c87b</code></a> Update CHANGES</li>
+<li><a href=""https://github.com/pygments/pygments/commit/ef0abbaece522732031d61391567c017d48d87b7""><code>ef0abba</code></a> Add PostgreSQL Explain lexer (<a href=""https://redirect.github.com/pygments/pygments/issues/2398"">#2398</a>)</li>
+<li><a href=""https://github.com/pygments/pygments/commit/3c6e2af8fbc44bb1ef77389d09118c37faea8746""><code>3c6e2af</code></a> Update CHANGES</li>
+<li>Additional commits viewable in <a href=""https://github.com/pygments/pygments/compare/2.7.4...2.15.0"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=pygments&package-manager=pip&previous-version=2.7.4&new-version=2.15.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump requests from 2.20.0 to 2.31.0,"Bumps [requests](https://github.com/psf/requests) from 2.20.0 to 2.31.0.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/psf/requests/releases"">requests's releases</a>.</em></p>
+<blockquote>
+<h2>v2.31.0</h2>
+<h2>2.31.0 (2023-05-22)</h2>
+<p><strong>Security</strong></p>
+<ul>
+<li>
+<p>Versions of Requests between v2.3.0 and v2.30.0 are vulnerable to potential
+forwarding of <code>Proxy-Authorization</code> headers to destination servers when
+following HTTPS redirects.</p>
+<p>When proxies are defined with user info (<a href=""https://user:pass@proxy:8080"">https://user:pass@proxy:8080</a>), Requests
+will construct a <code>Proxy-Authorization</code> header that is attached to the request to
+authenticate with the proxy.</p>
+<p>In cases where Requests receives a redirect response, it previously reattached
+the <code>Proxy-Authorization</code> header incorrectly, resulting in the value being
+sent through the tunneled connection to the destination server. Users who rely on
+defining their proxy credentials in the URL are <em>strongly</em> encouraged to upgrade
+to Requests 2.31.0+ to prevent unintentional leakage and rotate their proxy
+credentials once the change has been fully deployed.</p>
+<p>Users who do not use a proxy or do not supply their proxy credentials through
+the user information portion of their proxy URL are not subject to this
+vulnerability.</p>
+<p>Full details can be read in our <a href=""https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q"">Github Security Advisory</a>
+and <a href=""https://nvd.nist.gov/vuln/detail/CVE-2023-32681"">CVE-2023-32681</a>.</p>
+</li>
+</ul>
+<h2>v2.30.0</h2>
+<h2>2.30.0 (2023-05-03)</h2>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>
+<p>⚠️ Added support for urllib3 2.0. ⚠️</p>
+<p>This may contain minor breaking changes so we advise careful testing and
+reviewing <a href=""https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html"">https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html</a>
+prior to upgrading.</p>
+<p>Users who wish to stay on urllib3 1.x can pin to <code>urllib3&lt;2</code>.</p>
+</li>
+</ul>
+<h2>v2.29.0</h2>
+<h2>2.29.0 (2023-04-26)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Requests now defers chunked requests to the urllib3 implementation to improve
+standardization. (<a href=""https://redirect.github.com/psf/requests/issues/6226"">#6226</a>)</li>
+<li>Requests relaxes header component requirements to support bytes/str subclasses. (<a href=""https://redirect.github.com/psf/requests/issues/6356"">#6356</a>)</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/psf/requests/blob/main/HISTORY.md"">requests's changelog</a>.</em></p>
+<blockquote>
+<h2>2.31.0 (2023-05-22)</h2>
+<p><strong>Security</strong></p>
+<ul>
+<li>
+<p>Versions of Requests between v2.3.0 and v2.30.0 are vulnerable to potential
+forwarding of <code>Proxy-Authorization</code> headers to destination servers when
+following HTTPS redirects.</p>
+<p>When proxies are defined with user info (<a href=""https://user:pass@proxy:8080"">https://user:pass@proxy:8080</a>), Requests
+will construct a <code>Proxy-Authorization</code> header that is attached to the request to
+authenticate with the proxy.</p>
+<p>In cases where Requests receives a redirect response, it previously reattached
+the <code>Proxy-Authorization</code> header incorrectly, resulting in the value being
+sent through the tunneled connection to the destination server. Users who rely on
+defining their proxy credentials in the URL are <em>strongly</em> encouraged to upgrade
+to Requests 2.31.0+ to prevent unintentional leakage and rotate their proxy
+credentials once the change has been fully deployed.</p>
+<p>Users who do not use a proxy or do not supply their proxy credentials through
+the user information portion of their proxy URL are not subject to this
+vulnerability.</p>
+<p>Full details can be read in our <a href=""https://github.com/psf/requests/security/advisories/GHSA-j8r2-6x86-q33q"">Github Security Advisory</a>
+and <a href=""https://nvd.nist.gov/vuln/detail/CVE-2023-32681"">CVE-2023-32681</a>.</p>
+</li>
+</ul>
+<h2>2.30.0 (2023-05-03)</h2>
+<p><strong>Dependencies</strong></p>
+<ul>
+<li>
+<p>⚠️ Added support for urllib3 2.0. ⚠️</p>
+<p>This may contain minor breaking changes so we advise careful testing and
+reviewing <a href=""https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html"">https://urllib3.readthedocs.io/en/latest/v2-migration-guide.html</a>
+prior to upgrading.</p>
+<p>Users who wish to stay on urllib3 1.x can pin to <code>urllib3&lt;2</code>.</p>
+</li>
+</ul>
+<h2>2.29.0 (2023-04-26)</h2>
+<p><strong>Improvements</strong></p>
+<ul>
+<li>Requests now defers chunked requests to the urllib3 implementation to improve
+standardization. (<a href=""https://redirect.github.com/psf/requests/issues/6226"">#6226</a>)</li>
+<li>Requests relaxes header component requirements to support bytes/str subclasses. (<a href=""https://redirect.github.com/psf/requests/issues/6356"">#6356</a>)</li>
+</ul>
+<h2>2.28.2 (2023-01-12)</h2>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/psf/requests/commit/147c8511ddbfa5e8f71bbf5c18ede0c4ceb3bba4""><code>147c851</code></a> v2.31.0</li>
+<li><a href=""https://github.com/psf/requests/commit/74ea7cf7a6a27a4eeb2ae24e162bcc942a6706d5""><code>74ea7cf</code></a> Merge pull request from GHSA-j8r2-6x86-q33q</li>
+<li><a href=""https://github.com/psf/requests/commit/302225334678490ec66b3614a9dddb8a02c5f4fe""><code>3022253</code></a> test on pypy 3.8 and pypy 3.9 on windows and macos (<a href=""https://redirect.github.com/psf/requests/issues/6424"">#6424</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/b639e66c816514e40604d46f0088fbceec1a5149""><code>b639e66</code></a> test on py3.12 (<a href=""https://redirect.github.com/psf/requests/issues/6448"">#6448</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/d3d504436ef0c2ac7ec8af13738b04dcc8c694be""><code>d3d5044</code></a> Fixed a small typo (<a href=""https://redirect.github.com/psf/requests/issues/6452"">#6452</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/2ad18e0e10e7d7ecd5384c378f25ec8821a10a29""><code>2ad18e0</code></a> v2.30.0</li>
+<li><a href=""https://github.com/psf/requests/commit/f2629e9e3c7ce3c3c8c025bcd8db551101cbc773""><code>f2629e9</code></a> Remove strict parameter (<a href=""https://redirect.github.com/psf/requests/issues/6434"">#6434</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/87d63de8739263bbe17034fba2285c79780da7e8""><code>87d63de</code></a> v2.29.0</li>
+<li><a href=""https://github.com/psf/requests/commit/51716c4ef390136b0d4b800ec7665dd5503e64fc""><code>51716c4</code></a> enable the warnings plugin (<a href=""https://redirect.github.com/psf/requests/issues/6416"">#6416</a>)</li>
+<li><a href=""https://github.com/psf/requests/commit/a7da1ab3498b10ec3a3582244c94b2845f8a8e71""><code>a7da1ab</code></a> try on ubuntu 22.04 (<a href=""https://redirect.github.com/psf/requests/issues/6418"">#6418</a>)</li>
+<li>Additional commits viewable in <a href=""https://github.com/psf/requests/compare/v2.20.0...v2.31.0"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=requests&package-manager=pip&previous-version=2.20.0&new-version=2.31.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump future from 0.16.0 to 0.18.3,"Bumps [future](https://github.com/PythonCharmers/python-future) from 0.16.0 to 0.18.3.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/PythonCharmers/python-future/releases"">future's releases</a>.</em></p>
+<blockquote>
+<h2>v0.18.3</h2>
+<p>This is a minor bug-fix release containing a number of fixes:</p>
+<ul>
+<li>Backport fix for bpo-38804 (c91d70b)</li>
+<li>Fix bug in fix_print.py fixer (dffc579)</li>
+<li>Fix bug in fix_raise.py fixer (3401099)</li>
+<li>Fix newint bool in py3 (fe645ba)</li>
+<li>Fix bug in super() with metaclasses (6e27aac)</li>
+<li>docs: fix simple typo, reqest -&gt; request (974eb1f)</li>
+<li>Correct <strong>eq</strong> (c780bf5)</li>
+<li>Pass if lint fails (2abe00d)</li>
+<li>Update docker image and parcel out to constant variable.  Add comment to update version constant (45cf382)</li>
+<li>fix order (f96a219)</li>
+<li>Add flake8 to image (046ff18)</li>
+<li>Make lint.sh executable (58cc984)</li>
+<li>Add docker push to optimize CI (01e8440)</li>
+<li>Build System (42b3025)</li>
+<li>Add docs build status badge to README.md (3f40bd7)</li>
+<li>Use same docs requirements in tox (18ecc5a)</li>
+<li>Add docs/requirements.txt (5f9893f)</li>
+<li>Add PY37_PLUS, PY38_PLUS, and PY39_PLUS (bee0247)</li>
+<li>fix 2.6 test, better comment (ddedcb9)</li>
+<li>fix 2.6 test (3f1ff7e)</li>
+<li>remove nan test (4dbded1)</li>
+<li>include list test values (e3f1a12)</li>
+<li>fix other python2 test issues (c051026)</li>
+<li>fix missing subTest (f006cad)</li>
+<li>import from old imp library on older python versions (fc84fa8)</li>
+<li>replace fstrings with format for python 3.4,3.5 (4a687ea)</li>
+<li>minor style/spelling fixes (8302d8c)</li>
+<li>improve cmp function, add unittest (0d95a40)</li>
+<li>Pin typing==3.7.4.1 for Python 3.3 compatiblity (1a48f1b)</li>
+<li>Fix various py26 unit test failures (9ca5a14)</li>
+<li>Add initial contributing guide with docs build instruction (e55f915)</li>
+<li>Add docs building to tox.ini (3ee9e7f)</li>
+<li>Support NumPy's specialized int types in builtins.round (b4b54f0)</li>
+<li>Added r&quot;&quot;&quot; to the docstring to avoid warnings in python3 (5f94572)</li>
+<li>Add <strong>subclasscheck</strong> for past.types.basestring (c9bc0ff)</li>
+<li>Correct example in README (681e78c)</li>
+<li>Add simple documentation (6c6e3ae)</li>
+<li>Add pre-commit hooks (a9c6a37)</li>
+<li>Handling of <strong>next</strong> and next by future.utils.get_next was reversed (52b0ff9)</li>
+<li>Add a test for our fix (461d77e)</li>
+<li>Compare headers to correct definition of str (3eaa8fd)</li>
+<li><a href=""https://github-redirect.dependabot.com/PythonCharmers/python-future/issues/322"">#322</a> Add support for negative ndigits in round; additionally, fixing a bug so that it handles passing in Decimal properly (a4911b9)</li>
+<li>Add tkFileDialog to future.movers.tkinter (f6a6549)</li>
+<li>Sort before comparing dicts in TestChainMap (6126997)</li>
+<li>Fix typo (4dfa099)</li>
+<li>Fix formatting in &quot;What's new&quot; (1663dfa)</li>
+<li>Fix typo (4236061)</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/af1db970b0879b59e7aeb798c27a623144561cff""><code>af1db97</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/PythonCharmers/python-future/issues/613"">#613</a> from PythonCharmers/lwan/0.18.3-release</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/079ee9b75441d36447cec9981fa1b0032862f64d""><code>079ee9b</code></a> Prepare for 0.18.3 release</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/02f7a8143d5b68f50a1cca44d8f5a58c1925a515""><code>02f7a81</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/PythonCharmers/python-future/issues/610"">#610</a> from wshanks/wshanks-patch-1</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/c91d70b34ef0402aef3e9d04364ba98509dca76f""><code>c91d70b</code></a> Backport fix for bpo-38804</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/80523f383fbba1c6de0551e19d0277e73e69573c""><code>80523f3</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/PythonCharmers/python-future/issues/569"">#569</a> from jmadler/master</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/5e5af71549c7a7fa0e28f881046e081e231e455d""><code>5e5af71</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/PythonCharmers/python-future/issues/582"">#582</a> from r3m0t/patch-6</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/17e4bbd7c676a9a8efd20601e51675c95f74b330""><code>17e4bbd</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/PythonCharmers/python-future/issues/596"">#596</a> from abjonnes/fix-print-trailing-comma</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/1b427ba70191927706282840835e31ae0733ee7e""><code>1b427ba</code></a> Merge branch 'xZise-official-count' into master</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/c8eb497336c76d300c6753b47c7f5de505660d7a""><code>c8eb497</code></a> Merge branch 'official-count' of <a href=""https://github.com/xZise/python-future"">https://github.com/xZise/python-future</a> into ...</li>
+<li><a href=""https://github.com/PythonCharmers/python-future/commit/dffc579dbb7c882fc01fa0c0dfa6b59acef7827d""><code>dffc579</code></a> Fix bug in fix_print.py fixer</li>
+<li>Additional commits viewable in <a href=""https://github.com/PythonCharmers/python-future/compare/v0.16.0...v0.18.3"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=future&package-manager=pip&previous-version=0.16.0&new-version=0.18.3)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump certifi from 2018.1.18 to 2022.12.7,"Bumps [certifi](https://github.com/certifi/python-certifi) from 2018.1.18 to 2022.12.7.
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/certifi/python-certifi/commit/9e9e840925d7b8e76c76fdac1fab7e6e88c1c3b8""><code>9e9e840</code></a> 2022.12.07</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/b81bdb269f1edb791bcd4ec8a9d0c053758f961a""><code>b81bdb2</code></a> 2022.09.24</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/939a28ffc57b1613770f572b584745c7b6d43e7d""><code>939a28f</code></a> 2022.09.14</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/aca828a78e73235a513dff9ebc181a47ef7dbf7b""><code>aca828a</code></a> 2022.06.15.2</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/de0eae12a6d5794a4c1e33052af6717707ce1fcc""><code>de0eae1</code></a> Only use importlib.resources's new files() / Traversable API on Python ≥3.11 ...</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/b8eb5e9af9143b22b7f651942b393e369ed4c52a""><code>b8eb5e9</code></a> 2022.06.15.1</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/47fb7ab715965684e035292d2ad3386aabdc4d25""><code>47fb7ab</code></a> Fix deprecation warning on Python 3.11 (<a href=""https://github-redirect.dependabot.com/certifi/python-certifi/issues/199"">#199</a>)</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/b0b48e059995f455ac1e79b3ad373ad4ef355516""><code>b0b48e0</code></a> fixes <a href=""https://github-redirect.dependabot.com/certifi/python-certifi/issues/198"">#198</a> -- update link in license</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/9d514b4cad79357071c89d7dc4dc1b4df72bb997""><code>9d514b4</code></a> 2022.06.15</li>
+<li><a href=""https://github.com/certifi/python-certifi/commit/4151e8849481f396537c34812068e89b32731e52""><code>4151e88</code></a> Add py.typed to MANIFEST.in to package in sdist (<a href=""https://github-redirect.dependabot.com/certifi/python-certifi/issues/196"">#196</a>)</li>
+<li>Additional commits viewable in <a href=""https://github.com/certifi/python-certifi/compare/2018.01.18...2022.12.07"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=certifi&package-manager=pip&previous-version=2018.1.18&new-version=2022.12.7)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump arrow from 0.12.1 to 0.15.1,"Bumps [arrow](https://github.com/arrow-py/arrow) from 0.12.1 to 0.15.1.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/arrow-py/arrow/releases"">arrow's releases</a>.</em></p>
+<blockquote>
+<h2>Version 0.15.1</h2>
+<ul>
+<li>[FIX] Fixed a bug that caused Arrow to fail when passed a negative timestamp string.</li>
+<li>[FIX] Fixed a bug that caused Arrow to fail when passed a datetime object with <code>tzinfo</code> of type <code>StaticTzInfo</code>.</li>
+</ul>
+<h2>Version 0.15.0</h2>
+<ul>
+<li>[NEW] Added support for DDD and DDDD ordinal date tokens. The following functionality is now possible: <code>arrow.get(&quot;1998-045&quot;)</code>, <code>arrow.get(&quot;1998-45&quot;, &quot;YYYY-DDD&quot;)</code>, <code>arrow.get(&quot;1998-045&quot;, &quot;YYYY-DDDD&quot;)</code>.</li>
+<li>[NEW] ISO 8601 basic format for dates and times is now supported (e.g. <code>YYYYMMDDTHHmmssZ</code>).</li>
+<li>[NEW] Added <code>humanize</code> week granularity translations for French, Russian and Swiss German locales.</li>
+<li>[CHANGE] Timestamps of type <code>str</code> are no longer supported <strong>without a format string</strong> in the <code>arrow.get()</code> method. This change was made to support the ISO 8601 basic format and to address bugs such as <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/447"">#447</a>.</li>
+</ul>
+<pre lang=""python""><code># will NOT work in v0.15.0
+arrow.get(&quot;1565358758&quot;)
+arrow.get(&quot;1565358758.123413&quot;)
+<h1>will work in v0.15.0</h1>
+<p>arrow.get(&quot;1565358758&quot;, &quot;X&quot;)
+arrow.get(&quot;1565358758.123413&quot;, &quot;X&quot;)
+arrow.get(1565358758)
+arrow.get(1565358758.123413)
+</code></pre></p>
+<ul>
+<li>[CHANGE] When a meridian token (a|A) is passed and no meridians are available for the specified locale (e.g. unsupported or untranslated) a <code>ParserError</code> is raised.</li>
+<li>[CHANGE] The timestamp token (<code>X</code>) will now match float timestamps of type <code>str</code>: <code>arrow.get(“1565358758.123415”, “X”)</code>.</li>
+<li>[CHANGE] Strings with leading and/or trailing whitespace will no longer be parsed without a format string. Please see <a href=""https://arrow.readthedocs.io/en/latest/#regular-expressions"">the docs</a> for ways to handle this.</li>
+<li>[FIX] The timestamp token (<code>X</code>) will now only match on strings that <strong>strictly contain integers and floats</strong>, preventing incorrect matches.</li>
+<li>[FIX] Most instances of <code>arrow.get()</code> returning an incorrect <code>Arrow</code> object from a partial parsing match have been eliminated. The following issue have been addressed: <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/91"">#91</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/196"">#196</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/396"">#396</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/434"">#434</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/447"">#447</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/456"">#456</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/519"">#519</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/538"">#538</a>, <a href=""https://github-redirect.dependabot.com/crsmithdev/arrow/issues/560"">#560</a>.</li>
+</ul>
+<h2>Version 0.14.7</h2>
+<ul>
+<li>[CHANGE] <code>ArrowParseWarning</code> will no longer be printed on every call to <code>arrow.get()</code> with a datetime string. The purpose of the warning was to start a conversation about the upcoming 0.15.0 changes and we appreciate all the feedback that the community has given us!</li>
+</ul>
+<h2>Version 0.14.6</h2>
+<ul>
+<li>[NEW] Added support for <code>week</code> granularity in <code>Arrow.humanize()</code>. For example, <code>arrow.utcnow().shift(weeks=-1).humanize(granularity=&quot;week&quot;)</code> outputs &quot;a week ago&quot;. This change introduced two new untranslated words, <code>week</code> and <code>weeks</code>, to all locale dictionaries, so locale contributions are welcome!</li>
+<li>[NEW] Fully translated the Brazilian Portugese locale.</li>
+<li>[CHANGE] Updated the Macedonian locale to inherit from a Slavic base.</li>
+<li>[FIX] Fixed a bug that caused <code>arrow.get()</code> to ignore tzinfo arguments of type string (e.g. <code>arrow.get(tzinfo=&quot;Europe/Paris&quot;)</code>).</li>
+<li>[FIX] Fixed a bug that occurred when <code>arrow.Arrow()</code> was instantiated with a <code>pytz</code> tzinfo object.</li>
+<li>[FIX] Fixed a bug that caused Arrow to fail when passed a sub-second token, that when rounded, had a value greater than 999999 (e.g. <code>arrow.get(&quot;2015-01-12T01:13:15.9999995&quot;)</code>). Arrow should now accurately propagate the rounding for large sub-second tokens.</li>
+</ul>
+<h2>Version 0.14.5</h2>
+<ul>
+<li>Added Afrikaans locale.</li>
+<li>Removed deprecated replace shift functionality.</li>
+<li>Fixed bug that occurred when factory.get() was passed a locale kwarg. (<a href=""https://github-redirect.dependabot.com/arrow-py/arrow/issues/630"">#630</a> )</li>
+</ul>
+<h2>Version 0.14.4</h2>
+<ul>
+<li>Fixed a regression in 0.14.3 that prevented a tzinfo argument of type string to be passed to the <code>get()</code> function. Functionality such as <code>arrow.get(&quot;2019072807&quot;, &quot;YYYYMMDDHH&quot;, tzinfo=&quot;UTC&quot;)</code> should work as normal again.</li>
+<li>Moved backports.functools_lru_cache dependency from extra_requires to install_requires for Python 2.7 installs to fix <a href=""https://github-redirect.dependabot.com/arrow-py/arrow/issues/495"">#495</a>.</li>
+</ul>
+<h2>Version 0.14.3</h2>
+<ul>
+<li>Added full support for Python 3.8.</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/arrow-py/arrow/blob/master/CHANGELOG.rst"">arrow's changelog</a>.</em></p>
+<blockquote>
+<h2>0.15.1 (2019-09-10)</h2>
+<ul>
+<li>[NEW] Added <code>humanize</code> week granularity translations for Japanese.</li>
+<li>[FIX] Fixed a bug that caused Arrow to fail when passed a negative timestamp string.</li>
+<li>[FIX] Fixed a bug that caused Arrow to fail when passed a datetime object with <code>tzinfo</code> of type <code>StaticTzInfo</code>.</li>
+</ul>
+<h2>0.15.0 (2019-09-08)</h2>
+<ul>
+<li>[NEW] Added support for DDD and DDDD ordinal date tokens. The following functionality is now possible: <code>arrow.get(&quot;1998-045&quot;)</code>, <code>arrow.get(&quot;1998-45&quot;, &quot;YYYY-DDD&quot;)</code>, <code>arrow.get(&quot;1998-045&quot;, &quot;YYYY-DDDD&quot;)</code>.</li>
+<li>[NEW] ISO 8601 basic format for dates and times is now supported (e.g. <code>YYYYMMDDTHHmmssZ</code>).</li>
+<li>[NEW] Added <code>humanize</code> week granularity translations for French, Russian and Swiss German locales.</li>
+<li>[CHANGE] Timestamps of type <code>str</code> are no longer supported <strong>without a format string</strong> in the <code>arrow.get()</code> method. This change was made to support the ISO 8601 basic format and to address bugs such as <code>[#447](https://github.com/arrow-py/arrow/issues/447) &lt;https://github.com/arrow-py/arrow/issues/447&gt;</code>_.</li>
+</ul>
+<p>The following will NOT work in v0.15.0:</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; arrow.get(&quot;1565358758&quot;)
+&gt;&gt;&gt; arrow.get(&quot;1565358758.123413&quot;)
+</code></pre>
+<p>The following will work in v0.15.0:</p>
+<p>.. code-block:: python</p>
+<pre><code>&gt;&gt;&gt; arrow.get(&quot;1565358758&quot;, &quot;X&quot;)
+&gt;&gt;&gt; arrow.get(&quot;1565358758.123413&quot;, &quot;X&quot;)
+&gt;&gt;&gt; arrow.get(1565358758)
+&gt;&gt;&gt; arrow.get(1565358758.123413)
+</code></pre>
+<ul>
+<li>[CHANGE] When a meridian token (a|A) is passed and no meridians are available for the specified locale (e.g. unsupported or untranslated) a <code>ParserError</code> is raised.</li>
+<li>[CHANGE] The timestamp token (<code>X</code>) will now match float timestamps of type <code>str</code>: <code>arrow.get(“1565358758.123415”, “X”)</code>.</li>
+<li>[CHANGE] Strings with leading and/or trailing whitespace will no longer be parsed without a format string. Please see <code>the docs &lt;https://arrow.readthedocs.io/#regular-expressions&gt;</code>_ for ways to handle this.</li>
+<li>[FIX] The timestamp token (<code>X</code>) will now only match on strings that <strong>strictly contain integers and floats</strong>, preventing incorrect matches.</li>
+<li>[FIX] Most instances of <code>arrow.get()</code> returning an incorrect <code>Arrow</code> object from a partial parsing match have been eliminated. The following issue have been addressed: <code>[#91](https://github.com/arrow-py/arrow/issues/91) &lt;https://github.com/arrow-py/arrow/issues/91&gt;</code><em>, <code>[#196](https://github.com/arrow-py/arrow/issues/196) &lt;https://github.com/arrow-py/arrow/issues/196&gt;</code></em>, <code>[#396](https://github.com/arrow-py/arrow/issues/396) &lt;https://github.com/arrow-py/arrow/issues/396&gt;</code><em>, <code>[#434](https://github.com/arrow-py/arrow/issues/434) &lt;https://github.com/arrow-py/arrow/issues/434&gt;</code></em>, <code>[#447](https://github.com/arrow-py/arrow/issues/447) &lt;https://github.com/arrow-py/arrow/issues/447&gt;</code><em>, <code>[#456](https://github.com/arrow-py/arrow/issues/456) &lt;https://github.com/arrow-py/arrow/issues/456&gt;</code></em>, <code>[#519](https://github.com/arrow-py/arrow/issues/519) &lt;https://github.com/arrow-py/arrow/issues/519&gt;</code><em>, <code>[#538](https://github.com/arrow-py/arrow/issues/538) &lt;https://github.com/arrow-py/arrow/issues/538&gt;</code></em>, <code>[#560](https://github.com/arrow-py/arrow/issues/560) &lt;https://github.com/arrow-py/arrow/issues/560&gt;</code>_.</li>
+</ul>
+<h2>0.14.7 (2019-09-04)</h2>
+<ul>
+<li>[CHANGE] <code>ArrowParseWarning</code> will no longer be printed on every call to <code>arrow.get()</code> with a datetime string. The purpose of the warning was to start a conversation about the upcoming 0.15.0 changes and we appreciate all the feedback that the community has given us!</li>
+</ul>
+<h2>0.14.6 (2019-08-28)</h2>
+<ul>
+<li>[NEW] Added support for <code>week</code> granularity in <code>Arrow.humanize()</code>. For example, <code>arrow.utcnow().shift(weeks=-1).humanize(granularity=&quot;week&quot;)</code> outputs &quot;a week ago&quot;. This change introduced two new untranslated words, <code>week</code> and <code>weeks</code>, to all locale dictionaries, so locale contributions are welcome!</li>
+<li>[NEW] Fully translated the Brazilian Portuguese locale.</li>
+<li>[CHANGE] Updated the Macedonian locale to inherit from a Slavic base.</li>
+<li>[FIX] Fixed a bug that caused <code>arrow.get()</code> to ignore tzinfo arguments of type string (e.g. <code>arrow.get(tzinfo=&quot;Europe/Paris&quot;)</code>).</li>
+<li>[FIX] Fixed a bug that occurred when <code>arrow.Arrow()</code> was instantiated with a <code>pytz</code> tzinfo object.</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/arrow-py/arrow/commit/96e19e8a0159db8663fed01d0c8b69e769af60ca""><code>96e19e8</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/arrow-py/arrow/issues/665"">#665</a> from jadchaar/version-0.15.1</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/5b0d2a71d8a6d886a7a139ae3b7a69ba9068a1dc""><code>5b0d2a7</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/arrow-py/arrow/issues/664"">#664</a> from jadchaar/tzinfo-zone</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/15fae21f01ae514e2a36d3b6107b61a851588175""><code>15fae21</code></a> Prep 0.15.1 release</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/f49cd84a73f048cdfaad40f861273ec2d2bd443f""><code>f49cd84</code></a> Renamed variable</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/dafdb69f1dc0c6c6b1fb8bf2aa07383fbb2bed78""><code>dafdb69</code></a> Fix bug with tzinfo.zone</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/256e53f8199927470393cbc3a5a1aa8bc722d0d0""><code>256e53f</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/arrow-py/arrow/issues/663"">#663</a> from JBKahn/patch-1</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/1974316d8930c01abf57aee68a294bd0fd37b0b6""><code>1974316</code></a> linting</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/45d12d46dc9a18e9868b5fe5b509d164db430c8c""><code>45d12d4</code></a> Update parser_tests.py</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/d856efa1dd81f45b1d2400e4304c35d9ec68b76f""><code>d856efa</code></a> Update parser.py</li>
+<li><a href=""https://github.com/arrow-py/arrow/commit/9b0521697b3d0cc4ef88eab43828109347aa3aca""><code>9b05216</code></a> Add Japanese translations for week(s) (<a href=""https://github-redirect.dependabot.com/arrow-py/arrow/issues/659"">#659</a>)</li>
+<li>Additional commits viewable in <a href=""https://github.com/arrow-py/arrow/compare/0.12.1...0.15.1"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=arrow&package-manager=pip&previous-version=0.12.1&new-version=0.15.1)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump cookiecutter from 1.5.1 to 2.1.1,"Bumps [cookiecutter](https://github.com/cookiecutter/cookiecutter) from 1.5.1 to 2.1.1.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/cookiecutter/cookiecutter/releases"">cookiecutter's releases</a>.</em></p>
+<blockquote>
+<h2>2.1.1</h2>
+<h2>Documentation updates</h2>
+<ul>
+<li>Fix local extensions documentation (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1686"">#1686</a>) <a href=""https://github.com/alkatar21""><code>@​alkatar21</code></a></li>
+</ul>
+<h2>Bugfixes</h2>
+<ul>
+<li>Sanitize Mercurial branch information before checkout. (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1689"">#1689</a>) <a href=""https://github.com/ericof""><code>@​ericof</code></a></li>
+</ul>
+<h2>This release is made by wonderful contributors:</h2>
+<p><a href=""https://github.com/alkatar21""><code>@​alkatar21</code></a>, <a href=""https://github.com/ericof""><code>@​ericof</code></a> and <a href=""https://github.com/jensens""><code>@​jensens</code></a></p>
+<h2>2.1.0</h2>
+<h2>Preamble</h2>
+<p>This release log lists all changes from 1.7.3 to this release.
+It includes the log of the 2.0.x releases, which were never published on PyPI.
+Because of that it might look a bit blurry.</p>
+<p>We release the current stable state of the project, knowing there are a bunch of open pull requests.
+Those will be reviewed by the core-committers and merged or dropped.</p>
+<p>Future releases will happen more frequently. Stay tuned.</p>
+<p>Fetch fresh from PyPI <a href=""https://pypi.org/project/cookiecutter/2.1.0/"">https://pypi.org/project/cookiecutter/2.1.0/</a></p>
+<h2>Changes</h2>
+<ul>
+<li>Move contributors and backers to credits section (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1599"">#1599</a>) <a href=""https://github.com/doobrie""><code>@​doobrie</code></a></li>
+<li>test_generate_file_verbose_template_syntax_error fixed (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1671"">#1671</a>) <a href=""https://github.com/MaciejPatro""><code>@​MaciejPatro</code></a></li>
+<li>Removed changes related to setuptools_scm (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1629"">#1629</a>) <a href=""https://github.com/ozer550""><code>@​ozer550</code></a></li>
+<li>Release 2.0.1  (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1620"">#1620</a>) <a href=""https://github.com/audreyfeldroy""><code>@​audreyfeldroy</code></a></li>
+</ul>
+<h2>Breaking Changes</h2>
+<ul>
+<li>Release preparation for 2.0.1rc1 (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1608"">#1608</a>) <a href=""https://github.com/audreyfeldroy""><code>@​audreyfeldroy</code></a></li>
+<li>Replace poyo with pyyaml. (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1489"">#1489</a>) <a href=""https://github.com/dHannasch""><code>@​dHannasch</code></a></li>
+<li>Added: Path templates will be rendered when copy_without_render used (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/839"">#839</a>) <a href=""https://github.com/noirbizarre""><code>@​noirbizarre</code></a></li>
+<li>Added: End of line detection and configuration. (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1407"">#1407</a>) <a href=""https://github.com/insspb""><code>@​insspb</code></a></li>
+<li>Remove support for python2.7 (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1386"">#1386</a>) <a href=""https://github.com/ssbarnea""><code>@​ssbarnea</code></a></li>
+</ul>
+<h2>Minor Changes</h2>
+<ul>
+<li>Documentation overhaul (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1677"">#1677</a>) <a href=""https://github.com/jensens""><code>@​jensens</code></a></li>
+<li>Feature/local extensions (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1240"">#1240</a>) <a href=""https://github.com/mwesterhof""><code>@​mwesterhof</code></a></li>
+<li>Adopt setuptools-scm packaging (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1577"">#1577</a>) <a href=""https://github.com/ssbarnea""><code>@​ssbarnea</code></a></li>
+<li>Log the error message when git clone fails, not just the return code (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1505"">#1505</a>) <a href=""https://github.com/logworthy""><code>@​logworthy</code></a></li>
+<li>allow jinja 3.0.0 (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1548"">#1548</a>) <a href=""https://github.com/wouterdb""><code>@​wouterdb</code></a></li>
+<li>Added uuid extension to be able to generate uuids (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1493"">#1493</a>) <a href=""https://github.com/jonaswre""><code>@​jonaswre</code></a></li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/cookiecutter/cookiecutter/blob/master/HISTORY.md"">cookiecutter's changelog</a>.</em></p>
+<blockquote>
+<h2>2.1.1 (2022-06-01)</h2>
+<h3>Documentation updates</h3>
+<ul>
+<li>Fix local extensions documentation (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1686"">#1686</a>) <a href=""https://github.com/alkatar21""><code>@​alkatar21</code></a></li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Sanitize Mercurial branch information before checkout. (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1689"">#1689</a>) <a href=""https://github.com/ericof""><code>@​ericof</code></a></li>
+</ul>
+<h3>This release is made by wonderfull contributors:</h3>
+<p><a href=""https://github.com/alkatar21""><code>@​alkatar21</code></a>, <a href=""https://github.com/ericof""><code>@​ericof</code></a> and <a href=""https://github.com/jensens""><code>@​jensens</code></a></p>
+<h2>2.1.0 (2022-05-30)</h2>
+<h3>Changes</h3>
+<ul>
+<li>Move contributors and backers to credits section (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1599"">#1599</a>) <a href=""https://github.com/doobrie""><code>@​doobrie</code></a></li>
+<li>test_generate_file_verbose_template_syntax_error fixed (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1671"">#1671</a>) <a href=""https://github.com/MaciejPatro""><code>@​MaciejPatro</code></a></li>
+<li>Removed changes related to setuptools_scm (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1629"">#1629</a>) <a href=""https://github.com/ozer550""><code>@​ozer550</code></a></li>
+<li>Feature/local extensions (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1240"">#1240</a>) <a href=""https://github.com/mwesterhof""><code>@​mwesterhof</code></a></li>
+</ul>
+<h3>CI/CD and QA changes</h3>
+<ul>
+<li>Check manifest: pre-commit, fixes, cleaning (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1683"">#1683</a>) <a href=""https://github.com/jensens""><code>@​jensens</code></a></li>
+<li>Follow PyPA guide to release package using GitHub Actions. (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1682"">#1682</a>) <a href=""https://github.com/ericof""><code>@​ericof</code></a></li>
+</ul>
+<h3>Documentation updates</h3>
+<ul>
+<li>Fix typo in dict_variables.rst (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1680"">#1680</a>) <a href=""https://github.com/ericof""><code>@​ericof</code></a></li>
+<li>Documentation overhaul (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1677"">#1677</a>) <a href=""https://github.com/jensens""><code>@​jensens</code></a></li>
+<li>Fixed incorrect link on docs. (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1649"">#1649</a>) <a href=""https://github.com/luzfcb""><code>@​luzfcb</code></a></li>
+</ul>
+<h3>Bugfixes</h3>
+<ul>
+<li>Restore accidentally deleted support for click 8.x (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1643"">#1643</a>) <a href=""https://github.com/jaklan""><code>@​jaklan</code></a></li>
+</ul>
+<h3>This release was made possible by our wonderful contributors:</h3>
+<p><a href=""https://github.com/doobrie""><code>@​doobrie</code></a>, <a href=""https://github.com/jensens""><code>@​jensens</code></a>, <a href=""https://github.com/ericof""><code>@​ericof</code></a>, <a href=""https://github.com/luzfcb""><code>@​luzfcb</code></a></p>
+<h2>2.0.2 (2021-12-27)</h2>
+<p><em>Remark: This release never made it to official PyPI</em></p>
+<ul>
+<li>Fix Python version number in cookiecutter --version and test on Python 3.10 (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1621"">#1621</a>) <a href=""https://github.com/ozer550""><code>@​ozer550</code></a></li>
+<li>Removed changes related to setuptools_scm (<a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1629"">#1629</a>) <a href=""https://github.com/audreyfeldroy""><code>@​audreyfeldroy</code></a> <a href=""https://github.com/ozer550""><code>@​ozer550</code></a></li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/f9376a96097086476ce9eb0b93297a471ae520e0""><code>f9376a9</code></a> Prepare release 2.1.1</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/fdffddb31fd2b46344dfa317531ff155e7999f77""><code>fdffddb</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1689"">#1689</a> from cookiecutter/sanitize-mercurial-checkout</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/85a7884f11a5200535706a6c5d31a9acbdadae1a""><code>85a7884</code></a> Lint fixes</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/e26c46582cd9033dcea318f1c29a1f06fb74f456""><code>e26c465</code></a> Sanitize Mercurial branch information before checkout.</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/94036d0324d09cd6a4eb5e2a5707062c1e409cd1""><code>94036d0</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1687"">#1687</a> from cookiecutter/bump-version-back-to-dev</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/70b2ee2a3521ea71634269e72f3d3f701c51cb7d""><code>70b2ee2</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1686"">#1686</a> from alkatar21/patch-1</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/8b33e96c94ac75277e8f67cc1a71d90f488b5edb""><code>8b33e96</code></a> Bump version to 2.1.1.dev0</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/58d716f51fda78ec793975eea5876691aa576b2c""><code>58d716f</code></a> [Docs] Fix local extensions documentation</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/f601b710324fd9d0255e790121dba8f74cb6e423""><code>f601b71</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/cookiecutter/cookiecutter/issues/1684"">#1684</a> from cookiecutter/bump-release-2.1.0</li>
+<li><a href=""https://github.com/cookiecutter/cookiecutter/commit/96c68260eac572505f33381e627ad42b61aef357""><code>96c6826</code></a> bump version and edit historie</li>
+<li>Additional commits viewable in <a href=""https://github.com/cookiecutter/cookiecutter/compare/1.5.1...2.1.1"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=cookiecutter&package-manager=pip&previous-version=1.5.1&new-version=2.1.1)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump babel from 2.5.3 to 2.9.1,"Bumps [babel](https://github.com/python-babel/babel) from 2.5.3 to 2.9.1.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/python-babel/babel/releases"">babel's releases</a>.</em></p>
+<blockquote>
+<h2>Version 2.9.1</h2>
+<h1>Bugfixes</h1>
+<ul>
+<li>The internal locale-data loading functions now validate the name of the locale file to be loaded and only allow files within Babel's data directory.  Thank you to Chris Lyne of Tenable, Inc. for discovering the issue!</li>
+</ul>
+<h2>Version 2.9.0</h2>
+<h1>Upcoming version support changes</h1>
+<ul>
+<li>This version, Babel 2.9, is the last version of Babel to support Python 2.7, Python 3.4, and Python 3.5.</li>
+</ul>
+<h1>Improvements</h1>
+<ul>
+<li>CLDR: Use CLDR 37 – Aarni Koskela (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/734"">#734</a>)</li>
+<li>Dates: Handle ZoneInfo objects in get_timezone_location, get_timezone_name - Alessio Bogon (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/741"">#741</a>)</li>
+<li>Numbers: Add group_separator feature in number formatting - Abdullah Javed Nesar (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/726"">#726</a>)</li>
+</ul>
+<h1>Bugfixes</h1>
+<ul>
+<li>Dates: Correct default Format().timedelta format to 'long' to mute deprecation warnings – Aarni Koskela</li>
+<li>Import: Simplify iteration code in &quot;import_cldr.py&quot; – Felix Schwarz</li>
+<li>Import: Stop using deprecated ElementTree methods &quot;getchildren()&quot; and &quot;getiterator()&quot; – Felix Schwarz</li>
+<li>Messages: Fix unicode printing error on Python 2 without TTY. – Niklas Hambüchen</li>
+<li>Messages: Introduce invariant that _invalid_pofile() takes unicode line. – Niklas Hambüchen</li>
+<li>Tests: fix tests when using Python 3.9 – Felix Schwarz</li>
+<li>Tests: Remove deprecated 'sudo: false' from Travis configuration – Jon Dufresne</li>
+<li>Tests: Support Py.test 6.x – Aarni Koskela</li>
+<li>Utilities: LazyProxy: Handle AttributeError in specified func – Nikiforov Konstantin (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/724"">#724</a>)</li>
+<li>Utilities: Replace usage of parser.suite with ast.parse – Miro Hrončok</li>
+</ul>
+<h1>Documentation</h1>
+<ul>
+<li>Update parse_number comments – Brad Martin (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/708"">#708</a>)</li>
+<li>Add <strong>iter</strong> to Catalog documentation – <a href=""https://github.com/CyanNani123""><code>@​CyanNani123</code></a></li>
+</ul>
+<h2>Version 2.8.1</h2>
+<p>This patch version only differs from 2.8.0 in that it backports in <a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/752"">#752</a>.</p>
+<h2>Version 2.8.0</h2>
+<h1>Improvements</h1>
+<ul>
+<li>CLDR: Upgrade to CLDR 36.0 - Aarni Koskela (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/679"">#679</a>)</li>
+<li>Messages: Don't even open files with the &quot;ignore&quot; extraction method - <a href=""https://github.com/sebleblanc""><code>@​sebleblanc</code></a> (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/678"">#678</a>)</li>
+</ul>
+<h1>Bugfixes</h1>
+<ul>
+<li>Numbers: Fix formatting very small decimals when quantization is disabled - Lev Lybin, <a href=""https://github.com/miluChen""><code>@​miluChen</code></a> (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/662"">#662</a>)</li>
+<li>Messages: Attempt to sort all messages – Mario Frasca (<a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/651"">#651</a>, <a href=""https://github-redirect.dependabot.com/python-babel/babel/issues/606"">#606</a>)</li>
+</ul>
+<h1>Docs</h1>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/python-babel/babel/blob/master/CHANGES"">babel's changelog</a>.</em></p>
+<blockquote>
+<h2>Version 2.9.1</h2>
+<p>Bugfixes</p>
+<pre><code>
+* The internal locale-data loading functions now validate the name of the locale file to be loaded and only
+  allow files within Babel's data directory.  Thank you to Chris Lyne of Tenable, Inc. for discovering the issue!
+<h2>Version 2.9.0</h2>
+<p>Upcoming version support changes
+</code></pre></p>
+<ul>
+<li>This version, Babel 2.9, is the last version of Babel to support Python 2.7, Python 3.4, and Python 3.5.</li>
+</ul>
+<p>Improvements</p>
+<pre><code>
+* CLDR: Use CLDR 37 – Aarni Koskela ([#734](https://github.com/python-babel/babel/issues/734))
+* Dates: Handle ZoneInfo objects in get_timezone_location, get_timezone_name - Alessio Bogon ([#741](https://github.com/python-babel/babel/issues/741))
+* Numbers: Add group_separator feature in number formatting - Abdullah Javed Nesar ([#726](https://github.com/python-babel/babel/issues/726))
+<p>Bugfixes</p>
+<pre><code>
+* Dates: Correct default Format().timedelta format to 'long' to mute deprecation warnings – Aarni Koskela
+* Import: Simplify iteration code in &amp;quot;import_cldr.py&amp;quot; – Felix Schwarz
+* Import: Stop using deprecated ElementTree methods &amp;quot;getchildren()&amp;quot; and &amp;quot;getiterator()&amp;quot; – Felix Schwarz
+* Messages: Fix unicode printing error on Python 2 without TTY. – Niklas Hambüchen
+* Messages: Introduce invariant that _invalid_pofile() takes unicode line. – Niklas Hambüchen
+* Tests: fix tests when using Python 3.9 – Felix Schwarz
+* Tests: Remove deprecated 'sudo: false' from Travis configuration – Jon Dufresne
+* Tests: Support Py.test 6.x – Aarni Koskela
+* Utilities: LazyProxy: Handle AttributeError in specified func – Nikiforov Konstantin ([#724](https://github.com/python-babel/babel/issues/724))
+* Utilities: Replace usage of parser.suite with ast.parse – Miro Hrončok
+
+Documentation
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Update parse_number comments – Brad Martin (&lt;a href=&quot;https://github-redirect.dependabot.com/python-babel/babel/issues/708&quot;&gt;#708&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add &lt;strong&gt;iter&lt;/strong&gt; to Catalog documentation – &lt;a href=&quot;https://github.com/CyanNani123&quot;&gt;&lt;code&gt;@​CyanNani123&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Version 2.8.1&lt;/h2&gt;
+&lt;p&gt;This is solely a patch release to make running tests on Py.test 6+ possible.&lt;/p&gt;
+&lt;p&gt;Bugfixes&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;... (truncated)&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+&lt;summary&gt;Commits&lt;/summary&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/a99fa2474c808b51ebdabea18db871e389751559&quot;&gt;&lt;code&gt;a99fa24&lt;/code&gt;&lt;/a&gt; Use 2.9.0's setup.py for 2.9.1&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/60b33e083801109277cb068105251e76d0b7c14e&quot;&gt;&lt;code&gt;60b33e0&lt;/code&gt;&lt;/a&gt; Become 2.9.1&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/412015ef642bfcc0d8ba8f4d05cdbb6aac98d9b3&quot;&gt;&lt;code&gt;412015e&lt;/code&gt;&lt;/a&gt; Merge pull request &lt;a href=&quot;https://github-redirect.dependabot.com/python-babel/babel/issues/782&quot;&gt;#782&lt;/a&gt; from python-babel/locale-basename&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/5caf717ceca4bd235552362b4fbff88983c75d8c&quot;&gt;&lt;code&gt;5caf717&lt;/code&gt;&lt;/a&gt; Disallow special filenames on Windows&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/3a700b5b8b53606fd98ef8294a56f9510f7290f8&quot;&gt;&lt;code&gt;3a700b5&lt;/code&gt;&lt;/a&gt; Run locale identifiers through &lt;code&gt;os.path.basename()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/5afe2b2f11dcdd6090c00231d342c2e9cd1bdaab&quot;&gt;&lt;code&gt;5afe2b2&lt;/code&gt;&lt;/a&gt; Merge pull request &lt;a href=&quot;https://github-redirect.dependabot.com/python-babel/babel/issues/754&quot;&gt;#754&lt;/a&gt; from python-babel/github-ci&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/58de8342f865df88697a4a166191e880e3c84d82&quot;&gt;&lt;code&gt;58de834&lt;/code&gt;&lt;/a&gt; Replace Travis + Appveyor with GitHub Actions (WIP)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/d1bbc08e845d03d8e1f0dfa0e04983d755f39cb5&quot;&gt;&lt;code&gt;d1bbc08&lt;/code&gt;&lt;/a&gt; import_cldr: use logging; add -q option&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/156b7fb9f377ccf58c71cf01dc69fb10c7b69314&quot;&gt;&lt;code&gt;156b7fb&lt;/code&gt;&lt;/a&gt; Quiesce CLDR download progress bar if requested (or not a TTY)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/python-babel/babel/commit/613dc1700f91c3d40b081948c0dd6023d8ece057&quot;&gt;&lt;code&gt;613dc17&lt;/code&gt;&lt;/a&gt; Make the import warnings about unsupported number systems less verbose&lt;/li&gt;
+&lt;li&gt;Additional commits viewable in &lt;a href=&quot;https://github.com/python-babel/babel/compare/v2.5.3...v2.9.1&quot;&gt;compare view&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+
+&lt;br /&gt;
+</code></pre>
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=babel&package-manager=pip&previous-version=2.5.3&new-version=2.9.1)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump urllib3 from 1.24.2 to 1.26.5,"Bumps [urllib3](https://github.com/urllib3/urllib3) from 1.24.2 to 1.26.5.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/urllib3/urllib3/releases"">urllib3's releases</a>.</em></p>
+<blockquote>
+<h2>1.26.5</h2>
+<p>:warning: <strong>IMPORTANT: urllib3 v2.0 will drop support for Python 2</strong>: <a href=""https://urllib3.readthedocs.io/en/latest/v2-roadmap.html"">Read more in the v2.0 Roadmap</a></p>
+<ul>
+<li>Fixed deprecation warnings emitted in Python 3.10.</li>
+<li>Updated vendored <code>six</code> library to 1.16.0.</li>
+<li>Improved performance of URL parser when splitting the authority component.</li>
+</ul>
+<p><strong>If you or your organization rely on urllib3 consider supporting us via <a href=""https://github.com/sponsors/urllib3"">GitHub Sponsors</a></strong></p>
+<h2>1.26.4</h2>
+<p>:warning: <strong>IMPORTANT: urllib3 v2.0 will drop support for Python 2</strong>: <a href=""https://urllib3.readthedocs.io/en/latest/v2-roadmap.html"">Read more in the v2.0 Roadmap</a></p>
+<ul>
+<li>Changed behavior of the default <code>SSLContext</code> when connecting to HTTPS proxy during HTTPS requests. The default <code>SSLContext</code> now sets <code>check_hostname=True</code>.</li>
+</ul>
+<p><strong>If you or your organization rely on urllib3 consider supporting us via <a href=""https://github.com/sponsors/urllib3"">GitHub Sponsors</a></strong></p>
+<h2>1.26.3</h2>
+<p>:warning: <strong>IMPORTANT: urllib3 v2.0 will drop support for Python 2</strong>: <a href=""https://urllib3.readthedocs.io/en/latest/v2-roadmap.html"">Read more in the v2.0 Roadmap</a></p>
+<ul>
+<li>
+<p>Fixed bytes and string comparison issue with headers (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2141"">#2141</a>)</p>
+</li>
+<li>
+<p>Changed <code>ProxySchemeUnknown</code> error message to be more actionable if the user supplies a proxy URL without a scheme (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2107"">#2107</a>)</p>
+</li>
+</ul>
+<p><strong>If you or your organization rely on urllib3 consider supporting us via <a href=""https://github.com/sponsors/urllib3"">GitHub Sponsors</a></strong></p>
+<h2>1.26.2</h2>
+<p>:warning: <strong>IMPORTANT: urllib3 v2.0 will drop support for Python 2</strong>: <a href=""https://urllib3.readthedocs.io/en/latest/v2-roadmap.html"">Read more in the v2.0 Roadmap</a></p>
+<ul>
+<li>Fixed an issue where <code>wrap_socket</code> and <code>CERT_REQUIRED</code> wouldn't be imported properly on Python 2.7.8 and earlier (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2052"">#2052</a>)</li>
+</ul>
+<h2>1.26.1</h2>
+<p>:warning: <strong>IMPORTANT: urllib3 v2.0 will drop support for Python 2</strong>: <a href=""https://urllib3.readthedocs.io/en/latest/v2-roadmap.html"">Read more in the v2.0 Roadmap</a></p>
+<ul>
+<li>Fixed an issue where two <code>User-Agent</code> headers would be sent if a <code>User-Agent</code> header key is passed as <code>bytes</code> (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2047"">#2047</a>)</li>
+</ul>
+<h2>1.26.0</h2>
+<p>:warning: <strong>IMPORTANT: urllib3 v2.0 will drop support for Python 2</strong>: <a href=""https://urllib3.readthedocs.io/en/latest/v2-roadmap.html"">Read more in the v2.0 Roadmap</a></p>
+<ul>
+<li>
+<p>Added support for HTTPS proxies contacting HTTPS servers (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/1923"">#1923</a>, Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/1806"">#1806</a>)</p>
+</li>
+<li>
+<p>Deprecated negotiating TLSv1 and TLSv1.1 by default. Users that
+still wish to use TLS earlier than 1.2 without a deprecation warning
+should opt-in explicitly by setting <code>ssl_version=ssl.PROTOCOL_TLSv1_1</code> (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2002"">#2002</a>)
+<strong>Starting in urllib3 v2.0: Connections that receive a <code>DeprecationWarning</code> will fail</strong></p>
+</li>
+<li>
+<p>Deprecated <code>Retry</code> options <code>Retry.DEFAULT_METHOD_WHITELIST</code>, <code>Retry.DEFAULT_REDIRECT_HEADERS_BLACKLIST</code>
+and <code>Retry(method_whitelist=...)</code> in favor of <code>Retry.DEFAULT_ALLOWED_METHODS</code>,
+<code>Retry.DEFAULT_REMOVE_HEADERS_ON_REDIRECT</code>, and <code>Retry(allowed_methods=...)</code>
+(Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2000"">#2000</a>) <strong>Starting in urllib3 v2.0: Deprecated options will be removed</strong></p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/urllib3/urllib3/blob/main/CHANGES.rst"">urllib3's changelog</a>.</em></p>
+<blockquote>
+<h2>1.26.5 (2021-05-26)</h2>
+<ul>
+<li>Fixed deprecation warnings emitted in Python 3.10.</li>
+<li>Updated vendored <code>six</code> library to 1.16.0.</li>
+<li>Improved performance of URL parser when splitting
+the authority component.</li>
+</ul>
+<h2>1.26.4 (2021-03-15)</h2>
+<ul>
+<li>Changed behavior of the default <code>SSLContext</code> when connecting to HTTPS proxy
+during HTTPS requests. The default <code>SSLContext</code> now sets <code>check_hostname=True</code>.</li>
+</ul>
+<h2>1.26.3 (2021-01-26)</h2>
+<ul>
+<li>
+<p>Fixed bytes and string comparison issue with headers (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2141"">#2141</a>)</p>
+</li>
+<li>
+<p>Changed <code>ProxySchemeUnknown</code> error message to be
+more actionable if the user supplies a proxy URL without
+a scheme. (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2107"">#2107</a>)</p>
+</li>
+</ul>
+<h2>1.26.2 (2020-11-12)</h2>
+<ul>
+<li>Fixed an issue where <code>wrap_socket</code> and <code>CERT_REQUIRED</code> wouldn't
+be imported properly on Python 2.7.8 and earlier (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2052"">#2052</a>)</li>
+</ul>
+<h2>1.26.1 (2020-11-11)</h2>
+<ul>
+<li>Fixed an issue where two <code>User-Agent</code> headers would be sent if a
+<code>User-Agent</code> header key is passed as <code>bytes</code> (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/2047"">#2047</a>)</li>
+</ul>
+<h2>1.26.0 (2020-11-10)</h2>
+<ul>
+<li>
+<p><strong>NOTE: urllib3 v2.0 will drop support for Python 2</strong>.
+<code>Read more in the v2.0 Roadmap &lt;https://urllib3.readthedocs.io/en/latest/v2-roadmap.html&gt;</code>_.</p>
+</li>
+<li>
+<p>Added support for HTTPS proxies contacting HTTPS servers (Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/1923"">#1923</a>, Pull <a href=""https://github-redirect.dependabot.com/urllib3/urllib3/issues/1806"">#1806</a>)</p>
+</li>
+<li>
+<p>Deprecated negotiating TLSv1 and TLSv1.1 by default. Users that
+still wish to use TLS earlier than 1.2 without a deprecation warning</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/urllib3/urllib3/commit/d1616473df94b94f0f5ad19d2a6608cfe93b7cdf""><code>d161647</code></a> Release 1.26.5</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/2d4a3fee6de2fa45eb82169361918f759269b4ec""><code>2d4a3fe</code></a> Improve performance of sub-authority splitting in URL</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/2698537d52f8ff1f0bbb1d45cf018b118e91f637""><code>2698537</code></a> Update vendored six to 1.16.0</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/07bed791e9c391d8bf12950f76537dc3c6f90550""><code>07bed79</code></a> Fix deprecation warnings for Python 3.10 ssl module</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/d725a9b56bb8baf87c9e6eee0e9edf010034b63b""><code>d725a9b</code></a> Add Python 3.10 to GitHub Actions</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/339ad34c677c98fd9ad008de1d8bbeb9dbf34381""><code>339ad34</code></a> Use pytest==6.2.4 on Python 3.10+</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/f271c9c3149e20d7feffb6429b135bbb6c09ddf4""><code>f271c9c</code></a> Apply latest Black formatting</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/1884878aac87ef0494b282e940c32c24ee917d52""><code>1884878</code></a> [1.26] Properly proxy EOF on the SSLTransport test suite</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/a8913042b676c510e94fc2b097f6b514ae11a537""><code>a891304</code></a> Release 1.26.4</li>
+<li><a href=""https://github.com/urllib3/urllib3/commit/8d65ea1ecf6e2cdc27d42124e587c1b83a3118b0""><code>8d65ea1</code></a> Merge pull request from GHSA-5phf-pp7p-vc2r</li>
+<li>Additional commits viewable in <a href=""https://github.com/urllib3/urllib3/compare/1.24.2...1.26.5"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=urllib3&package-manager=pip&previous-version=1.24.2&new-version=1.26.5)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump py from 1.5.3 to 1.10.0,"Bumps [py](https://github.com/pytest-dev/py) from 1.5.3 to 1.10.0.
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/pytest-dev/py/blob/master/CHANGELOG.rst"">py's changelog</a>.</em></p>
+<blockquote>
+<h1>1.10.0 (2020-12-12)</h1>
+<ul>
+<li>Fix a regular expression DoS vulnerability in the py.path.svnwc SVN blame functionality (CVE-2020-29651)</li>
+<li>Update vendored apipkg: 1.4 =&gt; 1.5</li>
+<li>Update vendored iniconfig: 1.0.0 =&gt; 1.1.1</li>
+</ul>
+<h1>1.9.0 (2020-06-24)</h1>
+<ul>
+<li>
+<p>Add type annotation stubs for the following modules:</p>
+<ul>
+<li><code>py.error</code></li>
+<li><code>py.iniconfig</code></li>
+<li><code>py.path</code> (not including SVN paths)</li>
+<li><code>py.io</code></li>
+<li><code>py.xml</code></li>
+</ul>
+<p>There are no plans to type other modules at this time.</p>
+<p>The type annotations are provided in external .pyi files, not inline in the
+code, and may therefore contain small errors or omissions. If you use <code>py</code>
+in conjunction with a type checker, and encounter any type errors you believe
+should be accepted, please report it in an issue.</p>
+</li>
+</ul>
+<h1>1.8.2 (2020-06-15)</h1>
+<ul>
+<li>On Windows, <code>py.path.local</code>s which differ only in case now have the same
+Python hash value. Previously, such paths were considered equal but had
+different hashes, which is not allowed and breaks the assumptions made by
+dicts, sets and other users of hashes.</li>
+</ul>
+<h1>1.8.1 (2019-12-27)</h1>
+<ul>
+<li>
+<p>Handle <code>FileNotFoundError</code> when trying to import pathlib in <code>path.common</code>
+on Python 3.4 (<a href=""https://github-redirect.dependabot.com/pytest-dev/py/issues/207"">#207</a>).</p>
+</li>
+<li>
+<p><code>py.path.local.samefile</code> now works correctly in Python 3 on Windows when dealing with symlinks.</p>
+</li>
+</ul>
+<h1>1.8.0 (2019-02-21)</h1>
+<ul>
+<li>
+<p>add <code>&quot;importlib&quot;</code> pyimport mode for python3.5+, allowing unimportable test suites
+to contain identically named modules.</p>
+</li>
+<li>
+<p>fix <code>LocalPath.as_cwd()</code> not calling <code>os.chdir()</code> with <code>None</code>, when
+being invoked from a non-existing directory.</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/pytest-dev/py/commit/e5ff378fc3bd3f7c366dec769a718bdb1ceca1f1""><code>e5ff378</code></a> Update CHANGELOG for 1.10.0</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/94cf44fd41d957eb50773d3e4fb54e931836779e""><code>94cf44f</code></a> Update vendored libs</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/5e8ded5dea0a92656fe98383b66ebfb3cb84be03""><code>5e8ded5</code></a> testing: comment out an assert which fails on Python 3.9 for now</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/afdffcc981fd3f7cd12f24b5407f40aa01dde22a""><code>afdffcc</code></a> Rename HOWTORELEASE.rst to RELEASING.rst</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/2de53a67589d8eeaea35927357c0a05dd0329ce4""><code>2de53a6</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/pytest-dev/py/issues/266"">#266</a> from nicoddemus/gh-actions</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/fa1b32e2912ad4ea39016cd50ec3125d204bcf65""><code>fa1b32e</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/pytest-dev/py/issues/264"">#264</a> from hugovk/patch-2</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/887d6b8937bd74c729c89b589ec8adaa557a78cf""><code>887d6b8</code></a> Skip test_samefile_symlink on pypy3 on Windows</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/e94e670032d8ccf42ad9d37730bd03b6da6f263b""><code>e94e670</code></a> Fix test_comments() in test_source</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/fef9a32a8578e9c467f6ef8ccc7bce81b89496a4""><code>fef9a32</code></a> Adapt test</li>
+<li><a href=""https://github.com/pytest-dev/py/commit/4a694b00a68de2d93b547c2704da4283a375a53c""><code>4a694b0</code></a> Add GitHub Actions badge to README</li>
+<li>Additional commits viewable in <a href=""https://github.com/pytest-dev/py/compare/1.5.3...1.10.0"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=py&package-manager=pip&previous-version=1.5.3&new-version=1.10.0)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump pygments from 2.2.0 to 2.7.4,"Bumps [pygments](https://github.com/pygments/pygments) from 2.2.0 to 2.7.4.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/pygments/pygments/releases"">pygments's releases</a>.</em></p>
+<blockquote>
+<h2>2.7.4</h2>
+<ul>
+<li>
+<p>Updated lexers:</p>
+<ul>
+<li>
+<p>Apache configurations: Improve handling of malformed tags (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1656"">#1656</a>)</p>
+</li>
+<li>
+<p>CSS: Add support for variables (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1633"">#1633</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1666"">#1666</a>)</p>
+</li>
+<li>
+<p>Crystal (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1650"">#1650</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1670"">#1670</a>)</p>
+</li>
+<li>
+<p>Coq (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1648"">#1648</a>)</p>
+</li>
+<li>
+<p>Fortran: Add missing keywords (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1635"">#1635</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1665"">#1665</a>)</p>
+</li>
+<li>
+<p>Ini (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1624"">#1624</a>)</p>
+</li>
+<li>
+<p>JavaScript and variants (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1647"">#1647</a> -- missing regex flags, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1651"">#1651</a>)</p>
+</li>
+<li>
+<p>Markdown (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1623"">#1623</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1617"">#1617</a>)</p>
+</li>
+<li>
+<p>Shell</p>
+<ul>
+<li>Lex trailing whitespace as part of the prompt (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1645"">#1645</a>)</li>
+<li>Add missing <code>in</code> keyword (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1652"">#1652</a>)</li>
+</ul>
+</li>
+<li>
+<p>SQL - Fix keywords (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1668"">#1668</a>)</p>
+</li>
+<li>
+<p>Typescript: Fix incorrect punctuation handling (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1510"">#1510</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1511"">#1511</a>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fix infinite loop in SML lexer (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1625"">#1625</a>)</p>
+</li>
+<li>
+<p>Fix backtracking string regexes in JavaScript/TypeScript, Modula2
+and many other lexers (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1637"">#1637</a>)</p>
+</li>
+<li>
+<p>Limit recursion with nesting Ruby heredocs (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1638"">#1638</a>)</p>
+</li>
+<li>
+<p>Fix a few inefficient regexes for guessing lexers</p>
+</li>
+<li>
+<p>Fix the raw token lexer handling of Unicode (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1616"">#1616</a>)</p>
+</li>
+<li>
+<p>Revert a private API change in the HTML formatter (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1655"">#1655</a>) --
+please note that private APIs remain subject to change!</p>
+</li>
+<li>
+<p>Fix several exponential/cubic-complexity regexes found by
+Ben Caller/Doyensec (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1675"">#1675</a>)</p>
+</li>
+<li>
+<p>Fix incorrect MATLAB example (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1582"">#1582</a>)</p>
+</li>
+</ul>
+<p>Thanks to Google's OSS-Fuzz project for finding many of these bugs.</p>
+<h2>2.7.3</h2>
+<ul>
+<li>
+<p>Updated lexers:</p>
+<ul>
+<li>Ada (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1581"">#1581</a>)</li>
+<li>HTML (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1615"">#1615</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1614"">#1614</a>)</li>
+<li>Java (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1594"">#1594</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1586"">#1586</a>)</li>
+<li>JavaScript (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1605"">#1605</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1589"">#1589</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1588"">#1588</a>)</li>
+<li>JSON (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1569"">#1569</a> -- this is a complete rewrite)</li>
+<li>Lean (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1601"">#1601</a>)</li>
+<li>LLVM (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1612"">#1612</a>)</li>
+<li>Mason (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1592"">#1592</a>)</li>
+<li>MySQL (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1555"">#1555</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1551"">#1551</a>)</li>
+<li>Rust (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1608"">#1608</a>)</li>
+<li>Turtle (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1590"">#1590</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1553"">#1553</a>)</li>
+</ul>
+</li>
+<li>
+<p>Deprecated JsonBareObjectLexer, which is now identical to JsonLexer (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1600"">#1600</a>)</p>
+</li>
+<li>
+<p>The <code>ImgFormatter</code> now calculates the exact character width, which fixes some issues with overlapping text (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1213"">#1213</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1611"">#1611</a>)</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/pygments/pygments/blob/master/CHANGES"">pygments's changelog</a>.</em></p>
+<blockquote>
+<h2>Version 2.7.4</h2>
+<p>(released January 12, 2021)</p>
+<ul>
+<li>
+<p>Updated lexers:</p>
+<ul>
+<li>
+<p>Apache configurations: Improve handling of malformed tags (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1656"">#1656</a>)</p>
+</li>
+<li>
+<p>CSS: Add support for variables (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1633"">#1633</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1666"">#1666</a>)</p>
+</li>
+<li>
+<p>Crystal (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1650"">#1650</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1670"">#1670</a>)</p>
+</li>
+<li>
+<p>Coq (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1648"">#1648</a>)</p>
+</li>
+<li>
+<p>Fortran: Add missing keywords (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1635"">#1635</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1665"">#1665</a>)</p>
+</li>
+<li>
+<p>Ini (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1624"">#1624</a>)</p>
+</li>
+<li>
+<p>JavaScript and variants (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1647"">#1647</a> -- missing regex flags, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1651"">#1651</a>)</p>
+</li>
+<li>
+<p>Markdown (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1623"">#1623</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1617"">#1617</a>)</p>
+</li>
+<li>
+<p>Shell</p>
+<ul>
+<li>Lex trailing whitespace as part of the prompt (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1645"">#1645</a>)</li>
+<li>Add missing <code>in</code> keyword (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1652"">#1652</a>)</li>
+</ul>
+</li>
+<li>
+<p>SQL - Fix keywords (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1668"">#1668</a>)</p>
+</li>
+<li>
+<p>Typescript: Fix incorrect punctuation handling (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1510"">#1510</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1511"">#1511</a>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fix infinite loop in SML lexer (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1625"">#1625</a>)</p>
+</li>
+<li>
+<p>Fix backtracking string regexes in JavaScript/TypeScript, Modula2
+and many other lexers (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1637"">#1637</a>)</p>
+</li>
+<li>
+<p>Limit recursion with nesting Ruby heredocs (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1638"">#1638</a>)</p>
+</li>
+<li>
+<p>Fix a few inefficient regexes for guessing lexers</p>
+</li>
+<li>
+<p>Fix the raw token lexer handling of Unicode (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1616"">#1616</a>)</p>
+</li>
+<li>
+<p>Revert a private API change in the HTML formatter (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1655"">#1655</a>) --
+please note that private APIs remain subject to change!</p>
+</li>
+<li>
+<p>Fix several exponential/cubic-complexity regexes found by
+Ben Caller/Doyensec (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1675"">#1675</a>)</p>
+</li>
+<li>
+<p>Fix incorrect MATLAB example (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1582"">#1582</a>)</p>
+</li>
+</ul>
+<p>Thanks to Google's OSS-Fuzz project for finding many of these bugs.</p>
+<h2>Version 2.7.3</h2>
+<p>(released December 6, 2020)</p>
+<ul>
+<li>
+<p>Updated lexers:</p>
+<ul>
+<li>Ada (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1581"">#1581</a>)</li>
+<li>HTML (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1615"">#1615</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1614"">#1614</a>)</li>
+<li>Java (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1594"">#1594</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1586"">#1586</a>)</li>
+<li>JavaScript (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1605"">#1605</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1589"">#1589</a>, <a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1588"">#1588</a>)</li>
+<li>JSON (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1569"">#1569</a> -- this is a complete rewrite)</li>
+<li>Lean (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1601"">#1601</a>)</li>
+<li>LLVM (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1612"">#1612</a>)</li>
+<li>Mason (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1592"">#1592</a>)</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/pygments/pygments/commit/4d555d0fffc914a2a4ac9874416cdaaf8f8c9e74""><code>4d555d0</code></a> Bump version to 2.7.4.</li>
+<li><a href=""https://github.com/pygments/pygments/commit/fc3b05ddf25933e45f670534f79fd1df870e142a""><code>fc3b05d</code></a> Update CHANGES.</li>
+<li><a href=""https://github.com/pygments/pygments/commit/ad21935815ff6402d402b036e204f0333a77031b""><code>ad21935</code></a> Revert &quot;Added dracula theme style (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1636"">#1636</a>)&quot;</li>
+<li><a href=""https://github.com/pygments/pygments/commit/e411506a23a39f4487ecc36afb616cc4715eb571""><code>e411506</code></a> Prepare for 2.7.4 release.</li>
+<li><a href=""https://github.com/pygments/pygments/commit/275e34d8f0d265bd474f269471b41c635fe559ff""><code>275e34d</code></a> doc: remove Perl 6 ref</li>
+<li><a href=""https://github.com/pygments/pygments/commit/2e7e8c4a7b318f4032493773732754e418279a14""><code>2e7e8c4</code></a> Fix several exponential/cubic complexity regexes found by Ben Caller/Doyensec</li>
+<li><a href=""https://github.com/pygments/pygments/commit/eb39c43b6ef992abadb0d25f0504d0cf2f3ccd86""><code>eb39c43</code></a> xquery: fix pop from empty stack</li>
+<li><a href=""https://github.com/pygments/pygments/commit/2738778c0b9c615bfcae68972fc656d351d676ca""><code>2738778</code></a> fix coding style in test_analyzer_lexer</li>
+<li><a href=""https://github.com/pygments/pygments/commit/02e0f09d796cca5174181e7ae3971cdc010e39b0""><code>02e0f09</code></a> Added 'ERROR STOP' to fortran.py keywords. (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1665"">#1665</a>)</li>
+<li><a href=""https://github.com/pygments/pygments/commit/c83fe4888868f79415b50f050c047dc7fe11fd3b""><code>c83fe48</code></a> support added for css variables (<a href=""https://github-redirect.dependabot.com/pygments/pygments/issues/1633"">#1633</a>)</li>
+<li>Additional commits viewable in <a href=""https://github.com/pygments/pygments/compare/2.2.0...2.7.4"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=pygments&package-manager=pip&previous-version=2.2.0&new-version=2.7.4)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump jinja2 from 2.10.1 to 2.11.3,"Bumps [jinja2](https://github.com/pallets/jinja) from 2.10.1 to 2.11.3.
+<details>
+<summary>Release notes</summary>
+<p><em>Sourced from <a href=""https://github.com/pallets/jinja/releases"">jinja2's releases</a>.</em></p>
+<blockquote>
+<h2>2.11.3</h2>
+<p>This contains a fix for a speed issue with the <code>urlize</code> filter. <code>urlize</code> is likely to be called on untrusted user input. For certain inputs some of the regular expressions used to parse the text could take a very long time due to backtracking. As part of the fix, the email matching became slightly stricter. The various speedups apply to <code>urlize</code> in general, not just the specific input cases.</p>
+<ul>
+<li>PyPI: <a href=""https://pypi.org/project/Jinja2/2.11.3/"">https://pypi.org/project/Jinja2/2.11.3/</a></li>
+<li>Changes: <a href=""https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-3"">https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-3</a></li>
+</ul>
+<h2>2.11.2</h2>
+<ul>
+<li>Changelog: <a href=""https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-2"">https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-2</a></li>
+</ul>
+<h2>2.11.1</h2>
+<p>This fixes an issue in async environment when indexing the result of an attribute lookup, like <code>{{ data.items[1:] }}</code>.</p>
+<ul>
+<li>Changes: <a href=""https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-1"">https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-1</a></li>
+</ul>
+<h2>2.11.0</h2>
+<ul>
+<li>Changes: <a href=""https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-0"">https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-0</a></li>
+<li>Blog: <a href=""https://palletsprojects.com/blog/jinja-2-11-0-released/"">https://palletsprojects.com/blog/jinja-2-11-0-released/</a></li>
+<li>Twitter: <a href=""https://twitter.com/PalletsTeam/status/1221883554537230336"">https://twitter.com/PalletsTeam/status/1221883554537230336</a></li>
+</ul>
+<p>This is the last version to support Python 2.7 and 3.5. The next version will be Jinja 3.0 and will support Python 3.6 and newer.</p>
+<h2>2.10.3</h2>
+<ul>
+<li>Changes: <a href=""http://jinja.palletsprojects.com/en/2.10.x/changelog/#version-2-10-3"">http://jinja.palletsprojects.com/en/2.10.x/changelog/#version-2-10-3</a></li>
+</ul>
+<h2>2.10.2</h2>
+<ul>
+<li>Changes: <a href=""http://jinja.palletsprojects.com/en/2.10.x/changelog/#version-2-10-2"">http://jinja.palletsprojects.com/en/2.10.x/changelog/#version-2-10-2</a></li>
+</ul>
+</blockquote>
+</details>
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/pallets/jinja/blob/master/CHANGES.rst"">jinja2's changelog</a>.</em></p>
+<blockquote>
+<h2>Version 2.11.3</h2>
+<p>Released 2021-01-31</p>
+<ul>
+<li>Improve the speed of the <code>urlize</code> filter by reducing regex
+backtracking. Email matching requires a word character at the start
+of the domain part, and only word characters in the TLD. :pr:<code>1343</code></li>
+</ul>
+<h2>Version 2.11.2</h2>
+<p>Released 2020-04-13</p>
+<ul>
+<li>Fix a bug that caused callable objects with <code>__getattr__</code>, like
+:class:<code>~unittest.mock.Mock</code> to be treated as a
+:func:<code>contextfunction</code>. :issue:<code>1145</code></li>
+<li>Update <code>wordcount</code> filter to trigger :class:<code>Undefined</code> methods
+by wrapping the input in :func:<code>soft_str</code>. :pr:<code>1160</code></li>
+<li>Fix a hang when displaying tracebacks on Python 32-bit.
+:issue:<code>1162</code></li>
+<li>Showing an undefined error for an object that raises
+<code>AttributeError</code> on access doesn't cause a recursion error.
+:issue:<code>1177</code></li>
+<li>Revert changes to :class:<code>~loaders.PackageLoader</code> from 2.10 which
+removed the dependency on setuptools and pkg_resources, and added
+limited support for namespace packages. The changes caused issues
+when using Pytest. Due to the difficulty in supporting Python 2 and
+:pep:<code>451</code> simultaneously, the changes are reverted until 3.0.
+:pr:<code>1182</code></li>
+<li>Fix line numbers in error messages when newlines are stripped.
+:pr:<code>1178</code></li>
+<li>The special <code>namespace()</code> assignment object in templates works in
+async environments. :issue:<code>1180</code></li>
+<li>Fix whitespace being removed before tags in the middle of lines when
+<code>lstrip_blocks</code> is enabled. :issue:<code>1138</code></li>
+<li>:class:<code>~nativetypes.NativeEnvironment</code> doesn't evaluate
+intermediate strings during rendering. This prevents early
+evaluation which could change the value of an expression.
+:issue:<code>1186</code></li>
+</ul>
+<h2>Version 2.11.1</h2>
+<p>Released 2020-01-30</p>
+<ul>
+<li>Fix a bug that prevented looking up a key after an attribute
+(<code>{{ data.items[1:] }}</code>) in an async template. :issue:<code>1141</code></li>
+</ul>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>... (truncated)</p>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/pallets/jinja/commit/cf215390d4a4d6f0a4de27e2687eed176878f13d""><code>cf21539</code></a> release version 2.11.3</li>
+<li><a href=""https://github.com/pallets/jinja/commit/15ef8f09b659f9100610583938005a7a10472d4d""><code>15ef8f0</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/pallets/jinja/issues/1343"">#1343</a> from pallets/urlize-speedup</li>
+<li><a href=""https://github.com/pallets/jinja/commit/ef658dc3b6389b091d608e710a810ce8b87995b3""><code>ef658dc</code></a> speed up urlize matching</li>
+<li><a href=""https://github.com/pallets/jinja/commit/eeca0fecc3318d43f61bc340ad61db641b861ade""><code>eeca0fe</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/pallets/jinja/issues/1207"">#1207</a> from mhansen/patch-1</li>
+<li><a href=""https://github.com/pallets/jinja/commit/2dd769111cbb1a2637f805b3b4c652ec8096d371""><code>2dd7691</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/pallets/jinja/issues/1209"">#1209</a> from mhansen/patch-3</li>
+<li><a href=""https://github.com/pallets/jinja/commit/48929401db7228db04dfd8e88115dd5c30dc2d86""><code>4892940</code></a> do_dictsort: update example ready to copy/paste</li>
+<li><a href=""https://github.com/pallets/jinja/commit/7db7d336ba12574e6205fdd929386fd529e3fad4""><code>7db7d33</code></a> api.rst: bugfix in docs, import PackageLoader</li>
+<li><a href=""https://github.com/pallets/jinja/commit/9ec465baefe32e305bd4e61da49e6c39360c194e""><code>9ec465b</code></a> fix changelog header</li>
+<li><a href=""https://github.com/pallets/jinja/commit/737a4cd41d09878e7e6c584a2062f5853dc30150""><code>737a4cd</code></a> release version 2.11.2</li>
+<li><a href=""https://github.com/pallets/jinja/commit/179df6b54e87b3d420cabf65fc07b2605ffc05f8""><code>179df6b</code></a> Merge pull request <a href=""https://github-redirect.dependabot.com/pallets/jinja/issues/1190"">#1190</a> from pallets/native-eval</li>
+<li>Additional commits viewable in <a href=""https://github.com/pallets/jinja/compare/2.10.1...2.11.3"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=jinja2&package-manager=pip&previous-version=2.10.1&new-version=2.11.3)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+Bump psutil from 5.4.3 to 5.6.6,"Bumps [psutil](https://github.com/giampaolo/psutil) from 5.4.3 to 5.6.6.
+<details>
+<summary>Changelog</summary>
+<p><em>Sourced from <a href=""https://github.com/giampaolo/psutil/blob/master/HISTORY.rst"">psutil's changelog</a>.</em></p>
+<blockquote>
+<h1>5.6.6</h1>
+<p>2019-11-25</p>
+<p><strong>Bug fixes</strong></p>
+<ul>
+<li>1179_: [Linux] Process cmdline() now takes into account misbehaving processes
+renaming the command line and using inappropriate chars to separate args.</li>
+<li>1616_: use of Py_DECREF instead of Py_CLEAR will result in double free and
+segfault
+(<code>CVE-2019-18874 &lt;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18874&gt;</code>__).
+(patch by Riccardo Schirone)</li>
+<li>1619_: [OpenBSD] compilation fails due to C syntax error.  (patch by Nathan
+Houghton)</li>
+</ul>
+<h1>5.6.5</h1>
+<p>2019-11-06</p>
+<p><strong>Bug fixes</strong></p>
+<ul>
+<li>1615_: remove pyproject.toml as it was causing installation issues.</li>
+</ul>
+<h1>5.6.4</h1>
+<p>2019-11-04</p>
+<p><strong>Enhancements</strong></p>
+<ul>
+<li>1527_: [Linux] added Process.cpu_times().iowait counter, which is the time
+spent waiting for blocking I/O to complete.</li>
+<li>1565_: add PEP 517/8 build backend and requirements specification for better
+pip integration.  (patch by Bernát Gábor)</li>
+</ul>
+<p><strong>Bug fixes</strong></p>
+<ul>
+<li>875_: [Windows] Process' cmdline(), environ() or cwd() may occasionally fail
+with ERROR_PARTIAL_COPY which now gets translated to AccessDenied.</li>
+<li>1126_: [Linux] cpu_affinity() segfaults on CentOS 5 / manylinux.
+cpu_affinity() support for CentOS 5 was removed.</li>
+<li>1528_: [AIX] compilation error on AIX 7.2 due to 32 vs 64 bit differences.
+(patch by Arnon Yaari)</li>
+<li>1535_: 'type' and 'family' fields returned by net_connections() are not
+always turned into enums.</li>
+<li>1536_: [NetBSD] process cmdline() erroneously raise ZombieProcess error if
+cmdline has non encodable chars.</li>
+<li>1546_: usage percent may be rounded to 0 on Python 2.</li>
+</ul>
+</tr></table> ... (truncated)
+</blockquote>
+</details>
+<details>
+<summary>Commits</summary>
+<ul>
+<li><a href=""https://github.com/giampaolo/psutil/commit/c6cd256da95ffe9599792759b1c2586ba24fa047""><code>c6cd256</code></a> pre release</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/b2414b83d3d728ec34ea0e35bfb21517ee231401""><code>b2414b8</code></a> revert <a href=""https://github-redirect.dependabot.com/giampaolo/psutil/issues/1595"">#1595</a></li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/c63369e999b458ecbd559bdde895c344b4db2841""><code>c63369e</code></a> updat HISTORY</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/edb20f664f28653dcdd24f0bf0191984738dca6e""><code>edb20f6</code></a> linux, cmdline(), fix for <a href=""https://github-redirect.dependabot.com/giampaolo/psutil/issues/1179"">#1179</a>, comment 552984549: sometimes string ends wit...</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/d739cbb1a5b207212d467b219dfc25b017911530""><code>d739cbb</code></a> use PROCESS_QUERY_LIMITED_INFORMATION</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/f7e898b0987f97352c7551bdd9b29b594e1236f6""><code>f7e898b</code></a> <a href=""https://github-redirect.dependabot.com/giampaolo/psutil/issues/1595"">#1595</a>: use psutil_pid_is_running() instead of GetExitCodeProcess</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/72c84cb4edb5c0968a83c1f45ad5cc51235e0af3""><code>72c84cb</code></a> #fix <a href=""https://github-redirect.dependabot.com/giampaolo/psutil/issues/1595"">#1595</a> / windows: kill() may not raise AccessDenied</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/1f8d432db12a907544ac533b66a5a61ba25321fb""><code>1f8d432</code></a> Merge branch 'master' of github.com:giampaolo/psutil</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/e6faebcd7adaa327d1ce57385cbebe7724d02350""><code>e6faebc</code></a> release gil around users()/BSD (<a href=""https://github-redirect.dependabot.com/giampaolo/psutil/issues/1425"">#1425</a>)</li>
+<li><a href=""https://github.com/giampaolo/psutil/commit/5cb1b0b526765720253fdb2e8eff0bf380bbe0a8""><code>5cb1b0b</code></a> Merge branch 'master' of github.com:giampaolo/psutil</li>
+<li>Additional commits viewable in <a href=""https://github.com/giampaolo/psutil/compare/release-5.4.3...release-5.6.6"">compare view</a></li>
+</ul>
+</details>
+<br />
+
+
+[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=psutil&package-manager=pip&previous-version=5.4.3&new-version=5.6.6)](https://help.github.com/articles/configuring-automated-security-fixes)
+
+Dependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting `@dependabot rebase`.
+
+[//]: # (dependabot-automerge-start)
+[//]: # (dependabot-automerge-end)
+
+---
+
+<details>
+<summary>Dependabot commands and options</summary>
+<br />
+
+You can trigger Dependabot actions by commenting on this PR:
+- `@dependabot rebase` will rebase this PR
+- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it
+- `@dependabot merge` will merge this PR after your CI passes on it
+- `@dependabot squash and merge` will squash and merge this PR after your CI passes on it
+- `@dependabot cancel merge` will cancel a previously requested merge and block automerging
+- `@dependabot reopen` will reopen this PR if it is closed
+- `@dependabot close` will close this PR and stop Dependabot recreating it. You can achieve the same result by closing it manually
+- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)
+- `@dependabot use these labels` will set the current labels as the default for future PRs for this repo and language
+- `@dependabot use these reviewers` will set the current reviewers as the default for future PRs for this repo and language
+- `@dependabot use these assignees` will set the current assignees as the default for future PRs for this repo and language
+- `@dependabot use this milestone` will set the current milestone as the default for future PRs for this repo and language
+
+You can disable automated security fix PRs for this repo from the [Security Alerts page](https://github.com/cjratcliff/ml-compiled/network/alerts).
+
+</details>"
+UI,

@@ -1,0 +1,104 @@
+,config,Responsable_AI_principles
+0,captum,Transparency & Explainability
+1,aequitas,Fairness
+2,captum,Transparency & Explainability
+3,aequitas,Fairness
+4,explainerdashboard,Transparency & Explainability
+5,dowhy,Transparency & Explainability
+6,eli5,Transparency & Explainability
+7,eli5,Transparency & Explainability
+8,aequitas,Fairness
+9,fairml,Fairness
+10,dalex,Transparency & Explainability
+11,aif360,Fairness
+12,captum,Transparency & Explainability
+13,aequitas,Fairness
+14,explainerdashboard,Transparency & Explainability
+15,yellowbrick,Transparency & Explainability
+16,yellowbrick,Transparency & Explainability
+17,eli5,Transparency & Explainability
+18,yellowbrick,Transparency & Explainability
+19,yellowbrick,Transparency & Explainability
+20,eli5,Transparency & Explainability
+21,yellowbrick,Transparency & Explainability
+22,facets_overview,Fairness
+23,captum,Transparency & Explainability
+24,fairlearn,Fairness
+25,yellowbrick,Transparency & Explainability
+26,aequitas,Fairness
+27,yellowbrick,Transparency & Explainability
+28,eli5,Transparency & Explainability
+29,yellowbrick,Transparency & Explainability
+30,yellowbrick,Transparency & Explainability
+31,yellowbrick,Transparency & Explainability
+32,yellowbrick,Transparency & Explainability
+33,yellowbrick,Transparency & Explainability
+34,yellowbrick,Transparency & Explainability
+35,yellowbrick,Transparency & Explainability
+36,fairness,Fairness
+37,xai,Transparency & Explainability
+38,aequitas,Fairness
+39,xai,Transparency & Explainability
+40,eli5,Transparency & Explainability
+41,facets_overview,Fairness
+42,yellowbrick,Transparency & Explainability
+43,yellowbrick,Transparency & Explainability
+44,captum,Transparency & Explainability
+45,eli5,Transparency & Explainability
+46,eli5,Transparency & Explainability
+47,eli5,Transparency & Explainability
+48,yellowbrick,Transparency & Explainability
+49,fairness,Fairness
+50,captum,Transparency & Explainability
+51,aif360,Fairness
+52,yellowbrick,Transparency & Explainability
+53,yellowbrick,Transparency & Explainability
+54,fairness,Fairness
+55,eli5,Transparency & Explainability
+56,captum,Transparency & Explainability
+57,shapley,Transparency & Explainability
+58,yellowbrick,Transparency & Explainability
+59,fairness,Fairness
+60,yellowbrick,Transparency & Explainability
+61,eli5,Transparency & Explainability
+62,eli5,Transparency & Explainability
+63,dice_ml,Explainability & Intepretability
+64,eli5,Transparency & Explainability
+65,yellowbrick,Transparency & Explainability
+66,eli5,Transparency & Explainability
+67,fairness,Fairness
+68,fairness,Fairness
+69,eli5,Transparency & Explainability
+70,eli5,Transparency & Explainability
+71,captum,Transparency & Explainability
+72,deeplift,Transparency & Explainability
+73,bastionlab,Privacy
+74,bastionlab,Privacy
+75,bastionlab,Privacy
+76,bastionlab,Privacy
+77,bastionlab,Privacy
+78,privacy,Privacy
+79,privacy,Privacy
+80,tf_encrypted,Reliability & Safety
+81,tensorflow_privacy,Privacy
+82,tensorflow_privacy,Privacy
+83,tensorflow_privacy,Privacy
+84,tensorflow_privacy,Privacy
+85,tensorflow_privacy,Privacy
+86,tensorflow_privacy,Privacy
+87,syft,Reliability & Safety
+88,clayrs,Fairness
+89,xaidemo.,Transparency & Explainability
+90,funciones_bias.,Fairness
+91,xai_fairness.,Fairness
+92,core.,Privacy
+93,models.,Fairness
+94,dexter.,Fairness
+95,differential_privacy.,Privacy
+96,nyc_ccci_etl.,Fairness
+97,explain,Transparency & Explainability
+98,rsmtool,Fairness
+99,azureml,Fairness
+100,Luigi_Tasks,Fairness
+101,rdp_accountant,Privacy
+102,rsmtool,Fairness

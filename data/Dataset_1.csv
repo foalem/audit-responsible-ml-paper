@@ -1,0 +1,122 @@
+Repos,config,created_at,Responsable_AI_principles,stars,Number of Commits,contrib,language,description
+NBNARADHYA/bosch-inter-iit,captum,2021-03-10T17:05:43Z,Transparency & Explainability,1,51,5,Jupyter Notebook,"Vehicle automation use-case to help vehicles better identify traffic signs. Features include data-set creation UI to allow users to add a series of augmentations to uploaded images and add to the dataset, post evaluation UI to allow users to get insights about model failure by providing metrics, top 5 confidence class, wrongly predicted images, class wise curves, confusion matrix, heatmaps etc."
+dapivei/data-product-architecture-final-project,aequitas,2020-01-22T07:07:37Z,Fairness,1,396,6,Jupyter Notebook,"Contiene la presentación del proyecto de datos realizado a propósito de la materia ""Data Product Architecture"": 1) Producto de datos funcional: Video de corrida final del producto de datos; 2)  Presentación de ""front""; 3) Entrega de documento final en repositorio; 4) Último commit del proyecto"
+abnormal-distribution/AC295_abnormal-distribution,captum,2020-09-28T10:06:54Z,Transparency & Explainability,1,161,5,Jupyter Notebook,nan
+ArquitecturaProductoDatos7/Diseno_producto_de_datos-,aequitas,2020-02-12T02:27:28Z,Fairness,1,477,4,Jupyter Notebook,Diseño del producto de datos
+hanbo-e/wimlds_emissions,explainerdashboard,2021-04-13T11:08:16Z,Transparency & Explainability,1,159,3,Jupyter Notebook,A team project mentored by WiMLDS predicting which cars should be taken off the road using emissions data.
+Casualty-Challenge/Breast_Cancer_Causality_Inference,dowhy,2021-08-24T09:20:20Z,Transparency & Explainability,1,80,4,Jupyter Notebook,"A causal graph is a central object in the framework, but it is often unknown, subject to personal knowledge and bias, or loosely connected to the available data. The main objective of the task is to highlight the importance of the matter in a concrete way."
+safronovD/python-pravega-writer,eli5,2020-04-05T09:52:34Z,Transparency & Explainability,1,593,3,Python,Demo ML-application using Pravega in k8s
+SalatielBairros/world-happiness-report,eli5,2022-02-28T16:20:27Z,Transparency & Explainability,1,143,2,HTML,Um modelo de regressão do nível de felicidade no mundo.
+dpa-2020-equipo-5/dpa-2020,aequitas,2020-02-11T04:49:37Z,Fairness,1,307,6,Jupyter Notebook,Arquitectura de productos de datos - ITAM 2020
+arguz95/Project_ML2,fairml,2021-03-15T14:58:13Z,Fairness,1,154,6,Jupyter Notebook,"This is the final project for INSY695 - Enterprise Data Science and ML in Production II - Arnaud, Jules, Ram, Dorothy and Rameez"
+MI2-Education/2021L-WB-ML,dalex,2021-02-11T21:53:22Z,Transparency & Explainability,1,118,12,Jupyter Notebook,⚙️ Case Study course for DS studies in Spring 2020/21
+basisai/credit-risk,aif360,2020-05-31T00:31:50Z,Fairness,1,107,5,Python,Bedrock Demo: Predict whether an applicant is able to repay a loan
+ding-lab/pollock,captum,2019-08-12T19:40:43Z,Transparency & Explainability,1,197,1,Python,A tool that classifies cells based on their gene expression
+lechugaa/dpa-project,aequitas,2021-01-15T16:22:45Z,Fairness,1,204,4,Jupyter Notebook,Arquitectura de producto de datos
+Practicum-Team-2/LungCancerClassifier,explainerdashboard,2022-02-21T22:57:57Z,Transparency & Explainability,1,89,7,HTML,nan
+georgetown-analytics/Yelp-Ratings,yellowbrick,2019-03-01T02:54:53Z,Transparency & Explainability,1,139,5,Jupyter Notebook,Cohort 14 Capstone Project for the Certificate of Data Science at Georgetown University School of Continuing Studies.
+thisisfine-046/audio,yellowbrick,2021-02-28T08:54:10Z,Transparency & Explainability,1,176,3,Jupyter Notebook,Music recommendation website
+Valentyn1997/meme,eli5,2020-03-09T13:13:24Z,Transparency & Explainability,1,138,4,Jupyter Notebook,Multimodal Emotion Messaging Estimator
+alandu20/spac,yellowbrick,2020-07-12T00:13:05Z,Transparency & Explainability,1,210,3,Python,SPAC warrant strategy (Python)
+mslovett21/Bad_Press,yellowbrick,2018-02-13T19:36:54Z,Transparency & Explainability,2,227,3,Jupyter Notebook,nan
+peterhurford/mystery_machine_learning,eli5,2019-08-05T18:39:38Z,Transparency & Explainability,2,121,3,JavaScript,Mystery Machine Learning
+georgetown-analytics/Loan-Canoe,yellowbrick,2019-05-17T22:56:33Z,Transparency & Explainability,2,348,4,Jupyter Notebook,Cohort 15 Capstone Project for the Certificate of Data Science at Georgetown University School of Continuing Studies.
+HamoyeHQ/stage-f-07-heart-failure,facets_overview,2020-09-18T08:25:59Z,Fairness,2,70,11,Jupyter Notebook,"This is an open source project for the stage E of the Hamoye Data Science Internship program, cohort 2020, with real life applications in the health, engineering, demography, education and technology."
+johnzl-777/MFAC,captum,2022-01-27T02:59:50Z,Transparency & Explainability,2,157,4,HTML,Mutated Fish Attribution and Classifier
+leestott/ResponsibleAI,fairlearn,2020-09-02T09:56:42Z,Fairness,2,52,1,Jupyter Notebook,Microsoft Ignite - Getting started on your health-tech journey using responsible AI
+rodolphoya/dscbc_2021_01-fakenews,yellowbrick,2021-03-23T22:35:15Z,Transparency & Explainability,2,283,5,Jupyter Notebook,nan
+Millan13/dpa_equipo2,aequitas,2020-02-17T19:20:38Z,Fairness,3,522,6,Python,Repositorio del proyecto de la materia Data Product Architecture. Equipo 2
+collab-uniba/PH_miner,yellowbrick,2018-03-09T11:37:40Z,Transparency & Explainability,3,320,5,Jupyter Notebook,A ProductHunt.com miner in Python 3
+sbuergers/sustainable-recipe-recommender,eli5,2020-05-05T14:13:16Z,Transparency & Explainability,3,142,2,Jupyter Notebook,nan
+mrksbrg/SE-Achievements,yellowbrick,2017-04-18T16:47:42Z,Transparency & Explainability,3,490,3,HTML,Gamification of software engineering research
+georgetown-analytics/Kiva,yellowbrick,2018-08-29T17:20:48Z,Transparency & Explainability,3,118,5,Jupyter Notebook,Cohort 13 Capstone Project for the Certificate of Data Science at Georgetown University School of Continuing Studies.
+qemtek/football_trading,yellowbrick,2019-06-12T19:25:53Z,Transparency & Explainability,3,248,1,Python,nan
+lab156/arxivDownload,yellowbrick,2018-07-04T00:58:42Z,Transparency & Explainability,3,631,1,TeX,nan
+claudianopl/heart-disease-data-analysis,yellowbrick,2022-03-03T19:48:13Z,Transparency & Explainability,3,50,4,Python,"Repositório criado para versionar o conteúdo das atividades práticas da disciplina de Projeto Interdisciplinar para Sistemas de Informação III (PISI III), ofertada pelo curso de Bacharelado em Sistemas de Informação da UFRPE."
+senane/ADELPHI,yellowbrick,2019-02-01T22:04:47Z,Transparency & Explainability,3,73,3,Jupyter Notebook,"For ADELPHI team code on signal processing, seizure detection, and seizure prediction"
+georgetown-analytics/Spotify,yellowbrick,2020-03-03T01:33:02Z,Transparency & Explainability,3,157,5,Jupyter Notebook,Cohort 19 Capstone Project for the Graduate Certificate of Data Science at Georgetown University School of Continuing Studies.
+eubr-bigsea/juicer,fairness,2016-09-13T16:09:11Z,Fairness,4,1790,15,Python,Lemonade Juicer module
+yash12khandelwal/traffic_sign_interiit,xai,2021-03-08T19:04:20Z,Transparency & Explainability,4,141,12,JavaScript,This is the repository for Bosch's Traffic Sign Recognition Challenge for Inter IIT 9.0.
+jlrzarcor/ITAM-dpa2021,aequitas,2021-01-15T04:55:33Z,Fairness,4,592,4,Jupyter Notebook,"Repositorio proyecto en equipo para la clase de DPA, M. Sc. Liliana Millán. ITAM, Master DS."
+conrad-blucher-institute/FogNet,xai,2021-05-07T16:36:12Z,Transparency & Explainability,4,51,2,Jupyter Notebook,Fog Prediction using 3D CNN with dense block and attention
+jonas-nothnagel/NLP-Project-Documents,eli5,2021-02-11T07:00:13Z,Transparency & Explainability,4,86,2,Jupyter Notebook,Working Repo for building a set of models to automate the classification of project log-frames to a comprehensive taxonomy. Data can not be pushed yet.
+a0x8o/drill,facets_overview,2016-09-22T22:28:32Z,Fairness,5,334,1,Java,"Schema-free SQL for Hadoop, NoSQL and Cloud Storage"
+georgetown-analytics/classroom-occupancy,yellowbrick,2017-03-08T22:39:46Z,Transparency & Explainability,5,77,6,Jupyter Notebook,Georgetown Data Science Classroom Occupancy Project
+FranzMichaelFrank/health_eu,yellowbrick,2021-03-29T21:00:30Z,Transparency & Explainability,5,86,1,Jupyter Notebook,nan
+MrinalJain17/CT-image-segmentation,captum,2020-09-22T11:41:10Z,Transparency & Explainability,6,119,2,Jupyter Notebook,Segmentation in Head and Neck CT images. Report - https://github.com/MrinalJain17/CT-image-segmentation/blob/master/reports/Report.pdf
+ValaryLim/lynx-blockchain-risk-scoring,eli5,2020-08-21T10:11:16Z,Transparency & Explainability,6,183,4,Jupyter Notebook,BT4103 Capstone Project for Lynx Analytics
+terminalai/GaitMonitoringForParkinsonsDiseasePatients,eli5,2020-11-13T04:15:15Z,Transparency & Explainability,6,967,1,Jupyter Notebook,To monitor gait patterns to detect freezing of gait. Done as part of the Singapore Science Mentorship Programme + CS4131 module + extended.
+TeamHG-Memex/hh-page-classifier,eli5,2016-09-27T16:46:32Z,Transparency & Explainability,6,191,2,Python,Headless Horseman Page Classifier service
+SilentStars/TEDTalksDataMining,yellowbrick,2019-04-29T19:49:06Z,Transparency & Explainability,6,88,4,HTML,Project in Paris to do data mining using the data set of TED Talks.
+m3ttiw/orange_cb_recsys,fairness,2020-03-27T18:23:23Z,Fairness,8,1099,5,Python,Content-Based Recommender System Framework in python
+bcaitech1/p3-dst-chatting-day,captum,2021-04-22T13:24:56Z,Transparency & Explainability,8,92,5,Python,Chatting-Day's Dialogue State Tracking (DST)
+Call-for-Code-for-Racial-Justice/bias-detection-engine,aif360,2020-08-13T17:13:25Z,Fairness,8,187,11,JavaScript,CFC+ Bias Engine Starter Kit
+ocelotconsulting/customer_segmentation,yellowbrick,2022-01-17T15:56:56Z,Transparency & Explainability,8,68,1,Python,An end-to-end project on customer segmentation
+OmdenaAI/omdena-colombia-career-recommender-system,yellowbrick,2021-07-21T17:57:46Z,Transparency & Explainability,9,142,14,Jupyter Notebook,Building a Career Recommendation System to make suggestions for students
+swapUniba/ClayRS,fairness,2022-04-14T19:05:06Z,Fairness,10,946,7,Python,"Complexly represent contents, build recommender systems, evaluate them. All in one place!"
+HudsonAlpha/VarSight,eli5,2019-01-03T21:26:13Z,Transparency & Explainability,10,56,1,Python,nan
+felixpeters/lung-cancer-detection,captum,2020-12-21T13:23:36Z,Transparency & Explainability,10,137,1,Jupyter Notebook,Deep learning-based segmentation and classification of lung nodules
+XAI-Demonstrator/xai-demonstrator,shapley,2020-09-25T13:39:04Z,Transparency & Explainability,11,1620,8,Python,The XAI Demonstrator is a modular platform that lets users interact with production-grade Explainable AI (XAI) systems.
+druce/iowa,yellowbrick,2019-05-22T00:11:17Z,Transparency & Explainability,11,83,1,Jupyter Notebook,Iowa House Prices Kaggle (top 5%)
+Code4SA/mma-dexter,fairness,2014-01-27T08:09:08Z,Fairness,17,1521,5,Python,Dexter document monitor for MMA
+JavierLopatin/Python-Remote-Sensing-Scripts,yellowbrick,2016-08-09T12:39:42Z,Transparency & Explainability,29,179,1,Python,Python 3.X scripts for remote sensing processing
+EvgenyKashin/CommentsAnalysis,eli5,2016-10-16T15:48:49Z,Transparency & Explainability,29,79,3,Jupyter Notebook,nan
+GeoscienceAustralia/uncover-ml,eli5,2017-03-14T23:31:41Z,Transparency & Explainability,31,2400,13,Jupyter Notebook,Machine Learning system for Geoscience Australia uncover project
+dylan-slack/TalkToModel,dice_ml,2022-07-07T03:26:23Z,Explainability & Intepretability,42,55,1,Python,TalkToModel gives anyone with the powers of XAI through natural language conversations 💬!
+demisto/dockerfiles,eli5,2018-12-11T14:39:27Z,Transparency & Explainability,44,7161,131,Brainfuck,Demisto's Dockerfiles and Image Build Management
+awesomeahi95/Hotel_Review_NLP,yellowbrick,2020-05-12T14:25:05Z,Transparency & Explainability,51,112,1,Jupyter Notebook,"NLP Multi-class classifcation of hotel reviews, with demo app. Please check README for more details. "
+TeamHG-Memex/soft404,eli5,2016-09-02T09:59:02Z,Transparency & Explainability,52,110,4,Jupyter Notebook,A classifier for detecting soft 404 pages
+EducationalTestingService/rsmtool,fairness,2016-04-04T15:35:11Z,Fairness,59,2499,11,Python,A Python package to facilitate research on building and evaluating automated scoring models.
+joel-simon/Antimander,fairness,2019-10-21T18:46:35Z,Fairness,65,83,2,JavaScript,nan
+gbencke/pyAstroTrader,eli5,2019-12-22T23:02:02Z,Transparency & Explainability,71,114,1,Jupyter Notebook,Machine Learning + Financial Markets + Astrology = A Match made in Heaven
+TeamHG-Memex/autopager,eli5,2016-03-10T15:25:06Z,Transparency & Explainability,75,56,3,HTML,Detect and classify pagination links
+arnaudmiribel/streamlit-extras,captum,2022-08-10T12:43:31Z,Transparency & Explainability,102,313,8,Python,"Discover, try, install and share Streamlit re-usable bits we call ""extras""!"
+deepchem/deepchem,deeplift,2015-09-24T23:20:28Z,Transparency & Explainability,3985,7999,146,Python,"Democratizing Deep-Learning for Drug Discovery, Quantum Chemistry, Materials Science and Biology"
+JYVSECTEC/PHR-model,bastionlab,2019-11-27T07:19:59Z,Privacy,59,142,6,Jupyter Notebook,"Prepare, Hunt, and Respond - Conceptual model against cyber attacks by JYVSECTEC"
+Substra/substra-examples,bastionlab,2020-07-24T09:20:40Z,Privacy,9,67,3,Jupyter Notebook,Examples of Substra implementations
+leoalexand/aws-ds-NLP-BERT,bastionlab,2021-02-20T21:21:37Z,Privacy,1,2695,10,Jupyter Notebook,nan
+netsharecmu/NetShare,bastionlab,2022-06-15T13:43:05Z,Privacy,34,84,3,Python,(SIGCOMM '22) Practical GAN-based Synthetic IP Header Trace Generation using NetShare
+gretelai/gretel-synthetics,bastionlab,2020-03-02T15:54:44Z,Privacy,363,269,21,Python,"Synthetic data generators for structured and unstructured text, featuring differentially private learning."
+PrivPkt/PrivPkt,privacy,2019-12-01T00:23:10Z,Privacy,80,58,3,Python,"Privacy Preserving Collaborative Encrypted Network Traffic Classification (Differential Privacy, Federated Learning, Membership Inference Attack, Encrypted Traffic Classification)"
+NigeloYang/federated_learning_differential_privacy,privacy,2022-01-22T11:24:35Z,Privacy,6,59,1,Python,nan
+woodyx218/Deep-Learning-with-GDP-Tensorflow,tf_encrypted,2019-11-24T20:01:40Z,Security & Safety,40,53,2,Python,"Code to accompany the paper ""Deep Learning with Gaussian Differential Privacy"""
+riku1212/dp-tsc-baseline,tensorflow_privacy,2020-02-24T05:26:59Z,Privacy,1,286,26,Python,nan
+vijay-khanna/data-science-on-aws-sagemaker,tensorflow_privacy,2021-02-16T02:36:18Z,Privacy,1,2632,9,Jupyter Notebook,nan
+sifis-home/analytics-toolbox,tensorflow_privacy,2022-03-28T10:20:15Z,Privacy,1,77,3,Jupyter Notebook,This repository includes the analytics that have been developed for the SIFIS-Home framework
+bargavj/EvaluatingDPML,tensorflow_privacy,2019-02-27T23:16:22Z,Privacy,115,247,6,Python,This project's goal is to evaluate the privacy leakage of differentially private machine learning models.
+ChubaOraka/data-science-on-aws-workshop-2021-05-15,tensorflow_privacy,2021-05-15T16:02:12Z,Privacy,2,2912,11,Jupyter Notebook,"AI and Machine Learning with Kubeflow, Amazon EKS, and SageMaker"
+ChubaOraka/data-science-on-aws-workshop-2021-06-28,tensorflow_privacy,2021-06-28T19:55:44Z,Privacy,1,2986,11,Jupyter Notebook,"Workshop: Build an AI/ML pipeline with BERT, TensorFlow and Amazon SageMaker, Mon, Jun 28, 2021, 9:00 AM"
+barreira/lei-1819,syft,2019-06-02T16:39:09Z,Security & Safety,10,92,3,Python,"Benchmark and comparison of secure Deep Learning platforms: TF Privacy, PySyft and TF-Encrypted"
+woodyx218/opacus_global_clipping,opacus,2021-05-16T21:58:38Z,Privacy,13,290,28,Python,
+bargavj/EvaluatingDPML,tensorflow_privacy,2019-02-27T23:16:22Z,Privacy,115,247,6,Python,This project's goal is to evaluate the privacy leakage of differentially private machine learning models.
+eunbeejang/privacy-fairness-tradeoffs,fairlearn,2020-09-25T07:48:55Z,Fairness,1,53,1,Python,
+wyshi/lm_privacy,opacus,2021-02-04T22:40:38Z,Privacy,7,289,3,Jupyter Notebook,
+simontkl/torch-vantage6,opacus,2021-05-10T12:41:11Z,Privacy,1,135,1,Jupyter Notebook,
+sisaman/GAP,opacus,2021-08-19T17:13:10Z,Privacy,16,533,2,Jupyter Notebook,GAP: Differentially Private Graph Neural Networks with Aggregation Perturbation (USENIX Security '23)
+gkaissis/PriMIA,opacus,2020-04-20T07:24:39Z,Privacy,114,299,6,Python,PriMIA: Privacy-preserving Medical Image Analysis
+FarrandTom/deep-learning-fairness,opacus,2020-05-05T07:19:00Z,Privacy,7,120,4,Jupyter Notebook,
+hitimr/ML_2020,crypten,2020-10-19T11:17:01Z,Privacy,1,241,3,Jupyter Notebook,
+parkbeomsik/opacus-fusion,opacus,2021-03-14T19:39:22Z,Privacy,1,710,2,Python,
+msai-amin/DP-FL,opacus,2022-05-04T18:19:54Z,Privacy,1,244,1,Jupyter Notebook,Set of experiments related to segmentation models and adversarial attacks
+dkober123/sample_apps,aix360,2022-02-15T21:52:35Z,Transparency & Explainability,10,2602,30,Jsonnet,
+MisaNguyen/DPSGD,opacus,2020-12-10T11:10:08Z,Privacy,2,103,1,Python,Several GAN implementations
+intel/openfl,opacus,2021-08-31T15:42:14Z,Privacy,3,55,2,Python,"An implementation of the SBB system described in ""Increasing Adversarial Uncertainty to Scale Private Similarity Testing""."
+,clayrs,,Fairness,,,,,
+,xaidemo.,,Transparency & Explainability,,,,,
+,funciones_bias.,,Fairness,,,,,
+,xai_fairness.,,Fairness,,,,,
+,core.,,Privacy,,,,,
+,models.,,Fairness,,,,,
+,dexter.,,Fairness,,,,,
+,differential_privacy.,,Privacy,,,,,
+,nyc_ccci_etl.,,Fairness,,,,,
+,explain,,Transparency & Explainability,,,,,
+,rsmtool,,Fairness,,,,,
+,azureml,,Fairness,,,,,
+,Luigi_Tasks,,Fairness,,,,,
+,rdp_accountant,,Privacy,,,,,
+,rsmtool,,Fairness,,,,,
+,shap,,Transparency & Explainability,,,,,
+,opacus,,Privacy,,,,,
+,crypten,,Privacy,,,,,
+,aix360,,Transparency & Explainability,,,,,

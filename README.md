@@ -31,24 +31,28 @@ python main.py [options]
 Search and Save Repositories:
 ```
 python main.py --collect --save
+```
 Collect Metrics:
-
 ```
 python main.py --metric
-Clone Repositories:
+```
 
+Clone Repositories:
 ```
 python main.py --clone
-Convert Notebooks to Python:
+```
 
+Convert Notebooks to Python:
 ```
 python main.py --convert
-Parse Python Files:
+```
 
+Parse Python Files:
 ```
 python main.py --parser
-Collect Issues:
+```
 
+Collect Issues:
 ```
 python main.py --issue
 ```
